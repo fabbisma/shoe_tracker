@@ -1,0 +1,130 @@
+{
+  "snapshotDate": "2026-08-28",
+  "shoes": [
+    {
+      "id": 501,
+      "family": "kiprun-kd900x-ld",
+      "brand": "KIPRUN",
+      "name": "KD900 X LD 2",
+      "generation": "N",
+      "terrain": [
+        "route"
+      ],
+      "levels": [
+        "regulier",
+        "competition"
+      ],
+      "uses": [
+        "tempo",
+        "race"
+      ],
+      "drop": 4,
+      "cushion": "high",
+      "foam": "bouncy",
+      "carbon": true,
+      "launch": 179.99,
+      "referencePriceType": "observed",
+      "avg90": 109.99,
+      "best": 109.99,
+      "price": 109.99,
+      "shop": "Decathlon",
+      "sizes": [
+        "40",
+        "41",
+        "41.5",
+        "42",
+        "43.5",
+        "44.5",
+        "45",
+        "45.5",
+        "47"
+      ],
+      "sizeStockKnown": false,
+      "weightRange": [
+        45,
+        110
+      ],
+      "expert": 88,
+      "community": 88,
+      "deal": 86,
+      "athlete": "Co-création KIPRUN avec des athlètes professionnels ; Decathlon cite Yoann Kowal dans l’histoire de la gamme.",
+      "reviews": [
+        "225 g en pointure 42 selon Decathlon",
+        "Drop 4 mm",
+        "Mousse VFOAM PLUS + plaque carbone"
+      ],
+      "offers": [
+        [
+          "Decathlon",
+          109.99
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-28T10:00:00Z",
+      "sourceUrl": "https://www.decathlon.fr/p/chaussures-de-running-plaque-carbone-homme-kiprun-kd900-x-ld-2-blanc-orange/360707/c227c125m8961370"
+    },
+    {
+      "id": 502,
+      "family": "kiprun-kd900-light",
+      "brand": "KIPRUN",
+      "name": "KD900 Light",
+      "generation": "N",
+      "terrain": [
+        "route"
+      ],
+      "levels": [
+        "regulier",
+        "competition"
+      ],
+      "uses": [
+        "tempo",
+        "race"
+      ],
+      "drop": 6,
+      "cushion": "moderate",
+      "foam": "bouncy",
+      "carbon": false,
+      "launch": 109.99,
+      "referencePriceType": "observed",
+      "avg90": 74.99,
+      "best": 69.99,
+      "price": 74.99,
+      "shop": "Decathlon",
+      "sizes": [
+        "40",
+        "42",
+        "42.5",
+        "43",
+        "43.5",
+        "44",
+        "44.5",
+        "45",
+        "46",
+        "47"
+      ],
+      "sizeStockKnown": false,
+      "weightRange": [
+        45,
+        105
+      ],
+      "expert": 86,
+      "community": 94,
+      "deal": 82,
+      "athlete": "Decathlon publie des retours de Yoann Kowal et Paul Chelimo sur ce modèle.",
+      "reviews": [
+        "196 g en pointure 42 selon Decathlon",
+        "Drop 6 mm",
+        "Mousse VFOAM, sans plaque carbone"
+      ],
+      "offers": [
+        [
+          "Decathlon",
+          74.99
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-28T10:00:00Z",
+      "sourceUrl": "https://www.decathlon.fr/p/chaussure-de-running-homme-kiprun-kd900-light-bleu-et-noir/339603/c143c382m8961340"
+    }
+  ]
+}

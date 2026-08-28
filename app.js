@@ -8,7 +8,7 @@ const usedShoeCatalog = [
   {id:'used-salomon-ultra-glide-2',brand:'SALOMON',name:'Ultra Glide 2',displayName:'Salomon Ultra Glide 2',distanceKm:849.2,canonical:'Salomon Ultra Glide 2',matchConfidence:'modèle confirmé'}
 ];
 
-const shoes = [
+let shoes = [
   {id:10,family:'novablast',brand:'ASICS',name:'Novablast 6',generation:'N',terrain:['route','mixte'],levels:['occasionnel','regulier','competition'],uses:['daily','long','tempo'],drop:8,cushion:'high',foam:'bouncy',carbon:false,launch:160,avg90:148,best:132,price:139,shop:'i-Run',sizes:['41','42','42.5','43','44','44.5'],weightRange:[55,95],expert:94,community:91,deal:74,athlete:'Données de démonstration',reviews:['Version actuelle de référence','Amorti dynamique','Prix encore proche du lancement'],offers:[['i-Run',139],['Alltricks',145],['ASICS',160]]},
   {id:1,family:'novablast',brand:'ASICS',name:'Novablast 5',generation:'N−1',terrain:['route','mixte'],levels:['occasionnel','regulier','competition'],uses:['daily','long','tempo'],drop:8,cushion:'high',foam:'bouncy',carbon:false,launch:150,avg90:124,best:96,price:98,shop:'i-Run',sizes:['41','42','42.5','43','44','44.5'],weightRange:[55,95],expert:91,community:88,deal:94,athlete:'Pas de référence élite retenue',reviews:['Amorti polyvalent','Mousse dynamique','Très bon choix quotidien'],offers:[['i-Run',98],['Alltricks',104],['Top4Running',109]],compare:{current:'Novablast 6',currentPrice:139,fitDelta:2,verdict:'N−1 recommandée',reason:'Les différences restent modestes pour un usage quotidien alors que l’écart de prix est important.',changes:[['Poids','255 g','248 g','N plus légère'],['Mousse','ancienne formulation','nouvelle formulation','N plus vive'],['Stabilité','Très bonne','Très bonne','Quasi identique'],['Drop','8 mm','8 mm','Identique']]}},
   {id:2,family:'novablast',brand:'ASICS',name:'Novablast 4',generation:'N−2',terrain:['route','mixte'],levels:['debutant','occasionnel','regulier'],uses:['daily','long'],drop:8,cushion:'high',foam:'balanced',carbon:false,launch:150,avg90:101,best:79,price:82,shop:'Top4Running',sizes:['40','41','42','42.5','43','44'],weightRange:[55,90],expert:86,community:87,deal:97,athlete:'Pas de référence élite retenue',reviews:['Très bon rapport qualité/prix','Stable pour un daily trainer','Moins vive que la génération suivante'],offers:[['Top4Running',82],['Running Point',86],['i-Run',92]],compare:{current:'Novablast 6',currentPrice:139,fitDelta:6,verdict:'N−2 = choix budget',reason:'Tu économises beaucoup, mais le moteur considère la mousse moins dynamique et le profil un peu moins polyvalent.',changes:[['Poids','260 g','248 g','N plus légère'],['Mousse','plus équilibrée','plus rebondissante','Gain sensible sur N'],['Stabilité','Bonne','Très bonne','N progresse'],['Drop','8 mm','8 mm','Identique']]}},
@@ -115,6 +115,9 @@ function finalScore(shoe,fit){
 function labelCushion(v){return {moderate:'Amorti modéré',high:'Amorti important',max:'Amorti maximal'}[v]}
 function labelFoam(v){return {soft:'Souple',balanced:'Équilibrée',firm:'Ferme',bouncy:'Très rebondissante'}[v]}
 function generationClass(g){return g==='N'?'current':'old'}
+function refPriceLabel(shoe){return shoe.referencePriceType==='observed'?'Prix barré constaté':shoe.referencePriceType==='launch'?'Prix de lancement':'Prix de référence'}
+function sourceBadge(shoe){return shoe.isReal?'<span class="real-data-badge">● DONNÉE RÉELLE</span>':'<span class="snapshot-badge">DÉMO</span>'}
+function sizeMatches(shoe,size){return !shoe.sizes || shoe.sizes.length===0 || shoe.sizes.includes('*') || shoe.sizes.includes(size)}
 function generationSummary(){
   const order=['N','N−1','N−2','N−3'];
   return order.filter(x=>state.generations.has(x)).join(' / ');
@@ -190,7 +193,7 @@ function renderHistory(){
   $('#learningSummary').classList.toggle('hidden',!has);
   if(!has) return;
   $('#historyList').innerHTML=state.history.map(h=>`<div class="history-entry">
-    <div class="history-entry-main"><div class="history-entry-head"><strong>${h.name}</strong><span class="sentiment-pill ${h.sentiment}">${sentimentLabels[h.sentiment]}</span>${h.consent?'<span class="community-badge">Contribution communauté ✓</span>':''}</div>
+    <div class="history-entry-main"><div class="history-entry-head"><strong>${h.name}</strong><span class="sentiment-pill ${h.sentiment}">${sentimentLabels[h.sentiment]}</span>${h.consent?`<span class="community-badge">${h.remoteStored?'Contribution enregistrée ✓':'Contribution prête · base non configurée'}</span>`:''}</div>
     <div class="history-entry-meta">Retour associé au profil ${h.level} · ${h.weightBand} kg${h.distanceKm?` · ${formatKm(h.distanceKm)} parcourus`:''}</div>
     <div class="history-entry-tags">${h.feedback.map(x=>`<span>${feedbackLabels[x]}</span>`).join('')}${h.uses.map(x=>`<span>✓ ${useLabels[x]}</span>`).join('')||'<span>Aucun usage favori indiqué</span>'}</div></div>
     <button type="button" class="history-remove" data-history-id="${h.id}" aria-label="Supprimer ce retour">×</button>
@@ -228,7 +231,7 @@ function renderGenerationSpotlight(rows,f){
 function render(){
   const f=getFilters();
   let rows=shoes.map(shoe=>({...shoe,fit:scoreFit(shoe,f)}))
-    .filter(shoe=>state.generations.has(shoe.generation) && shoe.price<=f.maxPrice && shoe.sizes.includes(f.size) && shoe.fit>=52)
+    .filter(shoe=>state.generations.has(shoe.generation) && shoe.price<=f.maxPrice && sizeMatches(shoe,f.size) && shoe.fit>=52)
     .sort((a,b)=>finalScore(b,b.fit)-finalScore(a,a.fit));
   $('#resultCount').textContent=rows.length;
   $('#summaryText').textContent=`Pointure ${f.size} · budget ≤ ${f.maxPrice} € · générations ${generationSummary()} · ${state.rank==='balanced'?'équilibre profil/prix':state.rank==='deal'?'meilleures affaires':'compatibilité'}${state.history.length?` · personnalisé avec ${state.history.length} retour${state.history.length>1?'s':''}`:''}`;
@@ -241,12 +244,12 @@ function render(){
     const historyDelta=historyAdjustment(shoe);
     return `<article class="shoe-card ${isOld?'old-generation-card':'current-generation-card'}">
       <div class="generation-ribbon ${generationClass(shoe.generation)}">${isOld?'ANCIENNE GÉNÉRATION':'GÉNÉRATION ACTUELLE'} · ${shoe.generation}</div>
-      <div class="shoe-top"><div><div class="shoe-brand">${shoe.brand}</div><div class="shoe-name">${shoe.name}</div><div class="shoe-gen">${isOld && shoe.compare ? `Face à ${shoe.compare.current}` : 'Version actuelle'}${i===0?' · recommandée':''}</div></div><div class="score-bubble"><strong>${score}</strong><span>/100</span></div></div>
-      <div class="shoe-visual"><div class="mini-shoe">${shoe.brand}</div><span class="deal-pill">−${discount}% vs lancement</span></div>
+      <div class="shoe-top"><div><div class="shoe-brand">${shoe.brand}</div><div class="shoe-name">${shoe.name}</div><div class="source-line">${sourceBadge(shoe)}${shoe.checkedAt?`<span class="snapshot-badge">vérifié ${new Date(shoe.checkedAt).toLocaleDateString('fr-FR')}</span>`:''}</div><div class="shoe-gen">${isOld && shoe.compare ? `Face à ${shoe.compare.current}` : 'Version actuelle'}${i===0?' · recommandée':''}</div></div><div class="score-bubble"><strong>${score}</strong><span>/100</span></div></div>
+      <div class="shoe-visual"><div class="mini-shoe">${shoe.brand}</div><span class="deal-pill">−${discount}% vs ${shoe.referencePriceType==='observed'?'prix constaté':'lancement'}</span></div>
       ${isOld && shoe.compare ? `<div class="old-gen-highlight"><strong>${saving} € moins chère que N</strong><span>≈ ${fitGap} pt${fitGap>1?'s':''} de Fit en moins dans cette démo</span></div>` : '<div class="current-gen-note">Référence technique actuelle de la famille</div>'}
       ${state.history.length?`<div class="personalized-note ${historyDelta<0?'negative':''}"><strong>🧠 Ton historique ${historyDelta>0?'favorise':historyDelta<0?'pénalise':'confirme'} cette paire</strong><span class="history-delta">${historyDelta>0?'+':''}${historyDelta} pt${Math.abs(historyDelta)>1?'s':''}</span></div>`:''}
       <div class="tags"><span class="tag">Drop ${shoe.drop} mm</span><span class="tag">${labelCushion(shoe.cushion)}</span><span class="tag">${shoe.carbon?'Carbone':'Sans carbone'}</span></div>
-      <div class="shoe-pricing"><div class="price-block"><span class="old-price">Lancement ${shoe.launch} €</span><span class="current-price">${shoe.price} €</span><span class="shop">chez ${shoe.shop} · pointure ${f.size}</span></div><span class="badge ${shoe.deal>=94?'badge-green':''}">${shoe.deal>=94?'🔥 Excellent deal':'Bon prix'}</span></div>
+      <div class="shoe-pricing"><div class="price-block"><span class="old-price">${refPriceLabel(shoe)} ${shoe.launch} €</span><span class="current-price">${shoe.price} €</span><span class="shop">chez ${shoe.shop} · ${shoe.sizeStockKnown===false?'taille à vérifier':`pointure ${f.size}`}</span></div><span class="badge ${shoe.deal>=94?'badge-green':''}">${shoe.deal>=94?'🔥 Excellent deal':'Bon prix'}</span></div>
       <div class="two-scores"><div class="metric"><span class="history-fit-label">Compatibilité${state.history.length?'<em>personnalisée</em>':''}</span><strong>${shoe.fit}/100</strong></div><div class="metric"><span>Deal Score</span><strong>${shoe.deal}/100</strong></div></div>
       <div class="card-actions"><button type="button" class="details-btn" data-id="${shoe.id}">${isOld?'Comparer à N':'Pourquoi ?'}</button><button type="button" class="buy-btn" data-id="${shoe.id}">Voir les prix</button></div>
     </article>`
@@ -268,17 +271,61 @@ function comparisonPanel(s,fit){
 function openShoe(id,f){
   const s=shoes.find(x=>x.id===id); const fit=scoreFit(s,f); const saving=s.launch-s.price;
   $('#dialogContent').innerHTML=`<div class="dialog-body">
-    <div class="dialog-head"><div><div class="shoe-brand">${s.brand}</div><h2>${s.name}</h2><div class="tags"><span class="tag">${s.generation}</span><span class="tag">Fit ${fit}/100</span><span class="tag">Deal ${s.deal}/100</span></div></div><div class="dialog-price">${s.price} €</div></div>
+    <div class="dialog-head"><div><div class="shoe-brand">${s.brand}</div><h2>${s.name}</h2><div class="source-line">${sourceBadge(s)}${s.sourceUrl?`<a href="${s.sourceUrl}" target="_blank" rel="noopener noreferrer">Source ↗</a>`:''}</div><div class="tags"><span class="tag">${s.generation}</span><span class="tag">Fit ${fit}/100</span><span class="tag">Deal ${s.deal}/100</span></div></div><div class="dialog-price">${s.price} €</div></div>
     <div class="dialog-grid">
       ${comparisonPanel(s,fit)}
-      <div class="dialog-panel"><h4>Pourquoi elle ressort</h4><ul>${s.reviews.map(x=>`<li>${x}</li>`).join('')}</ul><p><strong>${saving} € économisés</strong> par rapport au prix de lancement fictif de ${s.launch} €.</p></div>
-      <div class="dialog-panel"><h4>Prix pointure ${f.size}</h4>${s.offers.map((o,i)=>`<div class="offer-row"><span>${o[0]}${i===0?' 🥇':''}</span><strong>${o[1]} €</strong></div>`).join('')}<div class="affiliate-note">Prototype : les liens d’achat ne sont pas encore actifs. Les futurs liens affiliés seront signalés sans influencer le classement.</div></div>
+      <div class="dialog-panel"><h4>Pourquoi elle ressort</h4><ul>${s.reviews.map(x=>`<li>${x}</li>`).join('')}</ul><p><strong>${saving} € économisés</strong> par rapport au ${refPriceLabel(s).toLowerCase()} de ${s.launch} €.</p></div>
+      <div class="dialog-panel"><h4>Prix pointure ${f.size}</h4>${s.offers.map((o,i)=>`<div class="offer-row"><span>${o[0]}${i===0?' 🥇':''}</span><strong>${o[1]} €</strong></div>`).join('')}<div class="affiliate-note">${s.isReal?'Prix issu d’une observation publique ou d’un flux marchand. Vérifie le stock final avant achat.':'Donnée de démonstration.'} Les futurs liens affiliés seront signalés sans influencer le classement.</div></div>
       ${state.history.length?`<div class="dialog-panel"><h4>🧠 Personnalisation</h4><p>Ton historique modifie le Fit de <strong>${historyAdjustment(s)>0?'+':''}${historyAdjustment(s)} point${Math.abs(historyAdjustment(s))>1?'s':''}</strong> : score théorique ${baseScoreFit(s,f)}/100 → score personnalisé ${fit}/100.</p><p>${historyLearningText()}</p></div>`:''}
       <div class="dialog-panel"><h4>Profil technique</h4><p>Drop ${s.drop} mm · ${labelCushion(s.cushion)} · mousse ${labelFoam(s.foam).toLowerCase()} · ${s.carbon?'plaque carbone':'sans plaque carbone'}.</p></div>
       <div class="dialog-panel"><h4>Preuves & communauté</h4><p>Score expert démo : ${s.expert}/100 · communauté démo : ${s.community}/100.</p><p>${s.athlete}.</p></div>
     </div>
   </div>`;
   $('#shoeDialog').showModal();
+}
+
+
+async function loadApiCatalog(){
+  const note=$('#dataSourceNote');
+  const status=$('#apiStatusText');
+  try{
+    const res=await fetch('/api/catalog',{headers:{accept:'application/json'}});
+    if(!res.ok) throw new Error(`HTTP ${res.status}`);
+    const payload=await res.json();
+    const incoming=Array.isArray(payload.shoes)?payload.shoes:[];
+    if(incoming.length){
+      const byId=new Map(shoes.map(s=>[String(s.id),s]));
+      incoming.forEach(s=>byId.set(String(s.id),s));
+      shoes=[...byId.values()];
+      populateHistoryShoes();
+      render();
+    }
+    const realCount=shoes.filter(s=>s.isReal).length;
+    const source=payload.source==='supabase'?'Supabase':'snapshot local vérifié';
+    note.textContent=`API active · ${realCount} modèle${realCount>1?'s':''} réel${realCount>1?'s':''} · source ${source}`;
+    status.textContent=`connectée · ${source}`;
+  }catch(err){
+    note.textContent='API indisponible · utilisation de la maquette locale';
+    status.textContent='hors ligne · fallback local';
+  }
+}
+
+async function submitCommunityFeedback(entry){
+  if(!entry.consent) return {stored:false,reason:'consent-disabled'};
+  try{
+    const res=await fetch('/api/feedback',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({
+      shoeId:entry.shoeId||null,
+      shoeName:entry.name,
+      canonical:entry.canonical||null,
+      level:entry.level,
+      weightBand:entry.weightBand,
+      distanceKm:entry.distanceKm,
+      sentiment:entry.sentiment,
+      feedback:entry.feedback,
+      uses:entry.uses
+    })});
+    return await res.json();
+  }catch(err){ return {stored:false,reason:'network'}; }
 }
 
 populateHistoryShoes();
@@ -292,7 +339,7 @@ $('#toggleHistoryForm').addEventListener('click',()=>{
 $('#cancelHistory').addEventListener('click',()=>{ $('#historyForm').classList.add('hidden'); $('#toggleHistoryForm').textContent='+ Ajouter une chaussure'; resetHistoryForm(); });
 $('#historyShoe').addEventListener('change',()=>{ $('#historyCustomShoe').classList.toggle('hidden',$('#historyShoe').value!=='custom'); syncHistoryDistance(); });
 $$('#feedbackChips .feedback-chip,#historyUseChips .feedback-chip').forEach(btn=>btn.addEventListener('click',()=>btn.classList.toggle('active')));
-$('#historyForm').addEventListener('submit',e=>{
+$('#historyForm').addEventListener('submit',async e=>{
   e.preventDefault();
   const choice=$('#historyShoe').value;
   const used=usedShoeCatalog.find(s=>s.id===choice) || null;
@@ -301,7 +348,7 @@ $('#historyForm').addEventListener('submit',e=>{
   if(!used && !catalogMatch && !custom){ $('#historyCustomShoe').focus(); return; }
   const f=getFilters();
   const bandLow=Math.floor(f.weight/10)*10;
-  state.history.push({
+  const entry={
     id:Date.now()+Math.random(),
     shoeId:catalogMatch?catalogMatch.id:null,
     usedShoeId:used?used.id:null,
@@ -313,7 +360,12 @@ $('#historyForm').addEventListener('submit',e=>{
     uses:selectedHistoryValues('#historyUseChips .feedback-chip','use'),
     consent:$('#communityConsent').checked,
     level:f.level, weightBand:`${bandLow}–${bandLow+9}`
-  });
+  };
+  state.history.push(entry);
+  if(entry.consent){
+    const result=await submitCommunityFeedback(entry);
+    entry.remoteStored=Boolean(result&&result.stored);
+  }
   resetHistoryForm();
   $('#historyForm').classList.add('hidden');
   $('#toggleHistoryForm').textContent='+ Ajouter une chaussure';
@@ -347,3 +399,4 @@ $('#resetBtn').addEventListener('click',()=>{location.reload()});
 $('#dialogClose').addEventListener('click',()=>$('#shoeDialog').close());
 $('#shoeDialog').addEventListener('click',e=>{if(e.target===$('#shoeDialog')) $('#shoeDialog').close()});
 render();
+loadApiCatalog();

@@ -16,7 +16,7 @@
     <a href="#" class="brand" aria-label="RunDeal accueil">
       <span class="brand-mark">R</span>
       <span>RunDeal</span>
-      <span class="badge badge-demo">prototype</span>
+      <span class="badge badge-demo">V0.5 · API</span>
     </a>
     <div class="top-actions">
       <button class="ghost-btn" id="resetBtn" type="button">Réinitialiser</button>
@@ -57,7 +57,7 @@
           <p class="eyebrow">TON PROFIL</p>
           <h2 id="finderTitle">Que cherches-tu ?</h2>
         </div>
-        <span class="data-note">Historique personnel : réel · prix/recommandations : démonstration</span>
+        <span class="data-note" id="dataSourceNote">Connexion à l’API RunDeal…</span>
       </div>
 
       <form id="filtersForm" class="filters-grid">
@@ -256,6 +256,12 @@
       </div>
     </section>
 
+    <section class="source-strip" aria-label="État des données">
+      <div><span class="source-dot api"></span><strong>API RunDeal</strong><small id="apiStatusText">chargement…</small></div>
+      <div><span class="source-dot real"></span><strong>Données réelles</strong><small>prix constatés / flux marchand</small></div>
+      <div><span class="source-dot demo"></span><strong>Démo</strong><small>encore utilisée pour compléter la maquette</small></div>
+    </section>
+
     <section id="results" class="results-section">
       <div class="results-toolbar">
         <div>
@@ -316,8 +322,8 @@
   </main>
 
   <footer>
-    <div><strong>RunDeal</strong> — prototype V0.3</div>
-    <p>Les données affichées dans cette maquette sont fictives et servent uniquement à démontrer l’interface et le moteur de scoring.</p>
+    <div><strong>RunDeal</strong> — V0.5 API + données réelles</div>
+    <p>Les cartes marquées « donnée réelle » proviennent de sources publiques vérifiées ou d’un flux marchand connecté. Les autres cartes restent des données de démonstration tant qu’elles ne sont pas remplacées par la base.</p>
   </footer>
 
   <dialog id="shoeDialog">
