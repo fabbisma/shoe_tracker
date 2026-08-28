@@ -57,7 +57,7 @@
           <p class="eyebrow">TON PROFIL</p>
           <h2 id="finderTitle">Que cherches-tu ?</h2>
         </div>
-        <span class="data-note">Données chaussures et prix : démonstration</span>
+        <span class="data-note">Historique personnel : réel · prix/recommandations : démonstration</span>
       </div>
 
       <form id="filtersForm" class="filters-grid">
@@ -195,6 +195,10 @@
                 <option value="disliked">Je ne l’ai pas aimée</option>
               </select>
             </label>
+            <label>
+              <span>Distance parcourue</span>
+              <div class="history-distance-wrap"><input id="historyDistance" type="number" min="0" max="10000" step="0.1" inputmode="decimal" placeholder="Facultatif" /><span>km</span></div>
+            </label>
           </div>
 
           <div class="history-question">
@@ -233,6 +237,11 @@
             <button type="submit" class="primary-btn">Ajouter à mon historique</button>
           </div>
         </form>
+
+        <div class="imported-history-block">
+          <div class="imported-history-head"><div><span>MES DONNÉES RÉELLES</span><strong>7 chaussures déjà utilisées</strong></div><small>Distances reprises de ton historique fourni. Clique sur une paire pour ajouter ton ressenti.</small></div>
+          <div id="importedShoes" class="imported-shoes"></div>
+        </div>
 
         <div id="historyEmpty" class="history-empty">
           <span class="history-icon">↗</span>

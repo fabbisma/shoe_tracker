@@ -1,3 +1,13 @@
+const usedShoeCatalog = [
+  {id:'used-crivit-running',brand:'CRIVIT',name:'Running',displayName:'Crivit Running',distanceKm:910.2,canonical:'Crivit Running',matchConfidence:'modèle exact à préciser'},
+  {id:'used-hoka-carbon-x',brand:'HOKA',name:'ProFlyX Carbon X',displayName:'HOKA ProFlyX Carbon X',distanceKm:1224.4,canonical:'HOKA Carbon X',matchConfidence:'famille Carbon X identifiée, version à préciser'},
+  {id:'used-kiprun-kd900x',brand:'KIPRUN',name:'KD900X',displayName:'Kiprun KD900X',alias:'Kiprun X',distanceKm:771.3,canonical:'KIPRUN KD900X',matchConfidence:'modèle confirmé'},
+  {id:'used-lasportiva-bushido-ii',brand:'LA SPORTIVA',name:'Bushido II',displayName:'La Sportiva Bushido II',distanceKm:1409.5,canonical:'La Sportiva Bushido II',matchConfidence:'modèle confirmé'},
+  {id:'used-on-cloudflow',brand:'ON',name:'Cloudflow',displayName:'On Cloudflow',distanceKm:1054.6,canonical:'On Cloudflow',matchConfidence:'version à préciser'},
+  {id:'used-reebok-energen-run-20',brand:'REEBOK',name:'Energen Run 2.0',displayName:'Reebok Energen Run 2.0',distanceKm:287.5,canonical:'Reebok Energen Run 2.0',matchConfidence:'modèle confirmé'},
+  {id:'used-salomon-ultra-glide-2',brand:'SALOMON',name:'Ultra Glide 2',displayName:'Salomon Ultra Glide 2',distanceKm:849.2,canonical:'Salomon Ultra Glide 2',matchConfidence:'modèle confirmé'}
+];
+
 const shoes = [
   {id:10,family:'novablast',brand:'ASICS',name:'Novablast 6',generation:'N',terrain:['route','mixte'],levels:['occasionnel','regulier','competition'],uses:['daily','long','tempo'],drop:8,cushion:'high',foam:'bouncy',carbon:false,launch:160,avg90:148,best:132,price:139,shop:'i-Run',sizes:['41','42','42.5','43','44','44.5'],weightRange:[55,95],expert:94,community:91,deal:74,athlete:'Données de démonstration',reviews:['Version actuelle de référence','Amorti dynamique','Prix encore proche du lancement'],offers:[['i-Run',139],['Alltricks',145],['ASICS',160]]},
   {id:1,family:'novablast',brand:'ASICS',name:'Novablast 5',generation:'N−1',terrain:['route','mixte'],levels:['occasionnel','regulier','competition'],uses:['daily','long','tempo'],drop:8,cushion:'high',foam:'bouncy',carbon:false,launch:150,avg90:124,best:96,price:98,shop:'i-Run',sizes:['41','42','42.5','43','44','44.5'],weightRange:[55,95],expert:91,community:88,deal:94,athlete:'Pas de référence élite retenue',reviews:['Amorti polyvalent','Mousse dynamique','Très bon choix quotidien'],offers:[['i-Run',98],['Alltricks',104],['Top4Running',109]],compare:{current:'Novablast 6',currentPrice:139,fitDelta:2,verdict:'N−1 recommandée',reason:'Les différences restent modestes pour un usage quotidien alors que l’écart de prix est important.',changes:[['Poids','255 g','248 g','N plus légère'],['Mousse','ancienne formulation','nouvelle formulation','N plus vive'],['Stabilité','Très bonne','Très bonne','Quasi identique'],['Drop','8 mm','8 mm','Identique']]}},
@@ -117,7 +127,31 @@ const sentimentLabels={liked:'Aimée',mixed:'Mitigé',disliked:'Pas aimée'};
 
 function populateHistoryShoes(){
   const select=$('#historyShoe');
-  select.innerHTML=shoes.slice().sort((a,b)=>a.brand.localeCompare(b.brand)||a.name.localeCompare(b.name)).map(s=>`<option value="${s.id}">${s.brand} · ${s.name} (${s.generation})</option>`).join('')+'<option value="custom">Autre modèle non référencé…</option>';
+  const mine=usedShoeCatalog.map(s=>`<option value="${s.id}">${s.displayName} · ${formatKm(s.distanceKm)}</option>`).join('');
+  const catalog=shoes.slice().sort((a,b)=>a.brand.localeCompare(b.brand)||a.name.localeCompare(b.name)).map(s=>`<option value="catalog-${s.id}">${s.brand} · ${s.name} (${s.generation})</option>`).join('');
+  select.innerHTML=`<optgroup label="Mes chaussures déjà utilisées">${mine}</optgroup><optgroup label="Catalogue RunDeal (démo)">${catalog}</optgroup><option value="custom">Autre modèle non référencé…</option>`;
+}
+function formatKm(value){ return `${Number(value).toLocaleString('fr-FR',{minimumFractionDigits:1,maximumFractionDigits:1})} km`; }
+function selectedUsedShoe(){ return usedShoeCatalog.find(s=>s.id===$('#historyShoe').value) || null; }
+function syncHistoryDistance(){
+  const used=selectedUsedShoe();
+  const field=$('#historyDistance');
+  if(!field) return;
+  field.value=used?used.distanceKm:'';
+  field.placeholder=used?'Distance importée':'Distance approximative (facultatif)';
+}
+function renderImportedShoes(){
+  const root=$('#importedShoes');
+  if(!root) return;
+  root.innerHTML=usedShoeCatalog.map(s=>`<button type="button" class="imported-shoe" data-used-id="${s.id}"><span><strong>${s.displayName}</strong><small>${s.alias?`Nom dans l’historique : ${s.alias} · `:''}${s.matchConfidence}</small></span><b>${formatKm(s.distanceKm)}</b><em>Donner mon avis →</em></button>`).join('');
+  $$('.imported-shoe').forEach(btn=>btn.addEventListener('click',()=>{
+    $('#historyShoe').value=btn.dataset.usedId;
+    $('#historyCustomShoe').classList.add('hidden');
+    syncHistoryDistance();
+    $('#historyForm').classList.remove('hidden');
+    $('#toggleHistoryForm').textContent='Fermer';
+    $('#historyForm').scrollIntoView({behavior:'smooth',block:'nearest'});
+  }));
 }
 function selectedHistoryValues(selector,key){ return $$(selector+'.active').map(x=>x.dataset[key]); }
 function resetHistoryForm(){
@@ -127,6 +161,7 @@ function resetHistoryForm(){
   $('#historyCustomShoe').value='';
   $('#historyCustomShoe').classList.add('hidden');
   $('#historyShoe').selectedIndex=0;
+  syncHistoryDistance();
 }
 function historyLearningText(){
   if(!state.history.length) return '';
@@ -156,7 +191,7 @@ function renderHistory(){
   if(!has) return;
   $('#historyList').innerHTML=state.history.map(h=>`<div class="history-entry">
     <div class="history-entry-main"><div class="history-entry-head"><strong>${h.name}</strong><span class="sentiment-pill ${h.sentiment}">${sentimentLabels[h.sentiment]}</span>${h.consent?'<span class="community-badge">Contribution communauté ✓</span>':''}</div>
-    <div class="history-entry-meta">Retour associé au profil ${h.level} · ${h.weightBand} kg</div>
+    <div class="history-entry-meta">Retour associé au profil ${h.level} · ${h.weightBand} kg${h.distanceKm?` · ${formatKm(h.distanceKm)} parcourus`:''}</div>
     <div class="history-entry-tags">${h.feedback.map(x=>`<span>${feedbackLabels[x]}</span>`).join('')}${h.uses.map(x=>`<span>✓ ${useLabels[x]}</span>`).join('')||'<span>Aucun usage favori indiqué</span>'}</div></div>
     <button type="button" class="history-remove" data-history-id="${h.id}" aria-label="Supprimer ce retour">×</button>
   </div>`).join('');
@@ -247,26 +282,32 @@ function openShoe(id,f){
 }
 
 populateHistoryShoes();
+renderImportedShoes();
+syncHistoryDistance();
 renderHistory();
 $('#toggleHistoryForm').addEventListener('click',()=>{
   $('#historyForm').classList.toggle('hidden');
   $('#toggleHistoryForm').textContent=$('#historyForm').classList.contains('hidden')?'+ Ajouter une chaussure':'Fermer';
 });
 $('#cancelHistory').addEventListener('click',()=>{ $('#historyForm').classList.add('hidden'); $('#toggleHistoryForm').textContent='+ Ajouter une chaussure'; resetHistoryForm(); });
-$('#historyShoe').addEventListener('change',()=>$('#historyCustomShoe').classList.toggle('hidden',$('#historyShoe').value!=='custom'));
+$('#historyShoe').addEventListener('change',()=>{ $('#historyCustomShoe').classList.toggle('hidden',$('#historyShoe').value!=='custom'); syncHistoryDistance(); });
 $$('#feedbackChips .feedback-chip,#historyUseChips .feedback-chip').forEach(btn=>btn.addEventListener('click',()=>btn.classList.toggle('active')));
 $('#historyForm').addEventListener('submit',e=>{
   e.preventDefault();
   const choice=$('#historyShoe').value;
-  const known=choice==='custom'?null:shoes.find(s=>s.id===+choice);
+  const used=usedShoeCatalog.find(s=>s.id===choice) || null;
+  const catalogMatch=choice.startsWith('catalog-')?shoes.find(s=>s.id===+choice.replace('catalog-','')):null;
   const custom=$('#historyCustomShoe').value.trim();
-  if(!known && !custom){ $('#historyCustomShoe').focus(); return; }
+  if(!used && !catalogMatch && !custom){ $('#historyCustomShoe').focus(); return; }
   const f=getFilters();
   const bandLow=Math.floor(f.weight/10)*10;
   state.history.push({
     id:Date.now()+Math.random(),
-    shoeId:known?known.id:null,
-    name:known?`${known.brand} ${known.name}`:custom,
+    shoeId:catalogMatch?catalogMatch.id:null,
+    usedShoeId:used?used.id:null,
+    name:used?used.displayName:catalogMatch?`${catalogMatch.brand} ${catalogMatch.name}`:custom,
+    canonical:used?used.canonical:null,
+    distanceKm:Number($('#historyDistance').value)||null,
     sentiment:$('#historySentiment').value,
     feedback:selectedHistoryValues('#feedbackChips .feedback-chip','feedback'),
     uses:selectedHistoryValues('#historyUseChips .feedback-chip','use'),

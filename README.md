@@ -1,4 +1,4 @@
-# RunDeal V0.3
+# RunDeal V0.4
 
 Prototype front-end statique d'un comparateur intelligent de chaussures de running.
 
@@ -12,7 +12,7 @@ Prototype front-end statique d'un comparateur intelligent de chaussures de runni
 - Fiche détaillée avec synthèse de reviews, données communauté et performances de référence.
 - Responsive desktop/mobile.
 
-> Les prix, scores, disponibilités et avis présents dans la V0.3 sont des données de démonstration.
+> Les prix, scores, disponibilités et avis présents dans la V0.4 sont des données de démonstration.
 
 ## Déploiement GitHub + Vercel
 
@@ -26,7 +26,7 @@ Prototype front-end statique d'un comparateur intelligent de chaussures de runni
 8. Output Directory : laisser vide.
 9. Cliquer sur **Deploy**.
 
-Aucune variable d'environnement n'est nécessaire pour cette V0.3.
+Aucune variable d'environnement n'est nécessaire pour cette V0.4.
 
 ## Étape suivante recommandée
 
@@ -45,7 +45,7 @@ Passer à une architecture avec base de données (Supabase/PostgreSQL) et sépar
 Le front pourra ensuite être migré vers Next.js si on veut SEO, routes par modèle, authentification, alertes de prix et API serveur.
 
 
-## Nouveautés V0.3
+## Nouveautés V0.4
 
 - Filtre multi-sélection **N / N−1 / N−2 / N−3**.
 - Preset **Anciennes uniquement**.
@@ -57,7 +57,7 @@ Le front pourra ensuite être migré vers Next.js si on veut SEO, routes par mod
 Toutes les caractéristiques et tous les prix restent des **données de démonstration** dans cette maquette.
 
 
-## V0.3 — historique coureur
+## V0.4 — historique coureur
 
 Cette version ajoute un module optionnel **Mes chaussures précédentes** :
 
@@ -71,3 +71,10 @@ Cette version ajoute un module optionnel **Mes chaussures précédentes** :
 - démonstration de la donnée agrégée avec niveau et tranche de poids au moment du retour.
 
 Dans cette maquette statique, **aucune donnée n'est envoyée ni sauvegardée après rechargement de la page**. Une future version avec base de données devra séparer le profil personnel des données communautaires agrégées et ne publier que des statistiques avec des effectifs suffisants.
+
+
+## V0.4 — données historiques réelles
+
+Cette version précharge les 7 chaussures fournies dans l’historique utilisateur avec leur kilométrage : Crivit Running, HOKA ProFlyX Carbon X, KIPRUN KD900X (alias « Kiprun X »), La Sportiva Bushido II, On Cloudflow, Reebok Energen Run 2.0 et Salomon Ultra Glide 2.
+
+Les libellés ambigus restent volontairement non sur-interprétés : la version exacte du HOKA Carbon X et du On Cloudflow n’est pas inventée. Les prix et recommandations du catalogue principal restent des données de démonstration dans cette version.
