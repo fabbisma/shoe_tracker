@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0b1220" />
+  <meta name="description" content="Prototype de comparateur intelligent de chaussures de running." />
+  <title>RunDeal — Trouve la bonne chaussure au bon prix</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a href="#" class="brand" aria-label="RunDeal accueil">
+      <span class="brand-mark">R</span>
+      <span>RunDeal</span>
+      <span class="badge badge-demo">prototype</span>
+    </a>
+    <div class="top-actions">
+      <button class="ghost-btn" id="resetBtn" type="button">Réinitialiser</button>
+      <a class="primary-btn small" href="#results">Voir les bons plans</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">LE BON MODÈLE. LA BONNE GÉNÉRATION. LE VRAI BON PRIX.</p>
+        <h1>Trouve les chaussures qui te correspondent vraiment.</h1>
+        <p class="hero-sub">RunDeal croise ton profil de coureur, les caractéristiques des chaussures, les générations précédentes et les prix réellement disponibles dans ta pointure.</p>
+        <div class="hero-stats" aria-label="Avantages du prototype">
+          <div><strong>N à N−3</strong><span>comparées</span></div>
+          <div><strong>2 scores</strong><span>compatibilité + deal</span></div>
+          <div><strong>Prix / pointure</strong><span>pas une promo générique</span></div>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="shoe-orbit">
+          <div class="shoe-shape">RUN</div>
+          <span class="orbit-tag tag-1">−42%</span>
+          <span class="orbit-tag tag-2">92/100</span>
+          <span class="orbit-tag tag-3">N−1</span>
+        </div>
+        <div class="hero-card-copy">
+          <span class="badge">Exemple</span>
+          <strong>Ancienne génération, meilleur choix.</strong>
+          <span>Économise 50 € pour seulement 2 points de compatibilité en moins.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="finder" aria-labelledby="finderTitle">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">TON PROFIL</p>
+          <h2 id="finderTitle">Que cherches-tu ?</h2>
+        </div>
+        <span class="data-note">Données chaussures et prix : démonstration</span>
+      </div>
+
+      <form id="filtersForm" class="filters-grid">
+        <fieldset class="filter-card span-2">
+          <legend>Terrain</legend>
+          <div class="segmented three" data-segment="terrain">
+            <button type="button" class="seg active" data-value="route">🛣️ Route</button>
+            <button type="button" class="seg" data-value="trail">⛰️ Trail</button>
+            <button type="button" class="seg" data-value="mixte">🔀 Mixte</button>
+          </div>
+          <input type="hidden" id="terrain" value="route" />
+        </fieldset>
+
+        <label class="filter-card">
+          <span>Niveau</span>
+          <select id="level">
+            <option value="debutant">Débutant</option>
+            <option value="occasionnel">Occasionnel</option>
+            <option value="regulier" selected>Régulier</option>
+            <option value="competition">Compétition</option>
+          </select>
+        </label>
+
+        <label class="filter-card">
+          <span>Poids</span>
+          <div class="input-suffix"><input id="weight" type="number" min="40" max="140" value="72" /><span>kg</span></div>
+        </label>
+
+        <label class="filter-card">
+          <span>Pointure EU</span>
+          <select id="size">
+            <option>40</option><option>40.5</option><option>41</option><option>42</option><option selected>42.5</option><option>43</option><option>44</option><option>44.5</option><option>45</option><option>46</option>
+          </select>
+        </label>
+
+        <label class="filter-card">
+          <span>Budget maximum</span>
+          <div class="input-suffix"><input id="maxPrice" type="number" min="50" max="350" step="5" value="160" /><span>€</span></div>
+        </label>
+
+        <label class="filter-card">
+          <span>Drop préféré</span>
+          <select id="drop">
+            <option value="any" selected>Sans préférence</option>
+            <option value="low">0–4 mm</option>
+            <option value="mid">5–8 mm</option>
+            <option value="high">9–12 mm</option>
+          </select>
+        </label>
+
+        <label class="filter-card">
+          <span>Amorti</span>
+          <select id="cushion">
+            <option value="any">Sans préférence</option>
+            <option value="moderate">Modéré</option>
+            <option value="high" selected>Important</option>
+            <option value="max">Maximal</option>
+          </select>
+        </label>
+
+        <label class="filter-card">
+          <span>Sensation de mousse</span>
+          <select id="foam">
+            <option value="any" selected>Sans préférence</option>
+            <option value="soft">Souple</option>
+            <option value="balanced">Équilibrée</option>
+            <option value="firm">Ferme</option>
+            <option value="bouncy">Très rebondissante</option>
+          </select>
+        </label>
+
+        <label class="filter-card switch-card">
+          <span>Plaque carbone</span>
+          <select id="carbon">
+            <option value="any" selected>Peu importe</option>
+            <option value="yes">Oui</option>
+            <option value="no">Non</option>
+          </select>
+        </label>
+
+        <div class="filter-card span-2 run-goal-card">
+          <span>Usage principal</span>
+          <div class="chip-row" id="usageChips">
+            <button type="button" class="chip active" data-value="daily">Entraînement</button>
+            <button type="button" class="chip" data-value="long">Sortie longue</button>
+            <button type="button" class="chip" data-value="tempo">Tempo</button>
+            <button type="button" class="chip" data-value="race">Compétition</button>
+          </div>
+          <input type="hidden" id="usage" value="daily" />
+        </div>
+      </form>
+    </section>
+
+    <section id="results" class="results-section">
+      <div class="results-toolbar">
+        <div>
+          <p class="eyebrow">RECOMMANDATIONS</p>
+          <h2><span id="resultCount">0</span> modèles intéressants</h2>
+          <p id="summaryText" class="muted"></p>
+        </div>
+        <div class="ranking-tabs" role="tablist" aria-label="Type de classement">
+          <button type="button" class="rank-tab active" data-rank="balanced">Meilleur choix</button>
+          <button type="button" class="rank-tab" data-rank="deal">Meilleure affaire</button>
+          <button type="button" class="rank-tab" data-rank="fit">Compatibilité</button>
+        </div>
+      </div>
+
+      <div id="resultsGrid" class="results-grid" aria-live="polite"></div>
+      <div id="emptyState" class="empty-state hidden">
+        <div class="empty-icon">👟</div>
+        <h3>Aucun modèle ne coche assez de cases.</h3>
+        <p>Essaie d’augmenter ton budget ou de retirer une préférence.</p>
+      </div>
+    </section>
+
+    <section class="generation-section">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">LE VRAI BON PLAN</p>
+          <h2>Comparer les générations</h2>
+        </div>
+      </div>
+      <div class="generation-comparison">
+        <div class="generation-copy">
+          <span class="badge badge-green">Recommandation moteur</span>
+          <h3>Ne paie pas automatiquement la dernière version.</h3>
+          <p>Le moteur compare le gain technique au surcoût. Une N−2 à −50 % peut être un meilleur achat qu’une nouvelle génération à plein tarif.</p>
+          <div class="decision-box">
+            <strong>Exemple de verdict</strong>
+            <span>« Prends la génération 5 : seulement −2 points de compatibilité, mais 51 € économisés. »</span>
+          </div>
+        </div>
+        <div class="generation-table-wrap">
+          <table>
+            <thead><tr><th>Génération</th><th>Meilleur prix</th><th>Fit</th><th>Verdict</th></tr></thead>
+            <tbody>
+              <tr><td>N</td><td>149 €</td><td>94</td><td><span class="status neutral">Très bonne</span></td></tr>
+              <tr class="winner"><td>N−1</td><td><strong>98 €</strong></td><td>92</td><td><span class="status good">Meilleur achat</span></td></tr>
+              <tr><td>N−2</td><td>82 €</td><td>86</td><td><span class="status neutral">Budget</span></td></tr>
+              <tr><td>N−3</td><td>71 €</td><td>77</td><td><span class="status warning">Compromis fort</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust-section">
+      <div class="trust-card">
+        <p class="eyebrow">POURQUOI CE PRIX EST BON ?</p>
+        <h2>Une remise ne suffit pas.</h2>
+        <p>Le Deal Score compare le prix actuel au prix de lancement, au prix habituel récent et au meilleur prix observé. Il tient aussi compte de ta pointure.</p>
+        <div class="mini-metrics">
+          <div><span>Prix lancement</span><strong>150 €</strong></div>
+          <div><span>Prix moyen 90 j</span><strong>124 €</strong></div>
+          <div><span>Prix actuel</span><strong>98 €</strong></div>
+          <div><span>Deal Score</span><strong>94/100</strong></div>
+        </div>
+      </div>
+      <div class="trust-card">
+        <p class="eyebrow">PREUVES</p>
+        <h2>Pas seulement du marketing.</h2>
+        <p>Chaque fiche peut croiser tests experts, avis utilisateurs, mesures laboratoire et, quand elles existent, performances d’athlètes.</p>
+        <ul class="proof-list">
+          <li>🧪 Tests et mesures sourcés</li>
+          <li>📝 Consensus de reviews</li>
+          <li>👥 Avis coureurs</li>
+          <li>🏆 Performances de référence</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div><strong>RunDeal</strong> — prototype V0.1</div>
+    <p>Les données affichées dans cette maquette sont fictives et servent uniquement à démontrer l’interface et le moteur de scoring.</p>
+  </footer>
+
+  <dialog id="shoeDialog">
+    <div id="dialogContent"></div>
+    <button class="dialog-close" id="dialogClose" type="button" aria-label="Fermer">×</button>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
