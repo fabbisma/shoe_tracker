@@ -1,8 +1,8 @@
 {
-  "name": "rundeal-v05",
-  "version": "0.5.0",
+  "name": "rundeal-v06",
+  "version": "0.6.0",
   "private": true,
-  "description": "RunDeal V0.5 - comparateur running avec API Vercel, Supabase et import de flux marchands",
+  "description": "RunDeal V0.6 - comparateur running avec API Vercel, Supabase et import de flux marchands",
   "dependencies": {
     "csv-parse": "^5.6.0",
     "fast-xml-parser": "^4.5.3"

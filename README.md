@@ -1,76 +1,120 @@
-# RunDeal V0.5 — API + vraies données
+# RunDeal V0.6 — Strava privé + API + données réelles
 
-Cette version transforme la maquette statique en application **live-ready** pour GitHub + Vercel.
+Cette version ajoute une première connexion **Strava OAuth 2.0** en respectant une séparation stricte entre les données Strava personnelles et la base communautaire RunDeal.
 
-## Ce qui fonctionne déjà
+## Nouveauté principale : deux circuits qui ne se mélangent pas
 
-- Interface V0.4 conservée : filtres, N/N-1/N-2/N-3, comparaison de générations et historique personnel.
-- Endpoint `GET /api/catalog` : lit Supabase si configuré, sinon utilise un petit snapshot réel vérifié.
-- Deux modèles KIPRUN réels préchargés comme test d’intégration : **KD900 X LD 2** et **KD900 Light**. Leurs prix sont indiqués comme *prix constatés*, pas comme prix de lancement.
-- Endpoint `POST /api/feedback` : enregistre les contributions communautaires anonymisées dans Supabase si la base est configurée.
-- Endpoint `GET /api/health` : vérifie l’état de l’API et des variables d’environnement.
-- Endpoint protégé `/api/import-decathlon` : import générique CSV/XML/JSON d’un flux produit affilié Decathlon lorsque `DECATHLON_FEED_URL` sera disponible.
-- Schéma Supabase dans `supabase/schema.sql`.
-- Fallback propre : sans Supabase et sans flux affilié, l’application continue à fonctionner.
+### 1. Strava → espace privé
 
-## Important : séparation des données
+La V0.6 demande uniquement le scope Strava `profile:read_all`, afin de récupérer le profil détaillé et la liste des chaussures avec leur kilométrage cumulé.
 
-La V0.5 distingue désormais :
+- Les chaussures Strava sont affichées uniquement à l’utilisateur connecté.
+- Aucune chaussure, distance ou autre donnée Strava n’est écrite dans Supabase.
+- Le front ne copie pas automatiquement une donnée Strava dans le formulaire communautaire.
+- Le bouton « Saisir un retour RunDeal » ouvre un formulaire vide : l’utilisateur doit sélectionner ou saisir lui-même le modèle et les informations qu’il souhaite déclarer.
+- Les appels `/api/strava-me` sont `no-store`.
+- Les tokens OAuth sont conservés côté navigateur dans un cookie `HttpOnly` chiffré, avec une session prototype limitée à 7 jours.
+- « Déconnecter » appelle l’endpoint de révocation Strava puis supprime la session locale.
 
-1. **Donnée réelle** : source publique vérifiée ou flux marchand.
-2. **Snapshot** : prix constaté à une date donnée, qui n’est pas garanti comme stock live.
-3. **Démo** : anciennes cartes de la maquette qui restent là pour tester le moteur tant que la base n’est pas remplie.
+### 2. RunDeal → communauté
 
-Le prix barré d’un marchand n’est plus présenté comme un « prix de lancement » si ce point n’est pas vérifié.
+L’endpoint `POST /api/feedback` n’accepte que les données saisies dans le formulaire RunDeal. Le serveur force désormais :
 
-## Installer dans Supabase
+`source = USER_DECLARED`
+
+Aucune provenance Strava ne peut être envoyée depuis le navigateur pour alimenter `community_feedback`.
+
+## Endpoints V0.6
+
+- `GET /api/catalog` — catalogue RunDeal / Supabase / snapshot.
+- `POST /api/feedback` — contribution communautaire déclarée directement.
+- `GET /api/health` — état API, Supabase, flux Decathlon et configuration Strava.
+- `GET /api/strava-connect` — démarre OAuth Strava.
+- `GET /api/strava-callback` — échange le code OAuth et crée la session chiffrée.
+- `GET /api/strava-me` — récupère à la demande les chaussures du compte authentifié.
+- `POST /api/strava-disconnect` — révoque la connexion et supprime la session.
+- `GET /api/import-decathlon` — import marchand protégé, inchangé dans son principe.
+
+## Configurer Strava
+
+1. Créer une application dans les paramètres API Strava.
+2. Dans **Authorization Callback Domain**, indiquer uniquement le domaine public du projet, par exemple :
+   `rundeal.vercel.app`
+3. Dans Vercel → **Settings → Environment Variables**, ajouter :
+
+```text
+STRAVA_CLIENT_ID=12345
+STRAVA_CLIENT_SECRET=xxxxxxxx
+STRAVA_SESSION_SECRET=une-longue-valeur-aleatoire-et-secrete
+APP_BASE_URL=https://rundeal.vercel.app
+```
+
+4. Redéployer le projet.
+5. Ouvrir RunDeal et cliquer **Connecter Strava**.
+
+Le callback utilisé par le code est :
+
+```text
+https://rundeal.vercel.app/api/strava-callback
+```
+
+## Générer STRAVA_SESSION_SECRET
+
+Exemple sur un terminal :
+
+```bash
+openssl rand -hex 32
+```
+
+Ne jamais placer `STRAVA_CLIENT_SECRET` ou `STRAVA_SESSION_SECRET` dans `app.js`.
+
+## Pourquoi seulement `profile:read_all` ?
+
+Pour la première intégration, les activités détaillées ne sont pas nécessaires. Le profil détaillé Strava contient la liste `shoes` avec le nom, le statut de paire principale et la distance cumulée. La V0.6 applique donc un principe de minimisation : pas de `activity:read_all` tant qu’une fonctionnalité claire ne le justifie pas.
+
+## Supabase
 
 1. Créer un projet Supabase.
 2. Ouvrir **SQL Editor**.
-3. Exécuter le contenu de `supabase/schema.sql`.
-4. Dans Vercel → Project → Settings → Environment Variables, ajouter :
+3. Exécuter `supabase/schema.sql`.
+4. Ajouter dans Vercel :
    - `SUPABASE_URL`
    - `SUPABASE_SERVICE_ROLE_KEY`
 5. Redéployer.
 
-Le `SERVICE_ROLE_KEY` ne doit **jamais** être exposé dans `app.js` ou dans le navigateur. Il est uniquement lu par les fonctions `/api`.
+Si une base V0.5 existe déjà, ajouter la colonne :
 
-## Brancher le flux Decathlon
+```sql
+alter table community_feedback
+add column if not exists source text not null default 'USER_DECLARED';
+```
 
-Lorsque le compte affilié donne accès au flux produit :
+## Flux Decathlon
 
-1. Ajouter `DECATHLON_FEED_URL` dans Vercel.
-2. Ajouter `IMPORT_SECRET`.
-3. Appeler `GET /api/import-decathlon` avec l’en-tête :
-   `Authorization: Bearer <IMPORT_SECRET>`
+La logique V0.5 reste disponible :
 
-L’importateur :
+- `DECATHLON_FEED_URL`
+- `IMPORT_SECRET`
+- import CSV/XML/JSON ;
+- rapprochement marchand → modèle canonique contrôlé ;
+- historique des prix uniquement après validation du modèle.
 
-- accepte CSV, XML ou JSON ;
-- ne conserve que les produits ressemblant à des chaussures running/trail ;
-- stocke la ligne brute dans `merchant_products` ;
-- **ne devine pas automatiquement le modèle canonique** ;
-- crée une offre et un historique de prix uniquement pour les produits dont le lien vers `shoe_models` a été approuvé dans `product_matches`.
+## Test rapide après déploiement
 
-Cette étape manuelle/contrôlée évite de fusionner par erreur deux générations ou deux variantes différentes.
+1. `/api/health` doit afficher `version: "0.6.0"`.
+2. `strava: true` doit apparaître après configuration des 3 variables Strava.
+3. Cliquer **Connecter Strava**.
+4. Après autorisation, les chaussures du compte doivent apparaître dans le cadre orange « Strava · privé ».
+5. Recharger la page : elles restent accessibles pendant la session OAuth, mais ne figurent pas dans Supabase.
+6. Cliquer **Saisir un retour RunDeal** : le formulaire doit être vide et aucune donnée Strava ne doit être préremplie.
+7. Cliquer **Déconnecter** : la session locale doit être supprimée.
 
-## Lancer / déployer
+## Références techniques
 
-### Vercel
+- Authentification Strava OAuth 2.0 : https://developers.strava.com/docs/authentication/
+- Référence `DetailedAthlete` / `shoes` : https://developers.strava.com/docs/reference/
+- Politique API Strava 2026 : https://www.strava.com/legal/api_policy
 
-Importer le dépôt GitHub dans Vercel. Aucun framework à sélectionner : les fichiers statiques sont servis tels quels et le dossier `api/` devient des fonctions Vercel.
+## Prochaine étape suggérée
 
-### Test rapide après déploiement
-
-- `/api/health` doit répondre `ok: true`.
-- `/api/catalog` doit renvoyer les données seed ou Supabase.
-- La page d’accueil affiche l’état de la source en haut du formulaire.
-
-## Prochaine étape
-
-1. Créer le projet Supabase.
-2. Ajouter 20-30 modèles canoniques réels dans `shoe_models`.
-3. Obtenir le flux affilié Decathlon/Rakuten.
-4. Faire le premier import.
-5. Construire un petit écran admin de validation `merchant_product -> shoe_model`.
-6. Ajouter i-Run/Kwanko avec le même mécanisme.
+Après validation de l’import des chaussures sur un vrai compte, la V0.7 pourrait ajouter un **matching local assisté mais non persistant** entre le nom Strava (`"Kiprun X"`) et le catalogue RunDeal (`"KIPRUN KD900X"`) uniquement pour aider l’utilisateur à retrouver le modèle à l’écran. Toute contribution communautaire resterait une saisie RunDeal séparée.

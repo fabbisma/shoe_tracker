@@ -10,7 +10,7 @@ module.exports=async function handler(req,res){
     shoe_id:Number.isFinite(Number(b.shoeId))?Number(b.shoeId):null,
     shoe_name:String(b.shoeName||'').slice(0,120),canonical:String(b.canonical||'').slice(0,120)||null,
     level:String(b.level||'').slice(0,30),weight_band:String(b.weightBand||'').slice(0,30),distance_km:Number.isFinite(Number(b.distanceKm))?Number(b.distanceKm):null,
-    sentiment:allowedSentiments.has(b.sentiment)?b.sentiment:'mixed',feedback:cleanArray(b.feedback,allowedFeedback),uses:cleanArray(b.uses,allowedUses),created_at:new Date().toISOString()
+    sentiment:allowedSentiments.has(b.sentiment)?b.sentiment:'mixed',feedback:cleanArray(b.feedback,allowedFeedback),uses:cleanArray(b.uses,allowedUses),source:'USER_DECLARED',created_at:new Date().toISOString()
   };
   if(!row.shoe_name) return res.status(400).json({error:'shoe_name_required'});
   if(!db.configured()) return res.status(202).json({stored:false,reason:'supabase_not_configured'});

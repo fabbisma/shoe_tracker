@@ -24,7 +24,7 @@ module.exports=async function handler(req,res){
   if(!db.configured()) return res.status(503).json({error:'supabase_not_configured'});
   const url=process.env.DECATHLON_FEED_URL; if(!url) return res.status(503).json({error:'decathlon_feed_not_configured'});
   try{
-    const feedRes=await fetch(url,{headers:{'user-agent':'RunDeal/0.5 product-feed importer'}}); if(!feedRes.ok) throw new Error(`Feed HTTP ${feedRes.status}`);
+    const feedRes=await fetch(url,{headers:{'user-agent':'RunDeal/0.6 product-feed importer'}}); if(!feedRes.ok) throw new Error(`Feed HTTP ${feedRes.status}`);
     const rawRows=await parseFeed(feedRes); const items=rawRows.map(normalize).filter(Boolean).filter(x=>x.price!=null).slice(0,10000);
     const retailers=await db.insert('retailers',[{slug:'decathlon',name:'Decathlon'}],{upsert:true,onConflict:'slug'}); const retailerId=retailers?.[0]?.id;
     const merchantRows=items.map(x=>({retailer_id:retailerId,external_id:x.external_id,title:x.title,brand:x.brand,ean:x.ean,product_url:x.product_url,image_url:x.image_url,availability:x.availability,size_eu:x.size_eu,raw:x.raw,last_seen_at:new Date().toISOString()}));

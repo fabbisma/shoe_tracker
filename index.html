@@ -16,7 +16,7 @@
     <a href="#" class="brand" aria-label="RunDeal accueil">
       <span class="brand-mark">R</span>
       <span>RunDeal</span>
-      <span class="badge badge-demo">V0.5 · API</span>
+      <span class="badge badge-demo">V0.6 · STRAVA</span>
     </a>
     <div class="top-actions">
       <button class="ghost-btn" id="resetBtn" type="button">Réinitialiser</button>
@@ -180,6 +180,39 @@
           <button class="primary-btn" id="toggleHistoryForm" type="button">+ Ajouter une chaussure</button>
         </div>
 
+        <section class="strava-private-card" aria-labelledby="stravaPrivateTitle">
+          <div class="strava-private-head">
+            <div>
+              <div class="strava-private-kicker"><span>STRAVA · PRIVÉ</span> Import personnel uniquement</div>
+              <h3 id="stravaPrivateTitle">Retrouver mes chaussures et leur kilométrage</h3>
+              <p>RunDeal demande uniquement l’accès au profil/équipement Strava. Les données récupérées restent dans ton espace privé, ne sont pas copiées dans Supabase et ne servent pas aux statistiques communautaires.</p>
+            </div>
+            <div class="strava-actions">
+              <a class="strava-connect-btn" id="stravaConnectBtn" href="/api/strava-connect">Connecter Strava</a>
+              <button class="ghost-btn hidden" id="stravaDisconnectBtn" type="button">Déconnecter</button>
+            </div>
+          </div>
+
+          <div class="strava-boundary" aria-label="Séparation des données Strava et RunDeal">
+            <div class="boundary-box private"><span>① PRIVÉ</span><strong>Strava → RunDeal</strong><small>Nom des chaussures + kilométrage, visibles seulement par l’utilisateur connecté.</small></div>
+            <div class="boundary-arrow" aria-hidden="true">→</div>
+            <div class="boundary-gate"><strong>Aucune copie automatique</strong><small>L’utilisateur saisit lui-même un retour RunDeal s’il souhaite contribuer.</small></div>
+            <div class="boundary-arrow" aria-hidden="true">→</div>
+            <div class="boundary-box community"><span>② COMMUNAUTÉ</span><strong>Données RunDeal</strong><small>Uniquement les informations déclarées directement dans le formulaire ci-dessous.</small></div>
+          </div>
+
+          <div id="stravaNotice" class="strava-notice" role="status">Connexion non vérifiée.</div>
+          <div id="stravaPrivateData" class="strava-private-data hidden">
+            <div class="strava-user-line"><div><span>IMPORT PRIVÉ</span><strong id="stravaAthleteLabel">Compte Strava connecté</strong></div><small>Ces données ne sont jamais proposées comme contribution automatique.</small></div>
+            <div id="stravaShoes" class="strava-shoes"></div>
+            <div class="strava-manual-help">
+              <strong>Tu veux donner ton avis sur une de ces paires ?</strong>
+              <span>Ouvre le formulaire RunDeal puis sélectionne ou saisis toi-même le modèle. Aucun nom, kilométrage ou autre donnée Strava n’est prérempli.</span>
+              <button type="button" class="ghost-btn" id="openManualFeedbackFromStrava">Saisir un retour RunDeal</button>
+            </div>
+          </div>
+        </section>
+
         <form id="historyForm" class="history-form hidden">
           <div class="history-form-grid">
             <label>
@@ -229,7 +262,7 @@
 
           <label class="community-consent">
             <input type="checkbox" id="communityConsent" />
-            <span><strong>Contribuer aux statistiques communautaires</strong><small>Dans la future version : modèle, génération, niveau, tranche de poids, ressentis et usages. Ce choix n’est pas nécessaire pour personnaliser tes recommandations.</small></span>
+            <span><strong>Contribuer aux statistiques communautaires</strong><small>Uniquement avec les informations saisies directement dans ce formulaire RunDeal : modèle, génération, niveau, tranche de poids, ressentis et usages. Aucune donnée Strava n’est copiée ici.</small></span>
           </label>
 
           <div class="history-form-actions">
@@ -239,7 +272,7 @@
         </form>
 
         <div class="imported-history-block">
-          <div class="imported-history-head"><div><span>MES DONNÉES RÉELLES</span><strong>7 chaussures déjà utilisées</strong></div><small>Distances reprises de ton historique fourni. Clique sur une paire pour ajouter ton ressenti.</small></div>
+          <div class="imported-history-head"><div><span>HISTORIQUE DÉCLARÉ À RUNDEAL</span><strong>7 chaussures déjà utilisées</strong></div><small>Données que tu as fournies directement à RunDeal. Elles sont distinctes de l’import Strava privé.</small></div>
           <div id="importedShoes" class="imported-shoes"></div>
         </div>
 
@@ -258,6 +291,7 @@
 
     <section class="source-strip" aria-label="État des données">
       <div><span class="source-dot api"></span><strong>API RunDeal</strong><small id="apiStatusText">chargement…</small></div>
+      <div><span class="source-dot strava"></span><strong>Strava privé</strong><small id="stravaSourceStatus">non connecté</small></div>
       <div><span class="source-dot real"></span><strong>Données réelles</strong><small>prix constatés / flux marchand</small></div>
       <div><span class="source-dot demo"></span><strong>Démo</strong><small>encore utilisée pour compléter la maquette</small></div>
     </section>
@@ -322,8 +356,8 @@
   </main>
 
   <footer>
-    <div><strong>RunDeal</strong> — V0.5 API + données réelles</div>
-    <p>Les cartes marquées « donnée réelle » proviennent de sources publiques vérifiées ou d’un flux marchand connecté. Les autres cartes restent des données de démonstration tant qu’elles ne sont pas remplacées par la base.</p>
+    <div><strong>RunDeal</strong> — V0.6 · import Strava privé + données réelles</div>
+    <p>Les données Strava sont affichées uniquement à l’utilisateur authentifié et ne sont pas enregistrées dans la base communautaire. Les contributions communautaires proviennent exclusivement d’une saisie directe dans RunDeal.</p>
   </footer>
 
   <dialog id="shoeDialog">

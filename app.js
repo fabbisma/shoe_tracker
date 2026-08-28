@@ -33,7 +33,7 @@ let shoes = [
   {id:9,family:'deviate',brand:'PUMA',name:'Deviate Nitro 2',generation:'N−1',terrain:['route'],levels:['regulier','competition'],uses:['tempo','race','daily'],drop:8,cushion:'high',foam:'bouncy',carbon:true,launch:170,avg90:112,best:79,price:85,shop:'Top4Running',sizes:['41','42','42.5','43','44'],weightRange:[50,95],expert:90,community:88,deal:98,athlete:'Ancienne génération encore très compétitive',reviews:['Excellent rapport performance/prix','Polyvalente malgré la plaque','Très intéressante en ancienne génération'],offers:[['Top4Running',85],['Running Point',92],['i-Run',99]],compare:{current:'Deviate Nitro 3',currentPrice:149,fitDelta:4,verdict:'N−1 = affaire forte',reason:'Le prix chute beaucoup plus vite que la pertinence technique dans ce scénario de démonstration.',changes:[['Drop','8 mm','10 mm','Sensation différente'],['Mousse','très rebondissante','optimisée','Gain N'],['Plaque','carbone','carbone','Identique'],['Prix','85 €','149 €','64 € d’écart']]}}
 ];
 
-const state = {rank:'balanced', generations:new Set(['N','N−1','N−2','N−3']), history:[]};
+const state = {rank:'balanced', generations:new Set(['N','N−1','N−2','N−3']), history:[], strava:{connected:false,configured:null,athlete:null,shoes:[]}};
 const $ = s => document.querySelector(s);
 const $$ = s => [...document.querySelectorAll(s)];
 
@@ -156,6 +156,102 @@ function renderImportedShoes(){
     $('#historyForm').scrollIntoView({behavior:'smooth',block:'nearest'});
   }));
 }
+function renderStravaPrivate(payload){
+  const connect=$('#stravaConnectBtn');
+  const disconnect=$('#stravaDisconnectBtn');
+  const notice=$('#stravaNotice');
+  const data=$('#stravaPrivateData');
+  const sourceStatus=$('#stravaSourceStatus');
+  if(!connect || !disconnect || !notice || !data) return;
+  const connected=Boolean(payload&&payload.connected);
+  state.strava={
+    connected,
+    configured:payload?.configured !== false,
+    athlete:payload?.athlete || null,
+    shoes:Array.isArray(payload?.shoes)?payload.shoes:[]
+  };
+  connect.classList.toggle('hidden',connected);
+  disconnect.classList.toggle('hidden',!connected);
+  data.classList.toggle('hidden',!connected);
+  if(!connected){
+    const notConfigured=payload?.configured===false;
+    notice.className=`strava-notice ${notConfigured?'warn':''}`;
+    notice.textContent=notConfigured
+      ? 'Strava n’est pas encore configuré sur Vercel. Ajoute les variables STRAVA_CLIENT_ID, STRAVA_CLIENT_SECRET et STRAVA_SESSION_SECRET.'
+      : 'Strava n’est pas connecté. Tu peux connecter ton compte pour afficher ici tes chaussures et leur kilométrage, uniquement dans ton espace privé.';
+    if(sourceStatus) sourceStatus.textContent=notConfigured?'à configurer':'non connecté';
+    return;
+  }
+  notice.className='strava-notice ok';
+  notice.textContent='Connexion active · données récupérées à la demande depuis Strava, sans écriture dans Supabase ni transfert vers la communauté.';
+  if(sourceStatus) sourceStatus.textContent=`connecté · ${state.strava.shoes.length} paire${state.strava.shoes.length>1?'s':''}`;
+  $('#stravaAthleteLabel').textContent=state.strava.athlete?.firstname ? `${state.strava.athlete.firstname} · compte Strava connecté` : 'Compte Strava connecté';
+  const root=$('#stravaShoes');
+  root.innerHTML=state.strava.shoes.length
+    ? state.strava.shoes.map(g=>`<div class="strava-shoe"><div><strong>${escapeHtml(g.name)}</strong>${g.primary?'<small class="strava-primary">paire principale</small>':'<small>équipement Strava</small>'}</div><b>${formatKm(g.distanceKm||0)}</b></div>`).join('')
+    : '<div class="strava-shoe"><div><strong>Aucune chaussure trouvée</strong><small>Ajoute ou nomme tes chaussures dans Strava puis reconnecte RunDeal.</small></div></div>';
+}
+
+function escapeHtml(value){
+  return String(value??'').replace(/[&<>"]/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[ch]));
+}
+
+function stravaRedirectMessage(){
+  const status=new URLSearchParams(location.search).get('strava');
+  const notice=$('#stravaNotice');
+  if(!status || !notice) return;
+  const messages={
+    connected:['ok','Autorisation Strava reçue. Vérification des chaussures en cours…'],
+    denied:['warn','Connexion Strava annulée : aucune donnée n’a été récupérée.'],
+    'not-configured':['warn','La connexion Strava est prête dans le code mais les identifiants OAuth ne sont pas encore configurés sur Vercel.'],
+    'state-error':['warn','La vérification de sécurité OAuth a échoué. Recommence la connexion Strava.'],
+    'missing-code':['warn','Strava n’a pas renvoyé de code d’autorisation.'],
+    'token-error':['warn','Impossible de terminer la connexion Strava. Vérifie le Client ID, le secret et le domaine de callback.']
+  };
+  const item=messages[status];
+  if(item){notice.className=`strava-notice ${item[0]}`;notice.textContent=item[1];}
+}
+
+async function loadStravaPrivate(){
+  const notice=$('#stravaNotice');
+  if(!notice) return;
+  try{
+    const res=await fetch('/api/strava-me',{headers:{accept:'application/json'},cache:'no-store'});
+    const payload=await res.json().catch(()=>({}));
+    if(res.status===401){renderStravaPrivate({connected:false,configured:true});return;}
+    if(res.status===503){renderStravaPrivate({connected:false,configured:false});return;}
+    if(!res.ok) throw new Error(payload.error||`HTTP ${res.status}`);
+    renderStravaPrivate(payload);
+  }catch(err){
+    renderStravaPrivate({connected:false,configured:true});
+    notice.className='strava-notice warn';
+    notice.textContent='Impossible de joindre l’import Strava pour le moment. Le reste de RunDeal continue à fonctionner.';
+    const sourceStatus=$('#stravaSourceStatus'); if(sourceStatus) sourceStatus.textContent='indisponible';
+  }
+}
+
+async function disconnectStrava(){
+  const button=$('#stravaDisconnectBtn');
+  if(button){button.disabled=true;button.textContent='Déconnexion…';}
+  try{await fetch('/api/strava-disconnect',{method:'POST',headers:{accept:'application/json'}});}catch(_err){}
+  if(button){button.disabled=false;button.textContent='Déconnecter';}
+  renderStravaPrivate({connected:false,configured:true});
+  const notice=$('#stravaNotice'); if(notice){notice.className='strava-notice ok';notice.textContent='Compte Strava déconnecté et session locale supprimée.';}
+}
+
+function openManualFeedbackFromStrava(){
+  resetHistoryForm();
+  $('#historyShoe').value='custom';
+  $('#historyCustomShoe').classList.remove('hidden');
+  $('#historyCustomShoe').value='';
+  $('#historyDistance').value='';
+  $('#historyDistance').placeholder='Saisis toi-même une valeur si tu le souhaites';
+  $('#historyForm').classList.remove('hidden');
+  $('#toggleHistoryForm').textContent='Fermer';
+  $('#historyForm').scrollIntoView({behavior:'smooth',block:'nearest'});
+  $('#historyCustomShoe').focus({preventScroll:true});
+}
+
 function selectedHistoryValues(selector,key){ return $$(selector+'.active').map(x=>x.dataset[key]); }
 function resetHistoryForm(){
   $$('#feedbackChips .feedback-chip,#historyUseChips .feedback-chip').forEach(x=>x.classList.remove('active'));
@@ -328,6 +424,8 @@ async function submitCommunityFeedback(entry){
   }catch(err){ return {stored:false,reason:'network'}; }
 }
 
+if($('#stravaDisconnectBtn')) $('#stravaDisconnectBtn').addEventListener('click',disconnectStrava);
+if($('#openManualFeedbackFromStrava')) $('#openManualFeedbackFromStrava').addEventListener('click',openManualFeedbackFromStrava);
 populateHistoryShoes();
 renderImportedShoes();
 syncHistoryDistance();
@@ -400,3 +498,4 @@ $('#dialogClose').addEventListener('click',()=>$('#shoeDialog').close());
 $('#shoeDialog').addEventListener('click',e=>{if(e.target===$('#shoeDialog')) $('#shoeDialog').close()});
 render();
 loadApiCatalog();
+loadStravaPrivate().then(stravaRedirectMessage);

@@ -1,4 +1,4 @@
--- RunDeal V0.5 — schéma minimal Supabase/PostgreSQL
+-- RunDeal V0.6 — schéma minimal Supabase/PostgreSQL
 create extension if not exists pgcrypto;
 
 create table if not exists retailers (
@@ -98,6 +98,7 @@ create table if not exists community_feedback (
   sentiment text,
   feedback jsonb not null default '[]'::jsonb,
   uses jsonb not null default '[]'::jsonb,
+  source text not null default 'USER_DECLARED',
   created_at timestamptz not null default now()
 );
 
@@ -107,3 +108,5 @@ alter table offers enable row level security;
 alter table price_history enable row level security;
 alter table merchant_products enable row level security;
 alter table product_matches enable row level security;
+
+-- Important V0.6 : aucune donnée récupérée via l’API Strava n’est écrite dans ces tables.
