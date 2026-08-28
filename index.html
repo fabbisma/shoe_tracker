@@ -148,6 +148,23 @@
           </div>
           <input type="hidden" id="usage" value="daily" />
         </div>
+
+        <div class="filter-card span-2 generation-filter-card">
+          <div class="generation-filter-head">
+            <div>
+              <span class="filter-kicker">GÉNÉRATIONS À CHERCHER</span>
+              <strong>Inclure les anciens modèles</strong>
+            </div>
+            <button type="button" class="old-only-btn" id="oldOnlyBtn">Anciennes uniquement</button>
+          </div>
+          <div class="generation-chips" id="generationChips" aria-label="Filtrer par génération">
+            <button type="button" class="generation-chip active current" data-generation="N">N <small>actuelle</small></button>
+            <button type="button" class="generation-chip active old" data-generation="N−1">N−1 <small>souvent bon plan</small></button>
+            <button type="button" class="generation-chip active old" data-generation="N−2">N−2 <small>fortes remises</small></button>
+            <button type="button" class="generation-chip active old" data-generation="N−3">N−3 <small>à vérifier</small></button>
+          </div>
+          <p class="generation-filter-note"><strong>N</strong> = version actuelle. Une ancienne génération reste recommandable si la perte technique est faible par rapport à l'économie.</p>
+        </div>
       </form>
     </section>
 
@@ -176,32 +193,12 @@
     <section class="generation-section">
       <div class="section-head">
         <div>
-          <p class="eyebrow">LE VRAI BON PLAN</p>
-          <h2>Comparer les générations</h2>
+          <p class="eyebrow">ANCIENNES GÉNÉRATIONS</p>
+          <h2>Ce que tu perds — et ce que tu économises</h2>
         </div>
+        <span class="data-note">Comparaison dynamique du meilleur ancien modèle affiché</span>
       </div>
-      <div class="generation-comparison">
-        <div class="generation-copy">
-          <span class="badge badge-green">Recommandation moteur</span>
-          <h3>Ne paie pas automatiquement la dernière version.</h3>
-          <p>Le moteur compare le gain technique au surcoût. Une N−2 à −50 % peut être un meilleur achat qu’une nouvelle génération à plein tarif.</p>
-          <div class="decision-box">
-            <strong>Exemple de verdict</strong>
-            <span>« Prends la génération 5 : seulement −2 points de compatibilité, mais 51 € économisés. »</span>
-          </div>
-        </div>
-        <div class="generation-table-wrap">
-          <table>
-            <thead><tr><th>Génération</th><th>Meilleur prix</th><th>Fit</th><th>Verdict</th></tr></thead>
-            <tbody>
-              <tr><td>N</td><td>149 €</td><td>94</td><td><span class="status neutral">Très bonne</span></td></tr>
-              <tr class="winner"><td>N−1</td><td><strong>98 €</strong></td><td>92</td><td><span class="status good">Meilleur achat</span></td></tr>
-              <tr><td>N−2</td><td>82 €</td><td>86</td><td><span class="status neutral">Budget</span></td></tr>
-              <tr><td>N−3</td><td>71 €</td><td>77</td><td><span class="status warning">Compromis fort</span></td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
+      <div id="generationSpotlight" class="generation-comparison" aria-live="polite"></div>
     </section>
 
     <section class="trust-section">
@@ -231,7 +228,7 @@
   </main>
 
   <footer>
-    <div><strong>RunDeal</strong> — prototype V0.1</div>
+    <div><strong>RunDeal</strong> — prototype V0.2</div>
     <p>Les données affichées dans cette maquette sont fictives et servent uniquement à démontrer l’interface et le moteur de scoring.</p>
   </footer>
 

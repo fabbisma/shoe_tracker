@@ -1,4 +1,4 @@
-# RunDeal V0.1
+# RunDeal V0.2
 
 Prototype front-end statique d'un comparateur intelligent de chaussures de running.
 
@@ -12,7 +12,7 @@ Prototype front-end statique d'un comparateur intelligent de chaussures de runni
 - Fiche détaillée avec synthèse de reviews, données communauté et performances de référence.
 - Responsive desktop/mobile.
 
-> Les prix, scores, disponibilités et avis présents dans la V0.1 sont des données de démonstration.
+> Les prix, scores, disponibilités et avis présents dans la V0.2 sont des données de démonstration.
 
 ## Déploiement GitHub + Vercel
 
@@ -26,7 +26,7 @@ Prototype front-end statique d'un comparateur intelligent de chaussures de runni
 8. Output Directory : laisser vide.
 9. Cliquer sur **Deploy**.
 
-Aucune variable d'environnement n'est nécessaire pour cette V0.1.
+Aucune variable d'environnement n'est nécessaire pour cette V0.2.
 
 ## Étape suivante recommandée
 
@@ -43,3 +43,15 @@ Passer à une architecture avec base de données (Supabase/PostgreSQL) et sépar
 - `community_runs`
 
 Le front pourra ensuite être migré vers Next.js si on veut SEO, routes par modèle, authentification, alertes de prix et API serveur.
+
+
+## Nouveautés V0.2
+
+- Filtre multi-sélection **N / N−1 / N−2 / N−3**.
+- Preset **Anciennes uniquement**.
+- Badge très visible sur les cartes pour distinguer version actuelle et ancienne génération.
+- Écart de prix vs génération N directement dans les résultats.
+- Comparateur dynamique des différences techniques vs N.
+- Verdict génération : ancienne recommandée, choix budget ou compromis fort.
+
+Toutes les caractéristiques et tous les prix restent des **données de démonstration** dans cette maquette.

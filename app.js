@@ -1,16 +1,29 @@
 const shoes = [
-  {id:1,brand:'ASICS',name:'Novablast 5',generation:'N−1',terrain:['route','mixte'],levels:['occasionnel','regulier','competition'],uses:['daily','long','tempo'],drop:8,cushion:'high',foam:'bouncy',carbon:false,launch:150,avg90:124,best:96,price:98,shop:'i-Run',sizes:['41','42','42.5','43','44','44.5'],weightRange:[55,95],expert:91,community:88,deal:94,athlete:'Pas de référence élite retenue',reviews:['Amorti polyvalent','Mousse dynamique','Très bon choix quotidien'],offers:[['i-Run',98],['Alltricks',104],['Top4Running',109]]},
-  {id:2,brand:'ASICS',name:'Novablast 4',generation:'N−2',terrain:['route','mixte'],levels:['debutant','occasionnel','regulier'],uses:['daily','long'],drop:8,cushion:'high',foam:'balanced',carbon:false,launch:150,avg90:101,best:79,price:82,shop:'Top4Running',sizes:['40','41','42','42.5','43','44'],weightRange:[55,90],expert:86,community:87,deal:97,athlete:'Pas de référence élite retenue',reviews:['Très bon rapport qualité/prix','Stable pour un daily trainer','Moins vive que la génération suivante'],offers:[['Top4Running',82],['Running Point',86],['i-Run',92]]},
-  {id:3,brand:'BROOKS',name:'Ghost 16',generation:'N−1',terrain:['route','mixte'],levels:['debutant','occasionnel','regulier'],uses:['daily','long'],drop:12,cushion:'high',foam:'balanced',carbon:false,launch:150,avg90:116,best:88,price:91,shop:'Alltricks',sizes:['40.5','41','42','42.5','43','44','45'],weightRange:[55,105],expert:84,community:91,deal:90,athlete:'Pas de référence élite retenue',reviews:['Confort très consensuel','Bonne durabilité','Moins orientée vitesse'],offers:[['Alltricks',91],['i-Run',99],['Running Point',102]]},
-  {id:4,brand:'SAUCONY',name:'Endorphin Speed 4',generation:'N−1',terrain:['route'],levels:['regulier','competition'],uses:['tempo','race','daily'],drop:8,cushion:'high',foam:'bouncy',carbon:false,launch:190,avg90:151,best:119,price:124,shop:'i-Run',sizes:['41','42','42.5','43','44','44.5'],weightRange:[50,90],expert:94,community:92,deal:92,athlete:'Utilisée surtout comme chaussure tempo/compétition amateur',reviews:['Très polyvalente à allure soutenue','Plaque nylon, sensation vive','Peut remplacer deux paires'],offers:[['i-Run',124],['Top4Running',129],['Alltricks',135]]},
-  {id:5,brand:'ADIDAS',name:'Adizero Adios Pro 3',generation:'N−2',terrain:['route'],levels:['competition','regulier'],uses:['race','tempo'],drop:6.5,cushion:'high',foam:'bouncy',carbon:true,launch:250,avg90:181,best:139,price:145,shop:'Top4Running',sizes:['41','42','42.5','43','44'],weightRange:[50,88],expert:96,community:90,deal:95,athlete:'Modèle de compétition — performances élite disponibles dans la future base',reviews:['Très haut rendement','Pensée marathon / semi','Moins pertinente en footing lent'],offers:[['Top4Running',145],['Running Point',154],['Adidas',175]]},
-  {id:6,brand:'NIKE',name:'Pegasus 41',generation:'N−1',terrain:['route','mixte'],levels:['debutant','occasionnel','regulier'],uses:['daily','long'],drop:10,cushion:'moderate',foam:'balanced',carbon:false,launch:140,avg90:111,best:79,price:84,shop:'Nike',sizes:['40','40.5','41','42','42.5','43','44','45','46'],weightRange:[50,100],expert:83,community:89,deal:93,athlete:'Pas de référence élite retenue',reviews:['Polyvalente et simple','Bonne disponibilité de tailles','Amorti moins maximaliste'],offers:[['Nike',84],['Alltricks',89],['i-Run',94]]},
-  {id:7,brand:'HOKA',name:'Speedgoat 6',generation:'N',terrain:['trail'],levels:['occasionnel','regulier','competition'],uses:['daily','long','race'],drop:5,cushion:'max',foam:'balanced',carbon:false,launch:160,avg90:146,best:118,price:124,shop:'Alltricks',sizes:['41','42','42.5','43','44','44.5','45'],weightRange:[55,100],expert:91,community:92,deal:84,athlete:'Performances trail à sourcer dans la future base',reviews:['Très bonne accroche','Confort longue distance','Profil trail polyvalent'],offers:[['Alltricks',124],['i-Run',132],['Hardloop',139]]},
-  {id:8,brand:'ASICS',name:'Gel-Trabuco 12',generation:'N−1',terrain:['trail','mixte'],levels:['debutant','occasionnel','regulier'],uses:['daily','long'],drop:8,cushion:'high',foam:'balanced',carbon:false,launch:160,avg90:119,best:87,price:92,shop:'i-Run',sizes:['40','41','42','42.5','43','44','45'],weightRange:[55,110],expert:87,community:90,deal:95,athlete:'Pas de référence élite retenue',reviews:['Stable et protectrice','Bon choix trail loisir','Poids supérieur aux modèles compétition'],offers:[['i-Run',92],['Alltricks',98],['Hardloop',105]]},
-  {id:9,brand:'PUMA',name:'Deviate Nitro 2',generation:'N−2',terrain:['route'],levels:['regulier','competition'],uses:['tempo','race','daily'],drop:8,cushion:'high',foam:'bouncy',carbon:true,launch:170,avg90:112,best:79,price:85,shop:'Top4Running',sizes:['41','42','42.5','43','44'],weightRange:[50,95],expert:90,community:88,deal:98,athlete:'Ancienne génération encore très compétitive',reviews:['Excellent rapport performance/prix','Polyvalente malgré la plaque','Très intéressante en N−2'],offers:[['Top4Running',85],['Running Point',92],['i-Run',99]]}
+  {id:10,family:'novablast',brand:'ASICS',name:'Novablast 6',generation:'N',terrain:['route','mixte'],levels:['occasionnel','regulier','competition'],uses:['daily','long','tempo'],drop:8,cushion:'high',foam:'bouncy',carbon:false,launch:160,avg90:148,best:132,price:139,shop:'i-Run',sizes:['41','42','42.5','43','44','44.5'],weightRange:[55,95],expert:94,community:91,deal:74,athlete:'Données de démonstration',reviews:['Version actuelle de référence','Amorti dynamique','Prix encore proche du lancement'],offers:[['i-Run',139],['Alltricks',145],['ASICS',160]]},
+  {id:1,family:'novablast',brand:'ASICS',name:'Novablast 5',generation:'N−1',terrain:['route','mixte'],levels:['occasionnel','regulier','competition'],uses:['daily','long','tempo'],drop:8,cushion:'high',foam:'bouncy',carbon:false,launch:150,avg90:124,best:96,price:98,shop:'i-Run',sizes:['41','42','42.5','43','44','44.5'],weightRange:[55,95],expert:91,community:88,deal:94,athlete:'Pas de référence élite retenue',reviews:['Amorti polyvalent','Mousse dynamique','Très bon choix quotidien'],offers:[['i-Run',98],['Alltricks',104],['Top4Running',109]],compare:{current:'Novablast 6',currentPrice:139,fitDelta:2,verdict:'N−1 recommandée',reason:'Les différences restent modestes pour un usage quotidien alors que l’écart de prix est important.',changes:[['Poids','255 g','248 g','N plus légère'],['Mousse','ancienne formulation','nouvelle formulation','N plus vive'],['Stabilité','Très bonne','Très bonne','Quasi identique'],['Drop','8 mm','8 mm','Identique']]}},
+  {id:2,family:'novablast',brand:'ASICS',name:'Novablast 4',generation:'N−2',terrain:['route','mixte'],levels:['debutant','occasionnel','regulier'],uses:['daily','long'],drop:8,cushion:'high',foam:'balanced',carbon:false,launch:150,avg90:101,best:79,price:82,shop:'Top4Running',sizes:['40','41','42','42.5','43','44'],weightRange:[55,90],expert:86,community:87,deal:97,athlete:'Pas de référence élite retenue',reviews:['Très bon rapport qualité/prix','Stable pour un daily trainer','Moins vive que la génération suivante'],offers:[['Top4Running',82],['Running Point',86],['i-Run',92]],compare:{current:'Novablast 6',currentPrice:139,fitDelta:6,verdict:'N−2 = choix budget',reason:'Tu économises beaucoup, mais le moteur considère la mousse moins dynamique et le profil un peu moins polyvalent.',changes:[['Poids','260 g','248 g','N plus légère'],['Mousse','plus équilibrée','plus rebondissante','Gain sensible sur N'],['Stabilité','Bonne','Très bonne','N progresse'],['Drop','8 mm','8 mm','Identique']]}},
+  {id:11,family:'novablast',brand:'ASICS',name:'Novablast 3',generation:'N−3',terrain:['route','mixte'],levels:['debutant','occasionnel','regulier'],uses:['daily','long'],drop:8,cushion:'high',foam:'balanced',carbon:false,launch:140,avg90:88,best:64,price:69,shop:'Running Point',sizes:['41','42','42.5','43','44'],weightRange:[55,88],expert:81,community:84,deal:96,athlete:'Pas de référence élite retenue',reviews:['Prix très bas','Toujours confortable','Compromis technique plus marqué'],offers:[['Running Point',69],['Top4Running',74]],compare:{current:'Novablast 6',currentPrice:139,fitDelta:11,verdict:'N−3 seulement si budget prioritaire',reason:'Le prix est excellent, mais plusieurs générations d’évolution commencent à créer un vrai écart technique.',changes:[['Poids','275 g','248 g','Écart notable'],['Mousse','moins rebondissante','nouvelle formulation','N nettement devant'],['Stabilité','Correcte','Très bonne','N progresse'],['Drop','8 mm','8 mm','Identique']]}},
+
+  {id:12,family:'ghost',brand:'BROOKS',name:'Ghost 17',generation:'N',terrain:['route','mixte'],levels:['debutant','occasionnel','regulier'],uses:['daily','long'],drop:10,cushion:'high',foam:'balanced',carbon:false,launch:150,avg90:142,best:129,price:135,shop:'Brooks',sizes:['40.5','41','42','42.5','43','44','45'],weightRange:[55,105],expert:88,community:92,deal:69,athlete:'Données de démonstration',reviews:['Version actuelle','Confort très consensuel','Plus moderne sous le pied'],offers:[['Brooks',135],['i-Run',139]]},
+  {id:3,family:'ghost',brand:'BROOKS',name:'Ghost 16',generation:'N−1',terrain:['route','mixte'],levels:['debutant','occasionnel','regulier'],uses:['daily','long'],drop:12,cushion:'high',foam:'balanced',carbon:false,launch:150,avg90:116,best:88,price:91,shop:'Alltricks',sizes:['40.5','41','42','42.5','43','44','45'],weightRange:[55,105],expert:84,community:91,deal:90,athlete:'Pas de référence élite retenue',reviews:['Confort très consensuel','Bonne durabilité','Moins orientée vitesse'],offers:[['Alltricks',91],['i-Run',99],['Running Point',102]],compare:{current:'Ghost 17',currentPrice:135,fitDelta:3,verdict:'N−1 recommandée si confort prioritaire',reason:'La nouvelle version affine le comportement, mais la N−1 conserve l’essentiel du confort pour nettement moins cher.',changes:[['Drop','12 mm','10 mm','N plus modérée'],['Amorti','Confortable','plus moderne','Petit gain N'],['Durabilité','Très bonne','Très bonne','Identique'],['Usage','Daily trainer','Daily trainer','Identique']]}},
+
+  {id:13,family:'speed',brand:'SAUCONY',name:'Endorphin Speed 5',generation:'N',terrain:['route'],levels:['regulier','competition'],uses:['tempo','race','daily'],drop:8,cushion:'high',foam:'bouncy',carbon:false,launch:200,avg90:189,best:169,price:175,shop:'Saucony',sizes:['41','42','42.5','43','44','44.5'],weightRange:[50,90],expert:96,community:93,deal:63,athlete:'Données de démonstration',reviews:['Version actuelle','Rapide et polyvalente','Prix encore élevé'],offers:[['Saucony',175],['i-Run',179]]},
+  {id:4,family:'speed',brand:'SAUCONY',name:'Endorphin Speed 4',generation:'N−1',terrain:['route'],levels:['regulier','competition'],uses:['tempo','race','daily'],drop:8,cushion:'high',foam:'bouncy',carbon:false,launch:190,avg90:151,best:119,price:124,shop:'i-Run',sizes:['41','42','42.5','43','44','44.5'],weightRange:[50,90],expert:94,community:92,deal:92,athlete:'Utilisée surtout comme chaussure tempo/compétition amateur',reviews:['Très polyvalente à allure soutenue','Plaque nylon, sensation vive','Peut remplacer deux paires'],offers:[['i-Run',124],['Top4Running',129],['Alltricks',135]],compare:{current:'Endorphin Speed 5',currentPrice:175,fitDelta:2,verdict:'N−1 très intéressante',reason:'Très peu de perte dans le score de profil pour plus de 50 € d’économie dans cet exemple.',changes:[['Poids','léger','un peu plus léger','Petit gain N'],['Mousse','très dynamique','optimisée','Écart faible'],['Plaque','nylon','nylon','Identique'],['Drop','8 mm','8 mm','Identique']]}},
+
+  {id:14,family:'adiospro',brand:'ADIDAS',name:'Adizero Adios Pro 4',generation:'N',terrain:['route'],levels:['competition','regulier'],uses:['race','tempo'],drop:6,cushion:'high',foam:'bouncy',carbon:true,launch:250,avg90:229,best:199,price:209,shop:'Adidas',sizes:['41','42','42.5','43','44'],weightRange:[50,88],expert:98,community:92,deal:65,athlete:'Modèle compétition — données élite futures',reviews:['Version actuelle de compétition','Très haut rendement','Prix élevé'],offers:[['Adidas',209],['Top4Running',215]]},
+  {id:5,family:'adiospro',brand:'ADIDAS',name:'Adizero Adios Pro 3',generation:'N−1',terrain:['route'],levels:['competition','regulier'],uses:['race','tempo'],drop:6.5,cushion:'high',foam:'bouncy',carbon:true,launch:250,avg90:181,best:139,price:145,shop:'Top4Running',sizes:['41','42','42.5','43','44'],weightRange:[50,88],expert:96,community:90,deal:95,athlete:'Modèle de compétition — performances élite disponibles dans la future base',reviews:['Très haut rendement','Pensée marathon / semi','Moins pertinente en footing lent'],offers:[['Top4Running',145],['Running Point',154],['Adidas',175]],compare:{current:'Adios Pro 4',currentPrice:209,fitDelta:3,verdict:'N−1 très compétitive',reason:'L’ancienne version reste une vraie chaussure de course ; le gain de la N doit être mis en regard d’un surcoût élevé.',changes:[['Poids','très léger','plus léger','Gain N'],['Géométrie','agressive','optimisée','N plus moderne'],['Plaque/tiges','carbone','carbone','Même philosophie'],['Usage','semi/marathon','semi/marathon','Identique']]}},
+
+  {id:15,family:'pegasus',brand:'NIKE',name:'Pegasus 42',generation:'N',terrain:['route','mixte'],levels:['debutant','occasionnel','regulier'],uses:['daily','long'],drop:10,cushion:'moderate',foam:'balanced',carbon:false,launch:145,avg90:139,best:124,price:129,shop:'Nike',sizes:['40','40.5','41','42','42.5','43','44','45','46'],weightRange:[50,100],expert:86,community:90,deal:68,athlete:'Données de démonstration',reviews:['Version actuelle','Polyvalente','Large public'],offers:[['Nike',129],['i-Run',134]]},
+  {id:6,family:'pegasus',brand:'NIKE',name:'Pegasus 41',generation:'N−1',terrain:['route','mixte'],levels:['debutant','occasionnel','regulier'],uses:['daily','long'],drop:10,cushion:'moderate',foam:'balanced',carbon:false,launch:140,avg90:111,best:79,price:84,shop:'Nike',sizes:['40','40.5','41','42','42.5','43','44','45','46'],weightRange:[50,100],expert:83,community:89,deal:93,athlete:'Pas de référence élite retenue',reviews:['Polyvalente et simple','Bonne disponibilité de tailles','Amorti moins maximaliste'],offers:[['Nike',84],['Alltricks',89],['i-Run',94]],compare:{current:'Pegasus 42',currentPrice:129,fitDelta:2,verdict:'N−1 recommandée pour économiser',reason:'La philosophie reste très proche : pour un usage quotidien, la différence de prix pèse davantage que le petit gain technique.',changes:[['Drop','10 mm','10 mm','Identique'],['Amorti','modéré','modéré+','Petit gain N'],['Polyvalence','Très bonne','Très bonne','Identique'],['Prix','84 €','129 €','45 € d’écart']]}},
+
+  {id:7,family:'speedgoat',brand:'HOKA',name:'Speedgoat 6',generation:'N',terrain:['trail'],levels:['occasionnel','regulier','competition'],uses:['daily','long','race'],drop:5,cushion:'max',foam:'balanced',carbon:false,launch:160,avg90:146,best:118,price:124,shop:'Alltricks',sizes:['41','42','42.5','43','44','44.5','45'],weightRange:[55,100],expert:91,community:92,deal:84,athlete:'Performances trail à sourcer dans la future base',reviews:['Très bonne accroche','Confort longue distance','Profil trail polyvalent'],offers:[['Alltricks',124],['i-Run',132],['Hardloop',139]]},
+  {id:8,family:'trabuco',brand:'ASICS',name:'Gel-Trabuco 12',generation:'N−1',terrain:['trail','mixte'],levels:['debutant','occasionnel','regulier'],uses:['daily','long'],drop:8,cushion:'high',foam:'balanced',carbon:false,launch:160,avg90:119,best:87,price:92,shop:'i-Run',sizes:['40','41','42','42.5','43','44','45'],weightRange:[55,110],expert:87,community:90,deal:95,athlete:'Pas de référence élite retenue',reviews:['Stable et protectrice','Bon choix trail loisir','Poids supérieur aux modèles compétition'],offers:[['i-Run',92],['Alltricks',98],['Hardloop',105]],compare:{current:'Gel-Trabuco 13',currentPrice:150,fitDelta:4,verdict:'N−1 = bon plan trail',reason:'Le modèle précédent reste protecteur et stable ; la nouvelle génération apporte surtout des optimisations.',changes:[['Protection','Élevée','Élevée','Identique'],['Poids','plus lourd','allégé','Gain N'],['Accroche','Très bonne','Très bonne','Écart faible'],['Drop','8 mm','8 mm','Identique']]}},
+
+  {id:16,family:'deviate',brand:'PUMA',name:'Deviate Nitro 3',generation:'N',terrain:['route'],levels:['regulier','competition'],uses:['tempo','race','daily'],drop:10,cushion:'high',foam:'bouncy',carbon:true,launch:180,avg90:164,best:145,price:149,shop:'Puma',sizes:['41','42','42.5','43','44'],weightRange:[50,95],expert:93,community:90,deal:73,athlete:'Données de démonstration',reviews:['Version actuelle','Dynamique','Polyvalente malgré la plaque'],offers:[['Puma',149],['Top4Running',155]]},
+  {id:9,family:'deviate',brand:'PUMA',name:'Deviate Nitro 2',generation:'N−1',terrain:['route'],levels:['regulier','competition'],uses:['tempo','race','daily'],drop:8,cushion:'high',foam:'bouncy',carbon:true,launch:170,avg90:112,best:79,price:85,shop:'Top4Running',sizes:['41','42','42.5','43','44'],weightRange:[50,95],expert:90,community:88,deal:98,athlete:'Ancienne génération encore très compétitive',reviews:['Excellent rapport performance/prix','Polyvalente malgré la plaque','Très intéressante en ancienne génération'],offers:[['Top4Running',85],['Running Point',92],['i-Run',99]],compare:{current:'Deviate Nitro 3',currentPrice:149,fitDelta:4,verdict:'N−1 = affaire forte',reason:'Le prix chute beaucoup plus vite que la pertinence technique dans ce scénario de démonstration.',changes:[['Drop','8 mm','10 mm','Sensation différente'],['Mousse','très rebondissante','optimisée','Gain N'],['Plaque','carbone','carbone','Identique'],['Prix','85 €','149 €','64 € d’écart']]}}
 ];
 
-const state = {rank:'balanced'};
+const state = {rank:'balanced', generations:new Set(['N','N−1','N−2','N−3'])};
 const $ = s => document.querySelector(s);
 const $$ = s => [...document.querySelectorAll(s)];
 
@@ -47,36 +60,82 @@ function scoreFit(shoe,f){
   const [minW,maxW]=shoe.weightRange; add(f.weight>=minW&&f.weight<=maxW?1:.65,10);
   return Math.round((s/w)*100);
 }
-
 function finalScore(shoe,fit){
   if(state.rank==='deal') return shoe.deal;
   if(state.rank==='fit') return fit;
   return Math.round(fit*.58 + shoe.deal*.42);
 }
-
 function labelCushion(v){return {moderate:'Amorti modéré',high:'Amorti important',max:'Amorti maximal'}[v]}
 function labelFoam(v){return {soft:'Souple',balanced:'Équilibrée',firm:'Ferme',bouncy:'Très rebondissante'}[v]}
+function generationClass(g){return g==='N'?'current':'old'}
+function generationSummary(){
+  const order=['N','N−1','N−2','N−3'];
+  return order.filter(x=>state.generations.has(x)).join(' / ');
+}
+function clamp(n,min,max){return Math.max(min,Math.min(max,n))}
+
+function renderGenerationSpotlight(rows,f){
+  const target=rows.find(s=>s.generation!=='N' && s.compare);
+  const box=$('#generationSpotlight');
+  if(!target){
+    box.innerHTML=`<div class="generation-copy"><span class="badge">Aucune ancienne génération affichée</span><h3>Active N−1, N−2 ou N−3 dans les filtres.</h3><p>Le comparateur montrera ici le meilleur ancien modèle disponible face à sa génération actuelle.</p></div>`;
+    return;
+  }
+  const currentFit=clamp(target.fit + target.compare.fitDelta,0,100);
+  const saving=target.compare.currentPrice-target.price;
+  box.innerHTML=`
+    <div class="generation-copy">
+      <span class="generation-hero-badge">ANCIENNE GÉNÉRATION ${target.generation}</span>
+      <h3>${target.name} vs ${target.compare.current}</h3>
+      <p>${target.compare.reason}</p>
+      <div class="generation-verdict"><strong>${target.compare.verdict}</strong><span>${saving} € économisés · Fit ${target.fit}/100 contre environ ${currentFit}/100 pour N</span></div>
+    </div>
+    <div class="generation-table-wrap">
+      <table class="diff-table">
+        <thead><tr><th>Critère</th><th>${target.generation} · ${target.name}</th><th>N · ${target.compare.current}</th><th>Différence</th></tr></thead>
+        <tbody>${target.compare.changes.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td><span class="diff-pill">${r[3]}</span></td></tr>`).join('')}
+          <tr class="price-diff-row"><td>Prix actuel</td><td><strong>${target.price} €</strong></td><td>${target.compare.currentPrice} €</td><td><span class="saving-pill">−${saving} €</span></td></tr>
+        </tbody>
+      </table>
+    </div>`;
+}
 
 function render(){
   const f=getFilters();
   let rows=shoes.map(shoe=>({...shoe,fit:scoreFit(shoe,f)}))
-    .filter(shoe=>shoe.price<=f.maxPrice && shoe.sizes.includes(f.size) && shoe.fit>=52)
+    .filter(shoe=>state.generations.has(shoe.generation) && shoe.price<=f.maxPrice && shoe.sizes.includes(f.size) && shoe.fit>=52)
     .sort((a,b)=>finalScore(b,b.fit)-finalScore(a,a.fit));
   $('#resultCount').textContent=rows.length;
-  $('#summaryText').textContent=`Pointure ${f.size} · budget ≤ ${f.maxPrice} € · classement : ${state.rank==='balanced'?'équilibre profil/prix':state.rank==='deal'?'meilleures affaires':'compatibilité'}`;
+  $('#summaryText').textContent=`Pointure ${f.size} · budget ≤ ${f.maxPrice} € · générations ${generationSummary()} · ${state.rank==='balanced'?'équilibre profil/prix':state.rank==='deal'?'meilleures affaires':'compatibilité'}`;
   $('#emptyState').classList.toggle('hidden',rows.length!==0);
   $('#resultsGrid').innerHTML=rows.map((shoe,i)=>{
     const score=finalScore(shoe,shoe.fit); const discount=Math.round((1-shoe.price/shoe.launch)*100);
-    return `<article class="shoe-card">
-      <div class="shoe-top"><div><div class="shoe-brand">${shoe.brand}</div><div class="shoe-name">${shoe.name}</div><div class="shoe-gen">Génération ${shoe.generation}${i===0?' · recommandée':''}</div></div><div class="score-bubble"><strong>${score}</strong><span>/100</span></div></div>
+    const isOld=shoe.generation!=='N';
+    const saving=shoe.compare ? shoe.compare.currentPrice-shoe.price : 0;
+    const fitGap=shoe.compare ? shoe.compare.fitDelta : 0;
+    return `<article class="shoe-card ${isOld?'old-generation-card':'current-generation-card'}">
+      <div class="generation-ribbon ${generationClass(shoe.generation)}">${isOld?'ANCIENNE GÉNÉRATION':'GÉNÉRATION ACTUELLE'} · ${shoe.generation}</div>
+      <div class="shoe-top"><div><div class="shoe-brand">${shoe.brand}</div><div class="shoe-name">${shoe.name}</div><div class="shoe-gen">${isOld && shoe.compare ? `Face à ${shoe.compare.current}` : 'Version actuelle'}${i===0?' · recommandée':''}</div></div><div class="score-bubble"><strong>${score}</strong><span>/100</span></div></div>
       <div class="shoe-visual"><div class="mini-shoe">${shoe.brand}</div><span class="deal-pill">−${discount}% vs lancement</span></div>
+      ${isOld && shoe.compare ? `<div class="old-gen-highlight"><strong>${saving} € moins chère que N</strong><span>≈ ${fitGap} pt${fitGap>1?'s':''} de Fit en moins dans cette démo</span></div>` : '<div class="current-gen-note">Référence technique actuelle de la famille</div>'}
       <div class="tags"><span class="tag">Drop ${shoe.drop} mm</span><span class="tag">${labelCushion(shoe.cushion)}</span><span class="tag">${shoe.carbon?'Carbone':'Sans carbone'}</span></div>
       <div class="shoe-pricing"><div class="price-block"><span class="old-price">Lancement ${shoe.launch} €</span><span class="current-price">${shoe.price} €</span><span class="shop">chez ${shoe.shop} · pointure ${f.size}</span></div><span class="badge ${shoe.deal>=94?'badge-green':''}">${shoe.deal>=94?'🔥 Excellent deal':'Bon prix'}</span></div>
       <div class="two-scores"><div class="metric"><span>Compatibilité</span><strong>${shoe.fit}/100</strong></div><div class="metric"><span>Deal Score</span><strong>${shoe.deal}/100</strong></div></div>
-      <div class="card-actions"><button type="button" class="details-btn" data-id="${shoe.id}">Pourquoi ?</button><button type="button" class="buy-btn" data-id="${shoe.id}">Voir les prix</button></div>
+      <div class="card-actions"><button type="button" class="details-btn" data-id="${shoe.id}">${isOld?'Comparer à N':'Pourquoi ?'}</button><button type="button" class="buy-btn" data-id="${shoe.id}">Voir les prix</button></div>
     </article>`
   }).join('');
   $$('.details-btn,.buy-btn').forEach(btn=>btn.addEventListener('click',()=>openShoe(+btn.dataset.id,f)));
+  renderGenerationSpotlight(rows,f);
+}
+
+function comparisonPanel(s,fit){
+  if(!s.compare) return `<div class="dialog-panel full"><h4>Génération actuelle</h4><p>Cette paire sert de référence N pour comparer les anciennes versions de la même famille.</p></div>`;
+  const currentFit=clamp(fit+s.compare.fitDelta,0,100);
+  const saving=s.compare.currentPrice-s.price;
+  return `<div class="dialog-panel full comparison-panel"><div class="comparison-head"><div><span class="generation-hero-badge">${s.generation} VS N</span><h4>${s.name} face à ${s.compare.current}</h4></div><strong class="comparison-saving">−${saving} €</strong></div>
+    <p>${s.compare.reason}</p>
+    <div class="compact-diff-grid">${s.compare.changes.map(r=>`<div><span>${r[0]}</span><strong>${r[1]} → ${r[2]}</strong><small>${r[3]}</small></div>`).join('')}</div>
+    <div class="dialog-verdict"><strong>${s.compare.verdict}</strong><span>Fit actuel ${fit}/100 · estimation N ${currentFit}/100 · économie ${saving} €</span></div></div>`;
 }
 
 function openShoe(id,f){
@@ -84,6 +143,7 @@ function openShoe(id,f){
   $('#dialogContent').innerHTML=`<div class="dialog-body">
     <div class="dialog-head"><div><div class="shoe-brand">${s.brand}</div><h2>${s.name}</h2><div class="tags"><span class="tag">${s.generation}</span><span class="tag">Fit ${fit}/100</span><span class="tag">Deal ${s.deal}/100</span></div></div><div class="dialog-price">${s.price} €</div></div>
     <div class="dialog-grid">
+      ${comparisonPanel(s,fit)}
       <div class="dialog-panel"><h4>Pourquoi elle ressort</h4><ul>${s.reviews.map(x=>`<li>${x}</li>`).join('')}</ul><p><strong>${saving} € économisés</strong> par rapport au prix de lancement fictif de ${s.launch} €.</p></div>
       <div class="dialog-panel"><h4>Prix pointure ${f.size}</h4>${s.offers.map((o,i)=>`<div class="offer-row"><span>${o[0]}${i===0?' 🥇':''}</span><strong>${o[1]} €</strong></div>`).join('')}<div class="affiliate-note">Prototype : les liens d’achat ne sont pas encore actifs. Les futurs liens affiliés seront signalés sans influencer le classement.</div></div>
       <div class="dialog-panel"><h4>Profil technique</h4><p>Drop ${s.drop} mm · ${labelCushion(s.cushion)} · mousse ${labelFoam(s.foam).toLowerCase()} · ${s.carbon?'plaque carbone':'sans plaque carbone'}.</p></div>
@@ -99,6 +159,21 @@ $$('[data-segment="terrain"] .seg').forEach(btn=>btn.addEventListener('click',()
 $$('#usageChips .chip').forEach(btn=>btn.addEventListener('click',()=>{
   $$('#usageChips .chip').forEach(b=>b.classList.remove('active')); btn.classList.add('active'); $('#usage').value=btn.dataset.value; render();
 }));
+$$('#generationChips .generation-chip').forEach(btn=>btn.addEventListener('click',()=>{
+  const g=btn.dataset.generation;
+  if(state.generations.has(g) && state.generations.size===1) return;
+  if(state.generations.has(g)) state.generations.delete(g); else state.generations.add(g);
+  btn.classList.toggle('active',state.generations.has(g));
+  $('#oldOnlyBtn').classList.toggle('active',!state.generations.has('N') && state.generations.size===3);
+  render();
+}));
+$('#oldOnlyBtn').addEventListener('click',()=>{
+  const oldOnly=!state.generations.has('N') && ['N−1','N−2','N−3'].every(g=>state.generations.has(g));
+  state.generations=new Set(oldOnly?['N','N−1','N−2','N−3']:['N−1','N−2','N−3']);
+  $$('#generationChips .generation-chip').forEach(btn=>btn.classList.toggle('active',state.generations.has(btn.dataset.generation)));
+  $('#oldOnlyBtn').classList.toggle('active',!oldOnly);
+  render();
+});
 $$('#filtersForm select,#filtersForm input').forEach(el=>el.addEventListener('input',render));
 $$('.rank-tab').forEach(btn=>btn.addEventListener('click',()=>{ $$('.rank-tab').forEach(b=>b.classList.remove('active')); btn.classList.add('active'); state.rank=btn.dataset.rank; render(); }));
 $('#resetBtn').addEventListener('click',()=>{location.reload()});
