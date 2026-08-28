@@ -23,7 +23,7 @@ const shoes = [
   {id:9,family:'deviate',brand:'PUMA',name:'Deviate Nitro 2',generation:'N−1',terrain:['route'],levels:['regulier','competition'],uses:['tempo','race','daily'],drop:8,cushion:'high',foam:'bouncy',carbon:true,launch:170,avg90:112,best:79,price:85,shop:'Top4Running',sizes:['41','42','42.5','43','44'],weightRange:[50,95],expert:90,community:88,deal:98,athlete:'Ancienne génération encore très compétitive',reviews:['Excellent rapport performance/prix','Polyvalente malgré la plaque','Très intéressante en ancienne génération'],offers:[['Top4Running',85],['Running Point',92],['i-Run',99]],compare:{current:'Deviate Nitro 3',currentPrice:149,fitDelta:4,verdict:'N−1 = affaire forte',reason:'Le prix chute beaucoup plus vite que la pertinence technique dans ce scénario de démonstration.',changes:[['Drop','8 mm','10 mm','Sensation différente'],['Mousse','très rebondissante','optimisée','Gain N'],['Plaque','carbone','carbone','Identique'],['Prix','85 €','149 €','64 € d’écart']]}}
 ];
 
-const state = {rank:'balanced', generations:new Set(['N','N−1','N−2','N−3'])};
+const state = {rank:'balanced', generations:new Set(['N','N−1','N−2','N−3']), history:[]};
 const $ = s => document.querySelector(s);
 const $$ = s => [...document.querySelectorAll(s)];
 
@@ -47,7 +47,7 @@ function getFilters(){return {
   carbon:$('#carbon').value, usage:$('#usage').value
 }}
 
-function scoreFit(shoe,f){
+function baseScoreFit(shoe,f){
   let s=0, w=0;
   const add=(v,weight)=>{s+=v*weight;w+=weight};
   add(shoe.terrain.includes(f.terrain)?1:.3,20);
@@ -59,6 +59,43 @@ function scoreFit(shoe,f){
   add(carbonMatch(shoe.carbon,f.carbon),8);
   const [minW,maxW]=shoe.weightRange; add(f.weight>=minW&&f.weight<=maxW?1:.65,10);
   return Math.round((s/w)*100);
+}
+
+function dropDistance(a,b){ return Math.abs(a-b); }
+function historyAdjustment(shoe){
+  if(!state.history.length) return 0;
+  let total=0;
+  state.history.forEach(entry=>{
+    let delta=0;
+    const source=entry.shoeId ? shoes.find(s=>s.id===entry.shoeId) : null;
+    if(source){
+      let similarity=0;
+      similarity += source.foam===shoe.foam ? 1 : 0;
+      similarity += source.cushion===shoe.cushion ? 1 : 0;
+      similarity += source.carbon===shoe.carbon ? 1 : 0;
+      similarity += dropDistance(source.drop,shoe.drop)<=2 ? 1 : 0;
+      similarity += source.terrain.some(t=>shoe.terrain.includes(t)) ? 1 : 0;
+      similarity/=5;
+      if(entry.sentiment==='liked') delta += similarity*3.5;
+      if(entry.sentiment==='disliked') delta -= similarity*3;
+    }
+    const f=new Set(entry.feedback);
+    if(f.has('tooRigid')) delta += (shoe.carbon?-2.5:1) + (shoe.foam==='firm'?-3:shoe.foam==='balanced'?1:0);
+    if(f.has('tooSoft')) delta += shoe.foam==='soft'?-3:shoe.foam==='bouncy'?-1.5:shoe.foam==='firm'?2.5:1;
+    if(f.has('tooHigh')) delta += shoe.cushion==='max'?-3.5:shoe.cushion==='high'?-1.2:2;
+    if(f.has('tooLow')) delta += shoe.cushion==='moderate'?-2.5:shoe.cushion==='high'?1.5:2;
+    if(f.has('notReactive')) delta += (shoe.foam==='bouncy'?3:shoe.foam==='balanced'?.5:-1) + (shoe.carbon?1.8:0) + (shoe.uses.includes('tempo')||shoe.uses.includes('race')?1:0);
+    if(f.has('tooReactive')) delta += (shoe.carbon?-2.5:1) + (shoe.foam==='bouncy'?-1.5:shoe.foam==='balanced'?1.5:0);
+    if(f.has('unstable')) delta += shoe.cushion==='max'?-1.5:shoe.cushion==='high'?.5:1;
+    if(f.has('comfortable')) delta += (shoe.cushion==='high'||shoe.cushion==='max'?1.4:0) + (shoe.foam==='balanced'||shoe.foam==='soft'?1:0);
+    entry.uses.forEach(u=>{ if(shoe.uses.includes(u)) delta+=1.25; });
+    total+=delta;
+  });
+  return Math.round(clamp(total/Math.max(1,state.history.length*.8),-10,10));
+}
+
+function scoreFit(shoe,f){
+  return clamp(baseScoreFit(shoe,f)+historyAdjustment(shoe),0,100);
 }
 function finalScore(shoe,fit){
   if(state.rank==='deal') return shoe.deal;
@@ -73,6 +110,59 @@ function generationSummary(){
   return order.filter(x=>state.generations.has(x)).join(' / ');
 }
 function clamp(n,min,max){return Math.max(min,Math.min(max,n))}
+
+const feedbackLabels={tooRigid:'Trop rigide',tooSoft:'Trop mou',tooHigh:'Trop haut',tooLow:'Trop bas',notReactive:'Pas assez réactif',tooReactive:'Trop exigeant / réactif',unstable:'Pas assez stable',comfortable:'Très confortable'};
+const useLabels={daily:'Entraînement',long:'Sortie longue',tempo:'Séances rapides',race:'Compétition'};
+const sentimentLabels={liked:'Aimée',mixed:'Mitigé',disliked:'Pas aimée'};
+
+function populateHistoryShoes(){
+  const select=$('#historyShoe');
+  select.innerHTML=shoes.slice().sort((a,b)=>a.brand.localeCompare(b.brand)||a.name.localeCompare(b.name)).map(s=>`<option value="${s.id}">${s.brand} · ${s.name} (${s.generation})</option>`).join('')+'<option value="custom">Autre modèle non référencé…</option>';
+}
+function selectedHistoryValues(selector,key){ return $$(selector+'.active').map(x=>x.dataset[key]); }
+function resetHistoryForm(){
+  $$('#feedbackChips .feedback-chip,#historyUseChips .feedback-chip').forEach(x=>x.classList.remove('active'));
+  $('#historySentiment').value='mixed';
+  $('#communityConsent').checked=false;
+  $('#historyCustomShoe').value='';
+  $('#historyCustomShoe').classList.add('hidden');
+  $('#historyShoe').selectedIndex=0;
+}
+function historyLearningText(){
+  if(!state.history.length) return '';
+  const counts={}; const uses={};
+  state.history.forEach(h=>{h.feedback.forEach(x=>counts[x]=(counts[x]||0)+1);h.uses.forEach(x=>uses[x]=(uses[x]||0)+1)});
+  const ideas=[];
+  if(counts.tooRigid) ideas.push('moins de rigidité');
+  if(counts.tooSoft) ideas.push('une mousse plus ferme');
+  if(counts.tooHigh) ideas.push('un profil moins haut');
+  if(counts.tooLow) ideas.push('davantage d’amorti/hauteur');
+  if(counts.notReactive) ideas.push('plus de réactivité');
+  if(counts.tooReactive) ideas.push('une chaussure moins exigeante');
+  if(counts.unstable) ideas.push('plus de stabilité');
+  if(counts.comfortable) ideas.push('préserver le confort');
+  const topUse=Object.entries(uses).sort((a,b)=>b[1]-a[1])[0];
+  if(topUse) ideas.push(`un bon comportement en ${useLabels[topUse[0]].toLowerCase()}`);
+  const liked=state.history.filter(h=>h.sentiment==='liked').map(h=>h.name);
+  let text=ideas.length?`Signaux détectés : ${ideas.slice(0,4).join(' · ')}.`:'Ton historique commence à influencer les scores.';
+  if(liked.length) text+=` Paire${liked.length>1?'s':''} appréciée${liked.length>1?'s':''} : ${liked.slice(0,2).join(', ')}.`;
+  return text;
+}
+function renderHistory(){
+  const has=state.history.length>0;
+  $('#historyEmpty').classList.toggle('hidden',has);
+  $('#historyList').classList.toggle('hidden',!has);
+  $('#learningSummary').classList.toggle('hidden',!has);
+  if(!has) return;
+  $('#historyList').innerHTML=state.history.map(h=>`<div class="history-entry">
+    <div class="history-entry-main"><div class="history-entry-head"><strong>${h.name}</strong><span class="sentiment-pill ${h.sentiment}">${sentimentLabels[h.sentiment]}</span>${h.consent?'<span class="community-badge">Contribution communauté ✓</span>':''}</div>
+    <div class="history-entry-meta">Retour associé au profil ${h.level} · ${h.weightBand} kg</div>
+    <div class="history-entry-tags">${h.feedback.map(x=>`<span>${feedbackLabels[x]}</span>`).join('')}${h.uses.map(x=>`<span>✓ ${useLabels[x]}</span>`).join('')||'<span>Aucun usage favori indiqué</span>'}</div></div>
+    <button type="button" class="history-remove" data-history-id="${h.id}" aria-label="Supprimer ce retour">×</button>
+  </div>`).join('');
+  $('#learningText').textContent=historyLearningText();
+  $$('.history-remove').forEach(btn=>btn.addEventListener('click',()=>{state.history=state.history.filter(h=>String(h.id)!==btn.dataset.historyId);renderHistory();render();}));
+}
 
 function renderGenerationSpotlight(rows,f){
   const target=rows.find(s=>s.generation!=='N' && s.compare);
@@ -106,21 +196,23 @@ function render(){
     .filter(shoe=>state.generations.has(shoe.generation) && shoe.price<=f.maxPrice && shoe.sizes.includes(f.size) && shoe.fit>=52)
     .sort((a,b)=>finalScore(b,b.fit)-finalScore(a,a.fit));
   $('#resultCount').textContent=rows.length;
-  $('#summaryText').textContent=`Pointure ${f.size} · budget ≤ ${f.maxPrice} € · générations ${generationSummary()} · ${state.rank==='balanced'?'équilibre profil/prix':state.rank==='deal'?'meilleures affaires':'compatibilité'}`;
+  $('#summaryText').textContent=`Pointure ${f.size} · budget ≤ ${f.maxPrice} € · générations ${generationSummary()} · ${state.rank==='balanced'?'équilibre profil/prix':state.rank==='deal'?'meilleures affaires':'compatibilité'}${state.history.length?` · personnalisé avec ${state.history.length} retour${state.history.length>1?'s':''}`:''}`;
   $('#emptyState').classList.toggle('hidden',rows.length!==0);
   $('#resultsGrid').innerHTML=rows.map((shoe,i)=>{
     const score=finalScore(shoe,shoe.fit); const discount=Math.round((1-shoe.price/shoe.launch)*100);
     const isOld=shoe.generation!=='N';
     const saving=shoe.compare ? shoe.compare.currentPrice-shoe.price : 0;
     const fitGap=shoe.compare ? shoe.compare.fitDelta : 0;
+    const historyDelta=historyAdjustment(shoe);
     return `<article class="shoe-card ${isOld?'old-generation-card':'current-generation-card'}">
       <div class="generation-ribbon ${generationClass(shoe.generation)}">${isOld?'ANCIENNE GÉNÉRATION':'GÉNÉRATION ACTUELLE'} · ${shoe.generation}</div>
       <div class="shoe-top"><div><div class="shoe-brand">${shoe.brand}</div><div class="shoe-name">${shoe.name}</div><div class="shoe-gen">${isOld && shoe.compare ? `Face à ${shoe.compare.current}` : 'Version actuelle'}${i===0?' · recommandée':''}</div></div><div class="score-bubble"><strong>${score}</strong><span>/100</span></div></div>
       <div class="shoe-visual"><div class="mini-shoe">${shoe.brand}</div><span class="deal-pill">−${discount}% vs lancement</span></div>
       ${isOld && shoe.compare ? `<div class="old-gen-highlight"><strong>${saving} € moins chère que N</strong><span>≈ ${fitGap} pt${fitGap>1?'s':''} de Fit en moins dans cette démo</span></div>` : '<div class="current-gen-note">Référence technique actuelle de la famille</div>'}
+      ${state.history.length?`<div class="personalized-note ${historyDelta<0?'negative':''}"><strong>🧠 Ton historique ${historyDelta>0?'favorise':historyDelta<0?'pénalise':'confirme'} cette paire</strong><span class="history-delta">${historyDelta>0?'+':''}${historyDelta} pt${Math.abs(historyDelta)>1?'s':''}</span></div>`:''}
       <div class="tags"><span class="tag">Drop ${shoe.drop} mm</span><span class="tag">${labelCushion(shoe.cushion)}</span><span class="tag">${shoe.carbon?'Carbone':'Sans carbone'}</span></div>
       <div class="shoe-pricing"><div class="price-block"><span class="old-price">Lancement ${shoe.launch} €</span><span class="current-price">${shoe.price} €</span><span class="shop">chez ${shoe.shop} · pointure ${f.size}</span></div><span class="badge ${shoe.deal>=94?'badge-green':''}">${shoe.deal>=94?'🔥 Excellent deal':'Bon prix'}</span></div>
-      <div class="two-scores"><div class="metric"><span>Compatibilité</span><strong>${shoe.fit}/100</strong></div><div class="metric"><span>Deal Score</span><strong>${shoe.deal}/100</strong></div></div>
+      <div class="two-scores"><div class="metric"><span class="history-fit-label">Compatibilité${state.history.length?'<em>personnalisée</em>':''}</span><strong>${shoe.fit}/100</strong></div><div class="metric"><span>Deal Score</span><strong>${shoe.deal}/100</strong></div></div>
       <div class="card-actions"><button type="button" class="details-btn" data-id="${shoe.id}">${isOld?'Comparer à N':'Pourquoi ?'}</button><button type="button" class="buy-btn" data-id="${shoe.id}">Voir les prix</button></div>
     </article>`
   }).join('');
@@ -146,12 +238,46 @@ function openShoe(id,f){
       ${comparisonPanel(s,fit)}
       <div class="dialog-panel"><h4>Pourquoi elle ressort</h4><ul>${s.reviews.map(x=>`<li>${x}</li>`).join('')}</ul><p><strong>${saving} € économisés</strong> par rapport au prix de lancement fictif de ${s.launch} €.</p></div>
       <div class="dialog-panel"><h4>Prix pointure ${f.size}</h4>${s.offers.map((o,i)=>`<div class="offer-row"><span>${o[0]}${i===0?' 🥇':''}</span><strong>${o[1]} €</strong></div>`).join('')}<div class="affiliate-note">Prototype : les liens d’achat ne sont pas encore actifs. Les futurs liens affiliés seront signalés sans influencer le classement.</div></div>
+      ${state.history.length?`<div class="dialog-panel"><h4>🧠 Personnalisation</h4><p>Ton historique modifie le Fit de <strong>${historyAdjustment(s)>0?'+':''}${historyAdjustment(s)} point${Math.abs(historyAdjustment(s))>1?'s':''}</strong> : score théorique ${baseScoreFit(s,f)}/100 → score personnalisé ${fit}/100.</p><p>${historyLearningText()}</p></div>`:''}
       <div class="dialog-panel"><h4>Profil technique</h4><p>Drop ${s.drop} mm · ${labelCushion(s.cushion)} · mousse ${labelFoam(s.foam).toLowerCase()} · ${s.carbon?'plaque carbone':'sans plaque carbone'}.</p></div>
       <div class="dialog-panel"><h4>Preuves & communauté</h4><p>Score expert démo : ${s.expert}/100 · communauté démo : ${s.community}/100.</p><p>${s.athlete}.</p></div>
     </div>
   </div>`;
   $('#shoeDialog').showModal();
 }
+
+populateHistoryShoes();
+renderHistory();
+$('#toggleHistoryForm').addEventListener('click',()=>{
+  $('#historyForm').classList.toggle('hidden');
+  $('#toggleHistoryForm').textContent=$('#historyForm').classList.contains('hidden')?'+ Ajouter une chaussure':'Fermer';
+});
+$('#cancelHistory').addEventListener('click',()=>{ $('#historyForm').classList.add('hidden'); $('#toggleHistoryForm').textContent='+ Ajouter une chaussure'; resetHistoryForm(); });
+$('#historyShoe').addEventListener('change',()=>$('#historyCustomShoe').classList.toggle('hidden',$('#historyShoe').value!=='custom'));
+$$('#feedbackChips .feedback-chip,#historyUseChips .feedback-chip').forEach(btn=>btn.addEventListener('click',()=>btn.classList.toggle('active')));
+$('#historyForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const choice=$('#historyShoe').value;
+  const known=choice==='custom'?null:shoes.find(s=>s.id===+choice);
+  const custom=$('#historyCustomShoe').value.trim();
+  if(!known && !custom){ $('#historyCustomShoe').focus(); return; }
+  const f=getFilters();
+  const bandLow=Math.floor(f.weight/10)*10;
+  state.history.push({
+    id:Date.now()+Math.random(),
+    shoeId:known?known.id:null,
+    name:known?`${known.brand} ${known.name}`:custom,
+    sentiment:$('#historySentiment').value,
+    feedback:selectedHistoryValues('#feedbackChips .feedback-chip','feedback'),
+    uses:selectedHistoryValues('#historyUseChips .feedback-chip','use'),
+    consent:$('#communityConsent').checked,
+    level:f.level, weightBand:`${bandLow}–${bandLow+9}`
+  });
+  resetHistoryForm();
+  $('#historyForm').classList.add('hidden');
+  $('#toggleHistoryForm').textContent='+ Ajouter une chaussure';
+  renderHistory(); render();
+});
 
 $$('[data-segment="terrain"] .seg').forEach(btn=>btn.addEventListener('click',()=>{
   $$('[data-segment="terrain"] .seg').forEach(b=>b.classList.remove('active')); btn.classList.add('active'); $('#terrain').value=btn.dataset.value; render();

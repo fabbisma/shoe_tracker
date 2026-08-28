@@ -1,4 +1,4 @@
-# RunDeal V0.2
+# RunDeal V0.3
 
 Prototype front-end statique d'un comparateur intelligent de chaussures de running.
 
@@ -12,7 +12,7 @@ Prototype front-end statique d'un comparateur intelligent de chaussures de runni
 - Fiche détaillée avec synthèse de reviews, données communauté et performances de référence.
 - Responsive desktop/mobile.
 
-> Les prix, scores, disponibilités et avis présents dans la V0.2 sont des données de démonstration.
+> Les prix, scores, disponibilités et avis présents dans la V0.3 sont des données de démonstration.
 
 ## Déploiement GitHub + Vercel
 
@@ -26,7 +26,7 @@ Prototype front-end statique d'un comparateur intelligent de chaussures de runni
 8. Output Directory : laisser vide.
 9. Cliquer sur **Deploy**.
 
-Aucune variable d'environnement n'est nécessaire pour cette V0.2.
+Aucune variable d'environnement n'est nécessaire pour cette V0.3.
 
 ## Étape suivante recommandée
 
@@ -45,7 +45,7 @@ Passer à une architecture avec base de données (Supabase/PostgreSQL) et sépar
 Le front pourra ensuite être migré vers Next.js si on veut SEO, routes par modèle, authentification, alertes de prix et API serveur.
 
 
-## Nouveautés V0.2
+## Nouveautés V0.3
 
 - Filtre multi-sélection **N / N−1 / N−2 / N−3**.
 - Preset **Anciennes uniquement**.
@@ -55,3 +55,19 @@ Le front pourra ensuite être migré vers Next.js si on veut SEO, routes par mod
 - Verdict génération : ancienne recommandée, choix budget ou compromis fort.
 
 Toutes les caractéristiques et tous les prix restent des **données de démonstration** dans cette maquette.
+
+
+## V0.3 — historique coureur
+
+Cette version ajoute un module optionnel **Mes chaussures précédentes** :
+
+- sélection d'une chaussure connue ou saisie libre ;
+- impression générale : aimée / mitigée / pas aimée ;
+- ressentis structurés : trop rigide, trop mou, trop haut, trop bas, manque de réactivité, trop exigeant, manque de stabilité, très confortable ;
+- usages appréciés : entraînement, sortie longue, séances rapides, compétition ;
+- ajustement immédiat du Fit Score (±10 points maximum dans la démo) ;
+- indication visible sur chaque recommandation de l'effet de l'historique ;
+- possibilité distincte de contribuer aux futures statistiques communautaires ;
+- démonstration de la donnée agrégée avec niveau et tranche de poids au moment du retour.
+
+Dans cette maquette statique, **aucune donnée n'est envoyée ni sauvegardée après rechargement de la page**. Une future version avec base de données devra séparer le profil personnel des données communautaires agrégées et ne publier que des statistiques avec des effectifs suffisants.

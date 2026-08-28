@@ -168,6 +168,85 @@
       </form>
     </section>
 
+
+    <section class="history-section" aria-labelledby="historyTitle">
+      <div class="history-card">
+        <div class="history-intro">
+          <div>
+            <div class="optional-kicker"><span>OPTIONNEL</span> Affiner avec ton expérience</div>
+            <h2 id="historyTitle">Tu as déjà couru avec certaines chaussures ?</h2>
+            <p>Dis-nous ce que tu as aimé ou non. RunDeal s’en sert pour ajuster les recommandations : trop rigide, trop mou, trop haut, manque de réactivité, usage préféré…</p>
+          </div>
+          <button class="primary-btn" id="toggleHistoryForm" type="button">+ Ajouter une chaussure</button>
+        </div>
+
+        <form id="historyForm" class="history-form hidden">
+          <div class="history-form-grid">
+            <label>
+              <span>Chaussure utilisée</span>
+              <select id="historyShoe"></select>
+              <input id="historyCustomShoe" class="history-custom hidden" type="text" maxlength="80" placeholder="Marque + modèle + génération" />
+            </label>
+            <label>
+              <span>Impression générale</span>
+              <select id="historySentiment">
+                <option value="liked">Je l’ai aimée</option>
+                <option value="mixed" selected>Mitigé</option>
+                <option value="disliked">Je ne l’ai pas aimée</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="history-question">
+            <strong>Qu’est-ce qui t’a marqué ?</strong>
+            <span>Plusieurs choix possibles</span>
+            <div class="feedback-chips" id="feedbackChips">
+              <button type="button" class="feedback-chip" data-feedback="tooRigid">Trop rigide</button>
+              <button type="button" class="feedback-chip" data-feedback="tooSoft">Trop mou</button>
+              <button type="button" class="feedback-chip" data-feedback="tooHigh">Trop haut</button>
+              <button type="button" class="feedback-chip" data-feedback="tooLow">Trop bas</button>
+              <button type="button" class="feedback-chip" data-feedback="notReactive">Pas assez réactif</button>
+              <button type="button" class="feedback-chip" data-feedback="tooReactive">Trop exigeant / réactif</button>
+              <button type="button" class="feedback-chip" data-feedback="unstable">Pas assez stable</button>
+              <button type="button" class="feedback-chip" data-feedback="comfortable">Très confortable</button>
+            </div>
+          </div>
+
+          <div class="history-question">
+            <strong>Pour quel usage cette paire t’a plu ?</strong>
+            <span>Ces usages deviennent des signaux positifs pour la recherche</span>
+            <div class="feedback-chips" id="historyUseChips">
+              <button type="button" class="feedback-chip use" data-use="daily">Entraînement</button>
+              <button type="button" class="feedback-chip use" data-use="long">Sortie longue</button>
+              <button type="button" class="feedback-chip use" data-use="tempo">Séances rapides</button>
+              <button type="button" class="feedback-chip use" data-use="race">Compétition</button>
+            </div>
+          </div>
+
+          <label class="community-consent">
+            <input type="checkbox" id="communityConsent" />
+            <span><strong>Contribuer aux statistiques communautaires</strong><small>Dans la future version : modèle, génération, niveau, tranche de poids, ressentis et usages. Ce choix n’est pas nécessaire pour personnaliser tes recommandations.</small></span>
+          </label>
+
+          <div class="history-form-actions">
+            <button type="button" class="ghost-btn" id="cancelHistory">Annuler</button>
+            <button type="submit" class="primary-btn">Ajouter à mon historique</button>
+          </div>
+        </form>
+
+        <div id="historyEmpty" class="history-empty">
+          <span class="history-icon">↗</span>
+          <div><strong>Aucun retour renseigné.</strong><p>La recherche utilise uniquement tes critères ci-dessus. Ajouter une ancienne paire peut aider à comprendre ton ressenti.</p></div>
+        </div>
+        <div id="historyList" class="history-list hidden" aria-live="polite"></div>
+
+        <div id="learningSummary" class="learning-summary hidden">
+          <div><span>PROFIL APPRIS</span><strong id="learningTitle">RunDeal commence à comprendre tes préférences</strong></div>
+          <p id="learningText"></p>
+        </div>
+      </div>
+    </section>
+
     <section id="results" class="results-section">
       <div class="results-toolbar">
         <div>
@@ -228,7 +307,7 @@
   </main>
 
   <footer>
-    <div><strong>RunDeal</strong> — prototype V0.2</div>
+    <div><strong>RunDeal</strong> — prototype V0.3</div>
     <p>Les données affichées dans cette maquette sont fictives et servent uniquement à démontrer l’interface et le moteur de scoring.</p>
   </footer>
 
