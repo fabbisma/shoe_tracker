@@ -16,7 +16,7 @@
     <a href="#" class="brand" aria-label="RunDeal accueil">
       <span class="brand-mark">R</span>
       <span>RunDeal</span>
-      <span class="badge badge-demo">V0.6 · STRAVA</span>
+      <span class="badge badge-demo">V0.7 · MÊME ESPRIT</span>
     </a>
     <div class="top-actions">
       <button class="ghost-btn" id="resetBtn" type="button">Réinitialiser</button>
@@ -61,6 +61,30 @@
       </div>
 
       <form id="filtersForm" class="filters-grid">
+        <div class="filter-card span-4 inspiration-card">
+          <div class="inspiration-head">
+            <div>
+              <span class="filter-kicker">RECHERCHE PAR INSPIRATION · OPTIONNEL</span>
+              <strong>Quel modèle avais-tu en tête ?</strong>
+              <p>Choisis une chaussure connue : RunDeal cherche des modèles au comportement proche, mais moins chers, y compris dans les anciennes générations et chez les marques concurrentes.</p>
+            </div>
+            <button type="button" class="ghost-btn reference-clear hidden" id="clearReferenceBtn">Effacer le modèle</button>
+          </div>
+          <div class="inspiration-controls">
+            <label>
+              <span>Modèle de référence</span>
+              <select id="referenceShoe">
+                <option value="">Je n’ai pas de modèle précis en tête</option>
+              </select>
+            </label>
+            <div class="inspiration-rule">
+              <span>MOTEUR « MÊME ESPRIT »</span>
+              <strong>Similarité technique + économie réelle</strong>
+              <small>Terrain, usage, amorti, mousse, plaque et drop. En mode référence, seuls les modèles moins chers sont proposés.</small>
+            </div>
+          </div>
+          <div id="referencePreview" class="reference-preview hidden" aria-live="polite"></div>
+        </div>
         <fieldset class="filter-card span-2">
           <legend>Terrain</legend>
           <div class="segmented three" data-segment="terrain">
@@ -356,7 +380,7 @@
   </main>
 
   <footer>
-    <div><strong>RunDeal</strong> — V0.6 · import Strava privé + données réelles</div>
+    <div><strong>RunDeal</strong> — V0.7 · recherche « même esprit » + Strava privé + données réelles</div>
     <p>Les données Strava sont affichées uniquement à l’utilisateur authentifié et ne sont pas enregistrées dans la base communautaire. Les contributions communautaires proviennent exclusivement d’une saisie directe dans RunDeal.</p>
   </footer>
 

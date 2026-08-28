@@ -33,7 +33,7 @@ let shoes = [
   {id:9,family:'deviate',brand:'PUMA',name:'Deviate Nitro 2',generation:'N−1',terrain:['route'],levels:['regulier','competition'],uses:['tempo','race','daily'],drop:8,cushion:'high',foam:'bouncy',carbon:true,launch:170,avg90:112,best:79,price:85,shop:'Top4Running',sizes:['41','42','42.5','43','44'],weightRange:[50,95],expert:90,community:88,deal:98,athlete:'Ancienne génération encore très compétitive',reviews:['Excellent rapport performance/prix','Polyvalente malgré la plaque','Très intéressante en ancienne génération'],offers:[['Top4Running',85],['Running Point',92],['i-Run',99]],compare:{current:'Deviate Nitro 3',currentPrice:149,fitDelta:4,verdict:'N−1 = affaire forte',reason:'Le prix chute beaucoup plus vite que la pertinence technique dans ce scénario de démonstration.',changes:[['Drop','8 mm','10 mm','Sensation différente'],['Mousse','très rebondissante','optimisée','Gain N'],['Plaque','carbone','carbone','Identique'],['Prix','85 €','149 €','64 € d’écart']]}}
 ];
 
-const state = {rank:'balanced', generations:new Set(['N','N−1','N−2','N−3']), history:[], strava:{connected:false,configured:null,athlete:null,shoes:[]}};
+const state = {rank:'balanced', generations:new Set(['N','N−1','N−2','N−3']), history:[], referenceShoeId:null, strava:{connected:false,configured:null,athlete:null,shoes:[]}};
 const $ = s => document.querySelector(s);
 const $$ = s => [...document.querySelectorAll(s)];
 
@@ -107,7 +107,13 @@ function historyAdjustment(shoe){
 function scoreFit(shoe,f){
   return clamp(baseScoreFit(shoe,f)+historyAdjustment(shoe),0,100);
 }
-function finalScore(shoe,fit){
+function finalScore(shoe,fit,reference=null){
+  if(reference){
+    const similarity=shoe.similarity ?? similarityScore(reference,shoe);
+    if(state.rank==='deal') return Math.round(shoe.deal*.62 + referenceSavingsScore(reference,shoe)*.38);
+    if(state.rank==='fit') return Math.round(fit*.55 + similarity*.45);
+    return Math.round(similarity*.50 + fit*.25 + shoe.deal*.15 + referenceSavingsScore(reference,shoe)*.10);
+  }
   if(state.rank==='deal') return shoe.deal;
   if(state.rank==='fit') return fit;
   return Math.round(fit*.58 + shoe.deal*.42);
@@ -123,6 +129,68 @@ function generationSummary(){
   return order.filter(x=>state.generations.has(x)).join(' / ');
 }
 function clamp(n,min,max){return Math.max(min,Math.min(max,n))}
+
+function selectedReferenceShoe(){
+  return state.referenceShoeId==null ? null : shoes.find(s=>String(s.id)===String(state.referenceShoeId)) || null;
+}
+function arrayOverlapScore(a=[],b=[]){
+  const A=new Set(a), B=new Set(b);
+  const union=new Set([...A,...B]);
+  if(!union.size) return 0;
+  let common=0; A.forEach(x=>{if(B.has(x)) common++;});
+  return common/union.size;
+}
+function similarityScore(reference,shoe){
+  if(!reference || !shoe) return 0;
+  if(String(reference.id)===String(shoe.id)) return 100;
+  let score=0;
+  score += arrayOverlapScore(reference.terrain,shoe.terrain)*24;
+  score += arrayOverlapScore(reference.uses,shoe.uses)*24;
+  score += reference.cushion===shoe.cushion ? 14 : cushionMatch(shoe.cushion,reference.cushion)*9;
+  score += reference.foam===shoe.foam ? 12 : ((reference.foam==='bouncy'&&shoe.foam==='balanced')||(reference.foam==='balanced'&&shoe.foam==='bouncy') ? 7 : 3);
+  score += reference.carbon===shoe.carbon ? 10 : 2;
+  const d=Math.abs((reference.drop||0)-(shoe.drop||0));
+  score += d<=1 ? 10 : d<=2 ? 8 : d<=4 ? 5 : 1;
+  score += arrayOverlapScore(reference.levels,shoe.levels)*6;
+  if(reference.family && reference.family===shoe.family) score += 10;
+  return Math.round(clamp(score,0,100));
+}
+function referenceSavings(reference,shoe){return reference ? Math.round((reference.price-shoe.price)*100)/100 : 0;}
+function referenceSavingsScore(reference,shoe){
+  if(!reference || !reference.price) return 0;
+  return clamp(Math.round((reference.price-shoe.price)/reference.price*180),0,100);
+}
+function referenceReasons(reference,shoe){
+  if(!reference) return [];
+  const reasons=[];
+  if(reference.family===shoe.family) reasons.push('même famille');
+  const usageCommon=reference.uses.filter(u=>shoe.uses.includes(u));
+  if(usageCommon.length) reasons.push(usageCommon.slice(0,2).map(u=>useLabels[u]||u).join(' + '));
+  if(reference.cushion===shoe.cushion) reasons.push('même niveau d’amorti');
+  if(reference.foam===shoe.foam) reasons.push('même sensation de mousse');
+  if(reference.carbon===shoe.carbon) reasons.push(reference.carbon?'plaque carbone':'sans carbone');
+  if(Math.abs(reference.drop-shoe.drop)<=2) reasons.push(`drop proche (${shoe.drop} mm)`);
+  return reasons.slice(0,3);
+}
+function populateReferenceModels(){
+  const select=$('#referenceShoe');
+  if(!select) return;
+  const current=state.referenceShoeId==null?'':String(state.referenceShoeId);
+  const sorted=shoes.slice().sort((a,b)=>a.brand.localeCompare(b.brand)||a.family.localeCompare(b.family)||a.name.localeCompare(b.name));
+  const options=sorted.map(s=>`<option value="${s.id}">${escapeHtml(s.brand)} · ${escapeHtml(s.name)} (${s.generation}) · ${Number(s.price).toLocaleString('fr-FR')} €${s.isReal?' · réel':''}</option>`).join('');
+  select.innerHTML=`<option value="">Je n’ai pas de modèle précis en tête</option>${options}`;
+  if(current && sorted.some(s=>String(s.id)===current)) select.value=current;
+}
+function renderReferencePreview(){
+  const box=$('#referencePreview');
+  const clear=$('#clearReferenceBtn');
+  if(!box || !clear) return;
+  const ref=selectedReferenceShoe();
+  box.classList.toggle('hidden',!ref);
+  clear.classList.toggle('hidden',!ref);
+  if(!ref){box.innerHTML='';return;}
+  box.innerHTML=`<div><span>MODÈLE QUE TU AVAIS EN TÊTE</span><strong>${escapeHtml(ref.brand)} ${escapeHtml(ref.name)}</strong><small>${ref.generation} · ${labelCushion(ref.cushion)} · ${labelFoam(ref.foam)} · drop ${ref.drop} mm · ${ref.carbon?'carbone':'sans carbone'}</small></div><div class="reference-price"><span>Prix actuellement connu</span><strong>${Number(ref.price).toLocaleString('fr-FR')} €</strong><small>${ref.isReal?'donnée réelle':'donnée de démonstration'}</small></div><div class="reference-arrow">→</div><div class="reference-goal"><span>OBJECTIF</span><strong>Trouver le même esprit moins cher</strong><small>Les résultats doivent coûter moins de ${Number(ref.price).toLocaleString('fr-FR')} € et conserver au moins 50 % de similarité technique.</small></div>`;
+}
 
 const feedbackLabels={tooRigid:'Trop rigide',tooSoft:'Trop mou',tooHigh:'Trop haut',tooLow:'Trop bas',notReactive:'Pas assez réactif',tooReactive:'Trop exigeant / réactif',unstable:'Pas assez stable',comfortable:'Très confortable'};
 const useLabels={daily:'Entraînement',long:'Sortie longue',tempo:'Séances rapides',race:'Compétition'};
@@ -326,34 +394,57 @@ function renderGenerationSpotlight(rows,f){
 
 function render(){
   const f=getFilters();
-  let rows=shoes.map(shoe=>({...shoe,fit:scoreFit(shoe,f)}))
+  const reference=selectedReferenceShoe();
+  let rows=shoes.map(shoe=>({...shoe,fit:scoreFit(shoe,f),similarity:reference?similarityScore(reference,shoe):null,savingVsReference:reference?referenceSavings(reference,shoe):null}))
     .filter(shoe=>state.generations.has(shoe.generation) && shoe.price<=f.maxPrice && sizeMatches(shoe,f.size) && shoe.fit>=52)
-    .sort((a,b)=>finalScore(b,b.fit)-finalScore(a,a.fit));
+    .filter(shoe=>!reference || (String(shoe.id)!==String(reference.id) && shoe.price<reference.price && shoe.similarity>=50))
+    .sort((a,b)=>finalScore(b,b.fit,reference)-finalScore(a,a.fit,reference));
   $('#resultCount').textContent=rows.length;
-  $('#summaryText').textContent=`Pointure ${f.size} · budget ≤ ${f.maxPrice} € · générations ${generationSummary()} · ${state.rank==='balanced'?'équilibre profil/prix':state.rank==='deal'?'meilleures affaires':'compatibilité'}${state.history.length?` · personnalisé avec ${state.history.length} retour${state.history.length>1?'s':''}`:''}`;
+  if(reference){
+    $('#summaryText').textContent=`Alternatives à ${reference.brand} ${reference.name} · moins de ${reference.price} € · similarité ≥ 50 % · pointure ${f.size} · générations ${generationSummary()}${state.history.length?` · personnalisé avec ${state.history.length} retour${state.history.length>1?'s':''}`:''}`;
+  }else{
+    $('#summaryText').textContent=`Pointure ${f.size} · budget ≤ ${f.maxPrice} € · générations ${generationSummary()} · ${state.rank==='balanced'?'équilibre profil/prix':state.rank==='deal'?'meilleures affaires':'compatibilité'}${state.history.length?` · personnalisé avec ${state.history.length} retour${state.history.length>1?'s':''}`:''}`;
+  }
   $('#emptyState').classList.toggle('hidden',rows.length!==0);
+  if(reference && !rows.length){
+    $('#emptyState').querySelector('h3').textContent='Aucune alternative moins chère assez proche.';
+    $('#emptyState').querySelector('p').textContent='Essaie d’activer davantage de générations, d’augmenter ton budget ou de choisir un autre modèle de référence.';
+  }else{
+    $('#emptyState').querySelector('h3').textContent='Aucun modèle ne coche assez de cases.';
+    $('#emptyState').querySelector('p').textContent='Essaie d’augmenter ton budget ou de retirer une préférence.';
+  }
   $('#resultsGrid').innerHTML=rows.map((shoe,i)=>{
-    const score=finalScore(shoe,shoe.fit); const discount=Math.round((1-shoe.price/shoe.launch)*100);
+    const score=finalScore(shoe,shoe.fit,reference); const discount=Math.round((1-shoe.price/shoe.launch)*100);
     const isOld=shoe.generation!=='N';
     const saving=shoe.compare ? shoe.compare.currentPrice-shoe.price : 0;
     const fitGap=shoe.compare ? shoe.compare.fitDelta : 0;
     const historyDelta=historyAdjustment(shoe);
-    return `<article class="shoe-card ${isOld?'old-generation-card':'current-generation-card'}">
+    const refReasons=reference?referenceReasons(reference,shoe):[];
+    return `<article class="shoe-card ${isOld?'old-generation-card':'current-generation-card'} ${reference?'reference-result-card':''}">
       <div class="generation-ribbon ${generationClass(shoe.generation)}">${isOld?'ANCIENNE GÉNÉRATION':'GÉNÉRATION ACTUELLE'} · ${shoe.generation}</div>
       <div class="shoe-top"><div><div class="shoe-brand">${shoe.brand}</div><div class="shoe-name">${shoe.name}</div><div class="source-line">${sourceBadge(shoe)}${shoe.checkedAt?`<span class="snapshot-badge">vérifié ${new Date(shoe.checkedAt).toLocaleDateString('fr-FR')}</span>`:''}</div><div class="shoe-gen">${isOld && shoe.compare ? `Face à ${shoe.compare.current}` : 'Version actuelle'}${i===0?' · recommandée':''}</div></div><div class="score-bubble"><strong>${score}</strong><span>/100</span></div></div>
       <div class="shoe-visual"><div class="mini-shoe">${shoe.brand}</div><span class="deal-pill">−${discount}% vs ${shoe.referencePriceType==='observed'?'prix constaté':'lancement'}</span></div>
+      ${reference?`<div class="same-spirit-highlight"><div><span>MÊME ESPRIT</span><strong>${shoe.similarity}% similaire à ${reference.name}</strong><small>${refReasons.join(' · ')||'profil technique proche'}</small></div><b>−${Number(shoe.savingVsReference).toLocaleString('fr-FR')} €</b></div>`:''}
       ${isOld && shoe.compare ? `<div class="old-gen-highlight"><strong>${saving} € moins chère que N</strong><span>≈ ${fitGap} pt${fitGap>1?'s':''} de Fit en moins dans cette démo</span></div>` : '<div class="current-gen-note">Référence technique actuelle de la famille</div>'}
       ${state.history.length?`<div class="personalized-note ${historyDelta<0?'negative':''}"><strong>🧠 Ton historique ${historyDelta>0?'favorise':historyDelta<0?'pénalise':'confirme'} cette paire</strong><span class="history-delta">${historyDelta>0?'+':''}${historyDelta} pt${Math.abs(historyDelta)>1?'s':''}</span></div>`:''}
       <div class="tags"><span class="tag">Drop ${shoe.drop} mm</span><span class="tag">${labelCushion(shoe.cushion)}</span><span class="tag">${shoe.carbon?'Carbone':'Sans carbone'}</span></div>
       <div class="shoe-pricing"><div class="price-block"><span class="old-price">${refPriceLabel(shoe)} ${shoe.launch} €</span><span class="current-price">${shoe.price} €</span><span class="shop">chez ${shoe.shop} · ${shoe.sizeStockKnown===false?'taille à vérifier':`pointure ${f.size}`}</span></div><span class="badge ${shoe.deal>=94?'badge-green':''}">${shoe.deal>=94?'🔥 Excellent deal':'Bon prix'}</span></div>
-      <div class="two-scores"><div class="metric"><span class="history-fit-label">Compatibilité${state.history.length?'<em>personnalisée</em>':''}</span><strong>${shoe.fit}/100</strong></div><div class="metric"><span>Deal Score</span><strong>${shoe.deal}/100</strong></div></div>
-      <div class="card-actions"><button type="button" class="details-btn" data-id="${shoe.id}">${isOld?'Comparer à N':'Pourquoi ?'}</button><button type="button" class="buy-btn" data-id="${shoe.id}">Voir les prix</button></div>
+      <div class="two-scores">${reference?`<div class="metric"><span>Similarité</span><strong>${shoe.similarity}/100</strong></div>`:`<div class="metric"><span class="history-fit-label">Compatibilité${state.history.length?'<em>personnalisée</em>':''}</span><strong>${shoe.fit}/100</strong></div>`}<div class="metric"><span>Deal Score</span><strong>${shoe.deal}/100</strong></div></div>
+      <div class="card-actions"><button type="button" class="details-btn" data-id="${shoe.id}">${reference?'Comparer au modèle':isOld?'Comparer à N':'Pourquoi ?'}</button><button type="button" class="buy-btn" data-id="${shoe.id}">Voir les prix</button></div>
     </article>`
   }).join('');
   $$('.details-btn,.buy-btn').forEach(btn=>btn.addEventListener('click',()=>openShoe(+btn.dataset.id,f)));
+  renderReferencePreview();
   renderGenerationSpotlight(rows,f);
 }
 
+function referenceComparisonPanel(s,reference){
+  if(!reference || String(reference.id)===String(s.id)) return '';
+  const similarity=similarityScore(reference,s);
+  const saving=referenceSavings(reference,s);
+  const reasons=referenceReasons(reference,s);
+  return `<div class="dialog-panel full reference-comparison-panel"><div class="reference-dialog-head"><div><span class="same-spirit-badge">MÊME ESPRIT · ${similarity}%</span><h4>${s.name} face à ${reference.brand} ${reference.name}</h4></div><strong class="reference-dialog-saving">−${Number(saving).toLocaleString('fr-FR')} €</strong></div><p>RunDeal rapproche les deux modèles sur leurs caractéristiques et leur usage, pas seulement sur la marque.</p><div class="reference-reasons">${reasons.map(r=>`<span>✓ ${r}</span>`).join('')}</div><div class="reference-price-line"><span>Modèle envisagé <strong>${reference.price} €</strong></span><span>Alternative <strong>${s.price} €</strong></span></div></div>`;
+}
 function comparisonPanel(s,fit){
   if(!s.compare) return `<div class="dialog-panel full"><h4>Génération actuelle</h4><p>Cette paire sert de référence N pour comparer les anciennes versions de la même famille.</p></div>`;
   const currentFit=clamp(fit+s.compare.fitDelta,0,100);
@@ -365,10 +456,11 @@ function comparisonPanel(s,fit){
 }
 
 function openShoe(id,f){
-  const s=shoes.find(x=>x.id===id); const fit=scoreFit(s,f); const saving=s.launch-s.price;
+  const s=shoes.find(x=>x.id===id); const fit=scoreFit(s,f); const saving=s.launch-s.price; const reference=selectedReferenceShoe();
   $('#dialogContent').innerHTML=`<div class="dialog-body">
     <div class="dialog-head"><div><div class="shoe-brand">${s.brand}</div><h2>${s.name}</h2><div class="source-line">${sourceBadge(s)}${s.sourceUrl?`<a href="${s.sourceUrl}" target="_blank" rel="noopener noreferrer">Source ↗</a>`:''}</div><div class="tags"><span class="tag">${s.generation}</span><span class="tag">Fit ${fit}/100</span><span class="tag">Deal ${s.deal}/100</span></div></div><div class="dialog-price">${s.price} €</div></div>
     <div class="dialog-grid">
+      ${referenceComparisonPanel(s,reference)}
       ${comparisonPanel(s,fit)}
       <div class="dialog-panel"><h4>Pourquoi elle ressort</h4><ul>${s.reviews.map(x=>`<li>${x}</li>`).join('')}</ul><p><strong>${saving} € économisés</strong> par rapport au ${refPriceLabel(s).toLowerCase()} de ${s.launch} €.</p></div>
       <div class="dialog-panel"><h4>Prix pointure ${f.size}</h4>${s.offers.map((o,i)=>`<div class="offer-row"><span>${o[0]}${i===0?' 🥇':''}</span><strong>${o[1]} €</strong></div>`).join('')}<div class="affiliate-note">${s.isReal?'Prix issu d’une observation publique ou d’un flux marchand. Vérifie le stock final avant achat.':'Donnée de démonstration.'} Les futurs liens affiliés seront signalés sans influencer le classement.</div></div>
@@ -394,6 +486,7 @@ async function loadApiCatalog(){
       incoming.forEach(s=>byId.set(String(s.id),s));
       shoes=[...byId.values()];
       populateHistoryShoes();
+      populateReferenceModels();
       render();
     }
     const realCount=shoes.filter(s=>s.isReal).length;
@@ -424,9 +517,21 @@ async function submitCommunityFeedback(entry){
   }catch(err){ return {stored:false,reason:'network'}; }
 }
 
+
+if($('#referenceShoe')) $('#referenceShoe').addEventListener('change',()=>{
+  state.referenceShoeId=$('#referenceShoe').value || null;
+  render();
+  if(state.referenceShoeId) $('#results').scrollIntoView({behavior:'smooth',block:'start'});
+});
+if($('#clearReferenceBtn')) $('#clearReferenceBtn').addEventListener('click',()=>{
+  state.referenceShoeId=null;
+  $('#referenceShoe').value='';
+  render();
+});
 if($('#stravaDisconnectBtn')) $('#stravaDisconnectBtn').addEventListener('click',disconnectStrava);
 if($('#openManualFeedbackFromStrava')) $('#openManualFeedbackFromStrava').addEventListener('click',openManualFeedbackFromStrava);
 populateHistoryShoes();
+populateReferenceModels();
 renderImportedShoes();
 syncHistoryDistance();
 renderHistory();

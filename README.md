@@ -1,6 +1,14 @@
-# RunDeal V0.6 — Strava privé + API + données réelles
+# RunDeal V0.7 — Strava privé + API + données réelles
 
 Cette version ajoute une première connexion **Strava OAuth 2.0** en respectant une séparation stricte entre les données Strava personnelles et la base communautaire RunDeal.
+
+## Nouveau en V0.7 — « Quel modèle avais-tu en tête ? »
+
+Le moteur propose désormais un mode de recherche par **modèle de référence**. L’utilisateur choisit une chaussure du catalogue et RunDeal cherche uniquement des alternatives **moins chères** présentant au moins 50 % de similarité technique.
+
+La similarité prend notamment en compte le terrain, les usages, l’amorti, la sensation de mousse, la présence d’une plaque carbone, le drop et le niveau visé. Les générations de la même famille bénéficient d’un bonus, sans empêcher une chaussure concurrente d’une autre marque d’être mieux classée.
+
+Les cartes de résultat affichent la **similarité en %**, l’**économie par rapport au modèle envisagé** et les principaux points communs. Le reste du profil utilisateur, l’historique personnel et les filtres N / N−1 / N−2 / N−3 continuent de participer au classement.
 
 ## Nouveauté principale : deux circuits qui ne se mélangent pas
 
