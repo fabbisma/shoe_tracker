@@ -1,8 +1,8 @@
 {
-  "name": "rundeal-v08",
-  "version": "0.8.0",
+  "name": "shoe-tracker-v09",
+  "version": "0.9.0",
   "private": true,
-  "description": "RunDeal V0.8 - trois modes de recherche, API Vercel, Supabase et Strava privé",
+  "description": "Shoe-Tracker V0.9 - trois modes de recherche, snapshot web réel, API Vercel, Supabase et Strava privé",
   "dependencies": {
     "csv-parse": "^5.6.0",
     "fast-xml-parser": "^4.5.3"

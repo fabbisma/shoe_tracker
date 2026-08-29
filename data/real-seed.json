@@ -1,9 +1,1117 @@
 {
-  "snapshotDate": "2026-08-28",
+  "snapshotDate": "2026-08-29T15:55:00+02:00",
+  "source": "curated-web-snapshot",
   "shoes": [
     {
-      "id": 501,
-      "family": "kiprun-kd900x-ld",
+      "id": 1001,
+      "family": "novablast",
+      "brand": "ASICS",
+      "name": "Novablast 6",
+      "generation": "N",
+      "terrain": [
+        "route"
+      ],
+      "levels": [
+        "debutant",
+        "occasionnel",
+        "regulier"
+      ],
+      "uses": [
+        "daily",
+        "long",
+        "tempo"
+      ],
+      "drop": 8,
+      "cushion": "high",
+      "foam": "bouncy",
+      "carbon": false,
+      "plateType": "Aucune",
+      "launch": 160,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix original ASICS",
+      "price": 132.91,
+      "shop": "meilleure offre via Runnea",
+      "sizes": [
+        "*"
+      ],
+      "sizeStockKnown": false,
+      "weightGrams": 253,
+      "deal": 70,
+      "reviews": [
+        "Route · entraînement quotidien et sorties longues",
+        "FF BLAST MAX + insert FF TURBO SQUARED à l’avant-pied",
+        "Prix web à partir de 132,91 € relevé via Runnea ; pointure à vérifier"
+      ],
+      "offers": [
+        [
+          "Meilleur prix relevé via Runnea",
+          132.91
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceUrl": "https://www.asics.com/fr/en-fr/novablast-6/p/1011C243-002.html",
+      "sourceLabel": "ASICS officiel",
+      "sources": [
+        {
+          "label": "ASICS — fiche officielle",
+          "url": "https://www.asics.com/fr/en-fr/novablast-6/p/1011C243-002.html"
+        },
+        {
+          "label": "Runnea — prix web ASICS",
+          "url": "https://www.runnea.fr/articles/themes/asics/5/"
+        }
+      ]
+    },
+    {
+      "id": 1002,
+      "family": "novablast",
+      "brand": "ASICS",
+      "name": "Novablast 5",
+      "generation": "N−1",
+      "terrain": [
+        "route"
+      ],
+      "levels": [
+        "debutant",
+        "occasionnel",
+        "regulier"
+      ],
+      "uses": [
+        "daily",
+        "long",
+        "tempo",
+        "race"
+      ],
+      "drop": 8,
+      "cushion": "high",
+      "foam": "bouncy",
+      "carbon": false,
+      "plateType": "Aucune",
+      "launch": 150,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix original ASICS",
+      "price": 99.9,
+      "shop": "offre homme via Runnea",
+      "sizes": [
+        "40.5",
+        "42.5",
+        "44",
+        "44.5"
+      ],
+      "sizeStockKnown": true,
+      "weightGrams": 265,
+      "avg90": 101.65,
+      "best": 92.99,
+      "deal": 94,
+      "reviews": [
+        "99,90 € relevés pour une offre homme incluant la pointure 42,5",
+        "Prix moyen des 90 derniers jours relevé précédemment : 101,65 € ; plus bas 12 mois : 92,99 €",
+        "Route ; amorti élevé ; usage entraînement et compétition polyvalente"
+      ],
+      "offers": [
+        [
+          "Runnea — offre homme relevée",
+          99.9
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceUrl": "https://www.runnea.fr/chaussures-running/asics/novablast-5/1039342/prix/toutes/",
+      "sourceLabel": "Runnea",
+      "sources": [
+        {
+          "label": "Runnea — prix",
+          "url": "https://www.runnea.fr/chaussures-running/asics/novablast-5/1039342/prix/toutes/"
+        },
+        {
+          "label": "Runnea — test & historique",
+          "url": "https://www.runnea.fr/chaussures-running/asics/novablast-5/1039342/"
+        }
+      ],
+      "compare": {
+        "current": "Novablast 6",
+        "verdict": "N−1 très intéressante",
+        "reason": "Le prix a déjà fortement baissé alors que le drop reste à 8 mm et que la philosophie reste celle d’un daily trainer dynamique.",
+        "changes": [
+          [
+            "Poids",
+            "265 g",
+            "253 g",
+            "N gagne ~12 g"
+          ],
+          [
+            "Mousse",
+            "génération précédente",
+            "FF BLAST MAX + FF TURBO SQUARED",
+            "N change la construction avant-pied"
+          ],
+          [
+            "Drop",
+            "8 mm",
+            "8 mm",
+            "Identique"
+          ],
+          [
+            "Prix web relevé",
+            "99,90 €",
+            "132,91 €",
+            "33,01 € d’écart"
+          ]
+        ]
+      }
+    },
+    {
+      "id": 1003,
+      "family": "novablast",
+      "brand": "ASICS",
+      "name": "Novablast 4",
+      "generation": "N−2",
+      "terrain": [
+        "route",
+        "mixte"
+      ],
+      "levels": [
+        "debutant",
+        "occasionnel",
+        "regulier"
+      ],
+      "uses": [
+        "daily",
+        "long"
+      ],
+      "drop": 8,
+      "cushion": "high",
+      "foam": "balanced",
+      "carbon": false,
+      "plateType": "Aucune",
+      "launch": 150,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix conseillé",
+      "price": 98,
+      "shop": "i-Run",
+      "sizes": [
+        "*"
+      ],
+      "sizeStockKnown": false,
+      "weightGrams": 252,
+      "deal": 87,
+      "reviews": [
+        "Route / chemin ; usage régulier",
+        "Dynamisme et amorti classés « excellent » par i-Run",
+        "252 g annoncés par i-Run"
+      ],
+      "offers": [
+        [
+          "i-Run",
+          98
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceUrl": "https://www.i-run.fr/chaussures_homme/Running_c23/Asics_m1/Asics-Novablast-4_Asics_fiche_136206.html",
+      "sourceLabel": "i-Run",
+      "sources": [
+        {
+          "label": "i-Run — fiche produit",
+          "url": "https://www.i-run.fr/chaussures_homme/Running_c23/Asics_m1/Asics-Novablast-4_Asics_fiche_136206.html"
+        }
+      ],
+      "compare": {
+        "current": "Novablast 6",
+        "verdict": "N−2 = vraie option budget",
+        "reason": "Le prix reste très bas. Le poids publié est même proche, mais deux générations séparent les constructions de mousse et la géométrie.",
+        "changes": [
+          [
+            "Poids",
+            "252 g",
+            "253 g",
+            "Quasi identique sur les fiches consultées"
+          ],
+          [
+            "Drop",
+            "8 mm",
+            "8 mm",
+            "Identique"
+          ],
+          [
+            "Usage",
+            "route / chemin, régulier",
+            "route, entraînement",
+            "Même famille d’usage"
+          ],
+          [
+            "Prix web relevé",
+            "98 €",
+            "132,91 €",
+            "34,91 € d’écart"
+          ]
+        ]
+      }
+    },
+    {
+      "id": 1010,
+      "family": "pegasus",
+      "brand": "NIKE",
+      "name": "Pegasus 42",
+      "generation": "N",
+      "terrain": [
+        "route"
+      ],
+      "levels": [
+        "debutant",
+        "occasionnel",
+        "regulier"
+      ],
+      "uses": [
+        "daily",
+        "long"
+      ],
+      "drop": 10,
+      "cushion": "moderate",
+      "foam": "balanced",
+      "carbon": false,
+      "plateType": "Aucune",
+      "launch": 140,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix original Nike",
+      "price": 88.19,
+      "shop": "offre homme via Runnea",
+      "sizes": [
+        "41",
+        "42",
+        "42.5",
+        "43",
+        "44",
+        "44.5",
+        "45",
+        "45.5",
+        "46"
+      ],
+      "sizeStockKnown": true,
+      "weightGrams": 300,
+      "deal": 93,
+      "reviews": [
+        "88,19 € relevés pour une offre homme incluant la pointure 42,5",
+        "ReactX + unité Air Zoom incurvée sur toute la longueur",
+        "Nike annonce plus d’espace à l’avant-pied que sur la Pegasus 41 ; drop 10 mm"
+      ],
+      "offers": [
+        [
+          "Runnea — offre homme relevée",
+          88.19
+        ],
+        [
+          "Nike — prix officiel",
+          139.99
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceUrl": "https://www.runnea.fr/chaussures-running/nike/pegasus-42/1063565/prix/toutes/",
+      "sourceLabel": "Runnea",
+      "sources": [
+        {
+          "label": "Runnea — prix par pointure",
+          "url": "https://www.runnea.fr/chaussures-running/nike/pegasus-42/1063565/prix/toutes/"
+        },
+        {
+          "label": "Nike — fiche officielle",
+          "url": "https://www.nike.com/fr/t/chaussure-de-running-sur-route-nike-pegasus-42-pour-homme-M9ckDyR3"
+        }
+      ]
+    },
+    {
+      "id": 1011,
+      "family": "pegasus",
+      "brand": "NIKE",
+      "name": "Pegasus 41",
+      "generation": "N−1",
+      "terrain": [
+        "route"
+      ],
+      "levels": [
+        "debutant",
+        "occasionnel",
+        "regulier"
+      ],
+      "uses": [
+        "daily",
+        "long"
+      ],
+      "drop": 10,
+      "cushion": "moderate",
+      "foam": "balanced",
+      "carbon": false,
+      "plateType": "Aucune",
+      "launch": 139.99,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix de référence génération",
+      "price": 70,
+      "shop": "offres listées sur idealo",
+      "sizes": [
+        "40",
+        "40.5",
+        "42.5",
+        "43",
+        "44",
+        "45"
+      ],
+      "sizeStockKnown": true,
+      "weightGrams": 297,
+      "deal": 98,
+      "reviews": [
+        "Offres à 70 € relevées par idealo pour plusieurs pointures, dont 42,5",
+        "297 g et drop 10 mm selon la fiche idealo",
+        "ReactX + Zoom Air ; usage entraînement / débutant"
+      ],
+      "offers": [
+        [
+          "Offre idealo (hors livraison)",
+          70
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceUrl": "https://www.idealo.fr/prix/204421823/nike-pegasus-41.html",
+      "sourceLabel": "idealo",
+      "sources": [
+        {
+          "label": "idealo — prix & caractéristiques",
+          "url": "https://www.idealo.fr/prix/204421823/nike-pegasus-41.html"
+        }
+      ],
+      "compare": {
+        "current": "Pegasus 42",
+        "verdict": "N−1 encore intéressante, mais l’écart est resserré",
+        "reason": "Même drop de 10 mm et même base ReactX. La 42 change surtout l’Air Zoom et l’avant-pied ; avec les promos actuelles sur la 42, l’avantage prix de la 41 n’est plus gigantesque.",
+        "changes": [
+          [
+            "Poids",
+            "297 g",
+            "300 g",
+            "Très proche"
+          ],
+          [
+            "Air Zoom",
+            "unités avant-pied + talon",
+            "unité incurvée pleine longueur",
+            "Évolution importante de sensation"
+          ],
+          [
+            "Avant-pied",
+            "forme 41",
+            "plus d’espace",
+            "N progresse en fit"
+          ],
+          [
+            "Prix web relevé",
+            "70 €",
+            "88,19 €",
+            "18,19 € d’écart"
+          ]
+        ]
+      }
+    },
+    {
+      "id": 1020,
+      "family": "speed",
+      "brand": "SAUCONY",
+      "name": "Endorphin Speed 5",
+      "generation": "N",
+      "terrain": [
+        "route"
+      ],
+      "levels": [
+        "regulier",
+        "competition"
+      ],
+      "uses": [
+        "tempo",
+        "race",
+        "daily",
+        "long"
+      ],
+      "drop": 8,
+      "cushion": "high",
+      "foam": "bouncy",
+      "carbon": false,
+      "plateType": "Nylon",
+      "launch": 200,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix conseillé",
+      "price": 160,
+      "shop": "Saucony",
+      "sizes": [
+        "*"
+      ],
+      "sizeStockKnown": false,
+      "weightGrams": 237,
+      "deal": 70,
+      "reviews": [
+        "PWRRUN PB + plaque nylon redessinée",
+        "Saucony la positionne pour les kilomètres rapides mais aussi les séances longues",
+        "Certaines couleurs homme sont affichées à 160 € au lieu de 200 €"
+      ],
+      "offers": [
+        [
+          "Saucony — coloris en promo",
+          160
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceUrl": "https://www.saucony.com/FR/fr_FR/endorphin-speed-5/60307M.html",
+      "sourceLabel": "Saucony officiel",
+      "sources": [
+        {
+          "label": "Saucony — fiche officielle",
+          "url": "https://www.saucony.com/FR/fr_FR/endorphin-speed-5/60307M.html"
+        }
+      ]
+    },
+    {
+      "id": 1021,
+      "family": "speed",
+      "brand": "SAUCONY",
+      "name": "Endorphin Speed 4",
+      "generation": "N−1",
+      "terrain": [
+        "route"
+      ],
+      "levels": [
+        "regulier",
+        "competition"
+      ],
+      "uses": [
+        "tempo",
+        "race",
+        "daily"
+      ],
+      "drop": 8,
+      "cushion": "high",
+      "foam": "bouncy",
+      "carbon": false,
+      "plateType": "Nylon",
+      "launch": 200,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix conseillé",
+      "price": 138,
+      "shop": "i-Run",
+      "sizes": [
+        "*"
+      ],
+      "sizeStockKnown": false,
+      "weightGrams": 236,
+      "deal": 83,
+      "reviews": [
+        "236 g annoncés par i-Run",
+        "Dynamisme et amorti classés « excellent » par i-Run",
+        "Prix 138 € contre 200 € conseillé"
+      ],
+      "offers": [
+        [
+          "i-Run",
+          138
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceUrl": "https://www.i-run.fr/chaussures_homme/Running_c23/Saucony_m95/Saucony-Endorphin-Speed-4_Saucony_fiche_137882.html",
+      "sourceLabel": "i-Run",
+      "sources": [
+        {
+          "label": "i-Run — fiche produit",
+          "url": "https://www.i-run.fr/chaussures_homme/Running_c23/Saucony_m95/Saucony-Endorphin-Speed-4_Saucony_fiche_137882.html"
+        }
+      ],
+      "compare": {
+        "current": "Endorphin Speed 5",
+        "verdict": "N−1 conserve l’essentiel du concept",
+        "reason": "Les deux générations restent des chaussures rapides à plaque nylon avec le même drop. L’écart de prix est réel mais moins spectaculaire que sur certaines familles.",
+        "changes": [
+          [
+            "Poids",
+            "236 g",
+            "~237 g",
+            "Quasi identique"
+          ],
+          [
+            "Plaque",
+            "nylon",
+            "nylon redessinée",
+            "Évolution plutôt que rupture"
+          ],
+          [
+            "Drop",
+            "8 mm",
+            "8 mm",
+            "Identique"
+          ],
+          [
+            "Prix actuel",
+            "138 €",
+            "160 €",
+            "22 € d’écart"
+          ]
+        ]
+      }
+    },
+    {
+      "id": 1030,
+      "family": "clifton",
+      "brand": "HOKA",
+      "name": "Clifton 10",
+      "generation": "N",
+      "terrain": [
+        "route"
+      ],
+      "levels": [
+        "debutant",
+        "occasionnel",
+        "regulier"
+      ],
+      "uses": [
+        "daily",
+        "long"
+      ],
+      "drop": 8,
+      "cushion": "high",
+      "foam": "soft",
+      "carbon": false,
+      "plateType": "Aucune",
+      "launch": 160,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix conseillé",
+      "price": 98.99,
+      "shop": "offre homme via Runnea",
+      "sizes": [
+        "41.5",
+        "42",
+        "42.5",
+        "43.5",
+        "44",
+        "44.5",
+        "45.5",
+        "46",
+        "46.5"
+      ],
+      "sizeStockKnown": true,
+      "weightGrams": 278,
+      "deal": 94,
+      "reviews": [
+        "98,99 € relevés sur une offre homme incluant la pointure 42,5",
+        "278 g ; drop 8 mm ; semelle intermédiaire CMEVA",
+        "HOKA a augmenté le drop de 3 mm par rapport à la génération précédente"
+      ],
+      "offers": [
+        [
+          "Runnea — offre homme relevée",
+          98.99
+        ],
+        [
+          "Alltricks — autre offre observée",
+          121.99
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceUrl": "https://www.runnea.fr/chaussures-running/hoka/clifton-10/1043789/prix/toutes/",
+      "sourceLabel": "Runnea",
+      "sources": [
+        {
+          "label": "Runnea — prix par pointure",
+          "url": "https://www.runnea.fr/chaussures-running/hoka/clifton-10/1043789/prix/toutes/"
+        },
+        {
+          "label": "Alltricks — fiche technique",
+          "url": "https://www.alltricks.fr/F-11912-chaussures-running/P-2947875-chaussures_running_hoka_clifton_10_blanc_orange_homme"
+        }
+      ]
+    },
+    {
+      "id": 1031,
+      "family": "clifton",
+      "brand": "HOKA",
+      "name": "Clifton 9",
+      "generation": "N−1",
+      "terrain": [
+        "route"
+      ],
+      "levels": [
+        "debutant",
+        "occasionnel",
+        "regulier"
+      ],
+      "uses": [
+        "daily",
+        "long"
+      ],
+      "drop": 5,
+      "cushion": "high",
+      "foam": "soft",
+      "carbon": false,
+      "plateType": "Aucune",
+      "launch": 150,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix de référence génération",
+      "price": 104.5,
+      "shop": "offres listées sur idealo",
+      "sizes": [
+        "*"
+      ],
+      "sizeStockKnown": false,
+      "weightGrams": null,
+      "deal": 82,
+      "reviews": [
+        "Meilleur prix affiché par idealo : 104,50 € hors livraison",
+        "Drop 5 mm ; profil entraînement route",
+        "La génération 10 passe à 8 mm de drop"
+      ],
+      "offers": [
+        [
+          "Meilleur prix idealo",
+          104.5
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceUrl": "https://www.idealo.fr/prix/202340032/hoka-clifton-9-1127895.html",
+      "sourceLabel": "idealo",
+      "sources": [
+        {
+          "label": "idealo — prix Clifton 9",
+          "url": "https://www.idealo.fr/prix/202340032/hoka-clifton-9-1127895.html"
+        },
+        {
+          "label": "Alltricks — nouveautés Clifton 10",
+          "url": "https://www.alltricks.fr/F-11912-chaussures-running/P-2947875-chaussures_running_hoka_clifton_10_blanc_orange_homme"
+        }
+      ],
+      "compare": {
+        "current": "Clifton 10",
+        "verdict": "La génération actuelle est moins chère aujourd’hui",
+        "reason": "La Clifton 9 conserve son drop de 5 mm, mais le meilleur prix relevé pour la Clifton 10 est actuellement inférieur. Ici, “ancienne génération” ne veut donc pas dire “meilleure affaire”.",
+        "changes": [
+          [
+            "Drop",
+            "5 mm",
+            "8 mm",
+            "+3 mm sur N"
+          ],
+          [
+            "Poids",
+            "—",
+            "278 g",
+            "N−1 non comparée faute de source homogène retenue"
+          ],
+          [
+            "Géométrie",
+            "ancienne Clifton",
+            "talon/transition/avant-pied retravaillés",
+            "N change le fit et la transition"
+          ],
+          [
+            "Prix web relevé",
+            "104,50 €",
+            "98,99 €",
+            "N coûte 5,51 € de moins"
+          ]
+        ]
+      }
+    },
+    {
+      "id": 1040,
+      "family": "ultraglide",
+      "brand": "SALOMON",
+      "name": "Ultra Glide 4",
+      "generation": "N",
+      "terrain": [
+        "trail"
+      ],
+      "levels": [
+        "debutant",
+        "occasionnel",
+        "regulier",
+        "competition"
+      ],
+      "uses": [
+        "daily",
+        "long",
+        "race"
+      ],
+      "drop": 6,
+      "cushion": "high",
+      "foam": "balanced",
+      "carbon": false,
+      "plateType": "Aucune",
+      "launch": 150,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix conseillé",
+      "price": 135,
+      "shop": "i-Run",
+      "sizes": [
+        "*"
+      ],
+      "sizeStockKnown": false,
+      "weightGrams": 267,
+      "deal": 58,
+      "reviews": [
+        "267 g en taille homme selon i-Run ; drop 6 mm",
+        "OptiFOAM + géométrie Relieve Sphere",
+        "Trail toutes distances jusqu’à l’ultra ; prix 135 € contre 150 € conseillé"
+      ],
+      "offers": [
+        [
+          "i-Run",
+          135
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceUrl": "https://www.i-run.fr/chaussures_homme/Trail_c15/Salomon_m96/Salomon-Ultra-Glide-4_Salomon_fiche_146578.html",
+      "sourceLabel": "i-Run",
+      "sources": [
+        {
+          "label": "i-Run — Ultra Glide 4",
+          "url": "https://www.i-run.fr/chaussures_homme/Trail_c15/Salomon_m96/Salomon-Ultra-Glide-4_Salomon_fiche_146578.html"
+        }
+      ]
+    },
+    {
+      "id": 1041,
+      "family": "ultraglide",
+      "brand": "SALOMON",
+      "name": "Ultra Glide 3",
+      "generation": "N−1",
+      "terrain": [
+        "trail"
+      ],
+      "levels": [
+        "debutant",
+        "occasionnel",
+        "regulier",
+        "competition"
+      ],
+      "uses": [
+        "daily",
+        "long",
+        "race"
+      ],
+      "drop": 6,
+      "cushion": "high",
+      "foam": "balanced",
+      "carbon": false,
+      "plateType": "Aucune",
+      "launch": 150,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix conseillé",
+      "price": 90,
+      "shop": "i-Run",
+      "sizes": [
+        "*"
+      ],
+      "sizeStockKnown": false,
+      "weightGrams": 290,
+      "deal": 93,
+      "reviews": [
+        "90 € chez i-Run contre 150 € conseillé",
+        "Drop 6 mm ; 290 g constatés par i-Run en taille 42",
+        "Energy Foam + Relieve Sphere ; trail toutes distances"
+      ],
+      "offers": [
+        [
+          "i-Run",
+          90
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceUrl": "https://www.i-run.fr/chaussures_homme/Trail_c15/Salomon_m96/Salomon-Ultra-Glide-3_Salomon_fiche_143202.html",
+      "sourceLabel": "i-Run",
+      "sources": [
+        {
+          "label": "i-Run — Ultra Glide 3",
+          "url": "https://www.i-run.fr/chaussures_homme/Trail_c15/Salomon_m96/Salomon-Ultra-Glide-3_Salomon_fiche_143202.html"
+        }
+      ],
+      "compare": {
+        "current": "Ultra Glide 4",
+        "verdict": "N−1 = gros écart de prix",
+        "reason": "Le drop reste à 6 mm et l’usage longue distance reste central. La N gagne surtout en poids et retravaille la mousse/construction.",
+        "changes": [
+          [
+            "Poids",
+            "290 g",
+            "267 g",
+            "N gagne ~23 g"
+          ],
+          [
+            "Drop",
+            "6 mm",
+            "6 mm",
+            "Identique"
+          ],
+          [
+            "Mousse",
+            "Energy Foam",
+            "OptiFOAM",
+            "Nouvelle formulation sur N"
+          ],
+          [
+            "Prix actuel",
+            "90 €",
+            "135 €",
+            "45 € d’écart"
+          ]
+        ]
+      }
+    },
+    {
+      "id": 1042,
+      "family": "ultraglide",
+      "brand": "SALOMON",
+      "name": "Ultra Glide 2",
+      "generation": "N−2",
+      "terrain": [
+        "trail"
+      ],
+      "levels": [
+        "debutant",
+        "occasionnel",
+        "regulier"
+      ],
+      "uses": [
+        "daily",
+        "long"
+      ],
+      "drop": 6,
+      "cushion": "high",
+      "foam": "balanced",
+      "carbon": false,
+      "plateType": "Aucune",
+      "launch": 150,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix de référence génération",
+      "price": 82.49,
+      "shop": "offres listées sur idealo",
+      "sizes": [
+        "*"
+      ],
+      "sizeStockKnown": false,
+      "weightGrams": 280,
+      "deal": 98,
+      "reviews": [
+        "À partir de 82,49 € sur idealo",
+        "280 g et drop 6 mm indiqués sur la fiche idealo",
+        "Energy Foam + Reverse Camber + Profeel Film"
+      ],
+      "offers": [
+        [
+          "Meilleur prix idealo",
+          82.49
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceUrl": "https://www.idealo.fr/prix/202311710/salomon-ultra-glide-2.html",
+      "sourceLabel": "idealo",
+      "sources": [
+        {
+          "label": "idealo — Ultra Glide 2",
+          "url": "https://www.idealo.fr/prix/202311710/salomon-ultra-glide-2.html"
+        },
+        {
+          "label": "i-Run — Ultra Glide 4",
+          "url": "https://www.i-run.fr/chaussures_homme/Trail_c15/Salomon_m96/Salomon-Ultra-Glide-4_Salomon_fiche_146578.html"
+        }
+      ],
+      "compare": {
+        "current": "Ultra Glide 4",
+        "verdict": "N−2 = choix budget à examiner",
+        "reason": "Même drop et même orientation trail longue distance, mais deux générations séparent la géométrie et la mousse. La différence de prix est très forte.",
+        "changes": [
+          [
+            "Poids",
+            "280 g",
+            "267 g",
+            "N gagne ~13 g"
+          ],
+          [
+            "Drop",
+            "6 mm",
+            "6 mm",
+            "Identique"
+          ],
+          [
+            "Construction",
+            "Energy Foam + Reverse Camber + Profeel Film",
+            "OptiFOAM + Relieve Sphere",
+            "Évolution nette"
+          ],
+          [
+            "Prix relevé",
+            "82,49 €",
+            "135 €",
+            "52,51 € d’écart"
+          ]
+        ]
+      }
+    },
+    {
+      "id": 1050,
+      "family": "bushido",
+      "brand": "LA SPORTIVA",
+      "name": "Bushido III",
+      "generation": "N",
+      "terrain": [
+        "trail"
+      ],
+      "levels": [
+        "debutant",
+        "occasionnel",
+        "regulier"
+      ],
+      "uses": [
+        "daily",
+        "race"
+      ],
+      "drop": 6,
+      "cushion": "high",
+      "foam": "firm",
+      "carbon": false,
+      "plateType": "Aucune",
+      "launch": 175,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix conseillé",
+      "price": 130,
+      "shop": "i-Run",
+      "sizes": [
+        "*"
+      ],
+      "sizeStockKnown": false,
+      "weightGrams": 301,
+      "deal": 77,
+      "reviews": [
+        "Sentiers ; usage régulier ; drop 6 mm",
+        "301 g sur la fiche i-Run consultée",
+        "Dynamisme et amorti classés « excellent » par i-Run"
+      ],
+      "offers": [
+        [
+          "i-Run",
+          130
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceUrl": "https://www.i-run.fr/chaussures_homme/Trail_c15/La-Sportiva_m212/La-Sportiva-Bushido-III-M_La-Sportiva_fiche_140491.html",
+      "sourceLabel": "i-Run",
+      "sources": [
+        {
+          "label": "i-Run — Bushido III",
+          "url": "https://www.i-run.fr/chaussures_homme/Trail_c15/La-Sportiva_m212/La-Sportiva-Bushido-III-M_La-Sportiva_fiche_140491.html"
+        }
+      ]
+    },
+    {
+      "id": 1051,
+      "family": "bushido",
+      "brand": "LA SPORTIVA",
+      "name": "Bushido II",
+      "generation": "N−1",
+      "terrain": [
+        "trail"
+      ],
+      "levels": [
+        "regulier",
+        "competition"
+      ],
+      "uses": [
+        "daily",
+        "race"
+      ],
+      "drop": 6,
+      "cushion": "moderate",
+      "foam": "firm",
+      "carbon": false,
+      "plateType": "Aucune",
+      "launch": 130,
+      "referencePriceType": "currentgen",
+      "referenceLabel": "Prix actuel Bushido III",
+      "price": 113.9,
+      "shop": "offres listées sur idealo",
+      "sizes": [
+        "40.5",
+        "41",
+        "41.5",
+        "42",
+        "44",
+        "45"
+      ],
+      "sizeStockKnown": true,
+      "weightGrams": null,
+      "deal": 64,
+      "reviews": [
+        "À partir de 113,90 € sur idealo",
+        "Drop 6 mm ; usage compétition / natural running indiqué par idealo",
+        "Semelle intermédiaire EVA et semelle Frixion"
+      ],
+      "offers": [
+        [
+          "Meilleur prix idealo",
+          113.9
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceUrl": "https://www.idealo.fr/prix/6531618/la-sportiva-bushido-ii.html",
+      "sourceLabel": "idealo",
+      "sources": [
+        {
+          "label": "idealo — Bushido II",
+          "url": "https://www.idealo.fr/prix/6531618/la-sportiva-bushido-ii.html"
+        },
+        {
+          "label": "i-Run — Bushido III",
+          "url": "https://www.i-run.fr/chaussures_homme/Trail_c15/La-Sportiva_m212/La-Sportiva-Bushido-III-M_La-Sportiva_fiche_140491.html"
+        }
+      ],
+      "compare": {
+        "current": "Bushido III",
+        "verdict": "N−1 reste proche dans l’esprit",
+        "reason": "Le drop reste à 6 mm et la Bushido reste une chaussure de sentier précise. Le gain prix est toutefois plus faible que sur les Ultra Glide ou Pegasus.",
+        "changes": [
+          [
+            "Drop",
+            "6 mm",
+            "6 mm",
+            "Identique"
+          ],
+          [
+            "Semelle intermédiaire",
+            "EVA",
+            "construction Bushido III mise à jour",
+            "Évolution de génération"
+          ],
+          [
+            "Terrain",
+            "chemin / piste",
+            "sentiers variés",
+            "Même cœur d’usage"
+          ],
+          [
+            "Prix relevé",
+            "113,90 €",
+            "130 €",
+            "16,10 € d’écart"
+          ]
+        ]
+      }
+    },
+    {
+      "id": 1060,
+      "family": "kd900xld",
       "brand": "KIPRUN",
       "name": "KD900 X LD 2",
       "generation": "N",
@@ -16,16 +1124,17 @@
       ],
       "uses": [
         "tempo",
-        "race"
+        "race",
+        "long"
       ],
       "drop": 4,
       "cushion": "high",
       "foam": "bouncy",
       "carbon": true,
+      "plateType": "Carbone",
       "launch": 179.99,
       "referencePriceType": "observed",
-      "avg90": 109.99,
-      "best": 109.99,
+      "referenceLabel": "Prix initial affiché sur une fiche Decathlon",
       "price": 109.99,
       "shop": "Decathlon",
       "sizes": [
@@ -34,24 +1143,17 @@
         "41.5",
         "42",
         "43.5",
-        "44.5",
         "45",
         "45.5",
         "47"
       ],
       "sizeStockKnown": false,
-      "weightRange": [
-        45,
-        110
-      ],
-      "expert": 88,
-      "community": 88,
-      "deal": 86,
-      "athlete": "Co-création KIPRUN avec des athlètes professionnels ; Decathlon cite Yoann Kowal dans l’histoire de la gamme.",
+      "weightGrams": 225,
+      "deal": 92,
       "reviews": [
-        "225 g en pointure 42 selon Decathlon",
-        "Drop 4 mm",
-        "Mousse VFOAM PLUS + plaque carbone"
+        "225 g ; drop 4 mm ; plaque carbone",
+        "VFOAM PLUS ; amorti élevé et dynamisme maximal selon Decathlon",
+        "Pensée entraînement + compétition du 10 km au marathon"
       ],
       "offers": [
         [
@@ -60,14 +1162,21 @@
         ]
       ],
       "isReal": true,
-      "checkedAt": "2026-08-28T10:00:00Z",
-      "sourceUrl": "https://www.decathlon.fr/p/chaussures-de-running-plaque-carbone-homme-kiprun-kd900-x-ld-2-blanc-orange/360707/c227c125m8961370"
+      "checkedAt": "2026-08-29",
+      "sourceUrl": "https://www.decathlon.fr/p/chaussures-de-running-plaque-carbone-homme-kiprun-kd900-x-ld-2-blanc-orange/360707/c227c125m8961370",
+      "sourceLabel": "Decathlon",
+      "sources": [
+        {
+          "label": "Decathlon — KD900 X LD 2",
+          "url": "https://www.decathlon.fr/p/chaussures-de-running-plaque-carbone-homme-kiprun-kd900-x-ld-2-blanc-orange/360707/c227c125m8961370"
+        }
+      ]
     },
     {
-      "id": 502,
-      "family": "kiprun-kd900-light",
-      "brand": "KIPRUN",
-      "name": "KD900 Light",
+      "id": 1070,
+      "family": "cloudflow",
+      "brand": "ON",
+      "name": "Cloudflow 5",
       "generation": "N",
       "terrain": [
         "route"
@@ -78,53 +1187,57 @@
       ],
       "uses": [
         "tempo",
+        "long",
         "race"
       ],
-      "drop": 6,
+      "drop": 8,
       "cushion": "moderate",
       "foam": "bouncy",
       "carbon": false,
-      "launch": 109.99,
-      "referencePriceType": "observed",
-      "avg90": 74.99,
-      "best": 69.99,
-      "price": 74.99,
-      "shop": "Decathlon",
+      "plateType": "Nylon + fibre de verre",
+      "launch": 190,
+      "referencePriceType": "current",
+      "referenceLabel": "Prix On actuel",
+      "price": 190,
+      "shop": "On",
       "sizes": [
-        "40",
+        "40.5",
+        "41",
         "42",
         "42.5",
         "43",
-        "43.5",
         "44",
         "44.5",
         "45",
         "46",
-        "47"
+        "47",
+        "47.5",
+        "48"
       ],
-      "sizeStockKnown": false,
-      "weightRange": [
-        45,
-        105
-      ],
-      "expert": 86,
-      "community": 94,
-      "deal": 82,
-      "athlete": "Decathlon publie des retours de Yoann Kowal et Paul Chelimo sur ce modèle.",
+      "sizeStockKnown": true,
+      "weightGrams": 278,
+      "deal": 50,
       "reviews": [
-        "196 g en pointure 42 selon Decathlon",
-        "Drop 6 mm",
-        "Mousse VFOAM, sans plaque carbone"
+        "Helion HF + Speedboard nylon/fibre de verre",
+        "On la positionne pour tempo, fractionné et sorties longues",
+        "278 g ; drop 8 mm ; amorti faible-moyen, réactivité moyen-élevé"
       ],
       "offers": [
         [
-          "Decathlon",
-          74.99
+          "On",
+          190
         ]
       ],
       "isReal": true,
-      "checkedAt": "2026-08-28T10:00:00Z",
-      "sourceUrl": "https://www.decathlon.fr/p/chaussure-de-running-homme-kiprun-kd900-light-bleu-et-noir/339603/c143c382m8961340"
+      "checkedAt": "2026-08-29",
+      "sourceUrl": "https://www.on.com/fr-fr/products/cloudflow-5-m-3mf1011/mens",
+      "sourceLabel": "On officiel",
+      "sources": [
+        {
+          "label": "On — Cloudflow 5",
+          "url": "https://www.on.com/fr-fr/products/cloudflow-5-m-3mf1011/mens"
+        }
+      ]
     }
   ]
 }

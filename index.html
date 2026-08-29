@@ -4,8 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#0b1220" />
-  <meta name="description" content="Prototype de comparateur intelligent de chaussures de running." />
-  <title>RunDeal — Trouve la bonne chaussure au bon prix</title>
+  <meta name="description" content="Shoe-Tracker : comparateur intelligent de chaussures de running, anciennes générations et prix publics." />
+  <title>Shoe-Tracker — Trouve la bonne chaussure au bon prix</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -13,10 +13,10 @@
 </head>
 <body>
   <header class="topbar">
-    <a href="#" class="brand" aria-label="RunDeal accueil">
-      <span class="brand-mark">R</span>
-      <span>RunDeal</span>
-      <span class="badge badge-demo">V0.8 · 3 MODES</span>
+    <a href="#" class="brand" aria-label="Shoe-Tracker accueil">
+      <span class="brand-mark">S</span>
+      <span>Shoe-Tracker</span>
+      <span class="badge badge-demo">V0.9 · DONNÉES WEB</span>
     </a>
     <div class="top-actions">
       <button class="ghost-btn" id="resetBtn" type="button">Réinitialiser</button>
@@ -29,7 +29,7 @@
       <div class="hero-copy">
         <p class="eyebrow">LE BON MODÈLE. LA BONNE GÉNÉRATION. LE VRAI BON PRIX.</p>
         <h1>Trouve les chaussures qui te correspondent vraiment.</h1>
-        <p class="hero-sub">RunDeal croise ton profil de coureur, les caractéristiques des chaussures, les générations précédentes et les prix réellement disponibles dans ta pointure.</p>
+        <p class="hero-sub">Shoe-Tracker croise ton profil de coureur, les caractéristiques des chaussures, les générations précédentes et des prix publics réellement trouvés sur le web.</p>
         <div class="hero-stats" aria-label="Avantages du prototype">
           <div><strong>N à N−3</strong><span>comparées</span></div>
           <div><strong>2 scores</strong><span>compatibilité + deal</span></div>
@@ -56,9 +56,9 @@
         <div>
           <p class="eyebrow">TROIS FAÇONS DE CHERCHER</p>
           <h2 id="searchTitle">Comment veux-tu trouver ta prochaine paire ?</h2>
-          <p class="muted">Choisis un seul parcours. RunDeal utilisera uniquement les informations utiles à ce mode.</p>
+          <p class="muted">Choisis un seul parcours. Shoe-Tracker utilisera uniquement les informations utiles à ce mode.</p>
         </div>
-        <span class="data-note" id="dataSourceNote">Connexion à l’API RunDeal…</span>
+        <span class="data-note" id="dataSourceNote">Chargement des données web…</span>
       </div>
 
       <div class="search-mode-switch" role="tablist" aria-label="Mode de recherche">
@@ -83,7 +83,7 @@
           <div class="mode-panel-copy">
             <span class="mode-kicker">RECHERCHE PAR SIMILARITÉ</span>
             <h3>Quel modèle avais-tu en tête ?</h3>
-            <p>RunDeal cherche des chaussures avec un <strong>drop, un amorti et un usage proches</strong>, puis privilégie celles qui coûtent moins cher — notamment les N−1, N−2 et N−3.</p>
+            <p>Shoe-Tracker cherche des chaussures avec un <strong>drop, un amorti et un usage proches</strong>, puis privilégie celles qui coûtent moins cher — notamment les N−1, N−2 et N−3.</p>
           </div>
           <div class="similar-search-box">
             <label class="big-select-label">
@@ -147,12 +147,12 @@
             <div id="stravaPrivateData" class="strava-private-data hidden">
               <div class="strava-user-line"><div><span>IMPORT PRIVÉ</span><strong id="stravaAthleteLabel">Compte Strava connecté</strong></div></div>
               <div id="stravaShoes" class="strava-shoes"></div>
-              <div class="strava-manual-help"><strong>Une paire t’a marqué ?</strong><span>Ajoute toi-même ton ressenti pour que RunDeal apprenne tes préférences.</span><button type="button" class="ghost-btn" id="openManualFeedbackFromStrava">Ajouter mon ressenti</button></div>
+              <div class="strava-manual-help"><strong>Une paire t’a marqué ?</strong><span>Ajoute toi-même ton ressenti pour que Shoe-Tracker apprenne tes préférences.</span><button type="button" class="ghost-btn" id="openManualFeedbackFromStrava">Ajouter mon ressenti</button></div>
             </div>
           </section>
 
           <div class="history-card simplified-history">
-            <div class="history-intro"><div><div class="optional-kicker"><span>MES RETOURS</span> Saisie RunDeal</div><h3 id="historyTitle">Ce que j’ai aimé — ou pas</h3><p>Rigidité, douceur, hauteur, réactivité, stabilité et usage préféré.</p></div><button class="primary-btn" id="toggleHistoryForm" type="button">+ Ajouter une chaussure</button></div>
+            <div class="history-intro"><div><div class="optional-kicker"><span>MES RETOURS</span> Saisie Shoe-Tracker</div><h3 id="historyTitle">Ce que j’ai aimé — ou pas</h3><p>Rigidité, douceur, hauteur, réactivité, stabilité et usage préféré.</p></div><button class="primary-btn" id="toggleHistoryForm" type="button">+ Ajouter une chaussure</button></div>
 
             <form id="historyForm" class="history-form hidden">
               <div class="history-form-grid">
@@ -169,7 +169,7 @@
             <div class="imported-history-block"><div class="imported-history-head"><div><span>CHAUSSURES DÉJÀ RENSEIGNÉES</span><strong>7 paires connues</strong></div><small>Clique sur une paire pour ajouter ton ressenti.</small></div><div id="importedShoes" class="imported-shoes"></div></div>
             <div id="historyEmpty" class="history-empty"><span class="history-icon">↗</span><div><strong>Aucun ressenti ajouté.</strong><p>Ajoute au moins une paire pour personnaliser réellement ce mode.</p></div></div>
             <div id="historyList" class="history-list hidden" aria-live="polite"></div>
-            <div id="learningSummary" class="learning-summary hidden"><div><span>PROFIL APPRIS</span><strong id="learningTitle">RunDeal commence à comprendre tes préférences</strong></div><p id="learningText"></p></div>
+            <div id="learningSummary" class="learning-summary hidden"><div><span>PROFIL APPRIS</span><strong id="learningTitle">Shoe-Tracker commence à comprendre tes préférences</strong></div><p id="learningText"></p></div>
           </div>
         </section>
       </div>
@@ -191,10 +191,10 @@
     </section>
 
     <section class="source-strip pre-search-hidden" aria-label="État des données">
-      <div><span class="source-dot api"></span><strong>API RunDeal</strong><small id="apiStatusText">chargement…</small></div>
+      <div><span class="source-dot api"></span><strong>Catalogue Shoe-Tracker</strong><small id="apiStatusText">chargement…</small></div>
       <div><span class="source-dot strava"></span><strong>Strava privé</strong><small id="stravaSourceStatus">non connecté</small></div>
-      <div><span class="source-dot real"></span><strong>Données réelles</strong><small>prix constatés / flux marchand</small></div>
-      <div><span class="source-dot demo"></span><strong>Démo</strong><small>encore utilisée pour compléter la maquette</small></div>
+      <div><span class="source-dot real"></span><strong>Données web</strong><small>16 modèles / générations</small></div>
+      <div><span class="source-dot demo"></span><strong>Sources citées</strong><small>marques, marchands, comparateurs</small></div>
     </section>
 
     <section id="results" class="results-section pre-search-hidden">
@@ -245,7 +245,7 @@
       <div class="trust-card">
         <p class="eyebrow">PREUVES</p>
         <h2>Pas seulement du marketing.</h2>
-        <p>Chaque fiche peut croiser tests experts, avis utilisateurs, mesures laboratoire et, quand elles existent, performances d’athlètes.</p>
+        <p>Chaque fiche affiche maintenant les sources internet utilisées. Les notes « expert » ou « communauté » ne sont plus simulées : elles apparaîtront seulement quand nous aurons une source et un échantillon suffisants.</p>
         <ul class="proof-list">
           <li>🧪 Tests et mesures sourcés</li>
           <li>📝 Consensus de reviews</li>
@@ -257,8 +257,8 @@
   </main>
 
   <footer>
-    <div><strong>RunDeal</strong> — V0.8 · 3 modes de recherche + Strava privé + données réelles</div>
-    <p>Les données Strava sont affichées uniquement à l’utilisateur authentifié et ne sont pas enregistrées dans la base communautaire. Les contributions communautaires proviennent exclusivement d’une saisie directe dans RunDeal.</p>
+    <div><strong>Shoe-Tracker</strong> — V0.9 · 3 modes de recherche + Strava privé + snapshot web réel</div>
+    <p>Prix et caractéristiques : snapshot public collecté le 29/08/2026, à revérifier avant achat. Les données Strava restent privées et les contributions communautaires proviennent exclusivement d’une saisie directe dans Shoe-Tracker.</p>
   </footer>
 
   <dialog id="shoeDialog">

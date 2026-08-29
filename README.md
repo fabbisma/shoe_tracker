@@ -1,144 +1,95 @@
-# RunDeal V0.8 — 3 modes de recherche
+# Shoe-Tracker V0.9 — premières données web réelles
 
-Cette version allège fortement la page d’accueil. L’utilisateur choisit **un seul parcours** avant de lancer la recherche :
+Cette version renomme le projet **Shoe-Tracker** et remplace le catalogue de démonstration par un **snapshot de données publiques collectées le 29 août 2026**.
 
-1. **Un modèle en tête** — chercher des chaussures au comportement proche (drop, amorti, usage/dynamisme), mais moins chères.
-2. **Mes critères** — terrain, niveau, poids, drop, amorti, mousse, carbone et usage.
-3. **Mon expérience** — équipement Strava privé + ressentis saisis manuellement (trop rigide, trop mou, manque de réactivité, etc.).
+## Ce qui est réellement alimenté
 
-Les trois modes partagent seulement **pointure, budget et générations N / N−1 / N−2 / N−3**. Les résultats restent masqués tant que l’utilisateur n’a pas cliqué sur **Lancer la recherche**.
+Le snapshot contient 16 modèles / générations, notamment :
 
-## Principe de séparation Strava / communauté
+- ASICS Novablast 6 / 5 / 4
+- Nike Pegasus 42 / 41
+- Saucony Endorphin Speed 5 / 4
+- HOKA Clifton 10 / 9
+- Salomon Ultra Glide 4 / 3 / 2
+- La Sportiva Bushido III / II
+- KIPRUN KD900 X LD 2
+- On Cloudflow 5
 
-Les données Strava restent privées et ne sont pas automatiquement copiées dans Supabase. Les contributions communautaires proviennent uniquement du formulaire RunDeal rempli volontairement par l’utilisateur.
+Les chaussures personnelles déjà utilisées restent disponibles dans le mode **Mon expérience**, notamment KD900X, Bushido II, Ultra Glide 2, Carbon X et Cloudflow.
 
----
+## Sources utilisées dans le snapshot
 
-# RunDeal V0.7 — Strava privé + API + données réelles
+Les fiches contiennent leurs URLs sources. Les principales sources sont :
 
-Cette version ajoute une première connexion **Strava OAuth 2.0** en respectant une séparation stricte entre les données Strava personnelles et la base communautaire RunDeal.
+- ASICS officiel : Novablast 6
+- Nike officiel : Pegasus 42
+- Saucony officiel : Endorphin Speed 5
+- On officiel : Cloudflow 5
+- Decathlon : KIPRUN KD900 X LD 2
+- i-Run : Novablast 4, Endorphin Speed 4, Ultra Glide 4/3, Bushido III
+- Alltricks : Clifton 10
+- idealo : Pegasus 41, Clifton 9, Ultra Glide 2, Bushido II
+- Runnea : Novablast 5 et son historique de prix
 
-## Nouveau en V0.7 — « Quel modèle avais-tu en tête ? »
+## Important : snapshot, pas encore flux temps réel
 
-Le moteur propose désormais un mode de recherche par **modèle de référence**. L’utilisateur choisit une chaussure du catalogue et RunDeal cherche uniquement des alternatives **moins chères** présentant au moins 50 % de similarité technique.
+Cette V0.9 utilise de **vraies valeurs publiques**, mais ce n'est pas encore un crawler/flux marchand live.
 
-La similarité prend notamment en compte le terrain, les usages, l’amorti, la sensation de mousse, la présence d’une plaque carbone, le drop et le niveau visé. Les générations de la même famille bénéficient d’un bonus, sans empêcher une chaussure concurrente d’une autre marque d’être mieux classée.
+Le prix peut dépendre :
+- du coloris ;
+- du sexe / de la déclinaison ;
+- de la pointure ;
+- d'un code promo ;
+- du stock restant.
 
-Les cartes de résultat affichent la **similarité en %**, l’**économie par rapport au modèle envisagé** et les principaux points communs. Le reste du profil utilisateur, l’historique personnel et les filtres N / N−1 / N−2 / N−3 continuent de participer au classement.
+Quand la source ne garantit pas le prix pour la pointure sélectionnée, l'interface affiche **« taille à vérifier »**. Pour quelques offres (Novablast 5, Pegasus 41/42, Clifton 10), la V0.9 conserve au contraire les pointures explicitement listées avec le prix observé. La fiche indique aussi la source internet et la date de collecte.
 
-## Nouveauté principale : deux circuits qui ne se mélangent pas
+Le futur flux affilié / API marchand devra normaliser chaque offre par `modèle + sexe + coloris + pointure + marchand`.
 
-### 1. Strava → espace privé
+## Scoring V0.9
 
-La V0.6 demande uniquement le scope Strava `profile:read_all`, afin de récupérer le profil détaillé et la liste des chaussures avec leur kilométrage cumulé.
+Le **Fit Score** est calculé à partir des caractéristiques techniques structurées et, en mode expérience, des retours manuels de l'utilisateur.
 
-- Les chaussures Strava sont affichées uniquement à l’utilisateur connecté.
-- Aucune chaussure, distance ou autre donnée Strava n’est écrite dans Supabase.
-- Le front ne copie pas automatiquement une donnée Strava dans le formulaire communautaire.
-- Le bouton « Saisir un retour RunDeal » ouvre un formulaire vide : l’utilisateur doit sélectionner ou saisir lui-même le modèle et les informations qu’il souhaite déclarer.
-- Les appels `/api/strava-me` sont `no-store`.
-- Les tokens OAuth sont conservés côté navigateur dans un cookie `HttpOnly` chiffré, avec une session prototype limitée à 7 jours.
-- « Déconnecter » appelle l’endpoint de révocation Strava puis supprime la session locale.
+Le **Deal Score** est un calcul Shoe-Tracker basé principalement sur l'écart entre prix public/référence et prix observé. Quand un historique public fiable est disponible (Novablast 5 via Runnea dans ce snapshot), la proximité du plus bas historique est aussi prise en compte.
 
-### 2. RunDeal → communauté
+Il n'y a plus de faux `score expert` ou `score communauté`.
 
-L’endpoint `POST /api/feedback` n’accepte que les données saisies dans le formulaire RunDeal. Le serveur force désormais :
+## Déploiement Vercel
 
-`source = USER_DECLARED`
+1. Décompresser le projet.
+2. Pousser le contenu à la racine d'un dépôt GitHub.
+3. Importer le dépôt dans Vercel.
+4. Framework : **Other**.
+5. Déployer.
 
-Aucune provenance Strava ne peut être envoyée depuis le navigateur pour alimenter `community_feedback`.
-
-## Endpoints V0.6
-
-- `GET /api/catalog` — catalogue RunDeal / Supabase / snapshot.
-- `POST /api/feedback` — contribution communautaire déclarée directement.
-- `GET /api/health` — état API, Supabase, flux Decathlon et configuration Strava.
-- `GET /api/strava-connect` — démarre OAuth Strava.
-- `GET /api/strava-callback` — échange le code OAuth et crée la session chiffrée.
-- `GET /api/strava-me` — récupère à la demande les chaussures du compte authentifié.
-- `POST /api/strava-disconnect` — révoque la connexion et supprime la session.
-- `GET /api/import-decathlon` — import marchand protégé, inchangé dans son principe.
-
-## Configurer Strava
-
-1. Créer une application dans les paramètres API Strava.
-2. Dans **Authorization Callback Domain**, indiquer uniquement le domaine public du projet, par exemple :
-   `rundeal.vercel.app`
-3. Dans Vercel → **Settings → Environment Variables**, ajouter :
-
-```text
-STRAVA_CLIENT_ID=12345
-STRAVA_CLIENT_SECRET=xxxxxxxx
-STRAVA_SESSION_SECRET=une-longue-valeur-aleatoire-et-secrete
-APP_BASE_URL=https://rundeal.vercel.app
-```
-
-4. Redéployer le projet.
-5. Ouvrir RunDeal et cliquer **Connecter Strava**.
-
-Le callback utilisé par le code est :
-
-```text
-https://rundeal.vercel.app/api/strava-callback
-```
-
-## Générer STRAVA_SESSION_SECRET
-
-Exemple sur un terminal :
-
-```bash
-openssl rand -hex 32
-```
-
-Ne jamais placer `STRAVA_CLIENT_SECRET` ou `STRAVA_SESSION_SECRET` dans `app.js`.
-
-## Pourquoi seulement `profile:read_all` ?
-
-Pour la première intégration, les activités détaillées ne sont pas nécessaires. Le profil détaillé Strava contient la liste `shoes` avec le nom, le statut de paire principale et la distance cumulée. La V0.6 applique donc un principe de minimisation : pas de `activity:read_all` tant qu’une fonctionnalité claire ne le justifie pas.
+Sans Supabase, `/api/catalog` sert automatiquement `data/real-seed.json`.
 
 ## Supabase
 
-1. Créer un projet Supabase.
-2. Ouvrir **SQL Editor**.
-3. Exécuter `supabase/schema.sql`.
-4. Ajouter dans Vercel :
-   - `SUPABASE_URL`
-   - `SUPABASE_SERVICE_ROLE_KEY`
-5. Redéployer.
+Le schéma est dans `supabase/schema.sql`. Les variables restent :
 
-Si une base V0.5 existe déjà, ajouter la colonne :
-
-```sql
-alter table community_feedback
-add column if not exists source text not null default 'USER_DECLARED';
+```text
+SUPABASE_URL=
+SUPABASE_SERVICE_ROLE_KEY=
 ```
 
-## Flux Decathlon
+## Strava privé
 
-La logique V0.5 reste disponible :
+La logique de la V0.8 est conservée : Strava sert seulement à l'espace personnel et ne remplit jamais automatiquement la base communautaire.
 
-- `DECATHLON_FEED_URL`
-- `IMPORT_SECRET`
-- import CSV/XML/JSON ;
-- rapprochement marchand → modèle canonique contrôlé ;
-- historique des prix uniquement après validation du modèle.
+Variables :
 
-## Test rapide après déploiement
+```text
+STRAVA_CLIENT_ID=
+STRAVA_CLIENT_SECRET=
+STRAVA_SESSION_SECRET=
+APP_BASE_URL=https://shoe-tracker.vercel.app
+```
 
-1. `/api/health` doit afficher `version: "0.6.0"`.
-2. `strava: true` doit apparaître après configuration des 3 variables Strava.
-3. Cliquer **Connecter Strava**.
-4. Après autorisation, les chaussures du compte doivent apparaître dans le cadre orange « Strava · privé ».
-5. Recharger la page : elles restent accessibles pendant la session OAuth, mais ne figurent pas dans Supabase.
-6. Cliquer **Saisir un retour RunDeal** : le formulaire doit être vide et aucune donnée Strava ne doit être préremplie.
-7. Cliquer **Déconnecter** : la session locale doit être supprimée.
+## Étape suivante recommandée
 
-## Références techniques
+Passer du snapshot à un vrai pipeline :
 
-- Authentification Strava OAuth 2.0 : https://developers.strava.com/docs/authentication/
-- Référence `DetailedAthlete` / `shoes` : https://developers.strava.com/docs/reference/
-- Politique API Strava 2026 : https://www.strava.com/legal/api_policy
+`flux marchand -> normalisation modèle/génération -> offres par pointure -> historique quotidien -> Deal Score`
 
-## Prochaine étape suggérée
-
-Après validation de l’import des chaussures sur un vrai compte, la V0.7 pourrait ajouter un **matching local assisté mais non persistant** entre le nom Strava (`"Kiprun X"`) et le catalogue RunDeal (`"KIPRUN KD900X"`) uniquement pour aider l’utilisateur à retrouver le modèle à l’écran. Toute contribution communautaire resterait une saisie RunDeal séparée.
+Le premier flux à brancher peut rester Decathlon/Rakuten, puis i-Run/Kwanko.

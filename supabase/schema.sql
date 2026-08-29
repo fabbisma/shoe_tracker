@@ -1,4 +1,4 @@
--- RunDeal V0.6 — schéma minimal Supabase/PostgreSQL
+-- Shoe-Tracker V0.6 — schéma minimal Supabase/PostgreSQL
 create extension if not exists pgcrypto;
 
 create table if not exists retailers (
