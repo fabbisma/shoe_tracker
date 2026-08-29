@@ -1,6 +1,6 @@
 {
   "name": "shoe-tracker-v09",
-  "version": "0.9.0",
+  "version": "0.10.0",
   "private": true,
   "description": "Shoe-Tracker V0.9 - trois modes de recherche, snapshot web réel, API Vercel, Supabase et Strava privé",
   "dependencies": {

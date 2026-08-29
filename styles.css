@@ -51,3 +51,46 @@ dialog{border:0;border-radius:24px;padding:0;max-width:760px;width:calc(100% - 3
 .source-links{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 14px}
 .source-links a{display:inline-flex;align-items:center;min-height:36px;padding:7px 10px;border:1px solid var(--border);border-radius:10px;text-decoration:none;color:var(--accent);background:var(--panel)}
 .source-links a:hover{text-decoration:underline}
+
+/* V0.10 — résultat visuel : moins de texte, plus de comparaison */
+.v10-secondary-hidden{display:none!important}
+.visual-card{padding:16px;gap:12px}
+.visual-card .generation-ribbon{font-size:10px;padding:6px 9px;border-radius:999px;align-self:flex-start}
+.visual-card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+.visual-card-head .shoe-name{font-size:19px;margin-top:2px}
+.compact-score{display:grid;place-items:center;min-width:48px;height:34px;padding:0 9px;border-radius:999px;background:#eef7f3;color:#0b7e60;font-size:13px;font-weight:900}
+.shoe-visual.real-photo{height:150px;background:#f6f7f9;border:1px solid #eef1f5;display:flex;align-items:center;justify-content:center;padding:8px}
+.shoe-photo{width:100%;height:100%;object-fit:contain;display:block}
+.shoe-photo-fallback{width:100%;height:100%;display:grid;place-items:center;color:#7c8798;font-size:13px;font-weight:900;letter-spacing:.12em;background:linear-gradient(135deg,#f5f7fa,#e8edf4);border-radius:12px}
+.visual-price{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;padding:0 2px}
+.visual-price>div{display:flex;flex-direction:column;min-width:0}
+.visual-price strong{font-size:25px;letter-spacing:-.04em}
+.visual-price span,.visual-price small{font-size:10px;color:var(--muted)}
+.visual-price small{text-decoration:line-through;white-space:nowrap}
+.comparison-bars{display:grid;gap:10px;padding-top:2px}
+.compare-metric{display:grid;grid-template-columns:minmax(0,1fr) 34px;gap:5px 9px;align-items:center}
+.compare-metric-head{grid-column:1/-1;display:flex;align-items:baseline;justify-content:space-between;gap:9px;font-size:10px}
+.compare-metric-head strong{font-size:11px}
+.compare-metric-head span{color:#516078;text-align:right;white-space:nowrap}
+.compare-metric-head small{color:#9099a8;font-size:9px;margin-left:4px}
+.compare-track{height:7px;border-radius:999px;background:#e8edf3;overflow:hidden}
+.compare-track span{display:block;height:100%;border-radius:999px;background:var(--accent);transition:width .25s ease}
+.compare-metric>b{text-align:right;font-size:10px;color:#506078}
+.price-compare{margin-top:2px;padding-top:10px;border-top:1px solid #edf0f4}
+.price-compare-head{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:8px;margin-bottom:7px}
+.price-compare-head strong{font-size:11px}
+.price-compare-head small{font-size:9px;color:#9099a8;text-align:right}
+.price-diff{justify-self:start;font-size:11px;font-weight:900}
+.price-diff.left{color:#0b7e60}.price-diff.right{color:#a24942}
+.price-axis{height:28px;position:relative;background:#f5f7fa;border-radius:8px;overflow:hidden}
+.axis-center{position:absolute;left:50%;top:5px;bottom:5px;width:1px;background:#8994a6;z-index:2}
+.axis-zero{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:8px;font-weight:900;color:#687487;background:#f5f7fa;padding:1px 3px;z-index:3}
+.axis-label{position:absolute;top:50%;transform:translateY(-50%);font-size:8px;color:#9aa3b1;z-index:3}.axis-label.left{left:6px}.axis-label.right{right:6px}
+.price-fill{position:absolute;top:8px;height:12px;border-radius:999px;opacity:.78}.price-fill.left{right:50%;width:var(--extent);background:#4aa889}.price-fill.right{left:50%;width:var(--extent);background:#c8756d}
+.reference-preview{grid-template-columns:76px minmax(0,1fr) auto;gap:14px}
+.reference-preview-photo{width:76px;height:58px;border-radius:10px;background:#fff;overflow:hidden;display:grid;place-items:center}
+.reference-shoe-photo{width:100%;height:100%;object-fit:contain}
+.reference-preview .reference-price{text-align:right}
+.reference-preview .reference-arrow,.reference-preview .reference-goal{display:none}
+@media(max-width:900px){.visual-card .shoe-visual.real-photo{height:140px}}
+@media(max-width:640px){.reference-preview{grid-template-columns:58px minmax(0,1fr);}.reference-preview .reference-price{grid-column:2;text-align:left}.reference-preview-photo{width:58px;height:48px}.compare-metric-head span{white-space:normal}.price-compare-head{grid-template-columns:auto 1fr}.price-compare-head small{grid-column:1/-1;text-align:left}.visual-price strong{font-size:23px}}
