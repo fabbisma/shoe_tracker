@@ -94,3 +94,12 @@ dialog{border:0;border-radius:24px;padding:0;max-width:760px;width:calc(100% - 3
 .reference-preview .reference-arrow,.reference-preview .reference-goal{display:none}
 @media(max-width:900px){.visual-card .shoe-visual.real-photo{height:140px}}
 @media(max-width:640px){.reference-preview{grid-template-columns:58px minmax(0,1fr);}.reference-preview .reference-price{grid-column:2;text-align:left}.reference-preview-photo{width:58px;height:48px}.compare-metric-head span{white-space:normal}.price-compare-head{grid-template-columns:auto 1fr}.price-compare-head small{grid-column:1/-1;text-align:left}.visual-price strong{font-size:23px}}
+
+
+/* V0.11 — terrain strict + photos produit plus lisibles */
+.shoe-photo-fallback[hidden]{display:none!important}
+.shoe-visual.real-photo{height:168px;padding:4px;background:#fff}
+.shoe-visual.real-photo .shoe-photo{width:100%;height:100%;max-width:100%;object-fit:contain;object-position:center}
+.shoe-visual.real-photo .shoe-photo-fallback:not([hidden]){width:100%;height:100%;border-radius:12px}
+@media(max-width:900px){.visual-card .shoe-visual.real-photo{height:158px}}
+@media(max-width:640px){.visual-card .shoe-visual.real-photo{height:170px}}

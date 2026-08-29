@@ -219,9 +219,24 @@ function arrayOverlapScore(a=[],b=[]){
   let common=0; A.forEach(x=>{if(B.has(x)) common++;});
   return common/union.size;
 }
+function surfaceCompatible(referenceTerrain=[], candidateTerrain=[]){
+  // V0.11: route et trail sont des univers séparés.
+  // Une chaussure trail ne peut jamais être proposée comme alternative à une route, et inversement.
+  const refIsTrail=referenceTerrain.includes('trail');
+  const candIsTrail=candidateTerrain.includes('trail');
+  if(refIsTrail!==candIsTrail) return false;
+  return true;
+}
+function criteriaSurfaceCompatible(target, candidateTerrain=[]){
+  if(target==='trail') return candidateTerrain.includes('trail');
+  if(target==='route') return !candidateTerrain.includes('trail') && candidateTerrain.includes('route');
+  if(target==='mixte') return candidateTerrain.includes('mixte');
+  return true;
+}
 function similarityScore(reference,shoe){
   if(!reference || !shoe) return 0;
   if(String(reference.id)===String(shoe.id)) return 100;
+  if(!surfaceCompatible(reference.terrain,shoe.terrain)) return 0;
   let score=0;
   score += arrayOverlapScore(reference.terrain,shoe.terrain)*24;
   score += arrayOverlapScore(reference.uses,shoe.uses)*24;
@@ -566,11 +581,13 @@ function render(){
   const reference=state.mode==='similar'?selectedReferenceShoe():null;
   let rows=shoes.map(shoe=>({...shoe,fit:scoreFit(shoe,f),similarity:reference?similarityScore(reference,shoe):null,savingVsReference:reference?referenceSavings(reference,shoe):null}))
     .filter(shoe=>state.generations.has(shoe.generation) && shoe.price<=f.maxPrice && sizeMatches(shoe,f.size) && (state.mode==='similar'||shoe.fit>=52))
-    .filter(shoe=>!reference || (String(shoe.id)!==String(reference.id) && shoe.price<=reference.price*1.20 && shoe.similarity>=50))
+    .filter(shoe=>state.mode!=='criteria' || criteriaSurfaceCompatible(f.terrain,shoe.terrain))
+    .filter(shoe=>!reference || (surfaceCompatible(reference.terrain,shoe.terrain) && String(shoe.id)!==String(reference.id) && shoe.price<=reference.price*1.20 && shoe.similarity>=50))
     .sort((a,b)=>finalScore(b,b.fit,reference)-finalScore(a,a.fit,reference));
   $('#resultCount').textContent=rows.length;
   if(reference){
-    $('#summaryText').textContent=`Alternatives à ${reference.brand} ${reference.name} · jusqu’à +20 % du prix de référence · similarité ≥ 50 % · pointure ${f.size} · générations ${generationSummary()}`;
+    const surface=reference.terrain.includes('trail')?'Trail':'Route';
+    $('#summaryText').textContent=`Alternatives ${surface} à ${reference.brand} ${reference.name} · même terrain uniquement · jusqu’à +20 % du prix de référence · pointure ${f.size} · générations ${generationSummary()}`;
   }else if(state.mode==='experience'){
     $('#summaryText').textContent=`Recommandations tirées de ton expérience · ${state.history.length} retour${state.history.length>1?'s':''} manuel${state.history.length>1?'s':''}${state.strava.connected?' + équipement Strava privé':''} · pointure ${f.size} · budget ≤ ${f.maxPrice} €`;
   }else{
@@ -578,8 +595,8 @@ function render(){
   }
   $('#emptyState').classList.toggle('hidden',rows.length!==0);
   if(reference && !rows.length){
-    $('#emptyState').querySelector('h3').textContent='Aucune alternative moins chère assez proche.';
-    $('#emptyState').querySelector('p').textContent='Essaie d’activer davantage de générations, d’augmenter ton budget ou de choisir un autre modèle de référence.';
+    $('#emptyState').querySelector('h3').textContent='Aucune alternative du même terrain assez proche.';
+    $('#emptyState').querySelector('p').textContent='Essaie d’activer davantage de générations, d’augmenter ton budget ou de choisir un autre modèle de référence. Route et trail restent volontairement séparés.';
   }else{
     $('#emptyState').querySelector('h3').textContent='Aucun modèle ne coche assez de cases.';
     $('#emptyState').querySelector('p').textContent='Essaie d’augmenter ton budget ou de retirer une préférence.';
