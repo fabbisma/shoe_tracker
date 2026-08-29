@@ -1,8 +1,8 @@
 {
-  "name": "shoe-tracker-v13",
-  "version": "0.14.0",
+  "name": "shoe-tracker-v16",
+  "version": "0.16.0",
   "private": true,
-  "description": "Shoe-Tracker V0.14 - catalogue élargi à 67 modèles avec 20 Mizuno route et trail",
+  "description": "Shoe-Tracker V0.16 - 82 modèles avec gamme ASICS élargie dont Gel Cumulus 28/27/26",
   "dependencies": {
     "csv-parse": "^5.6.0",
     "fast-xml-parser": "^4.5.3"

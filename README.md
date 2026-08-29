@@ -1,74 +1,67 @@
-# Shoe-Tracker V0.14 — catalogue élargi à Mizuno
+# Shoe-Tracker V0.16 — 82 modèles, gamme ASICS élargie
 
-## Nouveautés V0.14
+## Nouveautés V0.16
 
-- Le snapshot passe de **47 à 67 modèles / générations réels**.
-- Ajout de **20 Mizuno** couvrant route, entraînement rapide, compétition et trail.
-- Les familles avec plusieurs générations sont comparables en N / N−1 / N−2 :
-  - Wave Rider 30 / 29 / 28
-  - Neo Zen 2 / Neo Zen
-  - Neo Vista 3 / 2 / première génération
-  - Wave Daichi 9 / 8 / 7
-  - Wave Mujin 11 / 10
-- Autres Mizuno ajoutées : Wave Sky 9, Wave Skyrise 7, Wave Ultima 17, Wave Inspire 22, Wave Rebellion Pro 3, Wave Rebellion Flash 3 et Neo Accera.
-- `/api/product-image` autorise maintenant les domaines Mizuno officiels en plus de Runnea pour la récupération des images Open Graph.
-- Les données techniques exactes disponibles sont ajoutées au correcteur de paire : par exemple Wave Daichi 9 (34 mm au talon, crampons 4 mm), Wave Daichi 8 (33,5 mm / 4 mm), Wave Mujin 10 (38 mm / 5 mm), Neo Accera (~41,5 mm / 4 mm), Wave Inspire 22 (38,5 mm talon).
+Le catalogue passe de **67 à 82 modèles / générations réels**.
 
-## Quelques vrais prix intégrés au snapshot du 29 août 2026
+Ajouts ASICS :
 
-Les prix restent un snapshot : ils doivent être revérifiés au moment de l'achat.
+- **Gel Cumulus 28 / 27 / 26**
+- Gel Nimbus 28 / 27
+- Gel Kayano 33 / 32
+- GT-2000 15 / 14
+- Superblast 3 / 2
+- Magic Speed 5 / 4
+- Trabuco 14 / Gel Trabuco 13
 
-- Mizuno Wave Rider 30 : **119,95 €** pour une offre homme incluant le 42,5 ; prix original 160 €.
-- Mizuno Neo Zen 2 : **84,90 €** en homme 42,5 ; prix original 150 €.
-- Mizuno Wave Skyrise 7 : **85,50 €** en homme 42,5 ; prix original 150 €.
-- Mizuno Neo Vista 3 : **122,27 €** en homme 42,5 ; prix original 180 €.
-- Mizuno Neo Vista 2 : **102,60 €** en homme 42,5 ; prix original 180 €.
-- Mizuno Wave Daichi 9 : **85,50 €** relevés pour une offre homme en 42,5 ; prix original 150 €.
-- Mizuno Wave Mujin 11 : **98,80 €** en homme avec 42,5 ; prix original 160 €.
+Les familles sont reliées en N / N−1 / N−2 pour permettre au moteur de comparer les anciennes générations.
 
-Quand le meilleur prix relevé n'est pas confirmé dans la pointure choisie, `sizeStockKnown` reste faux et Shoe-Tracker continue d'afficher **taille à vérifier**.
+## Cumulus : exemple intéressant pour Shoe-Tracker
 
-## Sources Mizuno principales
+La famille Cumulus illustre bien l'intérêt du mode **« Je pars d'une paire »** :
 
-- Runnea — catalogue/prix Mizuno : https://www.runnea.fr/chaussures-running/modeles/mizuno/
-- Mizuno France — Wave Rider : https://emea.mizuno.com/eu/fr-fr/sports/running/wave-rider-collection/
-- Mizuno France — Trail : https://emea.mizuno.com/eu/fr-fr/sports/running/trail-running/chaussures/
-- Mizuno France — Wave Rebellion : https://emea.mizuno.com/eu/fr-fr/sports/running/wave-rebellion-collection/
-- Mizuno France — Neo Vista 3 : https://emea.mizuno.com/eu/fr-fr/mizuno-neo-vista-3/J1GU261082.html
+- Cumulus 28 : drop officiel 8 mm, 259 g homme, FF BLAST MAX ; RunRepeat mesure un stack talon de 42,8 mm.
+- Cumulus 27 : drop officiel 8 mm, 258 g ; stack labo 40,9 mm.
+- Cumulus 26 : drop officiel 8 mm, 255 g ; stack labo 36,8 mm.
 
-Chaque modèle du fichier `data/real-seed.json` garde également ses propres URLs de source.
+Ainsi un utilisateur qui aime la Cumulus mais veut **moins de hauteur** peut faire remonter naturellement la Cumulus 26 ou des concurrentes plus basses.
 
-## Toujours présent depuis V0.13
+## Prix réels intégrés au snapshot du 29/08/2026
 
-Le 3e onglet est **« Je pars d’une paire »** : l'utilisateur part d'un modèle qu'il connaît puis ajuste des curseurs centrés sur **Identique** :
+Exemples :
 
-- hauteur ;
-- grip sur le trail ;
-- drop ;
-- amorti ;
-- rigidité.
+- Gel Cumulus 28 : **101,99 €** relevés sur une offre homme incluant le 42,5.
+- Gel Cumulus 27 : à partir de **106 €** (pointure du meilleur prix à vérifier).
+- Gel Cumulus 26 : autour de **104 €** relevés, disponibilité à vérifier.
+- Gel Nimbus 28 : **130,49 €** sur une offre homme incluant le 42,5.
+- Gel Kayano 33 : **155,80 €** sur une offre homme incluant le 42,5.
+- GT-2000 14 : **115 €** sur une offre homme incluant le 42,5.
+- Superblast 2 : **166 €** sur une offre homme incluant le 42,5.
+- Trabuco 14 : **101,69 €** sur une offre homme incluant le 42,5.
 
-Les critères déplacés pèsent davantage dans le classement. Route et trail restent strictement séparés.
+Les prix restent un snapshot public, pas encore le flux Rakuten live.
 
-Les valeurs techniques sourcées sont affichées normalement. Quand Shoe-Tracker ne possède pas encore une mesure fiable, le prototype utilise un proxy marqué `≈`. L'objectif est de remplacer progressivement ces proxys par des données constructeur ou labo.
+## Sources principales ajoutées
 
-## Catalogue V0.14
+- ASICS France : fiches officielles Cumulus 28, Nimbus 28, Kayano 33, Superblast 3, Magic Speed 5 et collection GT-2000 15.
+- Runnea : prix et disponibilité par pointure.
+- RunRepeat : mesures labo de stack, rigidité et crampons utilisées dans le mode de comparaison technique.
 
-Le snapshot contient désormais **67 modèles / générations** parmi ASICS, Nike, Saucony, HOKA, Salomon, Brooks, New Balance, Adidas, Puma, KIPRUN, On, La Sportiva et **Mizuno**.
+Les URLs détaillées sont conservées dans `data/real-seed.json` pour chaque modèle.
 
-Le catalogue inclut des daily trainers, modèles amortis, chaussures tempo, carbone et chaussures trail. Les familles anciennes N−1 / N−2 / N−3 sont conservées lorsque des offres sont encore disponibles.
+## Toujours présent
 
-## Images
-
-Les images déjà connues restent dans `shoeImageMap`. Pour les autres modèles, l'app utilise `/api/product-image?url=...`, qui extrait `og:image`/`twitter:image` sur une liste blanche de domaines et met la réponse en cache. Aucun stockage d'images en base n'est nécessaire pour la maquette.
-
-En production, utiliser de préférence les images fournies par les flux d'affiliation ou une licence explicite.
+- 3 modes de recherche : modèle similaire / critères / « je pars d'une paire ».
+- Curseurs hauteur, grip (trail), drop, amorti et rigidité.
+- Séparation stricte route / trail.
+- Générations N à N−3.
+- Pointures EU 36 à 48.
+- Import Strava privé et retours communautaires séparés.
+- Images récupérées via URL produit / `og:image` sans base d'images dédiée.
 
 ## Déploiement
 
 GitHub → Vercel, Framework **Other**.
-
-Sans Supabase, `/api/catalog` sert automatiquement `data/real-seed.json`.
 
 Variables optionnelles existantes :
 
@@ -81,6 +74,4 @@ STRAVA_SESSION_SECRET=
 APP_BASE_URL=https://shoe-tracker.vercel.app
 ```
 
-## Important
-
-Ce catalogue est un **snapshot web**, pas encore un flux marchand temps réel. Prix, stock, coloris et pointures peuvent changer. La prochaine étape reste l'import quotidien de flux affiliés par modèle + pointure + marchand.
+Le branchement Rakuten/Decathlon viendra ensuite dès que le partenariat passe de `pending` à `active`.

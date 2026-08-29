@@ -1,6 +1,6 @@
 {
-  "snapshotDate": "2026-08-29T15:00:00+02:00",
-  "source": "web-snapshot-v14",
+  "snapshotDate": "2026-08-29",
+  "source": "Snapshot web réel élargi — ASICS Cumulus/Nimbus/Kayano/GT-2000/Superblast/Magic Speed/Trabuco + catalogue V0.15",
   "shoes": [
     {
       "id": 1001,
@@ -4454,6 +4454,1261 @@
       "isReal": true,
       "checkedAt": "2026-08-29",
       "sourceLabel": "Runnea"
+    },
+    {
+      "id": 1400,
+      "family": "gel-cumulus",
+      "brand": "ASICS",
+      "name": "Gel Cumulus 28",
+      "generation": "N",
+      "terrain": [
+        "route"
+      ],
+      "levels": [
+        "debutant",
+        "occasionnel",
+        "regulier"
+      ],
+      "uses": [
+        "daily",
+        "long"
+      ],
+      "drop": 8,
+      "cushion": "high",
+      "foam": "soft",
+      "carbon": false,
+      "plateType": "Aucune",
+      "launch": 160,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix original ASICS",
+      "price": 101.99,
+      "shop": "offre homme 42,5 via Runnea",
+      "sizes": [
+        "40.5",
+        "42",
+        "42.5",
+        "43.5",
+        "44",
+        "44.5",
+        "45",
+        "46",
+        "46.5",
+        "47",
+        "48"
+      ],
+      "sizeStockKnown": true,
+      "weightGrams": 259,
+      "deal": 94,
+      "reviews": [
+        "Daily trainer route à amorti élevé",
+        "FF BLAST MAX + PureGEL ; drop officiel 8 mm",
+        "101,99 € relevés sur une offre homme incluant le 42,5"
+      ],
+      "offers": [
+        [
+          "Runnea — offre homme 42,5",
+          101.99
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceUrl": "https://www.asics.com/fr/fr-fr/gel-cumulus--28/p/1011C143-003.html",
+      "sourceLabel": "ASICS officiel",
+      "sources": [
+        {
+          "label": "ASICS — fiche officielle",
+          "url": "https://www.asics.com/fr/fr-fr/gel-cumulus--28/p/1011C143-003.html"
+        },
+        {
+          "label": "Runnea — prix par pointure",
+          "url": "https://www.runnea.fr/chaussures-running/asics/gel-cumulus-28/1062993/prix/toutes/"
+        },
+        {
+          "label": "RunRepeat — mesures labo",
+          "url": "https://runrepeat.com/asics-gel-cumulus-28"
+        }
+      ]
+    },
+    {
+      "id": 1401,
+      "family": "gel-cumulus",
+      "brand": "ASICS",
+      "name": "Gel Cumulus 27",
+      "generation": "N−1",
+      "terrain": [
+        "route"
+      ],
+      "levels": [
+        "debutant",
+        "occasionnel",
+        "regulier"
+      ],
+      "uses": [
+        "daily",
+        "long"
+      ],
+      "drop": 8,
+      "cushion": "high",
+      "foam": "balanced",
+      "carbon": false,
+      "plateType": "Aucune",
+      "launch": 160,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix original ASICS",
+      "price": 106.0,
+      "shop": "meilleur prix relevé via Runnea",
+      "sizes": [
+        "*"
+      ],
+      "sizeStockKnown": false,
+      "weightGrams": 258,
+      "deal": 92,
+      "reviews": [
+        "Même philosophie polyvalente que la Cumulus 28",
+        "FF BLAST PLUS + PureGEL ; drop officiel 8 mm",
+        "Prix web à partir de 106 € ; pointure à vérifier"
+      ],
+      "offers": [
+        [
+          "Meilleur prix relevé via Runnea",
+          106.0
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceUrl": "https://www.runnea.fr/chaussures-running/asics/cumulus-27/1045034/prix/toutes/",
+      "sourceLabel": "Runnea",
+      "sources": [
+        {
+          "label": "Runnea — prix",
+          "url": "https://www.runnea.fr/chaussures-running/asics/cumulus-27/1045034/prix/toutes/"
+        },
+        {
+          "label": "ASICS FrontRunner — évolution 26→27",
+          "url": "https://www.asics.com/fr/fr-fr/frontrunner/news/gel-cumulus-toujours-sur-son-nuage-"
+        },
+        {
+          "label": "RunRepeat — mesures labo",
+          "url": "https://runrepeat.com/asics-gel-cumulus-27"
+        }
+      ],
+      "compare": {
+        "current": "Gel Cumulus 28",
+        "verdict": "N−1 très proche et moins chère",
+        "reason": "Même drop officiel et même usage. La 28 passe à FF BLAST MAX mais la 27 reste une daily trainer amortie très proche.",
+        "changes": [
+          [
+            "Poids",
+            "258 g",
+            "259 g",
+            "Quasi identique"
+          ],
+          [
+            "Drop",
+            "8 mm",
+            "8 mm",
+            "Identique"
+          ],
+          [
+            "Mousse",
+            "FF BLAST PLUS",
+            "FF BLAST MAX",
+            "N plus récente"
+          ],
+          [
+            "Prix web relevé",
+            "106 €",
+            "101,99 € en 42,5",
+            "La N est actuellement aussi compétitive"
+          ]
+        ]
+      }
+    },
+    {
+      "id": 1402,
+      "family": "gel-cumulus",
+      "brand": "ASICS",
+      "name": "Gel Cumulus 26",
+      "generation": "N−2",
+      "terrain": [
+        "route"
+      ],
+      "levels": [
+        "debutant",
+        "occasionnel",
+        "regulier"
+      ],
+      "uses": [
+        "daily",
+        "long"
+      ],
+      "drop": 8,
+      "cushion": "high",
+      "foam": "balanced",
+      "carbon": false,
+      "plateType": "Aucune",
+      "launch": 160,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix original ASICS",
+      "price": 104.0,
+      "shop": "offre i-Run / Runnea relevée",
+      "sizes": [
+        "*"
+      ],
+      "sizeStockKnown": false,
+      "weightGrams": 255,
+      "deal": 90,
+      "reviews": [
+        "Ancienne Cumulus plus basse que les 27/28",
+        "PureGEL + FF BLAST PLUS ; drop 8 mm",
+        "Autour de 104 € relevés ; disponibilité par pointure à vérifier"
+      ],
+      "offers": [
+        [
+          "Prix web relevé",
+          104.0
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceUrl": "https://www.runnea.fr/chaussures-running/asics/cumulus-26/1022945/prix/toutes/",
+      "sourceLabel": "Runnea",
+      "sources": [
+        {
+          "label": "Runnea — prix",
+          "url": "https://www.runnea.fr/chaussures-running/asics/cumulus-26/1022945/prix/toutes/"
+        },
+        {
+          "label": "ASICS Outlet — fiche technique",
+          "url": "https://outlet.asics.com/fr/fr-fr/gel-cumulus-26/p/1011B792-401.html"
+        },
+        {
+          "label": "RunRepeat — mesures labo",
+          "url": "https://runrepeat.com/asics-gel-cumulus-26"
+        }
+      ],
+      "compare": {
+        "current": "Gel Cumulus 28",
+        "verdict": "N−2 intéressante si tu veux moins de hauteur",
+        "reason": "La Cumulus 26 garde 8 mm de drop officiel mais son stack mesuré est nettement plus bas que sur la 28.",
+        "changes": [
+          [
+            "Stack talon labo",
+            "36,8 mm",
+            "42,8 mm",
+            "N−2 nettement plus basse"
+          ],
+          [
+            "Poids",
+            "255 g",
+            "259 g",
+            "Très proche"
+          ],
+          [
+            "Drop officiel",
+            "8 mm",
+            "8 mm",
+            "Identique"
+          ],
+          [
+            "Prix web",
+            "~104 €",
+            "101,99 € en 42,5",
+            "Prix proches"
+          ]
+        ]
+      }
+    },
+    {
+      "id": 1410,
+      "family": "gel-nimbus",
+      "brand": "ASICS",
+      "name": "Gel Nimbus 28",
+      "generation": "N",
+      "terrain": [
+        "route"
+      ],
+      "levels": [
+        "debutant",
+        "occasionnel",
+        "regulier"
+      ],
+      "uses": [
+        "daily",
+        "long"
+      ],
+      "drop": 8,
+      "cushion": "max",
+      "foam": "soft",
+      "carbon": false,
+      "plateType": "Aucune",
+      "launch": 200,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix original ASICS",
+      "price": 130.49,
+      "shop": "offre homme via Runnea",
+      "sizes": [
+        "40.5",
+        "41.5",
+        "42",
+        "42.5",
+        "43.5",
+        "44",
+        "44.5"
+      ],
+      "sizeStockKnown": true,
+      "weightGrams": 281,
+      "deal": 91,
+      "reviews": [
+        "Amorti maximal pour footing et longues distances",
+        "FF BLAST PLUS + PureGEL ; drop officiel 8 mm",
+        "130,49 € relevés sur une offre homme incluant le 42,5"
+      ],
+      "offers": [
+        [
+          "Runnea — offre homme 42,5",
+          130.49
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceUrl": "https://www.asics.com/fr/fr-fr/gel-nimbus--28/p/1011C127-002.html",
+      "sourceLabel": "ASICS officiel",
+      "sources": [
+        {
+          "label": "ASICS — fiche officielle",
+          "url": "https://www.asics.com/fr/fr-fr/gel-nimbus--28/p/1011C127-002.html"
+        },
+        {
+          "label": "Runnea — prix",
+          "url": "https://www.runnea.fr/chaussures-running/asics/gel-nimbus-28/1059003/prix/toutes/"
+        },
+        {
+          "label": "RunRepeat — mesures labo",
+          "url": "https://runrepeat.com/uk/asics-gel-nimbus-28"
+        }
+      ]
+    },
+    {
+      "id": 1411,
+      "family": "gel-nimbus",
+      "brand": "ASICS",
+      "name": "Gel Nimbus 27",
+      "generation": "N−1",
+      "terrain": [
+        "route"
+      ],
+      "levels": [
+        "debutant",
+        "occasionnel",
+        "regulier"
+      ],
+      "uses": [
+        "daily",
+        "long"
+      ],
+      "drop": 8,
+      "cushion": "max",
+      "foam": "soft",
+      "carbon": false,
+      "plateType": "Aucune",
+      "launch": 200,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix original ASICS",
+      "price": 127.78,
+      "shop": "meilleur prix web via Runnea",
+      "sizes": [
+        "*"
+      ],
+      "sizeStockKnown": false,
+      "weightGrams": 305,
+      "deal": 91,
+      "reviews": [
+        "Amorti maximal, orientation confort et récupération",
+        "FF BLAST PLUS ECO + PureGEL ; drop 8 mm",
+        "Prix web à partir de 127,78 € ; pointure à vérifier"
+      ],
+      "offers": [
+        [
+          "Meilleur prix Runnea",
+          127.78
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceUrl": "https://www.runnea.fr/chaussures-running/asics/nimbus-27/1039229/prix/toutes/",
+      "sourceLabel": "Runnea",
+      "sources": [
+        {
+          "label": "Runnea — prix",
+          "url": "https://www.runnea.fr/chaussures-running/asics/nimbus-27/1039229/prix/toutes/"
+        },
+        {
+          "label": "ASICS FrontRunner — fiche technique",
+          "url": "https://www.asics.com/fr/fr-fr/frontrunner/news/la-gel-nimbus-un-confort-incroyable"
+        }
+      ],
+      "compare": {
+        "current": "Gel Nimbus 28",
+        "verdict": "N−1 à comparer selon la pointure",
+        "reason": "Même drop et même positionnement confort maximal. La 28 gagne environ 20 g selon ASICS.",
+        "changes": [
+          [
+            "Poids",
+            "305 g",
+            "281 g",
+            "N plus légère"
+          ],
+          [
+            "Drop",
+            "8 mm",
+            "8 mm",
+            "Identique"
+          ],
+          [
+            "Usage",
+            "footing / longues distances",
+            "footing / longues distances",
+            "Identique"
+          ],
+          [
+            "Prix web",
+            "127,78 €",
+            "130,49 € en 42,5",
+            "Très proche"
+          ]
+        ]
+      }
+    },
+    {
+      "id": 1420,
+      "family": "gel-kayano",
+      "brand": "ASICS",
+      "name": "Gel Kayano 33",
+      "generation": "N",
+      "terrain": [
+        "route"
+      ],
+      "levels": [
+        "debutant",
+        "occasionnel",
+        "regulier"
+      ],
+      "uses": [
+        "daily",
+        "long"
+      ],
+      "drop": 8,
+      "cushion": "max",
+      "foam": "balanced",
+      "carbon": false,
+      "plateType": "FluidSupport",
+      "launch": 200,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix original ASICS",
+      "price": 155.8,
+      "shop": "offre homme 42,5 via Runnea",
+      "sizes": [
+        "40.5",
+        "41.5",
+        "42",
+        "42.5",
+        "43.5",
+        "44",
+        "44.5",
+        "45",
+        "46",
+        "46.5",
+        "47"
+      ],
+      "sizeStockKnown": true,
+      "weightGrams": 298,
+      "deal": 82,
+      "reviews": [
+        "Chaussure de stabilité / maintien pour entraînement et longues distances",
+        "FF BLAST PLUS + FF BLAST MAX + FluidSupport ; drop 8 mm",
+        "155,80 € relevés sur une offre homme incluant le 42,5"
+      ],
+      "offers": [
+        [
+          "Runnea — offre homme 42,5",
+          155.8
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceUrl": "https://www.asics.com/fr/fr-fr/gel-kayano-33/p/1011C167-002.html",
+      "sourceLabel": "ASICS officiel",
+      "sources": [
+        {
+          "label": "ASICS — fiche officielle",
+          "url": "https://www.asics.com/fr/fr-fr/gel-kayano-33/p/1011C167-002.html"
+        },
+        {
+          "label": "Runnea — prix",
+          "url": "https://www.runnea.fr/chaussures-running/asics/gel-kayano-33/1064626/prix/toutes/"
+        },
+        {
+          "label": "RunRepeat — mesures labo",
+          "url": "https://runrepeat.com/asics-gel-kayano-33"
+        }
+      ]
+    },
+    {
+      "id": 1421,
+      "family": "gel-kayano",
+      "brand": "ASICS",
+      "name": "Gel Kayano 32",
+      "generation": "N−1",
+      "terrain": [
+        "route"
+      ],
+      "levels": [
+        "debutant",
+        "occasionnel",
+        "regulier"
+      ],
+      "uses": [
+        "daily",
+        "long"
+      ],
+      "drop": 8,
+      "cushion": "high",
+      "foam": "balanced",
+      "carbon": false,
+      "plateType": "4D Guidance",
+      "launch": 200,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix original ASICS",
+      "price": 149.99,
+      "shop": "offre homme 42,5 via Runnea",
+      "sizes": [
+        "42.5",
+        "43.5",
+        "44"
+      ],
+      "sizeStockKnown": true,
+      "weightGrams": 320,
+      "deal": 84,
+      "reviews": [
+        "Stabilité adaptative 4D GUIDANCE SYSTEM",
+        "PureGEL + FF BLAST PLUS ; drop 8 mm",
+        "149,99 € relevés sur une offre homme incluant le 42,5"
+      ],
+      "offers": [
+        [
+          "Offre homme 42,5 relevée",
+          149.99
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceUrl": "https://www.runnea.fr/chaussures-running/asics/gel-kayano-32/1045697/prix/toutes/",
+      "sourceLabel": "Runnea",
+      "sources": [
+        {
+          "label": "Runnea — prix",
+          "url": "https://www.runnea.fr/chaussures-running/asics/gel-kayano-32/1045697/prix/toutes/"
+        },
+        {
+          "label": "ASICS — fiche technique Kayano 32",
+          "url": "https://www.asics.com/fr/fr-fr/gel-kayano-32-lite-show/p/4570158914048.html"
+        }
+      ],
+      "compare": {
+        "current": "Gel Kayano 33",
+        "verdict": "N−1 peut être le meilleur prix",
+        "reason": "Même drop et même orientation stabilité. La 33 change le système de soutien avec FluidSupport et allège la chaussure.",
+        "changes": [
+          [
+            "Soutien",
+            "4D Guidance",
+            "FluidSupport",
+            "Évolution importante"
+          ],
+          [
+            "Poids",
+            "~320 g",
+            "298 g",
+            "N plus légère"
+          ],
+          [
+            "Drop",
+            "8 mm",
+            "8 mm",
+            "Identique"
+          ],
+          [
+            "Prix 42,5",
+            "149,99 €",
+            "155,80 €",
+            "N−1 légèrement moins chère"
+          ]
+        ]
+      }
+    },
+    {
+      "id": 1430,
+      "family": "gt-2000",
+      "brand": "ASICS",
+      "name": "GT-2000 15",
+      "generation": "N",
+      "terrain": [
+        "route"
+      ],
+      "levels": [
+        "debutant",
+        "occasionnel",
+        "regulier"
+      ],
+      "uses": [
+        "daily",
+        "long"
+      ],
+      "drop": 8,
+      "cushion": "high",
+      "foam": "balanced",
+      "carbon": false,
+      "plateType": "Stabilité",
+      "launch": 160,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix original ASICS",
+      "price": 132.53,
+      "shop": "offre homme 42,5 via Runnea",
+      "sizes": [
+        "40.5",
+        "41.5",
+        "42",
+        "42.5",
+        "43.5",
+        "44",
+        "44.5",
+        "45",
+        "46",
+        "46.5",
+        "47",
+        "48"
+      ],
+      "sizeStockKnown": true,
+      "weightGrams": 270,
+      "deal": 78,
+      "reviews": [
+        "Daily trainer de stabilité, plus léger que Kayano",
+        "Nouvelle génération GT-2000 15 affichée à 150 € chez ASICS",
+        "132,53 € relevés sur une offre homme incluant le 42,5"
+      ],
+      "offers": [
+        [
+          "Runnea — offre homme 42,5",
+          132.53
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceUrl": "https://www.asics.com/fr/en-fr/collection-stability-gt-2000/c/as92500000/men/",
+      "sourceLabel": "ASICS officiel",
+      "sources": [
+        {
+          "label": "ASICS — collection GT-2000 15",
+          "url": "https://www.asics.com/fr/en-fr/collection-stability-gt-2000/c/as92500000/men/"
+        },
+        {
+          "label": "Runnea — prix",
+          "url": "https://www.runnea.fr/chaussures-running/asics/gt-2000-15/1065577/prix/toutes/"
+        }
+      ]
+    },
+    {
+      "id": 1431,
+      "family": "gt-2000",
+      "brand": "ASICS",
+      "name": "GT-2000 14",
+      "generation": "N−1",
+      "terrain": [
+        "route"
+      ],
+      "levels": [
+        "debutant",
+        "occasionnel",
+        "regulier"
+      ],
+      "uses": [
+        "daily",
+        "long"
+      ],
+      "drop": 8,
+      "cushion": "high",
+      "foam": "balanced",
+      "carbon": false,
+      "plateType": "3D Guidance",
+      "launch": 160,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix original ASICS",
+      "price": 115.0,
+      "shop": "offre homme 42,5 via Runnea",
+      "sizes": [
+        "40",
+        "40.5",
+        "41.5",
+        "42",
+        "42.5",
+        "43.5",
+        "44",
+        "44.5"
+      ],
+      "sizeStockKnown": true,
+      "weightGrams": 273,
+      "deal": 90,
+      "reviews": [
+        "3D GUIDANCE SYSTEM + PureGEL + FF BLAST MAX",
+        "273 g homme ; drop 8 mm",
+        "115 € relevés sur une offre homme incluant le 42,5"
+      ],
+      "offers": [
+        [
+          "Runnea — offre homme 42,5",
+          115.0
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceUrl": "https://www.runnea.fr/chaussures-running/asics/gt-2000-14/1046146/prix/toutes/",
+      "sourceLabel": "Runnea",
+      "sources": [
+        {
+          "label": "Runnea — prix & caractéristiques",
+          "url": "https://www.runnea.fr/chaussures-running/asics/gt-2000-14/1046146/prix/toutes/"
+        },
+        {
+          "label": "Runnea — fiche technique",
+          "url": "https://www.runnea.fr/chaussures-running/asics/gt-2000-14/1046146/"
+        }
+      ],
+      "compare": {
+        "current": "GT-2000 15",
+        "verdict": "N−1 intéressante en 42,5",
+        "reason": "Même drop et même rôle de daily trainer stable, avec une remise plus forte sur la génération 14.",
+        "changes": [
+          [
+            "Drop",
+            "8 mm",
+            "8 mm",
+            "Identique"
+          ],
+          [
+            "Poids",
+            "273 g",
+            "~270 g",
+            "Très proche"
+          ],
+          [
+            "Soutien",
+            "3D Guidance",
+            "nouvelle génération",
+            "Évolution"
+          ],
+          [
+            "Prix 42,5",
+            "115 €",
+            "132,53 €",
+            "17,53 € moins chère"
+          ]
+        ]
+      }
+    },
+    {
+      "id": 1440,
+      "family": "superblast",
+      "brand": "ASICS",
+      "name": "Superblast 3",
+      "generation": "N",
+      "terrain": [
+        "route"
+      ],
+      "levels": [
+        "regulier",
+        "competition"
+      ],
+      "uses": [
+        "daily",
+        "long",
+        "tempo",
+        "race"
+      ],
+      "drop": 8,
+      "cushion": "high",
+      "foam": "bouncy",
+      "carbon": false,
+      "plateType": "Aucune",
+      "launch": 220,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix original ASICS",
+      "price": 188.1,
+      "shop": "offre 42,5 via Runnea",
+      "sizes": [
+        "42",
+        "42.5",
+        "43.5",
+        "44",
+        "44.5",
+        "45",
+        "46",
+        "46.5"
+      ],
+      "sizeStockKnown": true,
+      "weightGrams": 239,
+      "deal": 68,
+      "reviews": [
+        "Max-stack très dynamique sans plaque carbone",
+        "FF LEAP + capsule effet trampoline ; drop 8 mm",
+        "188,10 € relevés sur une offre incluant le 42,5"
+      ],
+      "offers": [
+        [
+          "Runnea — offre 42,5",
+          188.1
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceUrl": "https://www.asics.com/fr/fr-fr/superblast--3/p/1013A177-001.html",
+      "sourceLabel": "ASICS officiel",
+      "sources": [
+        {
+          "label": "ASICS — fiche officielle",
+          "url": "https://www.asics.com/fr/fr-fr/superblast--3/p/1013A177-001.html"
+        },
+        {
+          "label": "Runnea — prix",
+          "url": "https://www.runnea.fr/chaussures-running/asics/superblast-3/1060755/prix/toutes/"
+        },
+        {
+          "label": "RunRepeat — mesures labo",
+          "url": "https://runrepeat.com/asics-superblast-3"
+        }
+      ]
+    },
+    {
+      "id": 1441,
+      "family": "superblast",
+      "brand": "ASICS",
+      "name": "Superblast 2",
+      "generation": "N−1",
+      "terrain": [
+        "route"
+      ],
+      "levels": [
+        "regulier",
+        "competition"
+      ],
+      "uses": [
+        "daily",
+        "long",
+        "tempo",
+        "race"
+      ],
+      "drop": 8,
+      "cushion": "max",
+      "foam": "bouncy",
+      "carbon": false,
+      "plateType": "Aucune",
+      "launch": 220,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix original ASICS",
+      "price": 166.0,
+      "shop": "offre homme 42,5 via Runnea",
+      "sizes": [
+        "40",
+        "40.5",
+        "41.5",
+        "42",
+        "42.5"
+      ],
+      "sizeStockKnown": true,
+      "weightGrams": 249,
+      "deal": 83,
+      "reviews": [
+        "FF BLAST TURBO PLUS + FF BLAST PLUS ECO",
+        "249 g et drop 8 mm annoncés par ASICS",
+        "166 € relevés sur un coloris homme incluant le 42,5"
+      ],
+      "offers": [
+        [
+          "Runnea — offre homme 42,5",
+          166.0
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceUrl": "https://www.runnea.fr/chaussures-running/asics/superblast-2/1032670/prix/toutes/",
+      "sourceLabel": "Runnea",
+      "sources": [
+        {
+          "label": "Runnea — prix",
+          "url": "https://www.runnea.fr/chaussures-running/asics/superblast-2/1032670/prix/toutes/"
+        },
+        {
+          "label": "ASICS — fiche officielle",
+          "url": "https://www.asics.com/fr/fr-fr/superblast-2/p/1013A142-401.html"
+        }
+      ],
+      "compare": {
+        "current": "Superblast 3",
+        "verdict": "N−1 très compétitive",
+        "reason": "Même drop et même concept max-stack dynamique sans plaque. Le prix de la 2 est plus bas en 42,5.",
+        "changes": [
+          [
+            "Poids",
+            "249 g",
+            "239 g",
+            "N gagne ~10 g"
+          ],
+          [
+            "Drop",
+            "8 mm",
+            "8 mm",
+            "Identique"
+          ],
+          [
+            "Mousse",
+            "FF BLAST TURBO PLUS",
+            "FF LEAP + nouvelle construction",
+            "N évolue nettement"
+          ],
+          [
+            "Prix 42,5",
+            "166 €",
+            "188,10 €",
+            "22,10 € moins chère"
+          ]
+        ]
+      }
+    },
+    {
+      "id": 1450,
+      "family": "magic-speed",
+      "brand": "ASICS",
+      "name": "Magic Speed 5",
+      "generation": "N",
+      "terrain": [
+        "route"
+      ],
+      "levels": [
+        "regulier",
+        "competition"
+      ],
+      "uses": [
+        "tempo",
+        "race"
+      ],
+      "drop": 7,
+      "cushion": "high",
+      "foam": "bouncy",
+      "carbon": true,
+      "plateType": "Carbone",
+      "launch": 190,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix ASICS",
+      "price": 190.0,
+      "shop": "ASICS officiel",
+      "sizes": [
+        "36",
+        "37",
+        "37.5",
+        "38",
+        "39",
+        "39.5",
+        "40",
+        "40.5",
+        "41.5",
+        "42",
+        "42.5",
+        "43.5",
+        "44",
+        "44.5",
+        "45",
+        "46",
+        "46.5",
+        "47",
+        "48"
+      ],
+      "sizeStockKnown": true,
+      "weightGrams": 196,
+      "deal": 48,
+      "reviews": [
+        "Chaussure tempo/course carbone plus accessible que Metaspeed",
+        "FF LEAP + FF BLAST PLUS ; plaque carbone repensée",
+        "196 g, drop officiel 7 mm ; prix officiel 190 €"
+      ],
+      "offers": [
+        [
+          "ASICS officiel",
+          190.0
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceUrl": "https://www.asics.com/fr/fr-fr/magic-speed-5/p/1013A183-101.html",
+      "sourceLabel": "ASICS officiel",
+      "sources": [
+        {
+          "label": "ASICS — fiche officielle",
+          "url": "https://www.asics.com/fr/fr-fr/magic-speed-5/p/1013A183-101.html"
+        },
+        {
+          "label": "RunRepeat — mesures labo",
+          "url": "https://www.runrepeat.com/asics-magic-speed-5"
+        }
+      ]
+    },
+    {
+      "id": 1451,
+      "family": "magic-speed",
+      "brand": "ASICS",
+      "name": "Magic Speed 4",
+      "generation": "N−1",
+      "terrain": [
+        "route"
+      ],
+      "levels": [
+        "regulier",
+        "competition"
+      ],
+      "uses": [
+        "tempo",
+        "race",
+        "long"
+      ],
+      "drop": 8,
+      "cushion": "high",
+      "foam": "bouncy",
+      "carbon": true,
+      "plateType": "Carbone",
+      "launch": 180,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix original ASICS",
+      "price": 99.81,
+      "shop": "meilleur prix Runnea",
+      "sizes": [
+        "*"
+      ],
+      "sizeStockKnown": false,
+      "weightGrams": 242,
+      "deal": 98,
+      "reviews": [
+        "Plaque carbone pleine longueur",
+        "FF BLAST PLUS + FF TURBO ; drop 8 mm",
+        "Prix web à partir de 99,81 € ; pointure à vérifier"
+      ],
+      "offers": [
+        [
+          "Meilleur prix Runnea",
+          99.81
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceUrl": "https://www.runnea.fr/chaussures-running/asics/magic-speed-4/1032058/prix/toutes/",
+      "sourceLabel": "Runnea",
+      "sources": [
+        {
+          "label": "Runnea — prix",
+          "url": "https://www.runnea.fr/chaussures-running/asics/magic-speed-4/1032058/prix/toutes/"
+        },
+        {
+          "label": "ASICS FrontRunner — fiche technique",
+          "url": "https://www.asics.com/fr/fr-fr/frontrunner/news/magic-speed-c-est-du-etoiles-"
+        }
+      ],
+      "compare": {
+        "current": "Magic Speed 5",
+        "verdict": "N−1 = très grosse économie",
+        "reason": "La 5 est beaucoup plus légère et plus basse, mais la 4 reste une vraie chaussure carbone pour tempo/compétition à prix fortement réduit.",
+        "changes": [
+          [
+            "Poids",
+            "242 g",
+            "196 g",
+            "N gagne ~46 g"
+          ],
+          [
+            "Stack talon labo",
+            "~42,5 mm",
+            "35,3 mm",
+            "N nettement plus basse"
+          ],
+          [
+            "Drop officiel",
+            "8 mm",
+            "7 mm",
+            "N baisse de 1 mm"
+          ],
+          [
+            "Prix web",
+            "99,81 €",
+            "190 € officiel",
+            "Écart énorme"
+          ]
+        ]
+      }
+    },
+    {
+      "id": 1460,
+      "family": "trabuco",
+      "brand": "ASICS",
+      "name": "Trabuco 14",
+      "generation": "N",
+      "terrain": [
+        "trail"
+      ],
+      "levels": [
+        "debutant",
+        "occasionnel",
+        "regulier"
+      ],
+      "uses": [
+        "daily",
+        "long",
+        "race"
+      ],
+      "drop": 8,
+      "cushion": "moderate",
+      "foam": "balanced",
+      "carbon": false,
+      "plateType": "Rock plate",
+      "launch": 160,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix original ASICS",
+      "price": 101.69,
+      "shop": "offre homme 42,5 via Runnea",
+      "sizes": [
+        "41.5",
+        "42",
+        "42.5",
+        "43.5",
+        "44",
+        "46"
+      ],
+      "sizeStockKnown": true,
+      "weightGrams": 283,
+      "deal": 94,
+      "reviews": [
+        "Trail polyvalent avec ASICSGRIP et rock plate",
+        "Crampons mesurés à 3,7 mm ; stack labo 32,1 mm",
+        "101,69 € relevés sur une offre homme incluant le 42,5"
+      ],
+      "offers": [
+        [
+          "Runnea — offre homme 42,5",
+          101.69
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceUrl": "https://www.runnea.fr/chaussures-running/asics/gel-trabuco-14/1061579/prix/toutes/",
+      "sourceLabel": "Runnea",
+      "sources": [
+        {
+          "label": "Runnea — prix",
+          "url": "https://www.runnea.fr/chaussures-running/asics/gel-trabuco-14/1061579/prix/toutes/"
+        },
+        {
+          "label": "RunRepeat — grip & mesures labo",
+          "url": "https://runrepeat.com/asics-trabuco-14"
+        }
+      ]
+    },
+    {
+      "id": 1461,
+      "family": "trabuco",
+      "brand": "ASICS",
+      "name": "Gel Trabuco 13",
+      "generation": "N−1",
+      "terrain": [
+        "trail"
+      ],
+      "levels": [
+        "debutant",
+        "occasionnel",
+        "regulier"
+      ],
+      "uses": [
+        "daily",
+        "long",
+        "race"
+      ],
+      "drop": 8,
+      "cushion": "moderate",
+      "foam": "balanced",
+      "carbon": false,
+      "plateType": "Rock plate",
+      "launch": 160,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix original ASICS",
+      "price": 137.0,
+      "shop": "meilleur prix général via Runnea",
+      "sizes": [
+        "*"
+      ],
+      "sizeStockKnown": false,
+      "weightGrams": 289,
+      "deal": 70,
+      "reviews": [
+        "Trail polyvalent avec ASICSGRIP et rock plate",
+        "Stack labo 33,8 mm et crampons mesurés à 3,3 mm",
+        "137 € meilleur prix général affiché ; certaines petites pointures sont nettement moins chères"
+      ],
+      "offers": [
+        [
+          "Meilleur prix général Runnea",
+          137.0
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceUrl": "https://www.runnea.fr/chaussures-running/asics/gel-trabuco-13/1043876/prix/toutes/",
+      "sourceLabel": "Runnea",
+      "sources": [
+        {
+          "label": "Runnea — prix",
+          "url": "https://www.runnea.fr/chaussures-running/asics/gel-trabuco-13/1043876/prix/toutes/"
+        },
+        {
+          "label": "RunRepeat — mesures labo",
+          "url": "https://runrepeat.com/asics-gel-trabuco-13"
+        }
+      ],
+      "compare": {
+        "current": "Trabuco 14",
+        "verdict": "La N est actuellement plus intéressante en 42,5",
+        "reason": "La 14 est légèrement plus basse, a des crampons un peu plus profonds et se trouve moins chère en 42,5.",
+        "changes": [
+          [
+            "Stack talon labo",
+            "33,8 mm",
+            "32,1 mm",
+            "N plus basse"
+          ],
+          [
+            "Crampons labo",
+            "3,3 mm",
+            "3,7 mm",
+            "N plus agressive"
+          ],
+          [
+            "Drop officiel",
+            "8 mm",
+            "8 mm",
+            "Identique"
+          ],
+          [
+            "Prix web",
+            "137 € général",
+            "101,69 € en 42,5",
+            "N plus intéressante"
+          ]
+        ]
+      }
     }
   ]
 }
