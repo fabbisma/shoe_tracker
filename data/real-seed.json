@@ -1,6 +1,6 @@
 {
-  "snapshotDate": "2026-08-29T15:55:00+02:00",
-  "source": "curated-web-snapshot",
+  "snapshotDate": "2026-08-29T15:00:00+02:00",
+  "source": "web-snapshot-v0.12",
   "shoes": [
     {
       "id": 1001,
@@ -748,33 +748,43 @@
       "launch": 150,
       "referencePriceType": "rrp",
       "referenceLabel": "Prix conseillé",
-      "price": 135,
-      "shop": "i-Run",
+      "price": 104.9,
+      "shop": "offre homme Runnea",
       "sizes": [
-        "*"
+        "40.5",
+        "41.5",
+        "42",
+        "42.5",
+        "43.5",
+        "44",
+        "44.5",
+        "46",
+        "46.5",
+        "47.5",
+        "48"
       ],
-      "sizeStockKnown": false,
+      "sizeStockKnown": true,
       "weightGrams": 267,
-      "deal": 58,
+      "deal": 75,
       "reviews": [
-        "267 g en taille homme selon i-Run ; drop 6 mm",
-        "OptiFOAM + géométrie Relieve Sphere",
-        "Trail toutes distances jusqu’à l’ultra ; prix 135 € contre 150 € conseillé"
+        "104,90 € vérifié sur une offre homme incluant 42,5",
+        "Drop 6 mm · trail longue distance",
+        "Génération actuelle Ultra Glide"
       ],
       "offers": [
         [
-          "i-Run",
-          135
+          "Offre homme Runnea (42,5 incluse)",
+          104.9
         ]
       ],
       "isReal": true,
       "checkedAt": "2026-08-29",
-      "sourceUrl": "https://www.i-run.fr/chaussures_homme/Trail_c15/Salomon_m96/Salomon-Ultra-Glide-4_Salomon_fiche_146578.html",
-      "sourceLabel": "i-Run",
+      "sourceUrl": "https://www.runnea.fr/chaussures-running/salomon/ultra-glide-4/1062469/prix/toutes/",
+      "sourceLabel": "Runnea",
       "sources": [
         {
-          "label": "i-Run — Ultra Glide 4",
-          "url": "https://www.i-run.fr/chaussures_homme/Trail_c15/Salomon_m96/Salomon-Ultra-Glide-4_Salomon_fiche_146578.html"
+          "label": "Runnea — prix Ultra Glide 4",
+          "url": "https://www.runnea.fr/chaussures-running/salomon/ultra-glide-4/1062469/prix/toutes/"
         }
       ]
     },
@@ -1236,6 +1246,1800 @@
         {
           "label": "On — Cloudflow 5",
           "url": "https://www.on.com/fr-fr/products/cloudflow-5-m-3mf1011/mens"
+        }
+      ]
+    },
+    {
+      "id": 1080,
+      "family": "ghost",
+      "brand": "BROOKS",
+      "name": "Ghost 18",
+      "generation": "N",
+      "terrain": [
+        "route"
+      ],
+      "levels": [
+        "debutant",
+        "occasionnel",
+        "regulier"
+      ],
+      "uses": [
+        "daily",
+        "long"
+      ],
+      "drop": 10,
+      "cushion": "moderate",
+      "foam": "balanced",
+      "carbon": false,
+      "plateType": "Aucune",
+      "launch": 150,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix original Brooks",
+      "price": 142.5,
+      "shop": "meilleur prix Runnea",
+      "sizes": [
+        "*"
+      ],
+      "sizeStockKnown": false,
+      "weightGrams": 289,
+      "deal": 58,
+      "reviews": [
+        "Chaussure route d’entraînement quotidien",
+        "Drop 10 mm · amorti moyen · 289 g homme",
+        "DNA LOFT v3 ; modèle 2026"
+      ],
+      "offers": [
+        [
+          "meilleur prix Runnea",
+          142.5
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceUrl": "https://www.runnea.fr/chaussures-running/brooks/ghost-18/1064469/prix/toutes/",
+      "sourceLabel": "Runnea",
+      "sources": [
+        {
+          "label": "Runnea — prix & fiche",
+          "url": "https://www.runnea.fr/chaussures-running/brooks/ghost-18/1064469/prix/toutes/"
+        }
+      ]
+    },
+    {
+      "id": 1081,
+      "family": "ghost",
+      "brand": "BROOKS",
+      "name": "Ghost 17",
+      "generation": "N−1",
+      "terrain": [
+        "route"
+      ],
+      "levels": [
+        "debutant",
+        "occasionnel",
+        "regulier"
+      ],
+      "uses": [
+        "daily",
+        "long"
+      ],
+      "drop": 10,
+      "cushion": "moderate",
+      "foam": "balanced",
+      "carbon": false,
+      "plateType": "Aucune",
+      "launch": 150,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix original Brooks",
+      "price": 102.0,
+      "shop": "offre homme Runnea",
+      "sizes": [
+        "42.5",
+        "43",
+        "44",
+        "44.5",
+        "45",
+        "45.5",
+        "46",
+        "46.5"
+      ],
+      "sizeStockKnown": true,
+      "weightGrams": 286,
+      "deal": 76,
+      "reviews": [
+        "Prix 102 € vérifié sur une offre homme incluant 42,5",
+        "Drop 10 mm ; daily trainer route",
+        "Ancienne génération nettement moins chère que Ghost 18"
+      ],
+      "offers": [
+        [
+          "offre homme Runnea",
+          102.0
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceUrl": "https://www.runnea.fr/chaussures-running/brooks/ghost-17/1041424/prix/toutes/",
+      "sourceLabel": "Runnea",
+      "sources": [
+        {
+          "label": "Runnea — prix & fiche",
+          "url": "https://www.runnea.fr/chaussures-running/brooks/ghost-17/1041424/prix/toutes/"
+        }
+      ]
+    },
+    {
+      "id": 1090,
+      "family": "ride",
+      "brand": "SAUCONY",
+      "name": "Ride 19",
+      "generation": "N",
+      "terrain": [
+        "route"
+      ],
+      "levels": [
+        "debutant",
+        "occasionnel",
+        "regulier"
+      ],
+      "uses": [
+        "daily",
+        "long"
+      ],
+      "drop": 8,
+      "cushion": "moderate",
+      "foam": "soft",
+      "carbon": false,
+      "plateType": "Aucune",
+      "launch": 160,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix original Saucony",
+      "price": 96.29,
+      "shop": "offre homme Runnea",
+      "sizes": [
+        "40.5",
+        "41",
+        "42.5",
+        "43",
+        "44",
+        "44.5",
+        "45",
+        "46",
+        "46.5"
+      ],
+      "sizeStockKnown": true,
+      "weightGrams": null,
+      "deal": 81,
+      "reviews": [
+        "Prix 96,29 € vérifié sur une offre homme incluant 42,5",
+        "Drop 8 mm",
+        "PWRRUN+ reformulé plus souple et élastique"
+      ],
+      "offers": [
+        [
+          "offre homme Runnea",
+          96.29
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceUrl": "https://www.runnea.fr/chaussures-running/saucony/ride-19/1059159/prix/toutes/",
+      "sourceLabel": "Runnea",
+      "sources": [
+        {
+          "label": "Runnea — prix & fiche",
+          "url": "https://www.runnea.fr/chaussures-running/saucony/ride-19/1059159/prix/toutes/"
+        }
+      ]
+    },
+    {
+      "id": 1091,
+      "family": "ride",
+      "brand": "SAUCONY",
+      "name": "Ride 18",
+      "generation": "N−1",
+      "terrain": [
+        "route"
+      ],
+      "levels": [
+        "debutant",
+        "occasionnel",
+        "regulier"
+      ],
+      "uses": [
+        "daily",
+        "long"
+      ],
+      "drop": 8,
+      "cushion": "moderate",
+      "foam": "balanced",
+      "carbon": false,
+      "plateType": "Aucune",
+      "launch": 150,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix original Saucony",
+      "price": 112.95,
+      "shop": "meilleur prix Runnea",
+      "sizes": [
+        "*"
+      ],
+      "sizeStockKnown": false,
+      "weightGrams": 275,
+      "deal": 71,
+      "reviews": [
+        "275 g homme · drop 8 mm",
+        "Entraînement route polyvalent",
+        "Génération précédente de la Ride 19"
+      ],
+      "offers": [
+        [
+          "meilleur prix Runnea",
+          112.95
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceUrl": "https://www.runnea.fr/chaussures-running/saucony/ride-18/1039188/",
+      "sourceLabel": "Runnea",
+      "sources": [
+        {
+          "label": "Runnea — prix & fiche",
+          "url": "https://www.runnea.fr/chaussures-running/saucony/ride-18/1039188/"
+        }
+      ]
+    },
+    {
+      "id": 1100,
+      "family": "1080",
+      "brand": "NEW BALANCE",
+      "name": "1080 v15",
+      "generation": "N",
+      "terrain": [
+        "route"
+      ],
+      "levels": [
+        "debutant",
+        "occasionnel",
+        "regulier"
+      ],
+      "uses": [
+        "daily",
+        "long"
+      ],
+      "drop": 6,
+      "cushion": "high",
+      "foam": "soft",
+      "carbon": false,
+      "plateType": "Aucune",
+      "launch": 200,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix original New Balance",
+      "price": 126.95,
+      "shop": "offre homme Runnea",
+      "sizes": [
+        "40",
+        "40.5",
+        "41.5",
+        "42",
+        "42.5",
+        "43",
+        "44",
+        "44.5",
+        "45",
+        "45.5",
+        "46.5",
+        "47",
+        "47.5"
+      ],
+      "sizeStockKnown": true,
+      "weightGrams": 261,
+      "deal": 79,
+      "reviews": [
+        "Prix 126,95 € vérifié sur une offre homme incluant 42,5",
+        "Drop 6 mm ; amorti élevé",
+        "Daily trainer confortable longue distance"
+      ],
+      "offers": [
+        [
+          "offre homme Runnea",
+          126.95
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceUrl": "https://www.runnea.fr/chaussures-running/new-balance/1080-v15/1061360/prix/toutes/",
+      "sourceLabel": "Runnea",
+      "sources": [
+        {
+          "label": "Runnea — prix & fiche",
+          "url": "https://www.runnea.fr/chaussures-running/new-balance/1080-v15/1061360/prix/toutes/"
+        }
+      ]
+    },
+    {
+      "id": 1101,
+      "family": "1080",
+      "brand": "NEW BALANCE",
+      "name": "1080 v14",
+      "generation": "N−1",
+      "terrain": [
+        "route"
+      ],
+      "levels": [
+        "debutant",
+        "occasionnel",
+        "regulier"
+      ],
+      "uses": [
+        "daily",
+        "long"
+      ],
+      "drop": 6,
+      "cushion": "high",
+      "foam": "soft",
+      "carbon": false,
+      "plateType": "Aucune",
+      "launch": 190,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix original New Balance",
+      "price": 110.61,
+      "shop": "prix actuel historique Runnea",
+      "sizes": [
+        "*"
+      ],
+      "sizeStockKnown": false,
+      "weightGrams": 298,
+      "deal": 82,
+      "reviews": [
+        "Drop 6 mm · amorti élevé",
+        "Prix observé dans l’historique Runnea ; pointure à vérifier",
+        "Ancienne génération à comparer à la v15"
+      ],
+      "offers": [
+        [
+          "prix actuel historique Runnea",
+          110.61
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceUrl": "https://www.runnea.fr/chaussures-running/new-balance/fresh-foam-x-1080-v14/1034484/",
+      "sourceLabel": "Runnea",
+      "sources": [
+        {
+          "label": "Runnea — prix & fiche",
+          "url": "https://www.runnea.fr/chaussures-running/new-balance/fresh-foam-x-1080-v14/1034484/"
+        }
+      ]
+    },
+    {
+      "id": 1110,
+      "family": "evosl",
+      "brand": "ADIDAS",
+      "name": "Adizero EVO SL",
+      "generation": "N",
+      "terrain": [
+        "route"
+      ],
+      "levels": [
+        "occasionnel",
+        "regulier",
+        "competition"
+      ],
+      "uses": [
+        "daily",
+        "tempo",
+        "race"
+      ],
+      "drop": 6,
+      "cushion": "moderate",
+      "foam": "bouncy",
+      "carbon": false,
+      "plateType": "Aucune",
+      "launch": 150,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix original Adidas",
+      "price": 99.75,
+      "shop": "prix actuel Runnea",
+      "sizes": [
+        "*"
+      ],
+      "sizeStockKnown": false,
+      "weightGrams": 224,
+      "deal": 77,
+      "reviews": [
+        "Lightstrike Pro ; sans plaque carbone",
+        "Drop 6 mm ; très polyvalente footing/tempo/10 km/semi",
+        "Prix actuel 99,75 € ; moyenne 90 j 96,73 €"
+      ],
+      "offers": [
+        [
+          "prix actuel Runnea",
+          99.75
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceUrl": "https://www.runnea.fr/chaussures-running/adidas/adizero-evo-sl/1040251/",
+      "sourceLabel": "Runnea",
+      "sources": [
+        {
+          "label": "Runnea — prix & fiche",
+          "url": "https://www.runnea.fr/chaussures-running/adidas/adizero-evo-sl/1040251/"
+        }
+      ],
+      "best": 85.5,
+      "avg90": 96.73
+    },
+    {
+      "id": 1111,
+      "family": "boston",
+      "brand": "ADIDAS",
+      "name": "Adizero Boston 13",
+      "generation": "N",
+      "terrain": [
+        "route"
+      ],
+      "levels": [
+        "regulier",
+        "competition"
+      ],
+      "uses": [
+        "tempo",
+        "long",
+        "race"
+      ],
+      "drop": 6,
+      "cushion": "high",
+      "foam": "bouncy",
+      "carbon": false,
+      "plateType": "EnergyRods",
+      "launch": 160,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix original Adidas",
+      "price": 89.09,
+      "shop": "meilleur prix Runnea",
+      "sizes": [
+        "*"
+      ],
+      "sizeStockKnown": false,
+      "weightGrams": null,
+      "deal": 84,
+      "reviews": [
+        "Super-trainer route orienté tempo et longues sorties",
+        "Prix web à partir de 89,09 € ; pointure à vérifier",
+        "EnergyRods ; sensation dynamique"
+      ],
+      "offers": [
+        [
+          "meilleur prix Runnea",
+          89.09
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceUrl": "https://www.runnea.fr/chaussures-running/adidas/adizero-boston-13/1042842/prix/toutes/",
+      "sourceLabel": "Runnea",
+      "sources": [
+        {
+          "label": "Runnea — prix & fiche",
+          "url": "https://www.runnea.fr/chaussures-running/adidas/adizero-boston-13/1042842/prix/toutes/"
+        }
+      ]
+    },
+    {
+      "id": 1120,
+      "family": "rebel",
+      "brand": "NEW BALANCE",
+      "name": "FuelCell Rebel v5",
+      "generation": "N",
+      "terrain": [
+        "route"
+      ],
+      "levels": [
+        "occasionnel",
+        "regulier",
+        "competition"
+      ],
+      "uses": [
+        "daily",
+        "tempo",
+        "race"
+      ],
+      "drop": 6,
+      "cushion": "moderate",
+      "foam": "bouncy",
+      "carbon": false,
+      "plateType": "Aucune",
+      "launch": 160,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix original New Balance",
+      "price": 99.99,
+      "shop": "offre homme Runnea",
+      "sizes": [
+        "41.5",
+        "42",
+        "42.5",
+        "43",
+        "44",
+        "44.5",
+        "45"
+      ],
+      "sizeStockKnown": true,
+      "weightGrams": null,
+      "deal": 79,
+      "reviews": [
+        "Prix homme 99,99 € relevé avec 42,5 disponible",
+        "Chaussure légère et dynamique sans carbone",
+        "Entraînement rapide et compétition courte"
+      ],
+      "offers": [
+        [
+          "offre homme Runnea",
+          99.99
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceUrl": "https://www.runnea.fr/chaussures-running/new-balance/fuelcell-rebel-v5/1045187/prix/toutes/",
+      "sourceLabel": "Runnea",
+      "sources": [
+        {
+          "label": "Runnea — prix & fiche",
+          "url": "https://www.runnea.fr/chaussures-running/new-balance/fuelcell-rebel-v5/1045187/prix/toutes/"
+        }
+      ]
+    },
+    {
+      "id": 1121,
+      "family": "rebel",
+      "brand": "NEW BALANCE",
+      "name": "FuelCell Rebel v4",
+      "generation": "N−1",
+      "terrain": [
+        "route"
+      ],
+      "levels": [
+        "occasionnel",
+        "regulier",
+        "competition"
+      ],
+      "uses": [
+        "daily",
+        "tempo"
+      ],
+      "drop": 6,
+      "cushion": "moderate",
+      "foam": "bouncy",
+      "carbon": false,
+      "plateType": "Aucune",
+      "launch": 160,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix original New Balance",
+      "price": 134.99,
+      "shop": "offre homme Runnea",
+      "sizes": [
+        "42.5"
+      ],
+      "sizeStockKnown": true,
+      "weightGrams": null,
+      "deal": 65,
+      "reviews": [
+        "Prix relevé en 42,5",
+        "Ancienne Rebel parfois plus chère que la v5 en promotion",
+        "Profil léger/dynamique sans plaque"
+      ],
+      "offers": [
+        [
+          "offre homme Runnea",
+          134.99
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceUrl": "https://www.runnea.fr/chaussures-running/new-balance/fuelcell-rebel-v4/1023638/prix/toutes/",
+      "sourceLabel": "Runnea",
+      "sources": [
+        {
+          "label": "Runnea — prix & fiche",
+          "url": "https://www.runnea.fr/chaussures-running/new-balance/fuelcell-rebel-v4/1023638/prix/toutes/"
+        }
+      ]
+    },
+    {
+      "id": 1130,
+      "family": "bondi",
+      "brand": "HOKA",
+      "name": "Bondi 9",
+      "generation": "N",
+      "terrain": [
+        "route"
+      ],
+      "levels": [
+        "debutant",
+        "occasionnel",
+        "regulier"
+      ],
+      "uses": [
+        "daily",
+        "long"
+      ],
+      "drop": 5,
+      "cushion": "max",
+      "foam": "balanced",
+      "carbon": false,
+      "plateType": "Aucune",
+      "launch": 180,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix original Hoka",
+      "price": 116.99,
+      "shop": "offre homme Runnea",
+      "sizes": [
+        "41.5",
+        "42",
+        "42.5",
+        "43.5",
+        "44"
+      ],
+      "sizeStockKnown": true,
+      "weightGrams": 297,
+      "deal": 78,
+      "reviews": [
+        "Prix 116,99 € vérifié en homme avec 42,5",
+        "Drop 5 mm ; amorti maximal",
+        "Confort/protection plutôt que vitesse"
+      ],
+      "offers": [
+        [
+          "offre homme Runnea",
+          116.99
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceUrl": "https://www.runnea.fr/chaussures-running/hoka/bondi-9/1039170/prix/toutes/",
+      "sourceLabel": "Runnea",
+      "sources": [
+        {
+          "label": "Runnea — prix & fiche",
+          "url": "https://www.runnea.fr/chaussures-running/hoka/bondi-9/1039170/prix/toutes/"
+        }
+      ]
+    },
+    {
+      "id": 1131,
+      "family": "vomero-plus",
+      "brand": "NIKE",
+      "name": "Vomero Plus",
+      "generation": "N",
+      "terrain": [
+        "route"
+      ],
+      "levels": [
+        "debutant",
+        "occasionnel",
+        "regulier"
+      ],
+      "uses": [
+        "daily",
+        "long"
+      ],
+      "drop": 10,
+      "cushion": "max",
+      "foam": "soft",
+      "carbon": false,
+      "plateType": "Aucune",
+      "launch": 179.99,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix original Nike",
+      "price": 113.39,
+      "shop": "prix actuel Runnea",
+      "sizes": [
+        "*"
+      ],
+      "sizeStockKnown": false,
+      "weightGrams": 273,
+      "deal": 79,
+      "reviews": [
+        "Amorti maximal route ; drop 10 mm",
+        "Prix actuel 113,39 € ; moyenne 90 j 123,30 €",
+        "Profil confort/longues sorties, moins orienté vitesse"
+      ],
+      "offers": [
+        [
+          "prix actuel Runnea",
+          113.39
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceUrl": "https://www.runnea.fr/chaussures-running/nike/vomero-18-plus/1045740/",
+      "sourceLabel": "Runnea",
+      "sources": [
+        {
+          "label": "Runnea — prix & fiche",
+          "url": "https://www.runnea.fr/chaussures-running/nike/vomero-18-plus/1045740/"
+        }
+      ],
+      "best": 101.99,
+      "avg90": 123.3
+    },
+    {
+      "id": 1140,
+      "family": "mach",
+      "brand": "HOKA",
+      "name": "Mach 6",
+      "generation": "N−1",
+      "terrain": [
+        "route"
+      ],
+      "levels": [
+        "occasionnel",
+        "regulier",
+        "competition"
+      ],
+      "uses": [
+        "daily",
+        "tempo"
+      ],
+      "drop": 5,
+      "cushion": "moderate",
+      "foam": "bouncy",
+      "carbon": false,
+      "plateType": "Aucune",
+      "launch": 160,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix original Hoka",
+      "price": 89.91,
+      "shop": "offre homme Runnea",
+      "sizes": [
+        "40.5",
+        "41.5",
+        "42",
+        "42.5",
+        "43.5",
+        "44.5",
+        "45.5",
+        "46",
+        "46.5",
+        "47.5"
+      ],
+      "sizeStockKnown": true,
+      "weightGrams": 232,
+      "deal": 83,
+      "reviews": [
+        "Prix 89,91 € vérifié avec 42,5 disponible",
+        "Mach 7 est désormais disponible : Mach 6 classée N−1",
+        "Route dynamique sans plaque carbone"
+      ],
+      "offers": [
+        [
+          "offre homme Runnea",
+          89.91
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceUrl": "https://www.runnea.fr/chaussures-running/hoka/mach-6/1023631/prix/toutes/",
+      "sourceLabel": "Runnea",
+      "sources": [
+        {
+          "label": "Runnea — prix & fiche",
+          "url": "https://www.runnea.fr/chaussures-running/hoka/mach-6/1023631/prix/toutes/"
+        }
+      ]
+    },
+    {
+      "id": 1150,
+      "family": "deviate",
+      "brand": "PUMA",
+      "name": "Deviate Nitro 4",
+      "generation": "N",
+      "terrain": [
+        "route"
+      ],
+      "levels": [
+        "regulier",
+        "competition"
+      ],
+      "uses": [
+        "tempo",
+        "race",
+        "long"
+      ],
+      "drop": 8,
+      "cushion": "high",
+      "foam": "bouncy",
+      "carbon": true,
+      "plateType": "Carbone",
+      "launch": 170,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix original Puma",
+      "price": 96.9,
+      "shop": "meilleur prix Runnea",
+      "sizes": [
+        "*"
+      ],
+      "sizeStockKnown": false,
+      "weightGrams": 250,
+      "deal": 83,
+      "reviews": [
+        "Plaque carbone · drop 8 mm · 250 g homme",
+        "Super-trainer polyvalent entraînement rapide / marathon",
+        "Meilleur prix web 96,90 € ; pointure du meilleur prix à vérifier"
+      ],
+      "offers": [
+        [
+          "meilleur prix Runnea",
+          96.9
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceUrl": "https://www.runnea.fr/chaussures-running/puma/deviate-nitro-4/1061498/prix/toutes/",
+      "sourceLabel": "Runnea",
+      "sources": [
+        {
+          "label": "Runnea — prix & fiche",
+          "url": "https://www.runnea.fr/chaussures-running/puma/deviate-nitro-4/1061498/prix/toutes/"
+        }
+      ]
+    },
+    {
+      "id": 1151,
+      "family": "deviate",
+      "brand": "PUMA",
+      "name": "Deviate Nitro 3",
+      "generation": "N−1",
+      "terrain": [
+        "route"
+      ],
+      "levels": [
+        "regulier",
+        "competition"
+      ],
+      "uses": [
+        "tempo",
+        "race",
+        "long"
+      ],
+      "drop": 10,
+      "cushion": "high",
+      "foam": "bouncy",
+      "carbon": true,
+      "plateType": "Carbone",
+      "launch": 170,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix original Puma",
+      "price": 96.9,
+      "shop": "meilleur prix Runnea",
+      "sizes": [
+        "*"
+      ],
+      "sizeStockKnown": false,
+      "weightGrams": 278,
+      "deal": 83,
+      "reviews": [
+        "Plaque carbone · drop 10 mm · 278 g",
+        "Ancienne génération de la Deviate Nitro",
+        "Prix web autour de 96,90 €"
+      ],
+      "offers": [
+        [
+          "meilleur prix Runnea",
+          96.9
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceUrl": "https://www.runnea.fr/chaussures-running/puma/deviate-nitro-3/1026827/",
+      "sourceLabel": "Runnea",
+      "sources": [
+        {
+          "label": "Runnea — prix & fiche",
+          "url": "https://www.runnea.fr/chaussures-running/puma/deviate-nitro-3/1026827/"
+        }
+      ]
+    },
+    {
+      "id": 1160,
+      "family": "vaporfly",
+      "brand": "NIKE",
+      "name": "Vaporfly 4",
+      "generation": "N",
+      "terrain": [
+        "route"
+      ],
+      "levels": [
+        "competition"
+      ],
+      "uses": [
+        "race"
+      ],
+      "drop": 6,
+      "cushion": "high",
+      "foam": "bouncy",
+      "carbon": true,
+      "plateType": "Carbone",
+      "launch": 259.99,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix original Nike",
+      "price": 122.99,
+      "shop": "meilleur prix Runnea",
+      "sizes": [
+        "*"
+      ],
+      "sizeStockKnown": false,
+      "weightGrams": null,
+      "deal": 89,
+      "reviews": [
+        "Chaussure carbone de compétition route",
+        "Prix original 259,99 € ; meilleur prix web 122,99 €",
+        "Tailles 42/42,5 existent mais le meilleur prix doit être revérifié par pointure"
+      ],
+      "offers": [
+        [
+          "meilleur prix Runnea",
+          122.99
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceUrl": "https://www.runnea.fr/chaussures-running/nike/zoom-vaporfly-4/9477/prix/toutes/",
+      "sourceLabel": "Runnea",
+      "sources": [
+        {
+          "label": "Runnea — prix & fiche",
+          "url": "https://www.runnea.fr/chaussures-running/nike/zoom-vaporfly-4/9477/prix/toutes/"
+        }
+      ]
+    },
+    {
+      "id": 1161,
+      "family": "vaporfly",
+      "brand": "NIKE",
+      "name": "Vaporfly 3",
+      "generation": "N−1",
+      "terrain": [
+        "route"
+      ],
+      "levels": [
+        "competition"
+      ],
+      "uses": [
+        "race"
+      ],
+      "drop": 8,
+      "cushion": "high",
+      "foam": "bouncy",
+      "carbon": true,
+      "plateType": "Carbone",
+      "launch": 259.99,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix original Nike",
+      "price": 133.0,
+      "shop": "meilleur prix Runnea",
+      "sizes": [
+        "*"
+      ],
+      "sizeStockKnown": false,
+      "weightGrams": null,
+      "deal": 87,
+      "reviews": [
+        "Ancienne génération carbone de compétition",
+        "Prix web autour de 133 €",
+        "Pointure du meilleur prix à vérifier"
+      ],
+      "offers": [
+        [
+          "meilleur prix Runnea",
+          133.0
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceUrl": "https://www.runnea.fr/chaussures-running/nike/vaporfly-3/1018079/prix/toutes/",
+      "sourceLabel": "Runnea",
+      "sources": [
+        {
+          "label": "Runnea — prix & fiche",
+          "url": "https://www.runnea.fr/chaussures-running/nike/vaporfly-3/1018079/prix/toutes/"
+        }
+      ]
+    },
+    {
+      "id": 1170,
+      "family": "adiospro",
+      "brand": "ADIDAS",
+      "name": "Adizero Adios Pro 4",
+      "generation": "N",
+      "terrain": [
+        "route"
+      ],
+      "levels": [
+        "competition"
+      ],
+      "uses": [
+        "race"
+      ],
+      "drop": 6,
+      "cushion": "high",
+      "foam": "bouncy",
+      "carbon": true,
+      "plateType": "EnergyRods carbone",
+      "launch": 250,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix original Adidas",
+      "price": 149.0,
+      "shop": "meilleur prix Runnea",
+      "sizes": [
+        "*"
+      ],
+      "sizeStockKnown": false,
+      "weightGrams": null,
+      "deal": 81,
+      "reviews": [
+        "Chaussure compétition route à EnergyRods carbone",
+        "Prix original 250 € ; meilleur prix web ~149 €",
+        "10 km à marathon"
+      ],
+      "offers": [
+        [
+          "meilleur prix Runnea",
+          149.0
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceUrl": "https://www.runnea.fr/chaussures-running/adidas/adizero-adios-pro-4/1034644/prix/toutes/",
+      "sourceLabel": "Runnea",
+      "sources": [
+        {
+          "label": "Runnea — prix & fiche",
+          "url": "https://www.runnea.fr/chaussures-running/adidas/adizero-adios-pro-4/1034644/prix/toutes/"
+        }
+      ]
+    },
+    {
+      "id": 1180,
+      "family": "endorphinpro",
+      "brand": "SAUCONY",
+      "name": "Endorphin Pro 5",
+      "generation": "N",
+      "terrain": [
+        "route"
+      ],
+      "levels": [
+        "competition"
+      ],
+      "uses": [
+        "race"
+      ],
+      "drop": 8,
+      "cushion": "high",
+      "foam": "bouncy",
+      "carbon": true,
+      "plateType": "Carbone",
+      "launch": 270,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix original Saucony",
+      "price": 159.99,
+      "shop": "offre homme Runnea",
+      "sizes": [
+        "42.5",
+        "43"
+      ],
+      "sizeStockKnown": true,
+      "weightGrams": null,
+      "deal": 81,
+      "reviews": [
+        "Prix homme ~159,99 € avec 42,5 disponible",
+        "Plaque carbone ; compétition route",
+        "Génération actuelle"
+      ],
+      "offers": [
+        [
+          "offre homme Runnea",
+          159.99
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceUrl": "https://www.runnea.fr/chaussures-running/saucony/endorphin-pro-5/1045230/prix/toutes/",
+      "sourceLabel": "Runnea",
+      "sources": [
+        {
+          "label": "Runnea — prix & fiche",
+          "url": "https://www.runnea.fr/chaussures-running/saucony/endorphin-pro-5/1045230/prix/toutes/"
+        }
+      ]
+    },
+    {
+      "id": 1181,
+      "family": "endorphinpro",
+      "brand": "SAUCONY",
+      "name": "Endorphin Pro 4",
+      "generation": "N−1",
+      "terrain": [
+        "route"
+      ],
+      "levels": [
+        "competition"
+      ],
+      "uses": [
+        "race"
+      ],
+      "drop": 8,
+      "cushion": "high",
+      "foam": "bouncy",
+      "carbon": true,
+      "plateType": "Carbone",
+      "launch": 250,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix original Saucony",
+      "price": 124.99,
+      "shop": "offre homme Runnea",
+      "sizes": [
+        "42",
+        "42.5",
+        "43"
+      ],
+      "sizeStockKnown": true,
+      "weightGrams": null,
+      "deal": 88,
+      "reviews": [
+        "Prix 124,99 € vérifié avec 42,5 disponible",
+        "Ancienne génération carbone",
+        "Écart de prix marqué face à la Pro 5"
+      ],
+      "offers": [
+        [
+          "offre homme Runnea",
+          124.99
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceUrl": "https://www.runnea.fr/chaussures-running/saucony/endorphin-pro-4/1021495/prix/toutes/",
+      "sourceLabel": "Runnea",
+      "sources": [
+        {
+          "label": "Runnea — prix & fiche",
+          "url": "https://www.runnea.fr/chaussures-running/saucony/endorphin-pro-4/1021495/prix/toutes/"
+        }
+      ]
+    },
+    {
+      "id": 1190,
+      "family": "metaspeed-sky",
+      "brand": "ASICS",
+      "name": "Metaspeed Sky Tokyo",
+      "generation": "N",
+      "terrain": [
+        "route"
+      ],
+      "levels": [
+        "competition"
+      ],
+      "uses": [
+        "race"
+      ],
+      "drop": 5,
+      "cushion": "high",
+      "foam": "bouncy",
+      "carbon": true,
+      "plateType": "Carbone",
+      "launch": 270,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix original Asics",
+      "price": 188.99,
+      "shop": "offre homme Runnea",
+      "sizes": [
+        "42.5"
+      ],
+      "sizeStockKnown": true,
+      "weightGrams": 170,
+      "deal": 75,
+      "reviews": [
+        "170 g · drop 5 mm · plaque carbone",
+        "Compétition 10 km, semi et marathon",
+        "Prix global relevé 179,99 € ; offre homme 42,5 autour de 188,99 €"
+      ],
+      "offers": [
+        [
+          "offre homme Runnea",
+          188.99
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceUrl": "https://www.runnea.fr/chaussures-running/asics/metaspeed-sky-tokyo/1056955/",
+      "sourceLabel": "Runnea",
+      "sources": [
+        {
+          "label": "Runnea — prix & fiche",
+          "url": "https://www.runnea.fr/chaussures-running/asics/metaspeed-sky-tokyo/1056955/"
+        }
+      ]
+    },
+    {
+      "id": 1200,
+      "family": "speedgoat",
+      "brand": "HOKA",
+      "name": "Speedgoat 7",
+      "generation": "N",
+      "terrain": [
+        "trail"
+      ],
+      "levels": [
+        "debutant",
+        "occasionnel",
+        "regulier",
+        "competition"
+      ],
+      "uses": [
+        "daily",
+        "long",
+        "race"
+      ],
+      "drop": 5,
+      "cushion": "high",
+      "foam": "balanced",
+      "carbon": false,
+      "plateType": "Aucune",
+      "launch": 165,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix original Hoka",
+      "price": 116.95,
+      "shop": "offre homme Runnea",
+      "sizes": [
+        "40.5",
+        "41.5",
+        "42",
+        "42.5",
+        "43.5",
+        "44",
+        "44.5",
+        "45.5"
+      ],
+      "sizeStockKnown": true,
+      "weightGrams": 275,
+      "deal": 74,
+      "reviews": [
+        "Prix 116,95 € vérifié avec 42,5 disponible",
+        "Drop 5 mm · amorti élevé · 275 g homme",
+        "Trail longue distance / ultra ; bonne accroche"
+      ],
+      "offers": [
+        [
+          "offre homme Runnea",
+          116.95
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceUrl": "https://www.runnea.fr/chaussures-running/hoka/speedgoat-7/1062601/prix/toutes/",
+      "sourceLabel": "Runnea",
+      "sources": [
+        {
+          "label": "Runnea — prix & fiche",
+          "url": "https://www.runnea.fr/chaussures-running/hoka/speedgoat-7/1062601/prix/toutes/"
+        }
+      ]
+    },
+    {
+      "id": 1201,
+      "family": "speedgoat",
+      "brand": "HOKA",
+      "name": "Speedgoat 6",
+      "generation": "N−1",
+      "terrain": [
+        "trail"
+      ],
+      "levels": [
+        "debutant",
+        "occasionnel",
+        "regulier",
+        "competition"
+      ],
+      "uses": [
+        "daily",
+        "long",
+        "race"
+      ],
+      "drop": 5,
+      "cushion": "high",
+      "foam": "balanced",
+      "carbon": false,
+      "plateType": "Aucune",
+      "launch": 160,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix original Hoka",
+      "price": 105.95,
+      "shop": "meilleur prix Runnea",
+      "sizes": [
+        "*"
+      ],
+      "sizeStockKnown": false,
+      "weightGrams": 278,
+      "deal": 77,
+      "reviews": [
+        "Drop 5 mm · amorti élevé · 278 g",
+        "Ancienne génération trail/ultra",
+        "Prix web ~105,95 € ; pointure à vérifier"
+      ],
+      "offers": [
+        [
+          "meilleur prix Runnea",
+          105.95
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceUrl": "https://www.runnea.fr/chaussures-running/hoka/speedgoat-6/1023685/prix/toutes/",
+      "sourceLabel": "Runnea",
+      "sources": [
+        {
+          "label": "Runnea — prix & fiche",
+          "url": "https://www.runnea.fr/chaussures-running/hoka/speedgoat-6/1023685/prix/toutes/"
+        }
+      ]
+    },
+    {
+      "id": 1210,
+      "family": "hierro",
+      "brand": "NEW BALANCE",
+      "name": "Fresh Foam X Hierro v9",
+      "generation": "N",
+      "terrain": [
+        "trail"
+      ],
+      "levels": [
+        "debutant",
+        "occasionnel",
+        "regulier"
+      ],
+      "uses": [
+        "daily",
+        "long"
+      ],
+      "drop": 4,
+      "cushion": "high",
+      "foam": "soft",
+      "carbon": false,
+      "plateType": "Aucune",
+      "launch": 160,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix original New Balance",
+      "price": 108.89,
+      "shop": "offre homme Runnea",
+      "sizes": [
+        "42",
+        "42.5",
+        "43",
+        "44",
+        "45"
+      ],
+      "sizeStockKnown": true,
+      "weightGrams": 294,
+      "deal": 76,
+      "reviews": [
+        "108,89 € vérifié en homme avec 42,5",
+        "Drop 4 mm · amorti généreux · Vibram Megagrip",
+        "Trail polyvalent et protecteur"
+      ],
+      "offers": [
+        [
+          "offre homme Runnea",
+          108.89
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceUrl": "https://www.runnea.fr/chaussures-running/new-balance/fresh-foam-x-hierro-v9/1045540/prix/toutes/",
+      "sourceLabel": "Runnea",
+      "sources": [
+        {
+          "label": "Runnea — prix & fiche",
+          "url": "https://www.runnea.fr/chaussures-running/new-balance/fresh-foam-x-hierro-v9/1045540/prix/toutes/"
+        }
+      ]
+    },
+    {
+      "id": 1211,
+      "family": "hierro",
+      "brand": "NEW BALANCE",
+      "name": "Fresh Foam X Hierro v8",
+      "generation": "N−1",
+      "terrain": [
+        "trail"
+      ],
+      "levels": [
+        "debutant",
+        "occasionnel",
+        "regulier"
+      ],
+      "uses": [
+        "daily",
+        "long"
+      ],
+      "drop": 8,
+      "cushion": "high",
+      "foam": "soft",
+      "carbon": false,
+      "plateType": "Aucune",
+      "launch": 160,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix original New Balance",
+      "price": 111.95,
+      "shop": "meilleur prix Runnea",
+      "sizes": [
+        "*"
+      ],
+      "sizeStockKnown": false,
+      "weightGrams": 291,
+      "deal": 75,
+      "reviews": [
+        "Drop 8 mm · amorti élevé",
+        "Ancienne génération, géométrie sensiblement différente de la v9",
+        "Prix web ~111,95 €"
+      ],
+      "offers": [
+        [
+          "meilleur prix Runnea",
+          111.95
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceUrl": "https://www.runnea.fr/chaussures-running/new-balance/fresh-foam-x-hierro-v8/1023634/prix/toutes/",
+      "sourceLabel": "Runnea",
+      "sources": [
+        {
+          "label": "Runnea — prix & fiche",
+          "url": "https://www.runnea.fr/chaussures-running/new-balance/fresh-foam-x-hierro-v8/1023634/prix/toutes/"
+        }
+      ]
+    },
+    {
+      "id": 1220,
+      "family": "cascadia",
+      "brand": "BROOKS",
+      "name": "Cascadia 20",
+      "generation": "N",
+      "terrain": [
+        "trail"
+      ],
+      "levels": [
+        "debutant",
+        "occasionnel",
+        "regulier"
+      ],
+      "uses": [
+        "daily",
+        "long"
+      ],
+      "drop": 6,
+      "cushion": "moderate",
+      "foam": "balanced",
+      "carbon": false,
+      "plateType": "Aucune",
+      "launch": 160,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix original Brooks",
+      "price": 152.0,
+      "shop": "meilleur prix Runnea",
+      "sizes": [
+        "*"
+      ],
+      "sizeStockKnown": false,
+      "weightGrams": null,
+      "deal": 58,
+      "reviews": [
+        "Génération actuelle Cascadia 2026",
+        "Trail polyvalent et stable",
+        "Prix web à partir de 152 €"
+      ],
+      "offers": [
+        [
+          "meilleur prix Runnea",
+          152.0
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceUrl": "https://www.runnea.fr/chaussures-running/modeles/brooks/ann%C3%A9e-2026/",
+      "sourceLabel": "Runnea",
+      "sources": [
+        {
+          "label": "Runnea — prix & fiche",
+          "url": "https://www.runnea.fr/chaussures-running/modeles/brooks/ann%C3%A9e-2026/"
+        }
+      ]
+    },
+    {
+      "id": 1221,
+      "family": "cascadia",
+      "brand": "BROOKS",
+      "name": "Cascadia 19",
+      "generation": "N−1",
+      "terrain": [
+        "trail"
+      ],
+      "levels": [
+        "debutant",
+        "occasionnel",
+        "regulier"
+      ],
+      "uses": [
+        "daily",
+        "long"
+      ],
+      "drop": 6,
+      "cushion": "moderate",
+      "foam": "balanced",
+      "carbon": false,
+      "plateType": "Aucune",
+      "launch": 150,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix original Brooks",
+      "price": 102.59,
+      "shop": "prix web Runnea",
+      "sizes": [
+        "*"
+      ],
+      "sizeStockKnown": false,
+      "weightGrams": 303,
+      "deal": 76,
+      "reviews": [
+        "303 g · drop 6 mm · amorti moyen",
+        "Cascadia 20 disponible : modèle classé N−1",
+        "Prix web autour de 102,59 €"
+      ],
+      "offers": [
+        [
+          "prix web Runnea",
+          102.59
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceUrl": "https://www.runnea.fr/chaussures-running/brooks/cascadia-19/1045525/",
+      "sourceLabel": "Runnea",
+      "sources": [
+        {
+          "label": "Runnea — prix & fiche",
+          "url": "https://www.runnea.fr/chaussures-running/brooks/cascadia-19/1045525/"
+        }
+      ]
+    },
+    {
+      "id": 1230,
+      "family": "trabucomax",
+      "brand": "ASICS",
+      "name": "Trabuco Max 5",
+      "generation": "N",
+      "terrain": [
+        "trail"
+      ],
+      "levels": [
+        "debutant",
+        "occasionnel",
+        "regulier"
+      ],
+      "uses": [
+        "daily",
+        "long"
+      ],
+      "drop": 5,
+      "cushion": "high",
+      "foam": "balanced",
+      "carbon": false,
+      "plateType": "Aucune",
+      "launch": 180,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix original Asics",
+      "price": 116.0,
+      "shop": "offre homme Runnea",
+      "sizes": [
+        "41.5",
+        "42",
+        "42.5",
+        "44",
+        "44.5"
+      ],
+      "sizeStockKnown": true,
+      "weightGrams": 302,
+      "deal": 78,
+      "reviews": [
+        "116 € vérifié en homme avec 42,5",
+        "302 g · drop 5 mm · amorti élevé",
+        "Trail longue distance / ultra"
+      ],
+      "offers": [
+        [
+          "offre homme Runnea",
+          116.0
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceUrl": "https://www.runnea.fr/chaussures-running/asics/trabuco-max-5/1061843/prix/toutes/",
+      "sourceLabel": "Runnea",
+      "sources": [
+        {
+          "label": "Runnea — prix & fiche",
+          "url": "https://www.runnea.fr/chaussures-running/asics/trabuco-max-5/1061843/prix/toutes/"
+        }
+      ]
+    },
+    {
+      "id": 1240,
+      "family": "mafate",
+      "brand": "HOKA",
+      "name": "Mafate 5",
+      "generation": "N",
+      "terrain": [
+        "trail"
+      ],
+      "levels": [
+        "regulier",
+        "competition"
+      ],
+      "uses": [
+        "daily",
+        "long",
+        "race"
+      ],
+      "drop": 8,
+      "cushion": "high",
+      "foam": "firm",
+      "carbon": false,
+      "plateType": "Aucune",
+      "launch": 190,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix original Hoka",
+      "price": 124.19,
+      "shop": "meilleur prix Runnea",
+      "sizes": [
+        "*"
+      ],
+      "sizeStockKnown": false,
+      "weightGrams": 332,
+      "deal": 78,
+      "reviews": [
+        "332 g · drop 8 mm · amorti élevé",
+        "Trail et ultra ; sensation ferme/équilibrée",
+        "Prix web à partir de 124,19 € ; pointure à vérifier"
+      ],
+      "offers": [
+        [
+          "meilleur prix Runnea",
+          124.19
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceUrl": "https://www.runnea.fr/chaussures-running/hoka/mafate-5/1043872/prix/toutes/",
+      "sourceLabel": "Runnea",
+      "sources": [
+        {
+          "label": "Runnea — prix & fiche",
+          "url": "https://www.runnea.fr/chaussures-running/hoka/mafate-5/1043872/prix/toutes/"
+        }
+      ]
+    },
+    {
+      "id": 1250,
+      "family": "genesis",
+      "brand": "SALOMON",
+      "name": "Genesis 2",
+      "generation": "N",
+      "terrain": [
+        "trail"
+      ],
+      "levels": [
+        "occasionnel",
+        "regulier",
+        "competition"
+      ],
+      "uses": [
+        "daily",
+        "long",
+        "race"
+      ],
+      "drop": 8,
+      "cushion": "moderate",
+      "foam": "balanced",
+      "carbon": false,
+      "plateType": "Aucune",
+      "launch": 150,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix original Salomon",
+      "price": 142.5,
+      "shop": "meilleur prix Runnea",
+      "sizes": [
+        "*"
+      ],
+      "sizeStockKnown": false,
+      "weightGrams": 281,
+      "deal": 58,
+      "reviews": [
+        "281 g · drop 8 mm · trail",
+        "Entraînement et longues sorties techniques",
+        "Prix web autour de 142,50 €"
+      ],
+      "offers": [
+        [
+          "meilleur prix Runnea",
+          142.5
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceUrl": "https://www.runnea.fr/chaussures-running/salomon/genesis-2/1062073/",
+      "sourceLabel": "Runnea",
+      "sources": [
+        {
+          "label": "Runnea — prix & fiche",
+          "url": "https://www.runnea.fr/chaussures-running/salomon/genesis-2/1062073/"
+        }
+      ]
+    },
+    {
+      "id": 1251,
+      "family": "genesis",
+      "brand": "SALOMON",
+      "name": "Genesis",
+      "generation": "N−1",
+      "terrain": [
+        "trail"
+      ],
+      "levels": [
+        "occasionnel",
+        "regulier",
+        "competition"
+      ],
+      "uses": [
+        "daily",
+        "long",
+        "race"
+      ],
+      "drop": 8,
+      "cushion": "moderate",
+      "foam": "balanced",
+      "carbon": false,
+      "plateType": "Aucune",
+      "launch": 150,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix original Salomon",
+      "price": 89.99,
+      "shop": "prix web Runnea",
+      "sizes": [
+        "*"
+      ],
+      "sizeStockKnown": false,
+      "weightGrams": 269,
+      "deal": 81,
+      "reviews": [
+        "269 g · drop 8 mm",
+        "Ancienne génération très remisée",
+        "Trail polyvalent / technique"
+      ],
+      "offers": [
+        [
+          "prix web Runnea",
+          89.99
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceUrl": "https://www.runnea.fr/chaussures-running/salomon/genesis/1017655/",
+      "sourceLabel": "Runnea",
+      "sources": [
+        {
+          "label": "Runnea — prix & fiche",
+          "url": "https://www.runnea.fr/chaussures-running/salomon/genesis/1017655/"
         }
       ]
     }

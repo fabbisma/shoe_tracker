@@ -16,7 +16,7 @@
     <a href="#" class="brand" aria-label="Shoe-Tracker accueil">
       <span class="brand-mark">S</span>
       <span>Shoe-Tracker</span>
-      <span class="badge badge-demo">V0.10 · COMPARAISON VISUELLE</span>
+      <span class="badge badge-demo">V0.12 · TEST RÉEL · 47 MODÈLES</span>
     </a>
     <div class="top-actions">
       <button class="ghost-btn" id="resetBtn" type="button">Réinitialiser</button>
@@ -134,6 +134,7 @@
           </div>
 
           <div class="experience-profile-row">
+            <label><span>Terrain recherché</span><select id="experienceTerrain"><option value="route" selected>Route</option><option value="trail">Trail</option><option value="mixte">Mixte</option></select></label>
             <label><span>Ton niveau</span><select id="experienceLevel"><option value="debutant">Débutant</option><option value="occasionnel">Occasionnel</option><option value="regulier" selected>Régulier</option><option value="competition">Compétition</option></select></label>
             <label><span>Ton poids</span><div class="input-suffix"><input id="experienceWeight" type="number" min="40" max="140" value="72" /><span>kg</span></div></label>
           </div>
@@ -193,7 +194,7 @@
     <section class="source-strip pre-search-hidden" aria-label="État des données">
       <div><span class="source-dot api"></span><strong>Catalogue Shoe-Tracker</strong><small id="apiStatusText">chargement…</small></div>
       <div><span class="source-dot strava"></span><strong>Strava privé</strong><small id="stravaSourceStatus">non connecté</small></div>
-      <div><span class="source-dot real"></span><strong>Données web</strong><small>16 modèles / générations</small></div>
+      <div><span class="source-dot real"></span><strong>Données web</strong><small id="webModelCount">chargement…</small></div>
       <div><span class="source-dot demo"></span><strong>Sources citées</strong><small>marques, marchands, comparateurs</small></div>
     </section>
 
@@ -212,6 +213,7 @@
       </div>
 
       <div id="resultsGrid" class="results-grid" aria-live="polite"></div>
+      <div class="more-results-row"><button type="button" id="showMoreResults" class="ghost-btn hidden">Voir plus de modèles</button></div>
       <div id="emptyState" class="empty-state hidden">
         <div class="empty-icon">👟</div>
         <h3>Aucun modèle ne coche assez de cases.</h3>
@@ -257,7 +259,7 @@
   </main>
 
   <footer>
-    <div><strong>Shoe-Tracker</strong> — V0.9 · 3 modes de recherche + Strava privé + snapshot web réel</div>
+    <div><strong>Shoe-Tracker</strong> — V0.12 · catalogue élargi + test réel + Strava privé</div>
     <p>Prix et caractéristiques : snapshot public collecté le 29/08/2026, à revérifier avant achat. Les données Strava restent privées et les contributions communautaires proviennent exclusivement d’une saisie directe dans Shoe-Tracker.</p>
   </footer>
 
