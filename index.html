@@ -16,11 +16,11 @@
     <a href="#" class="brand" aria-label="RunDeal accueil">
       <span class="brand-mark">R</span>
       <span>RunDeal</span>
-      <span class="badge badge-demo">V0.7 · MÊME ESPRIT</span>
+      <span class="badge badge-demo">V0.8 · 3 MODES</span>
     </a>
     <div class="top-actions">
       <button class="ghost-btn" id="resetBtn" type="button">Réinitialiser</button>
-      <a class="primary-btn small" href="#results">Voir les bons plans</a>
+      <a class="primary-btn small" href="#search">Commencer</a>
     </div>
   </header>
 
@@ -51,276 +51,153 @@
       </div>
     </section>
 
-    <section class="finder" aria-labelledby="finderTitle">
-      <div class="section-head">
+    <section class="search-workspace" id="search" aria-labelledby="searchTitle">
+      <div class="section-head search-head">
         <div>
-          <p class="eyebrow">TON PROFIL</p>
-          <h2 id="finderTitle">Que cherches-tu ?</h2>
+          <p class="eyebrow">TROIS FAÇONS DE CHERCHER</p>
+          <h2 id="searchTitle">Comment veux-tu trouver ta prochaine paire ?</h2>
+          <p class="muted">Choisis un seul parcours. RunDeal utilisera uniquement les informations utiles à ce mode.</p>
         </div>
         <span class="data-note" id="dataSourceNote">Connexion à l’API RunDeal…</span>
       </div>
 
-      <form id="filtersForm" class="filters-grid">
-        <div class="filter-card span-4 inspiration-card">
-          <div class="inspiration-head">
-            <div>
-              <span class="filter-kicker">RECHERCHE PAR INSPIRATION · OPTIONNEL</span>
-              <strong>Quel modèle avais-tu en tête ?</strong>
-              <p>Choisis une chaussure connue : RunDeal cherche des modèles au comportement proche, mais moins chers, y compris dans les anciennes générations et chez les marques concurrentes.</p>
-            </div>
-            <button type="button" class="ghost-btn reference-clear hidden" id="clearReferenceBtn">Effacer le modèle</button>
+      <div class="search-mode-switch" role="tablist" aria-label="Mode de recherche">
+        <button type="button" class="search-mode-tab active" id="modeSimilarTab" data-search-mode="similar" role="tab" aria-selected="true" aria-controls="modeSimilar">
+          <span class="mode-number">1</span>
+          <span><strong>Un modèle en tête</strong><small>Trouver le même esprit moins cher</small></span>
+        </button>
+        <span class="mode-or" aria-hidden="true">OU</span>
+        <button type="button" class="search-mode-tab" id="modeCriteriaTab" data-search-mode="criteria" role="tab" aria-selected="false" aria-controls="modeCriteria">
+          <span class="mode-number">2</span>
+          <span><strong>Mes critères</strong><small>Construire mon profil idéal</small></span>
+        </button>
+        <span class="mode-or" aria-hidden="true">OU</span>
+        <button type="button" class="search-mode-tab" id="modeExperienceTab" data-search-mode="experience" role="tab" aria-selected="false" aria-controls="modeExperience">
+          <span class="mode-number">3</span>
+          <span><strong>Mon expérience</strong><small>Apprendre de mes anciennes chaussures</small></span>
+        </button>
+      </div>
+
+      <div class="search-mode-panels">
+        <section class="search-mode-panel" id="modeSimilar" data-mode-panel="similar" role="tabpanel" aria-labelledby="modeSimilarTab">
+          <div class="mode-panel-copy">
+            <span class="mode-kicker">RECHERCHE PAR SIMILARITÉ</span>
+            <h3>Quel modèle avais-tu en tête ?</h3>
+            <p>RunDeal cherche des chaussures avec un <strong>drop, un amorti et un usage proches</strong>, puis privilégie celles qui coûtent moins cher — notamment les N−1, N−2 et N−3.</p>
           </div>
-          <div class="inspiration-controls">
-            <label>
+          <div class="similar-search-box">
+            <label class="big-select-label">
               <span>Modèle de référence</span>
               <select id="referenceShoe">
-                <option value="">Je n’ai pas de modèle précis en tête</option>
+                <option value="">Choisir une chaussure…</option>
               </select>
             </label>
-            <div class="inspiration-rule">
-              <span>MOTEUR « MÊME ESPRIT »</span>
-              <strong>Similarité technique + économie réelle</strong>
-              <small>Terrain, usage, amorti, mousse, plaque et drop. En mode référence, seuls les modèles moins chers sont proposés.</small>
-            </div>
+            <button type="button" class="ghost-btn reference-clear hidden" id="clearReferenceBtn">Effacer</button>
+          </div>
+          <div class="similarity-signals" aria-label="Critères de similarité">
+            <span>↕ Drop proche</span><span>☁ Amorti comparable</span><span>⚡ Usage / dynamisme</span><span>€ Moins cher</span>
           </div>
           <div id="referencePreview" class="reference-preview hidden" aria-live="polite"></div>
-        </div>
-        <fieldset class="filter-card span-2">
-          <legend>Terrain</legend>
-          <div class="segmented three" data-segment="terrain">
-            <button type="button" class="seg active" data-value="route">🛣️ Route</button>
-            <button type="button" class="seg" data-value="trail">⛰️ Trail</button>
-            <button type="button" class="seg" data-value="mixte">🔀 Mixte</button>
-          </div>
-          <input type="hidden" id="terrain" value="route" />
-        </fieldset>
-
-        <label class="filter-card">
-          <span>Niveau</span>
-          <select id="level">
-            <option value="debutant">Débutant</option>
-            <option value="occasionnel">Occasionnel</option>
-            <option value="regulier" selected>Régulier</option>
-            <option value="competition">Compétition</option>
-          </select>
-        </label>
-
-        <label class="filter-card">
-          <span>Poids</span>
-          <div class="input-suffix"><input id="weight" type="number" min="40" max="140" value="72" /><span>kg</span></div>
-        </label>
-
-        <label class="filter-card">
-          <span>Pointure EU</span>
-          <select id="size">
-            <option>40</option><option>40.5</option><option>41</option><option>42</option><option selected>42.5</option><option>43</option><option>44</option><option>44.5</option><option>45</option><option>46</option>
-          </select>
-        </label>
-
-        <label class="filter-card">
-          <span>Budget maximum</span>
-          <div class="input-suffix"><input id="maxPrice" type="number" min="50" max="350" step="5" value="160" /><span>€</span></div>
-        </label>
-
-        <label class="filter-card">
-          <span>Drop préféré</span>
-          <select id="drop">
-            <option value="any" selected>Sans préférence</option>
-            <option value="low">0–4 mm</option>
-            <option value="mid">5–8 mm</option>
-            <option value="high">9–12 mm</option>
-          </select>
-        </label>
-
-        <label class="filter-card">
-          <span>Amorti</span>
-          <select id="cushion">
-            <option value="any">Sans préférence</option>
-            <option value="moderate">Modéré</option>
-            <option value="high" selected>Important</option>
-            <option value="max">Maximal</option>
-          </select>
-        </label>
-
-        <label class="filter-card">
-          <span>Sensation de mousse</span>
-          <select id="foam">
-            <option value="any" selected>Sans préférence</option>
-            <option value="soft">Souple</option>
-            <option value="balanced">Équilibrée</option>
-            <option value="firm">Ferme</option>
-            <option value="bouncy">Très rebondissante</option>
-          </select>
-        </label>
-
-        <label class="filter-card switch-card">
-          <span>Plaque carbone</span>
-          <select id="carbon">
-            <option value="any" selected>Peu importe</option>
-            <option value="yes">Oui</option>
-            <option value="no">Non</option>
-          </select>
-        </label>
-
-        <div class="filter-card span-2 run-goal-card">
-          <span>Usage principal</span>
-          <div class="chip-row" id="usageChips">
-            <button type="button" class="chip active" data-value="daily">Entraînement</button>
-            <button type="button" class="chip" data-value="long">Sortie longue</button>
-            <button type="button" class="chip" data-value="tempo">Tempo</button>
-            <button type="button" class="chip" data-value="race">Compétition</button>
-          </div>
-          <input type="hidden" id="usage" value="daily" />
-        </div>
-
-        <div class="filter-card span-2 generation-filter-card">
-          <div class="generation-filter-head">
-            <div>
-              <span class="filter-kicker">GÉNÉRATIONS À CHERCHER</span>
-              <strong>Inclure les anciens modèles</strong>
-            </div>
-            <button type="button" class="old-only-btn" id="oldOnlyBtn">Anciennes uniquement</button>
-          </div>
-          <div class="generation-chips" id="generationChips" aria-label="Filtrer par génération">
-            <button type="button" class="generation-chip active current" data-generation="N">N <small>actuelle</small></button>
-            <button type="button" class="generation-chip active old" data-generation="N−1">N−1 <small>souvent bon plan</small></button>
-            <button type="button" class="generation-chip active old" data-generation="N−2">N−2 <small>fortes remises</small></button>
-            <button type="button" class="generation-chip active old" data-generation="N−3">N−3 <small>à vérifier</small></button>
-          </div>
-          <p class="generation-filter-note"><strong>N</strong> = version actuelle. Une ancienne génération reste recommandable si la perte technique est faible par rapport à l'économie.</p>
-        </div>
-      </form>
-    </section>
-
-
-    <section class="history-section" aria-labelledby="historyTitle">
-      <div class="history-card">
-        <div class="history-intro">
-          <div>
-            <div class="optional-kicker"><span>OPTIONNEL</span> Affiner avec ton expérience</div>
-            <h2 id="historyTitle">Tu as déjà couru avec certaines chaussures ?</h2>
-            <p>Dis-nous ce que tu as aimé ou non. RunDeal s’en sert pour ajuster les recommandations : trop rigide, trop mou, trop haut, manque de réactivité, usage préféré…</p>
-          </div>
-          <button class="primary-btn" id="toggleHistoryForm" type="button">+ Ajouter une chaussure</button>
-        </div>
-
-        <section class="strava-private-card" aria-labelledby="stravaPrivateTitle">
-          <div class="strava-private-head">
-            <div>
-              <div class="strava-private-kicker"><span>STRAVA · PRIVÉ</span> Import personnel uniquement</div>
-              <h3 id="stravaPrivateTitle">Retrouver mes chaussures et leur kilométrage</h3>
-              <p>RunDeal demande uniquement l’accès au profil/équipement Strava. Les données récupérées restent dans ton espace privé, ne sont pas copiées dans Supabase et ne servent pas aux statistiques communautaires.</p>
-            </div>
-            <div class="strava-actions">
-              <a class="strava-connect-btn" id="stravaConnectBtn" href="/api/strava-connect">Connecter Strava</a>
-              <button class="ghost-btn hidden" id="stravaDisconnectBtn" type="button">Déconnecter</button>
-            </div>
-          </div>
-
-          <div class="strava-boundary" aria-label="Séparation des données Strava et RunDeal">
-            <div class="boundary-box private"><span>① PRIVÉ</span><strong>Strava → RunDeal</strong><small>Nom des chaussures + kilométrage, visibles seulement par l’utilisateur connecté.</small></div>
-            <div class="boundary-arrow" aria-hidden="true">→</div>
-            <div class="boundary-gate"><strong>Aucune copie automatique</strong><small>L’utilisateur saisit lui-même un retour RunDeal s’il souhaite contribuer.</small></div>
-            <div class="boundary-arrow" aria-hidden="true">→</div>
-            <div class="boundary-box community"><span>② COMMUNAUTÉ</span><strong>Données RunDeal</strong><small>Uniquement les informations déclarées directement dans le formulaire ci-dessous.</small></div>
-          </div>
-
-          <div id="stravaNotice" class="strava-notice" role="status">Connexion non vérifiée.</div>
-          <div id="stravaPrivateData" class="strava-private-data hidden">
-            <div class="strava-user-line"><div><span>IMPORT PRIVÉ</span><strong id="stravaAthleteLabel">Compte Strava connecté</strong></div><small>Ces données ne sont jamais proposées comme contribution automatique.</small></div>
-            <div id="stravaShoes" class="strava-shoes"></div>
-            <div class="strava-manual-help">
-              <strong>Tu veux donner ton avis sur une de ces paires ?</strong>
-              <span>Ouvre le formulaire RunDeal puis sélectionne ou saisis toi-même le modèle. Aucun nom, kilométrage ou autre donnée Strava n’est prérempli.</span>
-              <button type="button" class="ghost-btn" id="openManualFeedbackFromStrava">Saisir un retour RunDeal</button>
-            </div>
-          </div>
         </section>
 
-        <form id="historyForm" class="history-form hidden">
-          <div class="history-form-grid">
-            <label>
-              <span>Chaussure utilisée</span>
-              <select id="historyShoe"></select>
-              <input id="historyCustomShoe" class="history-custom hidden" type="text" maxlength="80" placeholder="Marque + modèle + génération" />
-            </label>
-            <label>
-              <span>Impression générale</span>
-              <select id="historySentiment">
-                <option value="liked">Je l’ai aimée</option>
-                <option value="mixed" selected>Mitigé</option>
-                <option value="disliked">Je ne l’ai pas aimée</option>
-              </select>
-            </label>
-            <label>
-              <span>Distance parcourue</span>
-              <div class="history-distance-wrap"><input id="historyDistance" type="number" min="0" max="10000" step="0.1" inputmode="decimal" placeholder="Facultatif" /><span>km</span></div>
-            </label>
+        <section class="search-mode-panel hidden" id="modeCriteria" data-mode-panel="criteria" role="tabpanel" aria-labelledby="modeCriteriaTab">
+          <div class="mode-panel-copy compact">
+            <span class="mode-kicker">RECHERCHE PERSONNALISÉE</span>
+            <h3>Décris ce que tu veux.</h3>
+            <p>Le moteur combine ton terrain, ton niveau et tes préférences techniques pour calculer le Fit Score.</p>
+          </div>
+          <form id="filtersForm" class="criteria-grid">
+            <fieldset class="filter-card span-2">
+              <legend>Terrain</legend>
+              <div class="segmented three" data-segment="terrain">
+                <button type="button" class="seg active" data-value="route">🛣️ Route</button>
+                <button type="button" class="seg" data-value="trail">⛰️ Trail</button>
+                <button type="button" class="seg" data-value="mixte">🔀 Mixte</button>
+              </div>
+              <input type="hidden" id="terrain" value="route" />
+            </fieldset>
+            <label class="filter-card"><span>Niveau</span><select id="level"><option value="debutant">Débutant</option><option value="occasionnel">Occasionnel</option><option value="regulier" selected>Régulier</option><option value="competition">Compétition</option></select></label>
+            <label class="filter-card"><span>Poids</span><div class="input-suffix"><input id="weight" type="number" min="40" max="140" value="72" /><span>kg</span></div></label>
+            <label class="filter-card"><span>Drop préféré</span><select id="drop"><option value="any" selected>Sans préférence</option><option value="low">0–4 mm</option><option value="mid">5–8 mm</option><option value="high">9–12 mm</option></select></label>
+            <label class="filter-card"><span>Amorti</span><select id="cushion"><option value="any">Sans préférence</option><option value="moderate">Modéré</option><option value="high" selected>Important</option><option value="max">Maximal</option></select></label>
+            <label class="filter-card"><span>Sensation de mousse</span><select id="foam"><option value="any" selected>Sans préférence</option><option value="soft">Souple</option><option value="balanced">Équilibrée</option><option value="firm">Ferme</option><option value="bouncy">Très rebondissante</option></select></label>
+            <label class="filter-card"><span>Plaque carbone</span><select id="carbon"><option value="any" selected>Peu importe</option><option value="yes">Oui</option><option value="no">Non</option></select></label>
+            <div class="filter-card span-2 run-goal-card"><span>Usage principal</span><div class="chip-row" id="usageChips"><button type="button" class="chip active" data-value="daily">Entraînement</button><button type="button" class="chip" data-value="long">Sortie longue</button><button type="button" class="chip" data-value="tempo">Tempo</button><button type="button" class="chip" data-value="race">Compétition</button></div><input type="hidden" id="usage" value="daily" /></div>
+          </form>
+        </section>
+
+        <section class="search-mode-panel hidden" id="modeExperience" data-mode-panel="experience" role="tabpanel" aria-labelledby="modeExperienceTab">
+          <div class="mode-panel-copy compact">
+            <span class="mode-kicker">RECHERCHE PAR EXPÉRIENCE</span>
+            <h3>Pars de ce que tu as réellement porté.</h3>
+            <p>Strava peut retrouver tes chaussures en privé. Tes ressentis saisis manuellement disent ensuite au moteur ce que tu aimes ou veux éviter.</p>
           </div>
 
-          <div class="history-question">
-            <strong>Qu’est-ce qui t’a marqué ?</strong>
-            <span>Plusieurs choix possibles</span>
-            <div class="feedback-chips" id="feedbackChips">
-              <button type="button" class="feedback-chip" data-feedback="tooRigid">Trop rigide</button>
-              <button type="button" class="feedback-chip" data-feedback="tooSoft">Trop mou</button>
-              <button type="button" class="feedback-chip" data-feedback="tooHigh">Trop haut</button>
-              <button type="button" class="feedback-chip" data-feedback="tooLow">Trop bas</button>
-              <button type="button" class="feedback-chip" data-feedback="notReactive">Pas assez réactif</button>
-              <button type="button" class="feedback-chip" data-feedback="tooReactive">Trop exigeant / réactif</button>
-              <button type="button" class="feedback-chip" data-feedback="unstable">Pas assez stable</button>
-              <button type="button" class="feedback-chip" data-feedback="comfortable">Très confortable</button>
+          <div class="experience-profile-row">
+            <label><span>Ton niveau</span><select id="experienceLevel"><option value="debutant">Débutant</option><option value="occasionnel">Occasionnel</option><option value="regulier" selected>Régulier</option><option value="competition">Compétition</option></select></label>
+            <label><span>Ton poids</span><div class="input-suffix"><input id="experienceWeight" type="number" min="40" max="140" value="72" /><span>kg</span></div></label>
+          </div>
+
+          <section class="strava-private-card simplified" aria-labelledby="stravaPrivateTitle">
+            <div class="strava-private-head">
+              <div><div class="strava-private-kicker"><span>STRAVA · PRIVÉ</span> Import personnel</div><h3 id="stravaPrivateTitle">Importer mes chaussures</h3><p>Noms et kilométrages restent privés. Ils ne sont jamais versés automatiquement à la base communautaire.</p></div>
+              <div class="strava-actions"><a class="strava-connect-btn" id="stravaConnectBtn" href="/api/strava-connect">Connecter Strava</a><button class="ghost-btn hidden" id="stravaDisconnectBtn" type="button">Déconnecter</button></div>
             </div>
-          </div>
-
-          <div class="history-question">
-            <strong>Pour quel usage cette paire t’a plu ?</strong>
-            <span>Ces usages deviennent des signaux positifs pour la recherche</span>
-            <div class="feedback-chips" id="historyUseChips">
-              <button type="button" class="feedback-chip use" data-use="daily">Entraînement</button>
-              <button type="button" class="feedback-chip use" data-use="long">Sortie longue</button>
-              <button type="button" class="feedback-chip use" data-use="tempo">Séances rapides</button>
-              <button type="button" class="feedback-chip use" data-use="race">Compétition</button>
+            <div id="stravaNotice" class="strava-notice" role="status">Connexion non vérifiée.</div>
+            <div id="stravaPrivateData" class="strava-private-data hidden">
+              <div class="strava-user-line"><div><span>IMPORT PRIVÉ</span><strong id="stravaAthleteLabel">Compte Strava connecté</strong></div></div>
+              <div id="stravaShoes" class="strava-shoes"></div>
+              <div class="strava-manual-help"><strong>Une paire t’a marqué ?</strong><span>Ajoute toi-même ton ressenti pour que RunDeal apprenne tes préférences.</span><button type="button" class="ghost-btn" id="openManualFeedbackFromStrava">Ajouter mon ressenti</button></div>
             </div>
+          </section>
+
+          <div class="history-card simplified-history">
+            <div class="history-intro"><div><div class="optional-kicker"><span>MES RETOURS</span> Saisie RunDeal</div><h3 id="historyTitle">Ce que j’ai aimé — ou pas</h3><p>Rigidité, douceur, hauteur, réactivité, stabilité et usage préféré.</p></div><button class="primary-btn" id="toggleHistoryForm" type="button">+ Ajouter une chaussure</button></div>
+
+            <form id="historyForm" class="history-form hidden">
+              <div class="history-form-grid">
+                <label><span>Chaussure utilisée</span><select id="historyShoe"></select><input id="historyCustomShoe" class="history-custom hidden" type="text" maxlength="80" placeholder="Marque + modèle + génération" /></label>
+                <label><span>Impression générale</span><select id="historySentiment"><option value="liked">Je l’ai aimée</option><option value="mixed" selected>Mitigé</option><option value="disliked">Je ne l’ai pas aimée</option></select></label>
+                <label><span>Distance parcourue</span><div class="history-distance-wrap"><input id="historyDistance" type="number" min="0" max="10000" step="0.1" inputmode="decimal" placeholder="Facultatif" /><span>km</span></div></label>
+              </div>
+              <div class="history-question"><strong>Qu’est-ce qui t’a marqué ?</strong><span>Plusieurs choix possibles</span><div class="feedback-chips" id="feedbackChips"><button type="button" class="feedback-chip" data-feedback="tooRigid">Trop rigide</button><button type="button" class="feedback-chip" data-feedback="tooSoft">Trop mou</button><button type="button" class="feedback-chip" data-feedback="tooHigh">Trop haut</button><button type="button" class="feedback-chip" data-feedback="tooLow">Trop bas</button><button type="button" class="feedback-chip" data-feedback="notReactive">Pas assez réactif</button><button type="button" class="feedback-chip" data-feedback="tooReactive">Trop exigeant / réactif</button><button type="button" class="feedback-chip" data-feedback="unstable">Pas assez stable</button><button type="button" class="feedback-chip" data-feedback="comfortable">Très confortable</button></div></div>
+              <div class="history-question"><strong>Pour quel usage cette paire t’a plu ?</strong><div class="feedback-chips" id="historyUseChips"><button type="button" class="feedback-chip use" data-use="daily">Entraînement</button><button type="button" class="feedback-chip use" data-use="long">Sortie longue</button><button type="button" class="feedback-chip use" data-use="tempo">Séances rapides</button><button type="button" class="feedback-chip use" data-use="race">Compétition</button></div></div>
+              <label class="community-consent"><input type="checkbox" id="communityConsent" /><span><strong>Contribuer aux statistiques communautaires</strong><small>Seulement les informations que tu saisis ici. Aucune donnée Strava n’est copiée.</small></span></label>
+              <div class="history-form-actions"><button type="button" class="ghost-btn" id="cancelHistory">Annuler</button><button type="submit" class="primary-btn">Ajouter à mon historique</button></div>
+            </form>
+
+            <div class="imported-history-block"><div class="imported-history-head"><div><span>CHAUSSURES DÉJÀ RENSEIGNÉES</span><strong>7 paires connues</strong></div><small>Clique sur une paire pour ajouter ton ressenti.</small></div><div id="importedShoes" class="imported-shoes"></div></div>
+            <div id="historyEmpty" class="history-empty"><span class="history-icon">↗</span><div><strong>Aucun ressenti ajouté.</strong><p>Ajoute au moins une paire pour personnaliser réellement ce mode.</p></div></div>
+            <div id="historyList" class="history-list hidden" aria-live="polite"></div>
+            <div id="learningSummary" class="learning-summary hidden"><div><span>PROFIL APPRIS</span><strong id="learningTitle">RunDeal commence à comprendre tes préférences</strong></div><p id="learningText"></p></div>
           </div>
+        </section>
+      </div>
 
-          <label class="community-consent">
-            <input type="checkbox" id="communityConsent" />
-            <span><strong>Contribuer aux statistiques communautaires</strong><small>Uniquement avec les informations saisies directement dans ce formulaire RunDeal : modèle, génération, niveau, tranche de poids, ressentis et usages. Aucune donnée Strava n’est copiée ici.</small></span>
-          </label>
-
-          <div class="history-form-actions">
-            <button type="button" class="ghost-btn" id="cancelHistory">Annuler</button>
-            <button type="submit" class="primary-btn">Ajouter à mon historique</button>
-          </div>
-        </form>
-
-        <div class="imported-history-block">
-          <div class="imported-history-head"><div><span>HISTORIQUE DÉCLARÉ À RUNDEAL</span><strong>7 chaussures déjà utilisées</strong></div><small>Données que tu as fournies directement à RunDeal. Elles sont distinctes de l’import Strava privé.</small></div>
-          <div id="importedShoes" class="imported-shoes"></div>
+      <div class="common-constraints">
+        <div class="common-title"><span>COMMUN AUX 3 MODES</span><strong>Pointure, budget et générations</strong></div>
+        <label><span>Pointure EU</span><select id="size"><option>40</option><option>40.5</option><option>41</option><option>42</option><option selected>42.5</option><option>43</option><option>44</option><option>44.5</option><option>45</option><option>46</option></select></label>
+        <label><span>Budget max</span><div class="input-suffix"><input id="maxPrice" type="number" min="50" max="350" step="5" value="160" /><span>€</span></div></label>
+        <div class="compact-generation-picker">
+          <div class="generation-chips" id="generationChips" aria-label="Filtrer par génération"><button type="button" class="generation-chip active current" data-generation="N">N</button><button type="button" class="generation-chip active old" data-generation="N−1">N−1</button><button type="button" class="generation-chip active old" data-generation="N−2">N−2</button><button type="button" class="generation-chip active old" data-generation="N−3">N−3</button></div>
+          <button type="button" class="old-only-btn" id="oldOnlyBtn">Anciennes uniquement</button>
         </div>
+      </div>
 
-        <div id="historyEmpty" class="history-empty">
-          <span class="history-icon">↗</span>
-          <div><strong>Aucun retour renseigné.</strong><p>La recherche utilise uniquement tes critères ci-dessus. Ajouter une ancienne paire peut aider à comprendre ton ressenti.</p></div>
-        </div>
-        <div id="historyList" class="history-list hidden" aria-live="polite"></div>
-
-        <div id="learningSummary" class="learning-summary hidden">
-          <div><span>PROFIL APPRIS</span><strong id="learningTitle">RunDeal commence à comprendre tes préférences</strong></div>
-          <p id="learningText"></p>
-        </div>
+      <div class="search-launch-row">
+        <div><strong id="searchModeSummary">Mode : modèle similaire</strong><span id="searchHint">Choisis un modèle de référence puis lance la recherche.</span></div>
+        <button type="button" class="search-launch-btn" id="launchSearchBtn">Lancer la recherche <span>→</span></button>
       </div>
     </section>
 
-    <section class="source-strip" aria-label="État des données">
+    <section class="source-strip pre-search-hidden" aria-label="État des données">
       <div><span class="source-dot api"></span><strong>API RunDeal</strong><small id="apiStatusText">chargement…</small></div>
       <div><span class="source-dot strava"></span><strong>Strava privé</strong><small id="stravaSourceStatus">non connecté</small></div>
       <div><span class="source-dot real"></span><strong>Données réelles</strong><small>prix constatés / flux marchand</small></div>
       <div><span class="source-dot demo"></span><strong>Démo</strong><small>encore utilisée pour compléter la maquette</small></div>
     </section>
 
-    <section id="results" class="results-section">
+    <section id="results" class="results-section pre-search-hidden">
       <div class="results-toolbar">
         <div>
           <p class="eyebrow">RECOMMANDATIONS</p>
@@ -342,7 +219,7 @@
       </div>
     </section>
 
-    <section class="generation-section">
+    <section class="generation-section pre-search-hidden">
       <div class="section-head">
         <div>
           <p class="eyebrow">ANCIENNES GÉNÉRATIONS</p>
@@ -353,7 +230,7 @@
       <div id="generationSpotlight" class="generation-comparison" aria-live="polite"></div>
     </section>
 
-    <section class="trust-section">
+    <section class="trust-section pre-search-hidden">
       <div class="trust-card">
         <p class="eyebrow">POURQUOI CE PRIX EST BON ?</p>
         <h2>Une remise ne suffit pas.</h2>
@@ -380,7 +257,7 @@
   </main>
 
   <footer>
-    <div><strong>RunDeal</strong> — V0.7 · recherche « même esprit » + Strava privé + données réelles</div>
+    <div><strong>RunDeal</strong> — V0.8 · 3 modes de recherche + Strava privé + données réelles</div>
     <p>Les données Strava sont affichées uniquement à l’utilisateur authentifié et ne sont pas enregistrées dans la base communautaire. Les contributions communautaires proviennent exclusivement d’une saisie directe dans RunDeal.</p>
   </footer>
 

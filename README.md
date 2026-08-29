@@ -1,3 +1,19 @@
+# RunDeal V0.8 — 3 modes de recherche
+
+Cette version allège fortement la page d’accueil. L’utilisateur choisit **un seul parcours** avant de lancer la recherche :
+
+1. **Un modèle en tête** — chercher des chaussures au comportement proche (drop, amorti, usage/dynamisme), mais moins chères.
+2. **Mes critères** — terrain, niveau, poids, drop, amorti, mousse, carbone et usage.
+3. **Mon expérience** — équipement Strava privé + ressentis saisis manuellement (trop rigide, trop mou, manque de réactivité, etc.).
+
+Les trois modes partagent seulement **pointure, budget et générations N / N−1 / N−2 / N−3**. Les résultats restent masqués tant que l’utilisateur n’a pas cliqué sur **Lancer la recherche**.
+
+## Principe de séparation Strava / communauté
+
+Les données Strava restent privées et ne sont pas automatiquement copiées dans Supabase. Les contributions communautaires proviennent uniquement du formulaire RunDeal rempli volontairement par l’utilisateur.
+
+---
+
 # RunDeal V0.7 — Strava privé + API + données réelles
 
 Cette version ajoute une première connexion **Strava OAuth 2.0** en respectant une séparation stricte entre les données Strava personnelles et la base communautaire RunDeal.
