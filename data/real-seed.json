@@ -1,6 +1,6 @@
 {
   "snapshotDate": "2026-08-29T15:00:00+02:00",
-  "source": "web-snapshot-v0.12",
+  "source": "web-snapshot-v14",
   "shoes": [
     {
       "id": 1001,
@@ -3042,6 +3042,1418 @@
           "url": "https://www.runnea.fr/chaussures-running/salomon/genesis/1017655/"
         }
       ]
+    },
+    {
+      "id": 1300,
+      "family": "wave-rider",
+      "brand": "MIZUNO",
+      "name": "Wave Rider 30",
+      "generation": "N",
+      "terrain": [
+        "route"
+      ],
+      "levels": [
+        "debutant",
+        "occasionnel",
+        "regulier"
+      ],
+      "uses": [
+        "daily",
+        "long"
+      ],
+      "drop": 8,
+      "cushion": "high",
+      "foam": "balanced",
+      "carbon": false,
+      "plateType": "Mizuno Wave",
+      "launch": 160,
+      "price": 119.95,
+      "shop": "offre homme via Runnea",
+      "sizes": [
+        "39",
+        "40",
+        "40.5",
+        "41",
+        "42",
+        "42.5",
+        "44.5",
+        "45",
+        "46",
+        "46.5"
+      ],
+      "sizeStockKnown": true,
+      "weightGrams": 282,
+      "reviews": [
+        "Nouvelle génération 2026 : drop abaissé à 8 mm",
+        "Double couche ENERZY NXT + EVA, profil entraînement quotidien",
+        "119,95 € relevés en homme avec la pointure 42,5"
+      ],
+      "sourceUrl": "https://www.runnea.fr/chaussures-running/mizuno/wave-rider-30/1065149/prix/toutes/",
+      "sources": [
+        {
+          "label": "Runnea — prix par pointure",
+          "url": "https://www.runnea.fr/chaussures-running/mizuno/wave-rider-30/1065149/prix/toutes/"
+        },
+        {
+          "label": "Runnea — test Wave Rider 30",
+          "url": "https://www.runnea.fr/chaussures-running/mizuno/wave-rider-30/1065149/"
+        }
+      ],
+      "deal": 80,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix original Mizuno",
+      "offers": [
+        [
+          "offre homme via Runnea",
+          119.95
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceLabel": "Runnea"
+    },
+    {
+      "id": 1301,
+      "family": "wave-rider",
+      "brand": "MIZUNO",
+      "name": "Wave Rider 29",
+      "generation": "N−1",
+      "terrain": [
+        "route"
+      ],
+      "levels": [
+        "debutant",
+        "occasionnel",
+        "regulier"
+      ],
+      "uses": [
+        "daily",
+        "long"
+      ],
+      "drop": 10,
+      "cushion": "high",
+      "foam": "bouncy",
+      "carbon": false,
+      "plateType": "Mizuno Wave",
+      "launch": 160,
+      "price": 101.99,
+      "shop": "meilleur prix Runnea",
+      "weightGrams": 265,
+      "avg90": 104.12,
+      "best": 95.9,
+      "reviews": [
+        "ENERZY NXT enrichie en azote, plus rebondissante que les anciennes Rider",
+        "Drop 10 mm contre 8 mm sur la Rider 30",
+        "Prix web autour de 101,99 € ; pointure du meilleur prix à vérifier"
+      ],
+      "sourceUrl": "https://www.runnea.fr/chaussures-running/mizuno/wave-rider-29/1058005/prix/toutes/",
+      "compare": {
+        "current": "Wave Rider 30",
+        "verdict": "N−1 reste très compétitive",
+        "reason": "Plus légère sur les fiches consultées et moins chère, mais la Rider 30 réduit le drop de 10 à 8 mm.",
+        "changes": [
+          [
+            "Drop",
+            "10 mm",
+            "8 mm",
+            "N devient plus bas"
+          ],
+          [
+            "Poids",
+            "265 g",
+            "282 g",
+            "29 plus légère sur les fiches Runnea"
+          ],
+          [
+            "Prix web",
+            "101,99 €",
+            "119,95 €",
+            "~18 € d’écart"
+          ]
+        ]
+      },
+      "deal": 91,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix original Mizuno",
+      "sizes": [
+        "*"
+      ],
+      "sizeStockKnown": false,
+      "offers": [
+        [
+          "meilleur prix Runnea",
+          101.99
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceLabel": "Runnea",
+      "sources": [
+        {
+          "label": "Runnea — prix & fiche",
+          "url": "https://www.runnea.fr/chaussures-running/mizuno/wave-rider-29/1058005/prix/toutes/"
+        }
+      ]
+    },
+    {
+      "id": 1302,
+      "family": "wave-rider",
+      "brand": "MIZUNO",
+      "name": "Wave Rider 28",
+      "generation": "N−2",
+      "terrain": [
+        "route"
+      ],
+      "levels": [
+        "debutant",
+        "occasionnel",
+        "regulier"
+      ],
+      "uses": [
+        "daily",
+        "long"
+      ],
+      "drop": 12,
+      "cushion": "high",
+      "foam": "balanced",
+      "carbon": false,
+      "plateType": "Mizuno Wave",
+      "launch": 160,
+      "price": 104.13,
+      "shop": "prix web Runnea",
+      "weightGrams": 280,
+      "reviews": [
+        "Ancienne géométrie à drop élevé de 12 mm",
+        "280 g, entraînement route et longues distances",
+        "Encore vendue autour de 104 €"
+      ],
+      "sourceUrl": "https://www.runnea.fr/chaussures-running/mizuno/wave-rider-28/1023796/",
+      "compare": {
+        "current": "Wave Rider 30",
+        "verdict": "N−2 surtout pour les amateurs de drop élevé",
+        "reason": "Le prix est proche de la 29 mais le drop passe de 12 mm à 8 mm sur la génération actuelle.",
+        "changes": [
+          [
+            "Drop",
+            "12 mm",
+            "8 mm",
+            "Écart important"
+          ],
+          [
+            "Poids",
+            "280 g",
+            "282 g",
+            "Proche"
+          ],
+          [
+            "Prix web",
+            "104,13 €",
+            "119,95 €",
+            "~16 € d’écart"
+          ]
+        ]
+      },
+      "deal": 90,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix original Mizuno",
+      "sizes": [
+        "*"
+      ],
+      "sizeStockKnown": false,
+      "offers": [
+        [
+          "prix web Runnea",
+          104.13
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceLabel": "Runnea",
+      "sources": [
+        {
+          "label": "Runnea — prix & fiche",
+          "url": "https://www.runnea.fr/chaussures-running/mizuno/wave-rider-28/1023796/"
+        }
+      ]
+    },
+    {
+      "id": 1310,
+      "family": "wave-sky",
+      "brand": "MIZUNO",
+      "name": "Wave Sky 9",
+      "generation": "N",
+      "terrain": [
+        "route"
+      ],
+      "levels": [
+        "debutant",
+        "occasionnel",
+        "regulier"
+      ],
+      "uses": [
+        "daily",
+        "long"
+      ],
+      "drop": 6,
+      "cushion": "max",
+      "foam": "soft",
+      "carbon": false,
+      "plateType": "Aucune",
+      "launch": 190,
+      "price": 113.99,
+      "shop": "meilleur prix Runnea",
+      "weightGrams": 290,
+      "reviews": [
+        "Maxi confort : amorti élevé, 290 g homme, drop 6 mm",
+        "Positionnée pour entraînement et longues sorties",
+        "Prix web relevé 113,99 € contre 190 € original"
+      ],
+      "sourceUrl": "https://www.runnea.fr/chaussures-running/mizuno/wave-sky-9/1058534/",
+      "deal": 95,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix original Mizuno",
+      "sizes": [
+        "*"
+      ],
+      "sizeStockKnown": false,
+      "offers": [
+        [
+          "meilleur prix Runnea",
+          113.99
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceLabel": "Runnea",
+      "sources": [
+        {
+          "label": "Runnea — prix & fiche",
+          "url": "https://www.runnea.fr/chaussures-running/mizuno/wave-sky-9/1058534/"
+        }
+      ]
+    },
+    {
+      "id": 1320,
+      "family": "wave-skyrise",
+      "brand": "MIZUNO",
+      "name": "Wave Skyrise 7",
+      "generation": "N",
+      "terrain": [
+        "route"
+      ],
+      "levels": [
+        "debutant",
+        "occasionnel",
+        "regulier"
+      ],
+      "uses": [
+        "daily",
+        "long"
+      ],
+      "drop": 8,
+      "cushion": "high",
+      "foam": "soft",
+      "carbon": false,
+      "plateType": "Mizuno Wave",
+      "launch": 150,
+      "price": 85.5,
+      "shop": "offre homme via Runnea",
+      "sizes": [
+        "41",
+        "42",
+        "42.5",
+        "43",
+        "44",
+        "44.5",
+        "45"
+      ],
+      "sizeStockKnown": true,
+      "weightGrams": 270,
+      "reviews": [
+        "Daily trainer confortable et stable",
+        "270 g homme selon le comparateur Runnea",
+        "85,50 € relevés en homme avec 42,5"
+      ],
+      "sourceUrl": "https://www.runnea.fr/chaussures-running/mizuno/wave-skyrise-7/1062763/prix/toutes/",
+      "deal": 98,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix original Mizuno",
+      "offers": [
+        [
+          "offre homme via Runnea",
+          85.5
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceLabel": "Runnea",
+      "sources": [
+        {
+          "label": "Runnea — prix & fiche",
+          "url": "https://www.runnea.fr/chaussures-running/mizuno/wave-skyrise-7/1062763/prix/toutes/"
+        }
+      ]
+    },
+    {
+      "id": 1350,
+      "family": "wave-ultima",
+      "brand": "MIZUNO",
+      "name": "Wave Ultima 17",
+      "generation": "N",
+      "terrain": [
+        "route"
+      ],
+      "levels": [
+        "debutant",
+        "occasionnel",
+        "regulier"
+      ],
+      "uses": [
+        "daily"
+      ],
+      "drop": 10,
+      "cushion": "moderate",
+      "foam": "balanced",
+      "carbon": false,
+      "plateType": "Mizuno Wave",
+      "launch": 140,
+      "price": 87.05,
+      "shop": "offre homme 42,5 via Runnea",
+      "sizes": [
+        "40",
+        "40.5",
+        "41",
+        "42",
+        "42.5",
+        "44.5",
+        "46",
+        "46.5"
+      ],
+      "sizeStockKnown": true,
+      "weightGrams": 280,
+      "reviews": [
+        "Modèle fiable et stable pour entraînement quotidien",
+        "280 g, amorti moyen",
+        "87,05 € relevés en homme avec 42,5"
+      ],
+      "sourceUrl": "https://www.runnea.fr/chaussures-running/mizuno/wave-ultima-17/1062745/prix/toutes/",
+      "deal": 93,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix original Mizuno",
+      "offers": [
+        [
+          "offre homme 42,5 via Runnea",
+          87.05
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceLabel": "Runnea",
+      "sources": [
+        {
+          "label": "Runnea — prix & fiche",
+          "url": "https://www.runnea.fr/chaussures-running/mizuno/wave-ultima-17/1062745/prix/toutes/"
+        }
+      ]
+    },
+    {
+      "id": 1360,
+      "family": "wave-inspire",
+      "brand": "MIZUNO",
+      "name": "Wave Inspire 22",
+      "generation": "N",
+      "terrain": [
+        "route"
+      ],
+      "levels": [
+        "debutant",
+        "occasionnel",
+        "regulier"
+      ],
+      "uses": [
+        "daily",
+        "long"
+      ],
+      "drop": 10,
+      "cushion": "high",
+      "foam": "balanced",
+      "carbon": false,
+      "plateType": "Mizuno Wave stabilité",
+      "launch": 160,
+      "price": 127.92,
+      "shop": "offre homme 42,5 via Runnea",
+      "sizes": [
+        "41",
+        "42",
+        "42.5",
+        "43",
+        "44",
+        "44.5",
+        "45",
+        "46",
+        "46.5"
+      ],
+      "sizeStockKnown": true,
+      "weightGrams": 293,
+      "reviews": [
+        "Chaussure de stabilité moderne, 38,5 mm talon / 28,5 mm avant-pied",
+        "Drop 10 mm, ENERZY NXT et plaque Wave asymétrique",
+        "Pour la pointure 42,5 homme, offre relevée à 127,92 €"
+      ],
+      "sourceUrl": "https://www.runnea.fr/chaussures-running/mizuno/wave-inspire-22/1061922/prix/toutes/",
+      "sources": [
+        {
+          "label": "Runnea — prix par pointure",
+          "url": "https://www.runnea.fr/chaussures-running/mizuno/wave-inspire-22/1061922/prix/toutes/"
+        },
+        {
+          "label": "Runnea — fiche technique",
+          "url": "https://www.runnea.fr/chaussures-running/mizuno/wave-inspire-22/1061922/"
+        }
+      ],
+      "deal": 75,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix original Mizuno",
+      "offers": [
+        [
+          "offre homme 42,5 via Runnea",
+          127.92
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceLabel": "Runnea"
+    },
+    {
+      "id": 1330,
+      "family": "neo-zen",
+      "brand": "MIZUNO",
+      "name": "Neo Zen 2",
+      "generation": "N",
+      "terrain": [
+        "route"
+      ],
+      "levels": [
+        "occasionnel",
+        "regulier",
+        "competition"
+      ],
+      "uses": [
+        "daily",
+        "tempo",
+        "long"
+      ],
+      "drop": 6,
+      "cushion": "high",
+      "foam": "bouncy",
+      "carbon": false,
+      "plateType": "Aucune",
+      "launch": 150,
+      "price": 84.9,
+      "shop": "offre homme via Runnea",
+      "sizes": [
+        "42.5",
+        "43",
+        "44",
+        "44.5"
+      ],
+      "sizeStockKnown": true,
+      "weightGrams": 245,
+      "reviews": [
+        "245 g, drop 6 mm, mousse dynamique",
+        "Polyvalente : quotidien, tempo et longues sorties",
+        "84,90 € relevés en homme avec 42,5"
+      ],
+      "sourceUrl": "https://www.runnea.fr/chaussures-running/mizuno/neo-zen-2/1062811/prix/toutes/",
+      "deal": 98,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix original Mizuno",
+      "offers": [
+        [
+          "offre homme via Runnea",
+          84.9
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceLabel": "Runnea",
+      "sources": [
+        {
+          "label": "Runnea — prix & fiche",
+          "url": "https://www.runnea.fr/chaussures-running/mizuno/neo-zen-2/1062811/prix/toutes/"
+        }
+      ]
+    },
+    {
+      "id": 1331,
+      "family": "neo-zen",
+      "brand": "MIZUNO",
+      "name": "Neo Zen",
+      "generation": "N−1",
+      "terrain": [
+        "route"
+      ],
+      "levels": [
+        "occasionnel",
+        "regulier",
+        "competition"
+      ],
+      "uses": [
+        "daily",
+        "tempo"
+      ],
+      "drop": 6,
+      "cushion": "high",
+      "foam": "bouncy",
+      "carbon": false,
+      "plateType": "Aucune",
+      "launch": 150,
+      "price": 106.9,
+      "shop": "meilleur prix Runnea",
+      "weightGrams": 235,
+      "reviews": [
+        "235 g, drop 6 mm et profil très réactif",
+        "Ancienne génération encore vendue",
+        "Prix du meilleur coloris à vérifier dans la pointure souhaitée"
+      ],
+      "sourceUrl": "https://www.runnea.fr/chaussures-running/mizuno/neo-zen/1044555/prix/toutes/",
+      "compare": {
+        "current": "Neo Zen 2",
+        "verdict": "La N est actuellement moins chère",
+        "reason": "Le marché est inhabituel : la Neo Zen 2 est actuellement trouvée moins chère que la première Neo Zen.",
+        "changes": [
+          [
+            "Poids",
+            "235 g",
+            "245 g",
+            "ancienne plus légère"
+          ],
+          [
+            "Drop",
+            "6 mm",
+            "6 mm",
+            "Identique"
+          ],
+          [
+            "Prix web",
+            "106,90 €",
+            "84,90 €",
+            "N est moins chère"
+          ]
+        ]
+      },
+      "deal": 84,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix original Mizuno",
+      "sizes": [
+        "*"
+      ],
+      "sizeStockKnown": false,
+      "offers": [
+        [
+          "meilleur prix Runnea",
+          106.9
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceLabel": "Runnea",
+      "sources": [
+        {
+          "label": "Runnea — prix & fiche",
+          "url": "https://www.runnea.fr/chaussures-running/mizuno/neo-zen/1044555/prix/toutes/"
+        }
+      ]
+    },
+    {
+      "id": 1340,
+      "family": "neo-vista",
+      "brand": "MIZUNO",
+      "name": "Neo Vista 3",
+      "generation": "N",
+      "terrain": [
+        "route"
+      ],
+      "levels": [
+        "regulier",
+        "competition"
+      ],
+      "uses": [
+        "daily",
+        "long",
+        "tempo"
+      ],
+      "drop": 8,
+      "cushion": "high",
+      "foam": "bouncy",
+      "carbon": false,
+      "plateType": "Wave fibre de verre",
+      "launch": 180,
+      "price": 122.27,
+      "shop": "offre homme via Runnea",
+      "sizes": [
+        "40",
+        "40.5",
+        "41",
+        "42",
+        "42.5",
+        "43",
+        "44",
+        "44.5",
+        "45",
+        "46",
+        "46.5",
+        "47"
+      ],
+      "sizeStockKnown": true,
+      "weightGrams": 265,
+      "reviews": [
+        "Super-trainer 2026 : 265 g, drop 8 mm",
+        "ENERZY NXT azotée + plaque Wave pleine longueur en fibre de verre",
+        "122,27 € relevés en homme avec 42,5"
+      ],
+      "sourceUrl": "https://www.runnea.fr/chaussures-running/mizuno/neo-vista-3/1064633/prix/toutes/",
+      "sources": [
+        {
+          "label": "Runnea — prix par pointure",
+          "url": "https://www.runnea.fr/chaussures-running/mizuno/neo-vista-3/1064633/prix/toutes/"
+        },
+        {
+          "label": "Mizuno — fiche officielle",
+          "url": "https://emea.mizuno.com/eu/fr-fr/mizuno-neo-vista-3/J1GU261082.html"
+        }
+      ],
+      "deal": 87,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix original Mizuno",
+      "offers": [
+        [
+          "offre homme via Runnea",
+          122.27
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceLabel": "Runnea"
+    },
+    {
+      "id": 1341,
+      "family": "neo-vista",
+      "brand": "MIZUNO",
+      "name": "Neo Vista 2",
+      "generation": "N−1",
+      "terrain": [
+        "route"
+      ],
+      "levels": [
+        "regulier",
+        "competition"
+      ],
+      "uses": [
+        "daily",
+        "long",
+        "tempo"
+      ],
+      "drop": 8,
+      "cushion": "high",
+      "foam": "bouncy",
+      "carbon": false,
+      "plateType": "Wave fibre de verre",
+      "launch": 180,
+      "price": 102.6,
+      "shop": "offre homme via Runnea",
+      "sizes": [
+        "42",
+        "42.5",
+        "43",
+        "44",
+        "44.5"
+      ],
+      "sizeStockKnown": true,
+      "weightGrams": 265,
+      "avg90": 106.44,
+      "best": 102.6,
+      "reviews": [
+        "Même poids et même drop que la Neo Vista 3 sur les fiches consultées",
+        "ENERZY NXT azotée + plaque Wave pleine longueur",
+        "102,60 € en homme avec 42,5"
+      ],
+      "sourceUrl": "https://www.runnea.fr/chaussures-running/mizuno/neo-vista-2/1057278/prix/toutes/",
+      "compare": {
+        "current": "Neo Vista 3",
+        "verdict": "N−1 = gros candidat au bon plan",
+        "reason": "Même poids/drop affichés et concept très proche, pour environ 20 € de moins.",
+        "changes": [
+          [
+            "Poids",
+            "265 g",
+            "265 g",
+            "Identique"
+          ],
+          [
+            "Drop",
+            "8 mm",
+            "8 mm",
+            "Identique"
+          ],
+          [
+            "Plaque",
+            "Wave fibre de verre",
+            "Wave 3D fibre de verre",
+            "N affine la propulsion"
+          ],
+          [
+            "Prix web",
+            "102,60 €",
+            "122,27 €",
+            "~20 € d’écart"
+          ]
+        ]
+      },
+      "deal": 98,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix original Mizuno",
+      "offers": [
+        [
+          "offre homme via Runnea",
+          102.6
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceLabel": "Runnea",
+      "sources": [
+        {
+          "label": "Runnea — prix & fiche",
+          "url": "https://www.runnea.fr/chaussures-running/mizuno/neo-vista-2/1057278/prix/toutes/"
+        }
+      ]
+    },
+    {
+      "id": 1342,
+      "family": "neo-vista",
+      "brand": "MIZUNO",
+      "name": "Neo Vista",
+      "generation": "N−2",
+      "terrain": [
+        "route"
+      ],
+      "levels": [
+        "regulier",
+        "competition"
+      ],
+      "uses": [
+        "daily",
+        "long",
+        "tempo"
+      ],
+      "drop": 8,
+      "cushion": "high",
+      "foam": "soft",
+      "carbon": false,
+      "plateType": "Wave",
+      "launch": 180,
+      "price": 151.05,
+      "shop": "offre homme 42,5 via Runnea",
+      "sizes": [
+        "42.5"
+      ],
+      "sizeStockKnown": true,
+      "weightGrams": 265,
+      "reviews": [
+        "Première génération Neo Vista, 265 g et drop 8 mm",
+        "Le meilleur prix global concerne d’autres pointures ; 151,05 € relevés en homme 42,5",
+        "À ce prix, les générations 2 et 3 sont actuellement plus intéressantes"
+      ],
+      "sourceUrl": "https://www.runnea.fr/chaussures-running/mizuno/neo-vista/1033581/prix/toutes/",
+      "compare": {
+        "current": "Neo Vista 3",
+        "verdict": "N−2 pas intéressante en 42,5 actuellement",
+        "reason": "La disponibilité par pointure inverse le classement : la génération 2 est moins chère en 42,5.",
+        "changes": [
+          [
+            "Drop",
+            "8 mm",
+            "8 mm",
+            "Identique"
+          ],
+          [
+            "Poids",
+            "265 g",
+            "265 g",
+            "Identique"
+          ],
+          [
+            "Prix 42,5 relevé",
+            "151,05 €",
+            "122,27 €",
+            "N est moins chère"
+          ]
+        ]
+      },
+      "deal": 71,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix original Mizuno",
+      "offers": [
+        [
+          "offre homme 42,5 via Runnea",
+          151.05
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceLabel": "Runnea",
+      "sources": [
+        {
+          "label": "Runnea — prix & fiche",
+          "url": "https://www.runnea.fr/chaussures-running/mizuno/neo-vista/1033581/prix/toutes/"
+        }
+      ]
+    },
+    {
+      "id": 1370,
+      "family": "rebellion-pro",
+      "brand": "MIZUNO",
+      "name": "Wave Rebellion Pro 3",
+      "generation": "N",
+      "terrain": [
+        "route"
+      ],
+      "levels": [
+        "competition"
+      ],
+      "uses": [
+        "race"
+      ],
+      "drop": 4,
+      "cushion": "high",
+      "foam": "bouncy",
+      "carbon": true,
+      "plateType": "Carbone",
+      "launch": 240,
+      "price": 120.0,
+      "shop": "Mizuno France — coloris en promotion",
+      "weightGrams": 225,
+      "reviews": [
+        "Chaussure compétition : 225 g, drop 4 mm",
+        "Mizuno la positionne sur 10 km / semi / marathon",
+        "Certains coloris officiels affichés à 120 € au lieu de 240 €"
+      ],
+      "sourceUrl": "https://www.runnea.fr/chaussures-running/mizuno/wave-rebellion-pro-3/1039490/",
+      "sources": [
+        {
+          "label": "Runnea — fiche technique",
+          "url": "https://www.runnea.fr/chaussures-running/mizuno/wave-rebellion-pro-3/1039490/"
+        },
+        {
+          "label": "Mizuno — collection Rebellion",
+          "url": "https://emea.mizuno.com/eu/fr-fr/sports/running/wave-rebellion-collection/"
+        }
+      ],
+      "deal": 98,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix original Mizuno",
+      "sizes": [
+        "*"
+      ],
+      "sizeStockKnown": false,
+      "offers": [
+        [
+          "Mizuno France — coloris en promotion",
+          120.0
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceLabel": "Runnea"
+    },
+    {
+      "id": 1371,
+      "family": "rebellion-flash",
+      "brand": "MIZUNO",
+      "name": "Wave Rebellion Flash 3",
+      "generation": "N",
+      "terrain": [
+        "route"
+      ],
+      "levels": [
+        "regulier",
+        "competition"
+      ],
+      "uses": [
+        "tempo",
+        "race"
+      ],
+      "drop": 3,
+      "cushion": "moderate",
+      "foam": "bouncy",
+      "carbon": false,
+      "plateType": "Wave",
+      "launch": 190,
+      "price": 126.94,
+      "shop": "prix web Runnea",
+      "weightGrams": 245,
+      "reviews": [
+        "Chaussure vitesse accessible : 245 g et drop 3 mm",
+        "Amorti moyen, usage 10 km à marathon",
+        "Prix web relevé autour de 126,94 €"
+      ],
+      "sourceUrl": "https://www.runnea.fr/chaussures-running/mizuno/wave-rebellion-flash-3/1059877/",
+      "deal": 88,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix original Mizuno",
+      "sizes": [
+        "*"
+      ],
+      "sizeStockKnown": false,
+      "offers": [
+        [
+          "prix web Runnea",
+          126.94
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceLabel": "Runnea",
+      "sources": [
+        {
+          "label": "Runnea — prix & fiche",
+          "url": "https://www.runnea.fr/chaussures-running/mizuno/wave-rebellion-flash-3/1059877/"
+        }
+      ]
+    },
+    {
+      "id": 1380,
+      "family": "wave-daichi",
+      "brand": "MIZUNO",
+      "name": "Wave Daichi 9",
+      "generation": "N",
+      "terrain": [
+        "trail"
+      ],
+      "levels": [
+        "debutant",
+        "occasionnel",
+        "regulier"
+      ],
+      "uses": [
+        "daily",
+        "long"
+      ],
+      "drop": 6.5,
+      "cushion": "moderate",
+      "foam": "balanced",
+      "carbon": false,
+      "plateType": "Rock plate EVA",
+      "launch": 150,
+      "price": 85.5,
+      "shop": "offre homme 42,5 via Runnea",
+      "sizes": [
+        "42.5"
+      ],
+      "sizeStockKnown": true,
+      "weightGrams": 310,
+      "reviews": [
+        "Trail polyvalent : Vibram Megagrip + crampons 4 mm",
+        "Stack officiel 34 / 27,5 mm, drop 6,5 mm",
+        "85,50 € relevés en homme pour la pointure 42,5"
+      ],
+      "sourceUrl": "https://www.runnea.fr/chaussures-running/mizuno/wave-daichi-9/1045936/prix/toutes/",
+      "sources": [
+        {
+          "label": "Runnea — prix par pointure",
+          "url": "https://www.runnea.fr/chaussures-running/mizuno/wave-daichi-9/1045936/prix/toutes/"
+        },
+        {
+          "label": "Mizuno — fiche technique",
+          "url": "https://usa.mizuno.com/running-mens-wave-daichi-9-trail-running-shoe/"
+        }
+      ],
+      "deal": 98,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix original Mizuno",
+      "offers": [
+        [
+          "offre homme 42,5 via Runnea",
+          85.5
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceLabel": "Runnea"
+    },
+    {
+      "id": 1381,
+      "family": "wave-daichi",
+      "brand": "MIZUNO",
+      "name": "Wave Daichi 8",
+      "generation": "N−1",
+      "terrain": [
+        "trail"
+      ],
+      "levels": [
+        "debutant",
+        "occasionnel",
+        "regulier"
+      ],
+      "uses": [
+        "daily",
+        "long",
+        "race"
+      ],
+      "drop": 6,
+      "cushion": "moderate",
+      "foam": "balanced",
+      "carbon": false,
+      "plateType": "Rock plate",
+      "launch": 150,
+      "price": 59.99,
+      "shop": "prix web Runnea",
+      "weightGrams": 300,
+      "avg90": 73.38,
+      "best": 56.91,
+      "reviews": [
+        "Stack 33,5 / 27,5 mm et crampons 4 mm",
+        "Vibram Megagrip ; profil route-to-trail / trail polyvalent",
+        "Très forte remise, mais pointure du meilleur prix à vérifier"
+      ],
+      "sourceUrl": "https://www.runnea.fr/chaussures-running/mizuno/wave-daichi-8/1024557/",
+      "compare": {
+        "current": "Wave Daichi 9",
+        "verdict": "N−1 = très gros bon plan si la pointure existe",
+        "reason": "La géométrie et le grip restent très proches, avec un prix nettement inférieur.",
+        "changes": [
+          [
+            "Stack talon",
+            "33,5 mm",
+            "34 mm",
+            "Quasi identique"
+          ],
+          [
+            "Crampons",
+            "4 mm",
+            "4 mm",
+            "Identique"
+          ],
+          [
+            "Drop",
+            "6 mm",
+            "6,5 mm",
+            "Très proche"
+          ],
+          [
+            "Prix web",
+            "59,99 €",
+            "85,50 € en 42,5",
+            "N−1 potentiellement moins chère"
+          ]
+        ]
+      },
+      "deal": 98,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix original Mizuno",
+      "sizes": [
+        "*"
+      ],
+      "sizeStockKnown": false,
+      "offers": [
+        [
+          "prix web Runnea",
+          59.99
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceLabel": "Runnea",
+      "sources": [
+        {
+          "label": "Runnea — prix & fiche",
+          "url": "https://www.runnea.fr/chaussures-running/mizuno/wave-daichi-8/1024557/"
+        }
+      ]
+    },
+    {
+      "id": 1382,
+      "family": "wave-daichi",
+      "brand": "MIZUNO",
+      "name": "Wave Daichi 7",
+      "generation": "N−2",
+      "terrain": [
+        "trail"
+      ],
+      "levels": [
+        "occasionnel",
+        "regulier"
+      ],
+      "uses": [
+        "daily",
+        "race"
+      ],
+      "drop": 8,
+      "cushion": "moderate",
+      "foam": "balanced",
+      "carbon": false,
+      "plateType": "Rock plate",
+      "launch": 135,
+      "price": 63.95,
+      "shop": "prix web Runnea",
+      "weightGrams": 300,
+      "reviews": [
+        "Ancienne Daichi à drop 8 mm",
+        "Trail polyvalent, 300 g",
+        "Prix bas mais disponibilité du 42,5 non garantie"
+      ],
+      "sourceUrl": "https://www.runnea.fr/chaussures-running/mizuno/wave-daichi-7/1005514/",
+      "compare": {
+        "current": "Wave Daichi 9",
+        "verdict": "N−2 surtout si tu préfères plus de drop",
+        "reason": "La génération actuelle est plus basse en drop et modernise le grip Vibram.",
+        "changes": [
+          [
+            "Drop",
+            "8 mm",
+            "6,5 mm",
+            "N plus bas"
+          ],
+          [
+            "Poids",
+            "300 g",
+            "310 g",
+            "Proche"
+          ],
+          [
+            "Prix web",
+            "63,95 €",
+            "85,50 € en 42,5",
+            "ancienne moins chère si stock"
+          ]
+        ]
+      },
+      "deal": 98,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix original Mizuno",
+      "sizes": [
+        "*"
+      ],
+      "sizeStockKnown": false,
+      "offers": [
+        [
+          "prix web Runnea",
+          63.95
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceLabel": "Runnea",
+      "sources": [
+        {
+          "label": "Runnea — prix & fiche",
+          "url": "https://www.runnea.fr/chaussures-running/mizuno/wave-daichi-7/1005514/"
+        }
+      ]
+    },
+    {
+      "id": 1390,
+      "family": "wave-mujin",
+      "brand": "MIZUNO",
+      "name": "Wave Mujin 11",
+      "generation": "N",
+      "terrain": [
+        "trail"
+      ],
+      "levels": [
+        "occasionnel",
+        "regulier"
+      ],
+      "uses": [
+        "daily",
+        "long"
+      ],
+      "drop": 8,
+      "cushion": "high",
+      "foam": "balanced",
+      "carbon": false,
+      "plateType": "Mizuno Wave",
+      "launch": 160,
+      "price": 98.8,
+      "shop": "offre homme via Runnea",
+      "sizes": [
+        "42",
+        "42.5",
+        "43",
+        "44",
+        "45",
+        "46"
+      ],
+      "sizeStockKnown": true,
+      "weightGrams": 340,
+      "reviews": [
+        "Trail technique / longue distance, 340 g et drop 8 mm",
+        "Vibram Megagrip, maintien renforcé",
+        "98,80 € relevés en homme avec 42,5"
+      ],
+      "sourceUrl": "https://www.runnea.fr/chaussures-running/mizuno/wave-mujin-11/1059715/prix/toutes/",
+      "sources": [
+        {
+          "label": "Runnea — prix par pointure",
+          "url": "https://www.runnea.fr/chaussures-running/mizuno/wave-mujin-11/1059715/prix/toutes/"
+        },
+        {
+          "label": "Mizuno — fiche officielle",
+          "url": "https://emea.mizuno.com/eu/fr-fr/wave-mujin-11/J1GJ257003.html"
+        }
+      ],
+      "deal": 93,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix original Mizuno",
+      "offers": [
+        [
+          "offre homme via Runnea",
+          98.8
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceLabel": "Runnea"
+    },
+    {
+      "id": 1391,
+      "family": "wave-mujin",
+      "brand": "MIZUNO",
+      "name": "Wave Mujin 10",
+      "generation": "N−1",
+      "terrain": [
+        "trail"
+      ],
+      "levels": [
+        "occasionnel",
+        "regulier"
+      ],
+      "uses": [
+        "daily",
+        "long"
+      ],
+      "drop": 8,
+      "cushion": "high",
+      "foam": "balanced",
+      "carbon": false,
+      "plateType": "Mizuno Wave",
+      "launch": 160,
+      "price": 98.95,
+      "shop": "meilleur prix Runnea",
+      "weightGrams": 340,
+      "reviews": [
+        "38 / 30 mm de stack, crampons 5 mm, Vibram Megagrip",
+        "340 g ; pensée pour les longues distances et terrains techniques",
+        "Prix très proche de la Mujin 11 actuellement"
+      ],
+      "sourceUrl": "https://www.runnea.fr/chaussures-running/mizuno/wave-mujin-10/1024582/prix/toutes/",
+      "compare": {
+        "current": "Wave Mujin 11",
+        "verdict": "La N est actuellement plus logique",
+        "reason": "Les prix sont quasi identiques ; autant privilégier la génération 11 si la pointure convient.",
+        "changes": [
+          [
+            "Drop",
+            "8 mm",
+            "8 mm",
+            "Identique"
+          ],
+          [
+            "Poids",
+            "340 g",
+            "340 g",
+            "Identique"
+          ],
+          [
+            "Prix web",
+            "98,95 €",
+            "98,80 €",
+            "N légèrement moins chère"
+          ]
+        ]
+      },
+      "deal": 93,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix original Mizuno",
+      "sizes": [
+        "*"
+      ],
+      "sizeStockKnown": false,
+      "offers": [
+        [
+          "meilleur prix Runnea",
+          98.95
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceLabel": "Runnea",
+      "sources": [
+        {
+          "label": "Runnea — prix & fiche",
+          "url": "https://www.runnea.fr/chaussures-running/mizuno/wave-mujin-10/1024582/prix/toutes/"
+        }
+      ]
+    },
+    {
+      "id": 1395,
+      "family": "neo-accera",
+      "brand": "MIZUNO",
+      "name": "Neo Accera",
+      "generation": "N",
+      "terrain": [
+        "trail"
+      ],
+      "levels": [
+        "regulier",
+        "competition"
+      ],
+      "uses": [
+        "long",
+        "race"
+      ],
+      "drop": 8.5,
+      "cushion": "max",
+      "foam": "bouncy",
+      "carbon": false,
+      "plateType": "Rock plate EVA",
+      "launch": 190,
+      "price": 121.49,
+      "shop": "meilleur prix Runnea",
+      "weightGrams": 281,
+      "reviews": [
+        "Trail longue distance dynamique : ~41,5 mm au talon et drop 8,5 mm",
+        "Vibram Megagrip + Traction Lug, crampons ~4 mm",
+        "Très amortie et réactive, davantage adaptée aux terrains roulants qu’aux gros dévers"
+      ],
+      "sourceUrl": "https://www.runnea.fr/chaussures-running/mizuno/neo-accera/1063973/",
+      "sources": [
+        {
+          "label": "Runnea — test & prix",
+          "url": "https://www.runnea.fr/chaussures-running/mizuno/neo-accera/1063973/"
+        },
+        {
+          "label": "Journal du Trail — mesures terrain",
+          "url": "https://www.journaldutrail.com/le-test-des-mizuno-neo-acera-lamorti-maximaliste-et-azote-au-verdict-du-terrain.html"
+        }
+      ],
+      "deal": 91,
+      "referencePriceType": "rrp",
+      "referenceLabel": "Prix original Mizuno",
+      "sizes": [
+        "*"
+      ],
+      "sizeStockKnown": false,
+      "offers": [
+        [
+          "meilleur prix Runnea",
+          121.49
+        ]
+      ],
+      "isReal": true,
+      "checkedAt": "2026-08-29",
+      "sourceLabel": "Runnea"
     }
   ]
 }

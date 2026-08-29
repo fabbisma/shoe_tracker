@@ -1,59 +1,74 @@
-# Shoe-Tracker V0.13 — partir d’une paire et la corriger
+# Shoe-Tracker V0.14 — catalogue élargi à Mizuno
 
+## Nouveautés V0.14
 
-## Nouveautés V0.13
+- Le snapshot passe de **47 à 67 modèles / générations réels**.
+- Ajout de **20 Mizuno** couvrant route, entraînement rapide, compétition et trail.
+- Les familles avec plusieurs générations sont comparables en N / N−1 / N−2 :
+  - Wave Rider 30 / 29 / 28
+  - Neo Zen 2 / Neo Zen
+  - Neo Vista 3 / 2 / première génération
+  - Wave Daichi 9 / 8 / 7
+  - Wave Mujin 11 / 10
+- Autres Mizuno ajoutées : Wave Sky 9, Wave Skyrise 7, Wave Ultima 17, Wave Inspire 22, Wave Rebellion Pro 3, Wave Rebellion Flash 3 et Neo Accera.
+- `/api/product-image` autorise maintenant les domaines Mizuno officiels en plus de Runnea pour la récupération des images Open Graph.
+- Les données techniques exactes disponibles sont ajoutées au correcteur de paire : par exemple Wave Daichi 9 (34 mm au talon, crampons 4 mm), Wave Daichi 8 (33,5 mm / 4 mm), Wave Mujin 10 (38 mm / 5 mm), Neo Accera (~41,5 mm / 4 mm), Wave Inspire 22 (38,5 mm talon).
 
-- Le 3e onglet devient **« Je pars d’une paire »**.
-- Un seul modèle de départ : plus besoin de remplir plusieurs anciennes chaussures pour lancer la recherche.
-- 5 curseurs centrés sur **Identique** : hauteur, grip (trail), drop, amorti et rigidité.
-- Les critères déplacés pèsent davantage dans le classement ; les critères laissés au centre cherchent à rester proches de la paire connue.
-- Route et trail restent strictement séparés.
-- Sur le trail, le résultat affiche désormais le **grip** dans les comparaisons.
-- Strava et les avis communautaires sont conservés mais rangés dans un bloc optionnel replié.
-- La carte prix compare, dans ce mode, le prix du candidat à celui de la paire de départ.
+## Quelques vrais prix intégrés au snapshot du 29 août 2026
 
-### Exemple réel : Ultra Glide 2
+Les prix restent un snapshot : ils doivent être revérifiés au moment de l'achat.
 
-La Salomon Ultra Glide 2 est enregistrée à 32 mm au talon, 26 mm à l’avant-pied, 6 mm de drop et 3,5 mm de crampons (sources Salomon / Doctors of Running). Dans le troisième onglet, choisir **Ultra Glide 2** puis déplacer seulement **Hauteur → un peu plus basse** favorise les chaussures qui conservent un comportement trail proche mais abaissent la plateforme.
+- Mizuno Wave Rider 30 : **119,95 €** pour une offre homme incluant le 42,5 ; prix original 160 €.
+- Mizuno Neo Zen 2 : **84,90 €** en homme 42,5 ; prix original 150 €.
+- Mizuno Wave Skyrise 7 : **85,50 €** en homme 42,5 ; prix original 150 €.
+- Mizuno Neo Vista 3 : **122,27 €** en homme 42,5 ; prix original 180 €.
+- Mizuno Neo Vista 2 : **102,60 €** en homme 42,5 ; prix original 180 €.
+- Mizuno Wave Daichi 9 : **85,50 €** relevés pour une offre homme en 42,5 ; prix original 150 €.
+- Mizuno Wave Mujin 11 : **98,80 €** en homme avec 42,5 ; prix original 160 €.
 
-### Données hauteur / grip / rigidité
+Quand le meilleur prix relevé n'est pas confirmé dans la pointure choisie, `sizeStockKnown` reste faux et Shoe-Tracker continue d'afficher **taille à vérifier**.
 
-Les valeurs disponibles venant de fiches constructeur ou de mesures labo sont marquées comme exactes dans le code. Quand le catalogue ne possède pas encore la mesure, V0.13 utilise un proxy (affiché avec `≈`) afin que l’interface reste testable. Avant une mise en production, ces proxys devront être remplacés progressivement par des mesures sourcées.
-Cette version transforme le troisième parcours en un **correcteur de chaussure**. L’utilisateur part d’un modèle qu’il connaît et indique simplement ce qu’il veut changer : plus/moins haut, plus/moins de grip, de drop, d’amorti ou de rigidité. Le snapshot conserve **47 modèles / générations réels** collectés ou vérifiés le 29 août 2026.
+## Sources Mizuno principales
 
-## Hérité de V0.12
+- Runnea — catalogue/prix Mizuno : https://www.runnea.fr/chaussures-running/modeles/mizuno/
+- Mizuno France — Wave Rider : https://emea.mizuno.com/eu/fr-fr/sports/running/wave-rider-collection/
+- Mizuno France — Trail : https://emea.mizuno.com/eu/fr-fr/sports/running/trail-running/chaussures/
+- Mizuno France — Wave Rebellion : https://emea.mizuno.com/eu/fr-fr/sports/running/wave-rebellion-collection/
+- Mizuno France — Neo Vista 3 : https://emea.mizuno.com/eu/fr-fr/mizuno-neo-vista-3/J1GU261082.html
 
-- catalogue élargi route + trail (daily trainers, chaussures tempo, carbone et trail longue distance) ;
-- séparation **route / trail stricte** dans les 3 modes de recherche ;
-- dans **Mon expérience**, choix du terrain recherché avant de lancer la recommandation ;
-- seulement les **6 meilleurs résultats** sont affichés au départ, avec un bouton pour voir les autres ;
-- vraies images sans base dédiée : pour les nouveaux modèles, `/api/product-image` lit l'image Open Graph de la page produit/source autorisée et la met en cache ;
-- les anciennes générations restent N−1 / N−2 / N−3 ;
-- prix par pointure conservés uniquement quand la source permet de les vérifier. Sinon l'interface garde « taille à vérifier ».
+Chaque modèle du fichier `data/real-seed.json` garde également ses propres URLs de source.
 
-## Exemples du snapshot
+## Toujours présent depuis V0.13
 
-Route : ASICS Novablast, Nike Pegasus/Vaporfly/Vomero, Brooks Ghost, Saucony Ride/Endorphin, New Balance 1080/Rebel, Adidas EVO SL/Boston/Adios Pro, HOKA Clifton/Bondi/Mach, Puma Deviate Nitro, KIPRUN KD900 X LD 2, On Cloudflow.
+Le 3e onglet est **« Je pars d’une paire »** : l'utilisateur part d'un modèle qu'il connaît puis ajuste des curseurs centrés sur **Identique** :
 
-Trail : Salomon Ultra Glide/Genesis, HOKA Speedgoat/Mafate, New Balance Hierro, Brooks Cascadia, ASICS Trabuco Max, La Sportiva Bushido.
+- hauteur ;
+- grip sur le trail ;
+- drop ;
+- amorti ;
+- rigidité.
 
-## Test réel conseillé
+Les critères déplacés pèsent davantage dans le classement. Route et trail restent strictement séparés.
 
-1. Déploie sur Vercel ou ouvre l'app localement.
-2. Garde la pointure 42,5 et un budget réaliste.
-3. Test trail : `Un modèle en tête` → **Salomon Ultra Glide 2**.
-4. Test route : `Mes critères` → choisis ton terrain/usage/amorti réel.
-5. Test personnalisé : `Mon expérience` → renseigne 1 à 3 ressentis réels sur tes anciennes paires, choisis Route ou Trail, puis lance la recherche.
+Les valeurs techniques sourcées sont affichées normalement. Quand Shoe-Tracker ne possède pas encore une mesure fiable, le prototype utilise un proxy marqué `≈`. L'objectif est de remplacer progressivement ces proxys par des données constructeur ou labo.
 
-Les préférences non connues ne sont pas préremplies : le but est de tester le moteur sans inventer ce que le coureur aime.
+## Catalogue V0.14
+
+Le snapshot contient désormais **67 modèles / générations** parmi ASICS, Nike, Saucony, HOKA, Salomon, Brooks, New Balance, Adidas, Puma, KIPRUN, On, La Sportiva et **Mizuno**.
+
+Le catalogue inclut des daily trainers, modèles amortis, chaussures tempo, carbone et chaussures trail. Les familles anciennes N−1 / N−2 / N−3 sont conservées lorsque des offres sont encore disponibles.
 
 ## Images
 
-Les 16 images déjà vérifiées restent dans `shoeImageMap`. Pour les nouveaux modèles, l'app utilise `/api/product-image?url=...`, qui accepte uniquement une liste blanche de domaines et extrait `og:image`/`twitter:image`. Aucun stockage d'images en base n'est nécessaire pour cette maquette. En production, préférer les images fournies par les flux d'affiliation ou par une licence explicite.
+Les images déjà connues restent dans `shoeImageMap`. Pour les autres modèles, l'app utilise `/api/product-image?url=...`, qui extrait `og:image`/`twitter:image` sur une liste blanche de domaines et met la réponse en cache. Aucun stockage d'images en base n'est nécessaire pour la maquette.
+
+En production, utiliser de préférence les images fournies par les flux d'affiliation ou une licence explicite.
 
 ## Déploiement
 
-GitHub → Vercel, Framework **Other**. Sans Supabase, `/api/catalog` sert automatiquement `data/real-seed.json`.
+GitHub → Vercel, Framework **Other**.
+
+Sans Supabase, `/api/catalog` sert automatiquement `data/real-seed.json`.
 
 Variables optionnelles existantes :
 

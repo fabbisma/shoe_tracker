@@ -3,7 +3,7 @@ const ALLOWED_HOSTS = new Set([
   'asics.com','www.asics.com','nike.com','www.nike.com','hoka.com','www.hoka.com',
   'saucony.com','www.saucony.com','adidas.fr','www.adidas.fr','adidas.com','www.adidas.com',
   'brooksrunning.com','www.brooksrunning.com','newbalance.fr','www.newbalance.fr','newbalance.com','www.newbalance.com',
-  'on.com','www.on.com','idealo.fr','www.idealo.fr','alltricks.fr','www.alltricks.fr'
+  'on.com','www.on.com','mizuno.com','www.mizuno.com','emea.mizuno.com','usa.mizuno.com','idealo.fr','www.idealo.fr','alltricks.fr','www.alltricks.fr'
 ]);
 function decodeHtml(s=''){return s.replace(/&amp;/g,'&').replace(/&quot;/g,'"').replace(/&#39;/g,"'").replace(/&lt;/g,'<').replace(/&gt;/g,'>')}
 function findImage(html, base){
@@ -24,7 +24,7 @@ module.exports=async function handler(req,res){
   if(page.protocol!=='https:'||!ALLOWED_HOSTS.has(page.hostname.toLowerCase())) return res.status(403).json({error:'host_not_allowed'});
   const controller=new AbortController(); const timer=setTimeout(()=>controller.abort(),5000);
   try{
-    const upstream=await fetch(page.toString(),{headers:{'user-agent':'Mozilla/5.0 Shoe-Tracker/0.12 image-metadata'},redirect:'follow',signal:controller.signal});
+    const upstream=await fetch(page.toString(),{headers:{'user-agent':'Mozilla/5.0 Shoe-Tracker/0.14 image-metadata'},redirect:'follow',signal:controller.signal});
     if(!upstream.ok) throw new Error(`upstream_${upstream.status}`);
     const type=upstream.headers.get('content-type')||'';
     if(!type.includes('text/html')) throw new Error('not_html');
