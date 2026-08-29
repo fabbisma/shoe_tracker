@@ -16,7 +16,7 @@
     <a href="#" class="brand" aria-label="Shoe-Tracker accueil">
       <span class="brand-mark">S</span>
       <span>Shoe-Tracker</span>
-      <span class="badge badge-demo">V0.12 · TEST RÉEL · 47 MODÈLES</span>
+      <span class="badge badge-demo">V0.13 · AJUSTE UNE PAIRE · 47 MODÈLES</span>
     </a>
     <div class="top-actions">
       <button class="ghost-btn" id="resetBtn" type="button">Réinitialiser</button>
@@ -74,7 +74,7 @@
         <span class="mode-or" aria-hidden="true">OU</span>
         <button type="button" class="search-mode-tab" id="modeExperienceTab" data-search-mode="experience" role="tab" aria-selected="false" aria-controls="modeExperience">
           <span class="mode-number">3</span>
-          <span><strong>Mon expérience</strong><small>Apprendre de mes anciennes chaussures</small></span>
+          <span><strong>Je pars d’une paire</strong><small>Garder le bon, corriger le reste</small></span>
         </button>
       </div>
 
@@ -128,50 +128,91 @@
 
         <section class="search-mode-panel hidden" id="modeExperience" data-mode-panel="experience" role="tabpanel" aria-labelledby="modeExperienceTab">
           <div class="mode-panel-copy compact">
-            <span class="mode-kicker">RECHERCHE PAR EXPÉRIENCE</span>
-            <h3>Pars de ce que tu as réellement porté.</h3>
-            <p>Strava peut retrouver tes chaussures en privé. Tes ressentis saisis manuellement disent ensuite au moteur ce que tu aimes ou veux éviter.</p>
+            <span class="mode-kicker">AJUSTER UNE CHAUSSURE CONNUE</span>
+            <h3>Tu l’aimais bien ? Change seulement ce qui te gênait.</h3>
+            <p>Choisis une paire que tu connais, puis déplace uniquement les curseurs utiles. Au centre = <strong>identique</strong>. Shoe-Tracker cherche les modèles qui gardent le même esprit tout en allant dans la direction demandée.</p>
           </div>
 
-          <div class="experience-profile-row">
-            <label><span>Terrain recherché</span><select id="experienceTerrain"><option value="route" selected>Route</option><option value="trail">Trail</option><option value="mixte">Mixte</option></select></label>
-            <label><span>Ton niveau</span><select id="experienceLevel"><option value="debutant">Débutant</option><option value="occasionnel">Occasionnel</option><option value="regulier" selected>Régulier</option><option value="competition">Compétition</option></select></label>
-            <label><span>Ton poids</span><div class="input-suffix"><input id="experienceWeight" type="number" min="40" max="140" value="72" /><span>kg</span></div></label>
-          </div>
-
-          <section class="strava-private-card simplified" aria-labelledby="stravaPrivateTitle">
-            <div class="strava-private-head">
-              <div><div class="strava-private-kicker"><span>STRAVA · PRIVÉ</span> Import personnel</div><h3 id="stravaPrivateTitle">Importer mes chaussures</h3><p>Noms et kilométrages restent privés. Ils ne sont jamais versés automatiquement à la base communautaire.</p></div>
-              <div class="strava-actions"><a class="strava-connect-btn" id="stravaConnectBtn" href="/api/strava-connect">Connecter Strava</a><button class="ghost-btn hidden" id="stravaDisconnectBtn" type="button">Déconnecter</button></div>
-            </div>
-            <div id="stravaNotice" class="strava-notice" role="status">Connexion non vérifiée.</div>
-            <div id="stravaPrivateData" class="strava-private-data hidden">
-              <div class="strava-user-line"><div><span>IMPORT PRIVÉ</span><strong id="stravaAthleteLabel">Compte Strava connecté</strong></div></div>
-              <div id="stravaShoes" class="strava-shoes"></div>
-              <div class="strava-manual-help"><strong>Une paire t’a marqué ?</strong><span>Ajoute toi-même ton ressenti pour que Shoe-Tracker apprenne tes préférences.</span><button type="button" class="ghost-btn" id="openManualFeedbackFromStrava">Ajouter mon ressenti</button></div>
-            </div>
-          </section>
-
-          <div class="history-card simplified-history">
-            <div class="history-intro"><div><div class="optional-kicker"><span>MES RETOURS</span> Saisie Shoe-Tracker</div><h3 id="historyTitle">Ce que j’ai aimé — ou pas</h3><p>Rigidité, douceur, hauteur, réactivité, stabilité et usage préféré.</p></div><button class="primary-btn" id="toggleHistoryForm" type="button">+ Ajouter une chaussure</button></div>
-
-            <form id="historyForm" class="history-form hidden">
-              <div class="history-form-grid">
-                <label><span>Chaussure utilisée</span><select id="historyShoe"></select><input id="historyCustomShoe" class="history-custom hidden" type="text" maxlength="80" placeholder="Marque + modèle + génération" /></label>
-                <label><span>Impression générale</span><select id="historySentiment"><option value="liked">Je l’ai aimée</option><option value="mixed" selected>Mitigé</option><option value="disliked">Je ne l’ai pas aimée</option></select></label>
-                <label><span>Distance parcourue</span><div class="history-distance-wrap"><input id="historyDistance" type="number" min="0" max="10000" step="0.1" inputmode="decimal" placeholder="Facultatif" /><span>km</span></div></label>
+          <div class="experience-tuner">
+            <div class="experience-reference-column">
+              <label class="big-select-label">
+                <span>Chaussure de départ</span>
+                <select id="experienceReferenceShoe">
+                  <option value="">Choisir une chaussure que je connais…</option>
+                </select>
+              </label>
+              <div id="experienceReferencePreview" class="experience-reference-preview empty" aria-live="polite">
+                <span class="experience-placeholder-icon">↗</span>
+                <div><strong>Choisis ta paire de départ</strong><small>Exemple : Ultra Glide 2, puis « un peu moins haute ».</small></div>
               </div>
-              <div class="history-question"><strong>Qu’est-ce qui t’a marqué ?</strong><span>Plusieurs choix possibles</span><div class="feedback-chips" id="feedbackChips"><button type="button" class="feedback-chip" data-feedback="tooRigid">Trop rigide</button><button type="button" class="feedback-chip" data-feedback="tooSoft">Trop mou</button><button type="button" class="feedback-chip" data-feedback="tooHigh">Trop haut</button><button type="button" class="feedback-chip" data-feedback="tooLow">Trop bas</button><button type="button" class="feedback-chip" data-feedback="notReactive">Pas assez réactif</button><button type="button" class="feedback-chip" data-feedback="tooReactive">Trop exigeant / réactif</button><button type="button" class="feedback-chip" data-feedback="unstable">Pas assez stable</button><button type="button" class="feedback-chip" data-feedback="comfortable">Très confortable</button></div></div>
-              <div class="history-question"><strong>Pour quel usage cette paire t’a plu ?</strong><div class="feedback-chips" id="historyUseChips"><button type="button" class="feedback-chip use" data-use="daily">Entraînement</button><button type="button" class="feedback-chip use" data-use="long">Sortie longue</button><button type="button" class="feedback-chip use" data-use="tempo">Séances rapides</button><button type="button" class="feedback-chip use" data-use="race">Compétition</button></div></div>
-              <label class="community-consent"><input type="checkbox" id="communityConsent" /><span><strong>Contribuer aux statistiques communautaires</strong><small>Seulement les informations que tu saisis ici. Aucune donnée Strava n’est copiée.</small></span></label>
-              <div class="history-form-actions"><button type="button" class="ghost-btn" id="cancelHistory">Annuler</button><button type="submit" class="primary-btn">Ajouter à mon historique</button></div>
-            </form>
+            </div>
 
-            <div class="imported-history-block"><div class="imported-history-head"><div><span>CHAUSSURES DÉJÀ RENSEIGNÉES</span><strong>7 paires connues</strong></div><small>Clique sur une paire pour ajouter ton ressenti.</small></div><div id="importedShoes" class="imported-shoes"></div></div>
-            <div id="historyEmpty" class="history-empty"><span class="history-icon">↗</span><div><strong>Aucun ressenti ajouté.</strong><p>Ajoute au moins une paire pour personnaliser réellement ce mode.</p></div></div>
-            <div id="historyList" class="history-list hidden" aria-live="polite"></div>
-            <div id="learningSummary" class="learning-summary hidden"><div><span>PROFIL APPRIS</span><strong id="learningTitle">Shoe-Tracker commence à comprendre tes préférences</strong></div><p id="learningText"></p></div>
+            <div class="tuner-controls" aria-label="Ajustements souhaités">
+              <div class="tune-row" data-pref-row="height">
+                <div class="tune-title"><strong>Hauteur</strong><output id="expHeightValue">Identique</output></div>
+                <div class="tune-slider"><span>Plus basse</span><input id="expHeight" type="range" min="-2" max="2" step="1" value="0" aria-label="Hauteur souhaitée"><span>Plus haute</span></div>
+              </div>
+              <div class="tune-row" id="experienceGripRow" data-pref-row="grip">
+                <div class="tune-title"><strong>Grip</strong><output id="expGripValue">Identique</output></div>
+                <div class="tune-slider"><span>Moins</span><input id="expGrip" type="range" min="-2" max="2" step="1" value="0" aria-label="Grip souhaité"><span>Plus</span></div>
+              </div>
+              <div class="tune-row" data-pref-row="drop">
+                <div class="tune-title"><strong>Drop</strong><output id="expDropValue">Identique</output></div>
+                <div class="tune-slider"><span>Moins</span><input id="expDrop" type="range" min="-2" max="2" step="1" value="0" aria-label="Drop souhaité"><span>Plus</span></div>
+              </div>
+              <div class="tune-row" data-pref-row="cushion">
+                <div class="tune-title"><strong>Amorti</strong><output id="expCushionValue">Identique</output></div>
+                <div class="tune-slider"><span>Moins</span><input id="expCushion" type="range" min="-2" max="2" step="1" value="0" aria-label="Amorti souhaité"><span>Plus</span></div>
+              </div>
+              <div class="tune-row" data-pref-row="rigidity">
+                <div class="tune-title"><strong>Rigidité</strong><output id="expRigidityValue">Identique</output></div>
+                <div class="tune-slider"><span>Plus souple</span><input id="expRigidity" type="range" min="-2" max="2" step="1" value="0" aria-label="Rigidité souhaitée"><span>Plus rigide</span></div>
+              </div>
+            </div>
           </div>
+          <div class="tuner-explanation" id="tunerExplanation"><strong>Principe :</strong> les critères laissés au centre restent proches de ta paire. Les critères déplacés pèsent davantage dans le classement.</div>
+
+          <details class="experience-data-details">
+            <summary>Importer mes chaussures / ajouter un avis <span>optionnel</span></summary>
+            <div class="experience-data-inner">
+              <div class="experience-profile-row compact-profile">
+                <label><span>Ton niveau</span><select id="experienceLevel"><option value="debutant">Débutant</option><option value="occasionnel">Occasionnel</option><option value="regulier" selected>Régulier</option><option value="competition">Compétition</option></select></label>
+                <label><span>Ton poids</span><div class="input-suffix"><input id="experienceWeight" type="number" min="40" max="140" value="72" /><span>kg</span></div></label>
+                <select id="experienceTerrain" class="hidden" aria-hidden="true"><option value="route">Route</option><option value="trail">Trail</option><option value="mixte">Mixte</option></select>
+              </div>
+              <section class="strava-private-card simplified" aria-labelledby="stravaPrivateTitle">
+                <div class="strava-private-head">
+                  <div><div class="strava-private-kicker"><span>STRAVA · PRIVÉ</span> Import personnel</div><h3 id="stravaPrivateTitle">Retrouver mes chaussures</h3><p>Noms et kilométrages restent privés. Une paire reconnue peut ensuite apparaître dans le menu ci-dessus.</p></div>
+                  <div class="strava-actions"><a class="strava-connect-btn" id="stravaConnectBtn" href="/api/strava-connect">Connecter Strava</a><button class="ghost-btn hidden" id="stravaDisconnectBtn" type="button">Déconnecter</button></div>
+                </div>
+                <div id="stravaNotice" class="strava-notice" role="status">Connexion non vérifiée.</div>
+                <div id="stravaPrivateData" class="strava-private-data hidden">
+                  <div class="strava-user-line"><div><span>IMPORT PRIVÉ</span><strong id="stravaAthleteLabel">Compte Strava connecté</strong></div></div>
+                  <div id="stravaShoes" class="strava-shoes"></div>
+                  <div class="strava-manual-help"><strong>Tu veux enrichir la communauté ?</strong><span>Le retour est saisi séparément et reste volontaire.</span><button type="button" class="ghost-btn" id="openManualFeedbackFromStrava">Ajouter mon ressenti</button></div>
+                </div>
+              </section>
+
+              <div class="history-card simplified-history">
+                <div class="history-intro"><div><div class="optional-kicker"><span>MES RETOURS</span> Saisie Shoe-Tracker</div><h3 id="historyTitle">Avis facultatif</h3><p>Cette partie alimente ton profil et, avec ton accord, les futures statistiques communautaires.</p></div><button class="ghost-btn" id="toggleHistoryForm" type="button">+ Ajouter un avis</button></div>
+                <form id="historyForm" class="history-form hidden">
+                  <div class="history-form-grid">
+                    <label><span>Chaussure utilisée</span><select id="historyShoe"></select><input id="historyCustomShoe" class="history-custom hidden" type="text" maxlength="80" placeholder="Marque + modèle + génération" /></label>
+                    <label><span>Impression générale</span><select id="historySentiment"><option value="liked">Je l’ai aimée</option><option value="mixed" selected>Mitigé</option><option value="disliked">Je ne l’ai pas aimée</option></select></label>
+                    <label><span>Distance parcourue</span><div class="history-distance-wrap"><input id="historyDistance" type="number" min="0" max="10000" step="0.1" inputmode="decimal" placeholder="Facultatif" /><span>km</span></div></label>
+                  </div>
+                  <div class="history-question"><strong>Qu’est-ce qui t’a marqué ?</strong><span>Plusieurs choix possibles</span><div class="feedback-chips" id="feedbackChips"><button type="button" class="feedback-chip" data-feedback="tooRigid">Trop rigide</button><button type="button" class="feedback-chip" data-feedback="tooSoft">Trop mou</button><button type="button" class="feedback-chip" data-feedback="tooHigh">Trop haut</button><button type="button" class="feedback-chip" data-feedback="tooLow">Trop bas</button><button type="button" class="feedback-chip" data-feedback="notReactive">Pas assez réactif</button><button type="button" class="feedback-chip" data-feedback="tooReactive">Trop exigeant / réactif</button><button type="button" class="feedback-chip" data-feedback="unstable">Pas assez stable</button><button type="button" class="feedback-chip" data-feedback="comfortable">Très confortable</button></div></div>
+                  <div class="history-question"><strong>Pour quel usage cette paire t’a plu ?</strong><div class="feedback-chips" id="historyUseChips"><button type="button" class="feedback-chip use" data-use="daily">Entraînement</button><button type="button" class="feedback-chip use" data-use="long">Sortie longue</button><button type="button" class="feedback-chip use" data-use="tempo">Séances rapides</button><button type="button" class="feedback-chip use" data-use="race">Compétition</button></div></div>
+                  <label class="community-consent"><input type="checkbox" id="communityConsent" /><span><strong>Contribuer aux statistiques communautaires</strong><small>Seulement les informations saisies ici. Aucune donnée Strava n’est copiée.</small></span></label>
+                  <div class="history-form-actions"><button type="button" class="ghost-btn" id="cancelHistory">Annuler</button><button type="submit" class="primary-btn">Ajouter</button></div>
+                </form>
+                <div class="imported-history-block"><div class="imported-history-head"><div><span>CHAUSSURES DÉJÀ RENSEIGNÉES</span><strong>7 paires connues</strong></div><small>Utilisées pour pré-remplir le sélecteur quand le modèle est reconnu.</small></div><div id="importedShoes" class="imported-shoes"></div></div>
+                <div id="historyEmpty" class="history-empty"><span class="history-icon">↗</span><div><strong>Aucun avis manuel.</strong><p>Ce n’est plus nécessaire pour lancer ce mode de recherche.</p></div></div>
+                <div id="historyList" class="history-list hidden" aria-live="polite"></div>
+                <div id="learningSummary" class="learning-summary hidden"><div><span>PROFIL APPRIS</span><strong id="learningTitle">Shoe-Tracker comprend mieux tes préférences</strong></div><p id="learningText"></p></div>
+              </div>
+            </div>
+          </details>
         </section>
       </div>
 
@@ -259,7 +300,7 @@
   </main>
 
   <footer>
-    <div><strong>Shoe-Tracker</strong> — V0.12 · catalogue élargi + test réel + Strava privé</div>
+    <div><strong>Shoe-Tracker</strong> — V0.13 · correcteur de paire + grip trail + Strava privé</div>
     <p>Prix et caractéristiques : snapshot public collecté le 29/08/2026, à revérifier avant achat. Les données Strava restent privées et les contributions communautaires proviennent exclusivement d’une saisie directe dans Shoe-Tracker.</p>
   </footer>
 

@@ -1,8 +1,27 @@
-# Shoe-Tracker V0.12 — catalogue élargi / test réel
+# Shoe-Tracker V0.13 — partir d’une paire et la corriger
 
-Cette version transforme le prototype en test beaucoup plus proche d'un vrai choix de prochaine paire. Le snapshot embarqué contient **47 modèles / générations réels** collectés ou vérifiés le 29 août 2026.
 
-## Nouveautés V0.12
+## Nouveautés V0.13
+
+- Le 3e onglet devient **« Je pars d’une paire »**.
+- Un seul modèle de départ : plus besoin de remplir plusieurs anciennes chaussures pour lancer la recherche.
+- 5 curseurs centrés sur **Identique** : hauteur, grip (trail), drop, amorti et rigidité.
+- Les critères déplacés pèsent davantage dans le classement ; les critères laissés au centre cherchent à rester proches de la paire connue.
+- Route et trail restent strictement séparés.
+- Sur le trail, le résultat affiche désormais le **grip** dans les comparaisons.
+- Strava et les avis communautaires sont conservés mais rangés dans un bloc optionnel replié.
+- La carte prix compare, dans ce mode, le prix du candidat à celui de la paire de départ.
+
+### Exemple réel : Ultra Glide 2
+
+La Salomon Ultra Glide 2 est enregistrée à 32 mm au talon, 26 mm à l’avant-pied, 6 mm de drop et 3,5 mm de crampons (sources Salomon / Doctors of Running). Dans le troisième onglet, choisir **Ultra Glide 2** puis déplacer seulement **Hauteur → un peu plus basse** favorise les chaussures qui conservent un comportement trail proche mais abaissent la plateforme.
+
+### Données hauteur / grip / rigidité
+
+Les valeurs disponibles venant de fiches constructeur ou de mesures labo sont marquées comme exactes dans le code. Quand le catalogue ne possède pas encore la mesure, V0.13 utilise un proxy (affiché avec `≈`) afin que l’interface reste testable. Avant une mise en production, ces proxys devront être remplacés progressivement par des mesures sourcées.
+Cette version transforme le troisième parcours en un **correcteur de chaussure**. L’utilisateur part d’un modèle qu’il connaît et indique simplement ce qu’il veut changer : plus/moins haut, plus/moins de grip, de drop, d’amorti ou de rigidité. Le snapshot conserve **47 modèles / générations réels** collectés ou vérifiés le 29 août 2026.
+
+## Hérité de V0.12
 
 - catalogue élargi route + trail (daily trainers, chaussures tempo, carbone et trail longue distance) ;
 - séparation **route / trail stricte** dans les 3 modes de recherche ;
